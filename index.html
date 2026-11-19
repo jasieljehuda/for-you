@@ -1,44 +1,63 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#09070d">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color"
+content="#08060b">
 
 <title>Untuk Feby ♡</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
 
 <link
 href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Italiana&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
 rel="stylesheet">
 
+
 <style>
 
-:root{
-    --bg:#09070d;
-    --soft:#120d15;
+/* =========================================================
+ROOT
+========================================================= */
 
-    --white:#fff5ef;
-    --muted:#b3a5ad;
+:root{
+
+    --bg:#08060b;
+    --bg-soft:#100b12;
+
+    --text:#fff5ef;
+    --muted:#b5a7af;
 
     --pink:#ed91aa;
     --pink-light:#ffc0d0;
-    --pink-dark:#9e405c;
+    --pink-dark:#97415b;
+
+    --glass:rgba(255,255,255,.045);
 
     --line:rgba(255,255,255,.11);
-    --glass:rgba(255,255,255,.05);
 
-    --paper:#f4e9df;
+    --paper:#f4e8df;
+    --paper-text:#432e36;
 
-    --shadow:0 35px 100px rgba(0,0,0,.38);
+    --shadow:
+    0 30px 90px rgba(0,0,0,.38);
 }
 
 
-/* =====================================================
+/* =========================================================
 RESET
-===================================================== */
+========================================================= */
 
 *{
     box-sizing:border-box;
@@ -49,71 +68,87 @@ html{
 }
 
 body{
+
     margin:0;
 
+    color:var(--text);
+
+    font-family:
+    "DM Sans",sans-serif;
+
     background:
+
     radial-gradient(
-        circle at 10% 5%,
-        rgba(161,63,94,.16),
-        transparent 36rem
+        circle at 8% 6%,
+        rgba(154,55,84,.16),
+        transparent 35rem
     ),
+
     radial-gradient(
-        circle at 95% 40%,
-        rgba(91,49,119,.12),
+        circle at 95% 38%,
+        rgba(85,48,118,.12),
         transparent 38rem
     ),
+
     var(--bg);
-
-    color:var(--white);
-
-    font-family:"DM Sans",sans-serif;
 
     overflow-x:hidden;
 }
+
 
 button{
     font:inherit;
 }
 
+
 button,
 a{
-    -webkit-tap-highlight-color:transparent;
+    -webkit-tap-highlight-color:
+    transparent;
 }
+
 
 ::selection{
-    background:rgba(237,145,170,.3);
+
     color:#fff;
+
+    background:
+    rgba(237,145,170,.3);
 }
 
 
-/* =====================================================
-NOISE
-===================================================== */
+/* =========================================================
+BACKGROUND
+========================================================= */
 
 .noise{
+
     position:fixed;
 
     inset:0;
 
     z-index:9999;
 
-    pointer-events:none;
+    opacity:.03;
 
-    opacity:.035;
+    pointer-events:none;
 
     background-image:
     url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
 
-    mix-blend-mode:soft-light;
+    mix-blend-mode:
+    soft-light;
 }
 
 
-/* =====================================================
-CURSOR GLOW
-===================================================== */
-
 .cursor-glow{
+
     position:fixed;
+
+    left:50%;
+    top:50%;
+
+    z-index:0;
 
     width:340px;
     height:340px;
@@ -121,24 +156,24 @@ CURSOR GLOW
     border-radius:50%;
 
     background:
-    rgba(225,100,138,.13);
+    rgba(230,105,143,.12);
 
-    filter:blur(100px);
+    filter:
+    blur(100px);
 
     transform:
     translate(-50%,-50%);
 
     pointer-events:none;
-
-    z-index:0;
 }
 
 
-/* =====================================================
+/* =========================================================
 OPENING
-===================================================== */
+========================================================= */
 
 .opening{
+
     position:fixed;
 
     inset:0;
@@ -150,19 +185,24 @@ OPENING
     place-items:center;
 
     background:
+
     radial-gradient(
         circle at 50% 35%,
-        rgba(151,55,85,.34),
+        rgba(148,52,82,.34),
         transparent 28rem
     ),
-    #08060b;
+
+    #07050a;
 
     transition:
+
     opacity 1s ease,
     visibility 1s ease;
 }
 
+
 .opening.hide{
+
     opacity:0;
 
     visibility:hidden;
@@ -170,13 +210,17 @@ OPENING
     pointer-events:none;
 }
 
-.opening-content{
+
+.opening-inner{
+
     width:min(90%,760px);
 
     text-align:center;
 }
 
-.opening-dot{
+
+.opening-light{
+
     width:9px;
     height:9px;
 
@@ -185,28 +229,38 @@ OPENING
 
     border-radius:50%;
 
-    background:var(--pink-light);
+    background:
+    var(--pink-light);
 
     box-shadow:
+
     0 0 25px var(--pink),
-    0 0 70px rgba(237,145,170,.5);
+
+    0 0 70px
+    rgba(237,145,170,.5);
 
     animation:
-    openingPulse 2s ease-in-out infinite;
+    openingPulse 2s
+    ease-in-out infinite;
 }
+
 
 @keyframes openingPulse{
 
     50%{
-        transform:scale(1.8);
+
+        transform:
+        scale(1.8);
 
         opacity:.6;
     }
-
 }
 
+
 .opening-label{
-    color:var(--pink-light);
+
+    color:
+    var(--pink-light);
 
     font-size:.68rem;
 
@@ -215,48 +269,60 @@ OPENING
     text-transform:uppercase;
 }
 
+
 .opening h1{
+
     margin:
     25px 0 20px;
 
-    font-family:"Italiana",serif;
-
-    font-weight:400;
+    font-family:
+    "Italiana",serif;
 
     font-size:
     clamp(4rem,12vw,8rem);
 
+    font-weight:400;
+
     line-height:.87;
 }
 
+
 .opening h1 span{
-    color:var(--pink-light);
+
+    color:
+    var(--pink-light);
 }
 
-.opening-text{
+
+.opening-copy{
+
     min-height:65px;
 
     max-width:590px;
 
     margin:auto;
 
-    color:var(--muted);
+    color:
+    var(--muted);
 
     line-height:1.9;
 }
 
-.open-site{
+
+.open-button{
+
     margin-top:30px;
 
     padding:
     14px 24px;
 
     border:
-    1px solid rgba(255,255,255,.16);
+    1px solid
+    rgba(255,255,255,.16);
 
     border-radius:999px;
 
-    color:#fff;
+    color:white;
 
     background:
     rgba(255,255,255,.07);
@@ -266,7 +332,9 @@ OPENING
     transition:.3s;
 }
 
-.open-site:hover{
+
+.open-button:hover{
+
     transform:
     translateY(-3px);
 
@@ -278,11 +346,12 @@ OPENING
 }
 
 
-/* =====================================================
-WEBSITE
-===================================================== */
+/* =========================================================
+SITE
+========================================================= */
 
 .site{
+
     position:relative;
 
     z-index:2;
@@ -293,34 +362,37 @@ WEBSITE
     opacity 1.1s ease;
 }
 
+
 .site.show{
     opacity:1;
 }
 
 
-/* =====================================================
+/* =========================================================
 NAVIGATION
-===================================================== */
+========================================================= */
 
 .navbar{
+
     position:fixed;
 
-    z-index:1000;
-
-    top:16px;
+    top:15px;
     left:50%;
 
     transform:
     translateX(-50%);
 
+    z-index:1000;
+
     width:
-    min(calc(100% - 30px),1100px);
+    min(calc(100% - 28px),1100px);
 
     display:flex;
 
     align-items:center;
 
-    justify-content:space-between;
+    justify-content:
+    space-between;
 
     gap:20px;
 
@@ -328,39 +400,46 @@ NAVIGATION
     10px 13px 10px 18px;
 
     border:
-    1px solid rgba(255,255,255,.09);
+    1px solid
+    rgba(255,255,255,.09);
 
     border-radius:999px;
 
     background:
-    rgba(10,7,13,.68);
+    rgba(9,6,12,.72);
 
     backdrop-filter:
     blur(18px);
 }
 
+
 .brand{
+
     font-family:
     "Playfair Display",serif;
 
-    font-size:.92rem;
-
     font-style:italic;
+
+    font-size:.9rem;
 }
 
+
 .nav-dots{
+
     display:flex;
 
     align-items:center;
 
-    gap:6px;
+    gap:5px;
 }
 
-.nav-dots span{
-    width:6px;
-    height:6px;
 
-    border-radius:999px;
+.nav-dots span{
+
+    width:5px;
+    height:5px;
+
+    border-radius:20px;
 
     background:
     rgba(255,255,255,.18);
@@ -368,59 +447,324 @@ NAVIGATION
     transition:.3s;
 }
 
-.nav-dots span.active{
-    width:24px;
 
-    background:var(--pink);
+.nav-dots span.active{
+
+    width:21px;
+
+    background:
+    var(--pink);
 }
 
-.sound-button{
-    width:38px;
-    height:38px;
+
+/* =========================================================
+MUSIC PLAYER
+========================================================= */
+
+.music-player{
+
+    position:fixed;
+
+    z-index:1400;
+
+    right:20px;
+    bottom:20px;
+
+    width:310px;
+
+    padding:
+    13px 14px;
 
     border:
-    1px solid rgba(255,255,255,.1);
+    1px solid
+    rgba(255,255,255,.1);
+
+    border-radius:22px;
+
+    background:
+    rgba(12,8,14,.82);
+
+    backdrop-filter:
+    blur(20px);
+
+    box-shadow:
+    0 22px 60px
+    rgba(0,0,0,.35);
+
+    opacity:0;
+
+    transform:
+    translateY(25px);
+
+    pointer-events:none;
+
+    transition:
+    opacity .6s ease,
+    transform .6s ease;
+}
+
+
+.site.show
+.music-player{
+
+    opacity:1;
+
+    transform:none;
+
+    pointer-events:auto;
+}
+
+
+.music-main{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+
+.music-button{
+
+    flex:
+    0 0 auto;
+
+    width:43px;
+    height:43px;
+
+    display:grid;
+
+    place-items:center;
+
+    padding:0;
+
+    border:
+    1px solid
+    rgba(255,255,255,.12);
 
     border-radius:50%;
 
-    color:#fff;
+    color:white;
 
     background:
-    rgba(255,255,255,.06);
+
+    linear-gradient(
+        145deg,
+        rgba(221,111,143,.28),
+        rgba(255,255,255,.04)
+    );
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+
+.music-button:hover{
+
+    transform:
+    scale(1.06);
+
+    border-color:
+    rgba(237,145,170,.4);
+}
+
+
+.music-icon{
+
+    display:block;
+
+    font-size:1rem;
+}
+
+
+.music-details{
+
+    min-width:0;
+
+    flex:1;
+}
+
+
+.music-small{
+
+    color:
+    var(--pink);
+
+    font-size:.55rem;
+
+    letter-spacing:.16em;
+
+    text-transform:uppercase;
+}
+
+
+.music-title{
+
+    margin-top:3px;
+
+    overflow:hidden;
+
+    white-space:nowrap;
+
+    text-overflow:ellipsis;
+
+    font-family:
+    "Playfair Display",serif;
+
+    font-size:.96rem;
+}
+
+
+.music-time{
+
+    margin-top:2px;
+
+    color:#776b72;
+
+    font-size:.65rem;
+}
+
+
+.music-progress-wrap{
+
+    margin-top:11px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+}
+
+
+.music-progress{
+
+    width:100%;
+
+    height:3px;
+
+    appearance:none;
+
+    border-radius:20px;
+
+    outline:none;
+
+    cursor:pointer;
+
+    background:
+    rgba(255,255,255,.11);
+}
+
+
+.music-progress::-webkit-slider-thumb{
+
+    appearance:none;
+
+    width:9px;
+    height:9px;
+
+    border-radius:50%;
+
+    background:
+    var(--pink-light);
+
+    box-shadow:
+    0 0 10px
+    rgba(237,145,170,.4);
+}
+
+
+.volume-button{
+
+    flex:
+    0 0 auto;
+
+    width:28px;
+    height:28px;
+
+    padding:0;
+
+    border:0;
+
+    color:
+    rgba(255,255,255,.65);
+
+    background:
+    transparent;
 
     cursor:pointer;
 }
 
 
-/* =====================================================
+.music-error{
+
+    display:none;
+
+    margin-top:8px;
+
+    color:
+    #ca8297;
+
+    font-size:.67rem;
+
+    line-height:1.4;
+}
+
+
+.music-player.error
+.music-error{
+
+    display:block;
+}
+
+
+/* =========================================================
 GENERAL
-===================================================== */
+========================================================= */
 
 main{
+
     position:relative;
 
     z-index:5;
 }
 
+
 .section{
+
     position:relative;
 
     min-height:100svh;
 
     padding:
+
     125px
     max(24px,7vw)
-    90px;
+    95px;
 
     display:grid;
 
     align-items:center;
 }
 
+
+.section-inner{
+
+    width:
+    min(100%,1250px);
+
+    margin:auto;
+}
+
+
 .eyebrow{
+
     margin-bottom:20px;
 
-    color:var(--pink);
+    color:
+    var(--pink);
 
     font-size:.68rem;
 
@@ -429,7 +773,9 @@ main{
     text-transform:uppercase;
 }
 
+
 .title{
+
     margin:0;
 
     font-family:
@@ -445,63 +791,74 @@ main{
     line-height:.98;
 }
 
+
 .title em{
-    color:var(--pink);
+
+    color:
+    var(--pink);
 
     font-weight:500;
 }
 
 
-/* =====================================================
-SCROLL REVEAL
-===================================================== */
+/* =========================================================
+REVEAL
+========================================================= */
 
 .fade{
+
     opacity:0;
 
     transform:
     translateY(28px);
 
     transition:
+
     opacity .85s ease,
+
     transform .85s ease;
 }
 
+
 .fade.visible{
+
     opacity:1;
 
     transform:none;
 }
 
 
-/* =====================================================
-HERO
-===================================================== */
+/* =========================================================
+01 HERO
+========================================================= */
 
-.hero-layout{
-    width:100%;
+.hero-grid{
 
-    max-width:1350px;
+    width:
+    min(100%,1350px);
 
     margin:auto;
 
     display:grid;
 
     grid-template-columns:
-    1.07fr .93fr;
-
-    align-items:center;
+    1.08fr .92fr;
 
     gap:
     clamp(40px,7vw,105px);
+
+    align-items:center;
 }
 
-.hero-description{
+
+.hero-copy{
+
     max-width:630px;
 
     margin-top:30px;
 
-    color:var(--muted);
+    color:
+    var(--muted);
 
     line-height:2;
 
@@ -509,7 +866,9 @@ HERO
     clamp(.98rem,1.4vw,1.15rem);
 }
 
-.hero-small{
+
+.hero-tiny{
+
     margin-top:18px;
 
     color:#887b84;
@@ -518,11 +877,12 @@ HERO
 }
 
 
-/* =====================================================
+/* =========================================================
 MOON
-===================================================== */
+========================================================= */
 
-.moon-area{
+.moon-zone{
+
     position:relative;
 
     min-height:550px;
@@ -532,8 +892,11 @@ MOON
     place-items:center;
 }
 
+
 .moon{
-    width:min(30vw,390px);
+
+    width:
+    min(30vw,390px);
 
     min-width:280px;
 
@@ -542,16 +905,19 @@ MOON
     border-radius:50%;
 
     background:
+
     radial-gradient(
-        circle at 34% 25%,
-        rgba(255,255,255,.84),
+        circle at 35% 28%,
+        rgba(255,255,255,.85),
         transparent 5%
     ),
+
     radial-gradient(
-        circle at 65% 64%,
+        circle at 64% 63%,
         rgba(80,40,60,.13),
         transparent 15%
     ),
+
     linear-gradient(
         145deg,
         #fff6ee,
@@ -560,52 +926,65 @@ MOON
     );
 
     box-shadow:
-    0 0 80px rgba(255,220,228,.16),
-    0 0 170px rgba(190,85,115,.15);
+
+    0 0 80px
+    rgba(255,220,228,.16),
+
+    0 0 170px
+    rgba(190,85,115,.15);
 
     animation:
-    moonFloat 6s ease-in-out infinite;
+    moonFloat 6s
+    ease-in-out infinite;
 }
+
 
 @keyframes moonFloat{
 
     50%{
+
         transform:
         translateY(-14px);
     }
-
 }
 
+
 .orbit{
+
     position:absolute;
 
-    width:min(39vw,510px);
+    width:
+    min(39vw,510px);
 
     min-width:350px;
 
     aspect-ratio:1;
 
     border:
-    1px solid rgba(255,255,255,.08);
+    1px solid
+    rgba(255,255,255,.08);
 
     border-radius:50%;
 
     pointer-events:none;
 
     animation:
-    orbitSpin 17s linear infinite;
+    orbitSpin 17s
+    linear infinite;
 }
 
+
 .orbit::after{
+
     content:"";
 
     position:absolute;
 
-    width:9px;
-    height:9px;
-
     top:14%;
     left:16%;
+
+    width:9px;
+    height:9px;
 
     border-radius:50%;
 
@@ -613,8 +992,10 @@ MOON
     var(--pink-light);
 
     box-shadow:
-    0 0 20px var(--pink);
+    0 0 20px
+    var(--pink);
 }
+
 
 @keyframes orbitSpin{
 
@@ -622,17 +1003,19 @@ MOON
         transform:
         rotate(360deg);
     }
-
 }
 
-.moon-label{
+
+.floating-label{
+
     position:absolute;
 
     padding:
     8px 13px;
 
     border:
-    1px solid rgba(255,255,255,.09);
+    1px solid
+    rgba(255,255,255,.09);
 
     border-radius:999px;
 
@@ -648,30 +1031,36 @@ MOON
     font-style:italic;
 }
 
-.label-one{
+
+.float-one{
+
     top:14%;
     right:3%;
 }
 
-.label-two{
+
+.float-two{
+
     bottom:15%;
     left:2%;
 }
 
-.label-three{
+
+.float-three{
+
     right:2%;
     bottom:29%;
 }
 
 
-/* =====================================================
-STORY
-===================================================== */
+/* =========================================================
+02 STORY
+========================================================= */
 
-.story-layout{
-    width:100%;
+.story-grid{
 
-    max-width:1250px;
+    width:
+    min(100%,1250px);
 
     margin:auto;
 
@@ -686,35 +1075,42 @@ STORY
     align-items:start;
 }
 
+
 .story-heading{
+
     position:sticky;
 
     top:130px;
 }
 
+
 .story-heading p{
+
     max-width:410px;
 
-    color:var(--muted);
+    color:
+    var(--muted);
 
     line-height:1.9;
 }
 
+
 .story-list{
+
     display:grid;
 
     gap:20px;
 }
 
+
 .story-card{
+
     position:relative;
 
     min-height:220px;
 
     padding:
     clamp(27px,4vw,45px);
-
-    overflow:hidden;
 
     border:
     1px solid var(--line);
@@ -724,10 +1120,14 @@ STORY
     background:
     var(--glass);
 
+    overflow:hidden;
+
     transition:.3s;
 }
 
+
 .story-card:hover{
+
     transform:
     translateY(-4px);
 
@@ -735,7 +1135,9 @@ STORY
     rgba(237,145,170,.3);
 }
 
+
 .story-number{
+
     position:absolute;
 
     top:15px;
@@ -750,7 +1152,9 @@ STORY
     font-size:3.2rem;
 }
 
+
 .story-card h3{
+
     margin:
     0 0 14px;
 
@@ -763,22 +1167,195 @@ STORY
     font-weight:500;
 }
 
+
 .story-card p{
+
     max-width:650px;
 
     margin:0;
 
-    color:var(--muted);
+    color:
+    var(--muted);
 
     line-height:1.9;
 }
 
 
-/* =====================================================
-PHOTO SECTION
-===================================================== */
+/* =========================================================
+03 TIMELINE
+========================================================= */
+
+.timeline-heading{
+
+    max-width:850px;
+
+    margin:
+    0 auto 75px;
+
+    text-align:center;
+}
+
+
+.timeline-copy{
+
+    max-width:580px;
+
+    margin:
+    25px auto 0;
+
+    color:
+    var(--muted);
+
+    line-height:1.9;
+}
+
+
+.timeline{
+
+    position:relative;
+
+    width:
+    min(100%,950px);
+
+    margin:auto;
+}
+
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    bottom:0;
+    left:50%;
+
+    width:1px;
+
+    background:
+
+    linear-gradient(
+        transparent,
+        rgba(237,145,170,.45),
+        rgba(255,255,255,.12),
+        transparent
+    );
+}
+
+
+.timeline-item{
+
+    position:relative;
+
+    width:50%;
+
+    padding:
+    0 55px 70px 0;
+}
+
+
+.timeline-item:nth-child(even){
+
+    margin-left:50%;
+
+    padding:
+    0 0 70px 55px;
+}
+
+
+.timeline-dot{
+
+    position:absolute;
+
+    top:13px;
+    right:-7px;
+
+    width:14px;
+    height:14px;
+
+    border-radius:50%;
+
+    border:
+    3px solid var(--bg);
+
+    background:
+    var(--pink);
+
+    box-shadow:
+    0 0 22px
+    rgba(237,145,170,.45);
+}
+
+
+.timeline-item:nth-child(even)
+.timeline-dot{
+
+    right:auto;
+
+    left:-7px;
+}
+
+
+.timeline-card{
+
+    padding:
+    26px 28px;
+
+    border:
+    1px solid var(--line);
+
+    border-radius:22px;
+
+    background:
+    rgba(255,255,255,.04);
+}
+
+
+.timeline-label{
+
+    color:
+    var(--pink);
+
+    font-size:.67rem;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+}
+
+
+.timeline-card h3{
+
+    margin:
+    11px 0 10px;
+
+    font-family:
+    "Playfair Display",serif;
+
+    font-size:1.8rem;
+
+    font-weight:500;
+}
+
+
+.timeline-card p{
+
+    margin:0;
+
+    color:
+    var(--muted);
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+04 PHOTOS
+========================================================= */
 
 .photos-section{
+
     display:block;
 
     min-height:auto;
@@ -788,7 +1365,9 @@ PHOTO SECTION
     padding-bottom:170px;
 }
 
+
 .photos-heading{
+
     max-width:900px;
 
     margin:
@@ -797,24 +1376,25 @@ PHOTO SECTION
     text-align:center;
 }
 
+
 .photos-heading p{
+
     max-width:610px;
 
     margin:
     27px auto 0;
 
-    color:var(--muted);
+    color:
+    var(--muted);
 
     line-height:1.9;
 }
 
 
-/* =====================================================
-GALLERY
-===================================================== */
-
 .memory-grid{
-    width:min(100%,1120px);
+
+    width:
+    min(100%,1120px);
 
     margin:auto;
 
@@ -827,39 +1407,51 @@ GALLERY
     clamp(17px,2.6vw,35px);
 }
 
+
 .memory{
+
     min-width:0;
 
     margin:0;
 }
 
+
 .memory:nth-child(1){
+
     grid-column:
     1 / span 6;
 }
 
+
 .memory:nth-child(2){
+
     grid-column:
     7 / span 6;
 
     margin-top:95px;
 }
 
+
 .memory:nth-child(3){
+
     grid-column:
     2 / span 5;
 
     margin-top:-20px;
 }
 
+
 .memory:nth-child(4){
+
     grid-column:
     7 / span 5;
 
     margin-top:60px;
 }
 
+
 .memory:nth-child(5){
+
     grid-column:
     4 / span 6;
 
@@ -867,14 +1459,7 @@ GALLERY
 }
 
 
-/* =====================================================
-PHOTO CARD
-
-Foto ditampilkan sebagai background-image.
-===================================================== */
-
 .photo-button{
-    position:relative;
 
     display:block;
 
@@ -888,151 +1473,81 @@ Foto ditampilkan sebagai background-image.
     #f1e7e0;
 
     box-shadow:
-    0 25px 70px rgba(0,0,0,.33);
+    0 25px 70px
+    rgba(0,0,0,.33);
 
     cursor:pointer;
 
-    pointer-events:auto;
-
-    transition:
-    transform .4s ease,
-    box-shadow .4s ease;
+    transition:.4s;
 }
+
 
 .memory:nth-child(1)
 .photo-button{
-    transform:
-    rotate(-2deg);
+    transform:rotate(-2deg);
 }
+
 
 .memory:nth-child(2)
 .photo-button{
-    transform:
-    rotate(2deg);
+    transform:rotate(2deg);
 }
+
 
 .memory:nth-child(3)
 .photo-button{
-    transform:
-    rotate(1.4deg);
+    transform:rotate(1.4deg);
 }
+
 
 .memory:nth-child(4)
 .photo-button{
-    transform:
-    rotate(-1.5deg);
+    transform:rotate(-1.5deg);
 }
+
 
 .memory:nth-child(5)
 .photo-button{
-    transform:
-    rotate(.8deg);
+    transform:rotate(.8deg);
 }
 
+
 .photo-button:hover{
+
     transform:
     translateY(-7px)
     rotate(0deg);
 
     box-shadow:
-    0 35px 85px rgba(0,0,0,.42);
+    0 35px 85px
+    rgba(0,0,0,.42);
 }
 
 
-/* FOTO ACTUAL */
-
 .photo-surface{
-    position:relative;
 
     width:100%;
 
-    aspect-ratio:3 / 4;
+    aspect-ratio:
+    3 / 4;
 
     background-color:
-    #dfd1ca;
+    #d9cbc5;
 
     background-position:center;
 
     background-repeat:no-repeat;
 
     background-size:cover;
-
-    overflow:hidden;
 }
 
-
-/* loading shimmer */
-
-.photo-surface::before{
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-    linear-gradient(
-        110deg,
-        #ded1ca 20%,
-        #f2e9e4 40%,
-        #ded1ca 60%
-    );
-
-    background-size:
-    200% 100%;
-
-    animation:
-    photoLoading 1.3s linear infinite;
-
-    transition:
-    opacity .4s ease;
-}
-
-.photo-surface.loaded::before{
-    opacity:0;
-}
-
-@keyframes photoLoading{
-
-    to{
-        background-position-x:
-        -200%;
-    }
-
-}
-
-
-/* gagal load */
-
-.photo-surface.error{
-    display:grid;
-
-    place-items:center;
-
-    padding:30px;
-
-    text-align:center;
-
-    color:#6c4c56;
-
-    font-size:.85rem;
-
-    line-height:1.7;
-}
-
-.photo-surface.error::before{
-    display:none;
-}
-
-
-/* captions */
 
 .memory figcaption{
+
     display:flex;
 
-    align-items:baseline;
-
-    justify-content:space-between;
+    justify-content:
+    space-between;
 
     gap:20px;
 
@@ -1040,7 +1555,9 @@ Foto ditampilkan sebagai background-image.
     17px 4px 0;
 }
 
+
 .memory h4{
+
     margin:0;
 
     font-family:
@@ -1052,8 +1569,11 @@ Foto ditampilkan sebagai background-image.
     font-weight:500;
 }
 
+
 .memory figcaption span{
-    color:var(--pink);
+
+    color:
+    var(--pink);
 
     font-family:
     "Italiana",serif;
@@ -1061,43 +1581,964 @@ Foto ditampilkan sebagai background-image.
     font-size:1.6rem;
 }
 
+
 .photo-quote{
+
     max-width:720px;
 
     margin:
     95px auto 0;
 
-    color:var(--muted);
+    color:
+    var(--muted);
 
     text-align:center;
 
     font-family:
     "Playfair Display",serif;
 
-    font-style:italic;
-
     font-size:
     clamp(1.15rem,2.5vw,1.6rem);
+
+    font-style:italic;
 
     line-height:1.7;
 }
 
 
-/* =====================================================
-LETTER
-===================================================== */
+/* =========================================================
+05 LIKES
+========================================================= */
 
-.letter-section{
-    place-items:center;
-}
+.likes-heading{
 
-.letter-wrapper{
-    width:min(100%,930px);
+    max-width:850px;
+
+    margin:
+    0 auto 65px;
 
     text-align:center;
 }
 
+
+.likes-copy{
+
+    max-width:580px;
+
+    margin:
+    25px auto 0;
+
+    color:
+    var(--muted);
+
+    line-height:1.9;
+}
+
+
+.likes-grid{
+
+    width:
+    min(100%,1050px);
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:18px;
+}
+
+
+.like-card{
+
+    position:relative;
+
+    min-height:250px;
+
+    padding:0;
+
+    border:
+    1px solid var(--line);
+
+    border-radius:25px;
+
+    color:var(--text);
+
+    background:
+    rgba(255,255,255,.04);
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    text-align:left;
+
+    transition:.35s;
+}
+
+
+.like-card:hover{
+
+    transform:
+    translateY(-5px);
+
+    border-color:
+    rgba(237,145,170,.3);
+}
+
+
+.like-front,
+.like-back{
+
+    position:absolute;
+
+    inset:0;
+
+    padding:30px;
+
+    transition:.45s;
+}
+
+
+.like-front{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-end;
+}
+
+
+.like-number{
+
+    position:absolute;
+
+    top:20px;
+    right:22px;
+
+    font-family:
+    "Italiana",serif;
+
+    font-size:2.6rem;
+
+    color:
+    rgba(237,145,170,.18);
+}
+
+
+.like-icon{
+
+    margin-bottom:15px;
+
+    color:
+    var(--pink);
+
+    font-size:1.5rem;
+}
+
+
+.like-front h3{
+
+    margin:0;
+
+    font-family:
+    "Playfair Display",serif;
+
+    font-size:1.8rem;
+
+    font-weight:500;
+}
+
+
+.like-front small{
+
+    margin-top:10px;
+
+    color:#867a82;
+}
+
+
+.like-back{
+
+    display:flex;
+
+    align-items:center;
+
+    color:
+    var(--muted);
+
+    line-height:1.85;
+
+    opacity:0;
+
+    transform:
+    translateY(20px);
+
+    background:
+
+    linear-gradient(
+        145deg,
+        rgba(111,40,62,.24),
+        rgba(255,255,255,.025)
+    );
+}
+
+
+.like-card.open
+.like-front{
+
+    opacity:0;
+
+    transform:
+    translateY(-20px);
+}
+
+
+.like-card.open
+.like-back{
+
+    opacity:1;
+
+    transform:none;
+}
+
+
+/* =========================================================
+06 OPEN WHEN
+========================================================= */
+
+.openwhen-section{
+
+    min-height:auto;
+
+    padding-top:145px;
+
+    padding-bottom:155px;
+}
+
+
+.openwhen-heading{
+
+    max-width:900px;
+
+    margin:
+    0 auto 70px;
+
+    text-align:center;
+}
+
+
+.openwhen-heading p{
+
+    max-width:610px;
+
+    margin:
+    26px auto 0;
+
+    color:
+    var(--muted);
+
+    line-height:1.9;
+}
+
+
+.envelope-grid{
+
+    width:
+    min(100%,1080px);
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:28px;
+}
+
+
+.envelope-card{
+
+    min-width:0;
+
+    text-align:center;
+}
+
+
+.envelope-button{
+
+    display:block;
+
+    width:100%;
+
+    padding:0;
+
+    border:0;
+
+    color:inherit;
+
+    background:
+    transparent;
+
+    cursor:pointer;
+}
+
+
+.envelope-shape{
+
+    position:relative;
+
+    width:100%;
+
+    aspect-ratio:
+    1.55 / 1;
+
+    overflow:hidden;
+
+    border-radius:14px;
+
+    background:
+
+    linear-gradient(
+        145deg,
+        #d997ab,
+        #b96c85
+    );
+
+    box-shadow:
+    0 25px 60px
+    rgba(0,0,0,.28);
+
+    transition:
+    transform .35s ease,
+    filter .35s ease;
+}
+
+
+.envelope-button:hover
+.envelope-shape{
+
+    transform:
+    translateY(-6px);
+
+    filter:
+    brightness(1.04);
+}
+
+
+.envelope-paper-preview{
+
+    position:absolute;
+
+    z-index:2;
+
+    left:10%;
+    right:10%;
+
+    bottom:4%;
+
+    height:72%;
+
+    padding:
+    19px 18px;
+
+    overflow:hidden;
+
+    border-radius:
+    8px 8px 4px 4px;
+
+    background:
+    var(--paper);
+
+    color:
+    var(--paper-text);
+
+    text-align:left;
+
+    transform:
+    translateY(42%);
+
+    transition:
+
+    transform .55s
+    cubic-bezier(.2,.8,.2,1);
+}
+
+
+.envelope-paper-preview small{
+
+    display:block;
+
+    color:#9a6173;
+
+    font-size:.56rem;
+
+    letter-spacing:.16em;
+
+    text-transform:uppercase;
+}
+
+
+.envelope-paper-preview strong{
+
+    display:block;
+
+    margin-top:11px;
+
+    font-family:
+    "Playfair Display",serif;
+
+    font-size:
+    clamp(1rem,1.5vw,1.35rem);
+
+    font-weight:500;
+
+    line-height:1.15;
+}
+
+
+.envelope-left-fold,
+.envelope-right-fold,
+.envelope-bottom-fold{
+
+    position:absolute;
+
+    z-index:4;
+
+    inset:0;
+
+    pointer-events:none;
+}
+
+
+.envelope-left-fold{
+
+    background:#c47791;
+
+    clip-path:
+
+    polygon(
+        0 24%,
+        52% 64%,
+        0 100%
+    );
+}
+
+
+.envelope-right-fold{
+
+    background:#ba6d86;
+
+    clip-path:
+
+    polygon(
+        100% 24%,
+        48% 64%,
+        100% 100%
+    );
+}
+
+
+.envelope-bottom-fold{
+
+    background:#c77d94;
+
+    clip-path:
+
+    polygon(
+        0 100%,
+        50% 55%,
+        100% 100%
+    );
+}
+
+
+.envelope-flap{
+
+    position:absolute;
+
+    z-index:6;
+
+    left:0;
+    right:0;
+    top:0;
+
+    height:55%;
+
+    background:
+
+    linear-gradient(
+        145deg,
+        #e8b3c1,
+        #cf8da2
+    );
+
+    clip-path:
+
+    polygon(
+        0 0,
+        100% 0,
+        50% 100%
+    );
+
+    transform-origin:
+    top center;
+
+    transition:
+    transform .55s ease;
+
+    backface-visibility:hidden;
+}
+
+
+.envelope-seal{
+
+    position:absolute;
+
+    z-index:8;
+
+    top:51%;
+    left:50%;
+
+    width:40px;
+    height:40px;
+
+    display:grid;
+
+    place-items:center;
+
+    transform:
+    translate(-50%,-50%);
+
+    border-radius:50%;
+
+    color:
+    rgba(255,255,255,.8);
+
+    background:
+
+    radial-gradient(
+        circle at 35% 30%,
+        #c66c86,
+        #702e44
+    );
+
+    font-family:
+    "Playfair Display",serif;
+
+    font-style:italic;
+
+    box-shadow:
+    0 5px 15px
+    rgba(55,15,30,.3);
+
+    transition:
+
+    opacity .3s ease,
+
+    transform .3s ease;
+}
+
+
+.envelope-card.active
+.envelope-flap{
+
+    transform:
+    rotateX(180deg);
+}
+
+
+.envelope-card.active
+.envelope-seal{
+
+    opacity:0;
+
+    transform:
+    translate(-50%,-50%)
+    scale(.55);
+}
+
+
+.envelope-card.active
+.envelope-paper-preview{
+
+    transform:
+    translateY(11%);
+}
+
+
+.envelope-info{
+
+    padding:
+    20px 8px 0;
+}
+
+
+.envelope-info h3{
+
+    margin:0;
+
+    font-family:
+    "Playfair Display",serif;
+
+    font-size:
+    clamp(1.15rem,1.7vw,1.42rem);
+
+    font-weight:500;
+
+    line-height:1.3;
+}
+
+
+.envelope-info small{
+
+    display:block;
+
+    margin-top:8px;
+
+    color:#74686f;
+
+    font-size:.67rem;
+
+    letter-spacing:.07em;
+}
+
+
+/* =========================================================
+OPEN WHEN READING PANEL
+========================================================= */
+
+.letter-reveal{
+
+    width:
+    min(100%,900px);
+
+    max-height:0;
+
+    margin:
+    0 auto;
+
+    overflow:hidden;
+
+    opacity:0;
+
+    transform:
+    translateY(-10px);
+
+    transition:
+
+    max-height .7s ease,
+
+    opacity .5s ease,
+
+    transform .6s ease,
+
+    margin .6s ease;
+}
+
+
+.letter-reveal.open{
+
+    max-height:1000px;
+
+    margin:
+    70px auto 0;
+
+    opacity:1;
+
+    transform:none;
+}
+
+
+.letter-connector{
+
+    position:relative;
+
+    width:1px;
+
+    height:45px;
+
+    margin:
+    0 auto;
+
+    background:
+
+    linear-gradient(
+        var(--pink),
+        rgba(237,145,170,.08)
+    );
+}
+
+
+.letter-connector::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-4px;
+    left:50%;
+
+    width:9px;
+    height:9px;
+
+    transform:
+    translateX(-50%);
+
+    border-radius:50%;
+
+    background:
+    var(--pink);
+
+    box-shadow:
+    0 0 18px
+    rgba(237,145,170,.4);
+}
+
+
+.openwhen-paper{
+
+    position:relative;
+
+    width:100%;
+
+    padding:
+    clamp(35px,6vw,65px);
+
+    overflow:hidden;
+
+    border-radius:
+    12px 12px 30px 12px;
+
+    background:
+
+    linear-gradient(
+        rgba(255,255,255,.15),
+        rgba(255,255,255,.15)
+    ),
+
+    var(--paper);
+
+    color:
+    var(--paper-text);
+
+    text-align:left;
+
+    box-shadow:
+    0 35px 90px
+    rgba(0,0,0,.35);
+}
+
+
+.openwhen-paper::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height:5px;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        #94415b,
+        #d4859e,
+        #94415b
+    );
+}
+
+
+.openwhen-paper::after{
+
+    content:"♡";
+
+    position:absolute;
+
+    right:35px;
+    bottom:20px;
+
+    color:
+    rgba(151,65,91,.09);
+
+    font-family:
+    "Playfair Display",serif;
+
+    font-size:7rem;
+
+    pointer-events:none;
+}
+
+
+.openwhen-paper-top{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:
+    space-between;
+
+    gap:20px;
+
+    margin-bottom:22px;
+
+    padding-bottom:20px;
+
+    border-bottom:
+    1px solid
+    rgba(70,40,50,.1);
+}
+
+
+.openwhen-paper-tag{
+
+    color:#9a6073;
+
+    font-size:.64rem;
+
+    letter-spacing:.2em;
+
+    text-transform:uppercase;
+}
+
+
+.openwhen-paper-number{
+
+    color:
+    rgba(90,50,65,.35);
+
+    font-family:
+    "Italiana",serif;
+
+    font-size:1.6rem;
+}
+
+
+.openwhen-paper h3{
+
+    max-width:680px;
+
+    margin:
+    0 0 28px;
+
+    font-family:
+    "Playfair Display",serif;
+
+    font-size:
+    clamp(2rem,4.2vw,3.7rem);
+
+    font-weight:500;
+
+    letter-spacing:-.025em;
+
+    line-height:1.05;
+}
+
+
+.openwhen-paper-body{
+
+    max-width:690px;
+}
+
+
+.openwhen-paper-body p{
+
+    margin:
+    0 0 20px;
+
+    font-family:
+    "Playfair Display",serif;
+
+    font-size:
+    clamp(1rem,1.5vw,1.15rem);
+
+    line-height:1.95;
+}
+
+
+.openwhen-signature{
+
+    margin-top:30px !important;
+
+    color:#8c4f62;
+
+    font-style:italic;
+}
+
+
+.close-letter{
+
+    position:absolute;
+
+    top:25px;
+    right:25px;
+
+    width:39px;
+    height:39px;
+
+    display:grid;
+
+    place-items:center;
+
+    border:
+    1px solid
+    rgba(70,40,50,.12);
+
+    border-radius:50%;
+
+    color:#845163;
+
+    background:
+    rgba(140,70,90,.05);
+
+    cursor:pointer;
+
+    font-size:1.25rem;
+
+    transition:.25s;
+}
+
+
+.close-letter:hover{
+
+    transform:
+    rotate(90deg);
+
+    background:
+    rgba(140,70,90,.1);
+}
+
+
+/* =========================================================
+07 MAIN LETTER
+========================================================= */
+
+.main-letter-section{
+
+    place-items:center;
+}
+
+
+.main-letter-wrapper{
+
+    width:
+    min(100%,930px);
+
+    text-align:center;
+}
+
+
 .paper{
+
     position:relative;
 
     margin-top:45px;
@@ -1119,7 +2560,9 @@ LETTER
     var(--shadow);
 }
 
+
 .paper::before{
+
     content:"";
 
     position:absolute;
@@ -1133,6 +2576,7 @@ LETTER
     border-radius:50%;
 
     background:
+
     radial-gradient(
         circle at 32% 28%,
         #d37c93,
@@ -1140,7 +2584,9 @@ LETTER
     );
 }
 
+
 .paper::after{
+
     content:"F";
 
     position:absolute;
@@ -1154,12 +2600,14 @@ LETTER
     font-family:
     "Playfair Display",serif;
 
-    font-style:italic;
-
     font-size:2rem;
+
+    font-style:italic;
 }
 
+
 .paper-label{
+
     color:#8d5c6c;
 
     font-size:.65rem;
@@ -1169,7 +2617,9 @@ LETTER
     text-transform:uppercase;
 }
 
+
 .paper h3{
+
     margin:
     20px 0 28px;
 
@@ -1182,7 +2632,9 @@ LETTER
     font-weight:500;
 }
 
+
 .paper p{
+
     font-family:
     "Playfair Display",serif;
 
@@ -1192,7 +2644,9 @@ LETTER
     line-height:2;
 }
 
+
 .signature{
+
     margin-top:32px;
 
     color:#733b4e;
@@ -1205,36 +2659,41 @@ LETTER
 }
 
 
-/* =====================================================
-05 HEART
-===================================================== */
+/* =========================================================
+08 HEART
+========================================================= */
 
-.secret-section{
-    position:relative;
-
-    z-index:20;
+.heart-section{
 
     text-align:center;
 }
 
-.secret-inner{
-    width:min(100%,950px);
+
+.heart-inner{
+
+    width:
+    min(100%,950px);
 
     margin:auto;
 }
 
-.secret-description{
+
+.heart-copy{
+
     max-width:600px;
 
     margin:
     26px auto 40px;
 
-    color:var(--muted);
+    color:
+    var(--muted);
 
     line-height:1.9;
 }
 
+
 .heart-button{
+
     position:relative;
 
     z-index:100;
@@ -1259,16 +2718,12 @@ LETTER
 
     cursor:pointer;
 
-    pointer-events:auto;
-
-    touch-action:manipulation;
-
-    isolation:isolate;
-
     transition:.25s;
 }
 
+
 .heart-button:hover{
+
     transform:
     scale(1.06);
 
@@ -1276,15 +2731,9 @@ LETTER
     rgba(237,145,170,.05);
 }
 
-.heart-button:active{
-    transform:
-    scale(.94);
-}
-
-
-/* progress ring */
 
 .heart-progress{
+
     position:absolute;
 
     inset:0;
@@ -1298,7 +2747,9 @@ LETTER
     rotate(-90deg);
 }
 
-.progress-background{
+
+.progress-bg{
+
     fill:none;
 
     stroke:
@@ -1307,7 +2758,9 @@ LETTER
     stroke-width:4;
 }
 
-.progress-value{
+
+.progress-main{
+
     fill:none;
 
     stroke:
@@ -1317,15 +2770,16 @@ LETTER
 
     stroke-linecap:round;
 
-    stroke-dasharray:439.82;
+    stroke-dasharray:
+    439.82;
 
-    stroke-dashoffset:439.82;
+    stroke-dashoffset:
+    439.82;
 }
 
 
-/* actual SVG heart */
+.heart-svg{
 
-.heart-icon{
     position:relative;
 
     z-index:10;
@@ -1335,26 +2789,21 @@ LETTER
     pointer-events:none;
 
     filter:
+
     drop-shadow(
         0 15px 25px
         rgba(220,70,110,.4)
     );
-
-    transition:.25s;
 }
 
-.heart-button:hover
-.heart-icon{
-    transform:
-    scale(1.08);
-}
 
-.secret-result{
+.heart-result{
+
     max-height:0;
 
-    overflow:hidden;
-
     margin-top:0;
+
+    overflow:hidden;
 
     opacity:0;
 
@@ -1362,14 +2811,20 @@ LETTER
     translateY(20px);
 
     transition:
+
     opacity .7s ease,
+
     transform .7s ease,
+
     max-height .7s ease,
+
     margin .7s ease;
 }
 
-.secret-result.show{
-    max-height:420px;
+
+.heart-result.show{
+
+    max-height:430px;
 
     margin-top:42px;
 
@@ -1378,7 +2833,9 @@ LETTER
     transform:none;
 }
 
-.secret-result strong{
+
+.heart-result strong{
+
     display:block;
 
     font-family:
@@ -1390,158 +2847,204 @@ LETTER
     font-weight:500;
 }
 
-.secret-result strong span{
-    color:var(--pink);
+
+.heart-result strong span{
+
+    color:
+    var(--pink);
 }
 
-.secret-result p{
+
+.heart-result p{
+
     max-width:620px;
 
     margin:
     20px auto 0;
 
-    color:var(--muted);
+    color:
+    var(--muted);
 
     line-height:1.9;
 }
 
 
-/* =====================================================
-06 ENDING
-===================================================== */
+/* =========================================================
+09 FINAL
+========================================================= */
 
-.ending-section{
+.final-section{
+
     position:relative;
 
-    z-index:20;
-
-    text-align:center;
-}
-
-.ending-card{
-    position:relative;
-
-    width:min(100%,880px);
-
-    margin:auto;
-
-    padding:
-    clamp(40px,7vw,75px);
+    min-height:110svh;
 
     overflow:hidden;
 
-    border:
-    1px solid var(--line);
-
-    border-radius:38px;
+    text-align:center;
 
     background:
-    rgba(255,255,255,.045);
 
-    box-shadow:
-    var(--shadow);
+    radial-gradient(
+        circle at 50% 70%,
+        rgba(118,45,70,.17),
+        transparent 35rem
+    );
 }
 
-.ending-card::before{
-    content:"";
+
+.final-stars{
 
     position:absolute;
 
-    width:320px;
-    height:320px;
+    inset:0;
 
-    top:-190px;
-    left:50%;
+    pointer-events:none;
+}
 
-    transform:
-    translateX(-50%);
+
+.final-star{
+
+    position:absolute;
+
+    width:3px;
+    height:3px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    opacity:.3;
+
+    animation:
+
+    twinkle var(--speed)
+    ease-in-out infinite;
+}
+
+
+@keyframes twinkle{
+
+    50%{
+
+        opacity:1;
+
+        transform:
+        scale(1.8);
+    }
+}
+
+
+.final-inner{
+
+    position:relative;
+
+    z-index:10;
+
+    width:
+    min(100%,920px);
+
+    margin:auto;
+}
+
+
+.final-moon{
+
+    width:110px;
+    height:110px;
+
+    margin:
+    0 auto 35px;
 
     border-radius:50%;
 
     background:
-    rgba(211,90,125,.14);
 
-    filter:
-    blur(70px);
+    linear-gradient(
+        145deg,
+        #fff3ea,
+        #cfabb7
+    );
 
-    pointer-events:none;
-
-    z-index:0;
+    box-shadow:
+    0 0 70px
+    rgba(255,210,223,.18);
 }
 
-.ending-card > *{
-    position:relative;
 
-    z-index:5;
-}
-
-.ending-card h3{
-    margin:0;
+.final-title{
 
     font-family:
     "Playfair Display",serif;
 
     font-size:
-    clamp(2.3rem,5vw,4.6rem);
+    clamp(3rem,7vw,6.5rem);
 
     font-weight:500;
+
+    letter-spacing:-.045em;
+
+    line-height:1;
 }
 
-.ending-card p{
-    max-width:650px;
+
+.final-title em{
+
+    color:
+    var(--pink);
+}
+
+
+.final-copy{
+
+    max-width:680px;
 
     margin:
-    24px auto 33px;
+    28px auto 38px;
 
-    color:var(--muted);
+    color:
+    var(--muted);
 
-    line-height:1.9;
+    line-height:1.95;
 }
 
-.answer-buttons{
-    position:relative;
 
-    z-index:100;
+.final-buttons{
 
     display:flex;
 
     justify-content:center;
 
-    gap:12px;
-
     flex-wrap:wrap;
 
-    pointer-events:auto;
+    gap:12px;
 }
 
-.answer-button{
-    position:relative;
 
-    z-index:110;
+.final-button{
 
     padding:
     14px 21px;
 
     border:
-    1px solid rgba(255,255,255,.15);
+    1px solid
+    rgba(255,255,255,.15);
 
     border-radius:999px;
 
-    color:#fff;
+    color:white;
 
     background:
-    rgba(255,255,255,.065);
+    rgba(255,255,255,.06);
 
     cursor:pointer;
 
-    pointer-events:auto;
-
-    touch-action:manipulation;
-
-    transition:.25s;
+    transition:.3s;
 }
 
-.answer-button:hover{
+
+.final-button:hover{
+
     transform:
     translateY(-3px);
 
@@ -1549,10 +3052,13 @@ LETTER
     rgba(255,255,255,.11);
 }
 
-.answer-button.primary{
+
+.final-button.primary{
+
     border:0;
 
     background:
+
     linear-gradient(
         135deg,
         #d16c88,
@@ -1560,27 +3066,116 @@ LETTER
     );
 }
 
-.answer-result{
-    min-height:32px;
 
-    margin-top:23px;
+.final-response{
 
-    color:var(--pink-light);
+    min-height:35px;
+
+    margin-top:24px;
+
+    color:
+    var(--pink-light);
 
     font-family:
     "Playfair Display",serif;
 
     font-style:italic;
-
-    line-height:1.7;
 }
 
 
-/* =====================================================
+/* =========================================================
+SECRET
+========================================================= */
+
+.secret-star{
+
+    position:fixed;
+
+    left:18px;
+    bottom:18px;
+
+    z-index:1200;
+
+    width:34px;
+    height:34px;
+
+    border:0;
+
+    color:
+    rgba(255,255,255,.28);
+
+    background:
+    transparent;
+
+    cursor:pointer;
+
+    font-size:1rem;
+
+    transition:.3s;
+}
+
+
+.secret-star:hover{
+
+    color:
+    var(--pink-light);
+
+    transform:
+    rotate(20deg)
+    scale(1.2);
+}
+
+
+.secret-toast{
+
+    position:fixed;
+
+    left:20px;
+    bottom:60px;
+
+    z-index:1500;
+
+    max-width:300px;
+
+    padding:
+    15px 17px;
+
+    border:
+    1px solid var(--line);
+
+    border-radius:15px;
+
+    color:
+    var(--text);
+
+    background:
+    rgba(18,12,20,.92);
+
+    opacity:0;
+
+    transform:
+    translateY(10px);
+
+    pointer-events:none;
+
+    transition:.35s;
+}
+
+
+.secret-toast.show{
+
+    opacity:1;
+
+    transform:none;
+}
+
+
+/* =========================================================
 LIGHTBOX
-===================================================== */
+========================================================= */
 
 .lightbox{
+
     position:fixed;
 
     inset:0;
@@ -1601,14 +3196,20 @@ LIGHTBOX
     blur(20px);
 }
 
+
 .lightbox.open{
+
     display:grid;
 }
 
-.lightbox-image{
-    width:min(90vw,850px);
 
-    height:min(75vh,850px);
+.lightbox-image{
+
+    width:
+    min(90vw,850px);
+
+    height:
+    min(76vh,850px);
 
     background-position:center;
 
@@ -1617,7 +3218,9 @@ LIGHTBOX
     background-size:contain;
 }
 
+
 .lightbox-close{
+
     position:absolute;
 
     top:18px;
@@ -1627,11 +3230,12 @@ LIGHTBOX
     height:46px;
 
     border:
-    1px solid rgba(255,255,255,.2);
+    1px solid
+    rgba(255,255,255,.2);
 
     border-radius:50%;
 
-    color:#fff;
+    color:white;
 
     background:
     rgba(255,255,255,.08);
@@ -1641,16 +3245,20 @@ LIGHTBOX
     font-size:1.5rem;
 }
 
+
 .lightbox-caption{
+
     position:absolute;
 
     bottom:28px;
 
-    width:min(90%,800px);
-
-    color:var(--pink-light);
+    width:
+    min(90%,800px);
 
     text-align:center;
+
+    color:
+    var(--pink-light);
 
     font-family:
     "Playfair Display",serif;
@@ -1659,23 +3267,25 @@ LIGHTBOX
 }
 
 
-/* =====================================================
-SPARKLES
-===================================================== */
+/* =========================================================
+SPARK
+========================================================= */
 
 .spark{
+
     position:fixed;
 
     bottom:-15px;
+
+    z-index:1;
 
     width:4px;
     height:4px;
 
     border-radius:50%;
 
-    background:#fbd5df;
-
-    z-index:1;
+    background:
+    #fbd5df;
 
     opacity:0;
 
@@ -1685,6 +3295,7 @@ SPARKLES
     sparkleRise linear forwards;
 }
 
+
 @keyframes sparkleRise{
 
     15%{
@@ -1692,23 +3303,28 @@ SPARKLES
     }
 
     100%{
+
         transform:
+
         translateY(-115vh)
-        translateX(var(--drift));
+
+        translateX(
+            var(--drift)
+        );
 
         opacity:0;
     }
-
 }
 
 
-/* =====================================================
+/* =========================================================
 FOOTER
-===================================================== */
+========================================================= */
 
 footer{
+
     padding:
-    35px 20px 50px;
+    35px 20px 110px;
 
     color:#6f646b;
 
@@ -1722,63 +3338,79 @@ footer{
 }
 
 
-/* =====================================================
+/* =========================================================
 TABLET
-===================================================== */
+========================================================= */
 
 @media(max-width:900px){
 
-    .hero-layout,
-    .story-layout{
-        grid-template-columns:1fr;
+    .hero-grid,
+    .story-grid{
+
+        grid-template-columns:
+        1fr;
     }
 
+
     .story-heading{
+
         position:relative;
 
         top:auto;
     }
 
-    .moon-area{
-        min-height:470px;
+
+    .likes-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
-    .moon{
-        width:330px;
-    }
 
-    .orbit{
-        width:415px;
-    }
+    .envelope-grid{
 
+        grid-template-columns:
+        1fr;
+
+        max-width:530px;
+    }
 }
 
 
-/* =====================================================
+/* =========================================================
 MOBILE
-===================================================== */
+========================================================= */
 
 @media(max-width:650px){
 
     .section{
+
         min-height:auto;
 
         padding:
+
         105px
         20px
         90px;
     }
 
+
     .hero-section{
-        min-height:100svh;
+
+        min-height:
+        100svh;
     }
 
+
     .nav-dots{
+
         display:none;
     }
 
+
     .brand{
-        max-width:72%;
+
+        max-width:82%;
 
         overflow:hidden;
 
@@ -1787,39 +3419,83 @@ MOBILE
         text-overflow:ellipsis;
     }
 
-    .moon-area{
+
+    .moon-zone{
+
         min-height:390px;
     }
 
+
     .moon{
+
         width:255px;
 
         min-width:255px;
     }
 
+
     .orbit{
+
         width:315px;
 
         min-width:315px;
     }
 
+
+    /* TIMELINE */
+
+    .timeline::before{
+
+        left:9px;
+    }
+
+
+    .timeline-item,
+    .timeline-item:nth-child(even){
+
+        width:100%;
+
+        margin-left:0;
+
+        padding:
+        0 0 45px 38px;
+    }
+
+
+    .timeline-dot,
+    .timeline-item:nth-child(even)
+    .timeline-dot{
+
+        left:2px;
+
+        right:auto;
+    }
+
+
+    /* GALLERY */
+
     .memory-grid{
+
         grid-template-columns:
         repeat(2,1fr);
 
         gap:14px;
     }
 
+
     .memory:nth-child(1),
     .memory:nth-child(2),
     .memory:nth-child(3),
     .memory:nth-child(4){
+
         grid-column:auto;
 
         margin-top:0;
     }
 
+
     .memory:nth-child(5){
+
         grid-column:
         1 / span 2;
 
@@ -1827,69 +3503,176 @@ MOBILE
         calc(50% - 7px);
 
         justify-self:center;
-
-        margin-top:5px;
     }
 
+
     .photo-button{
+
         padding:6px;
     }
 
-    .memory figcaption{
-        display:block;
 
-        padding-top:10px;
+    .memory figcaption{
+
+        display:block;
     }
 
+
     .memory h4{
+
         font-size:.95rem;
     }
 
+
     .memory figcaption span{
+
         display:none;
     }
 
-    .answer-buttons{
+
+    /* LIKES */
+
+    .likes-grid{
+
+        grid-template-columns:
+        1fr;
+    }
+
+
+    /* OPEN WHEN */
+
+    .openwhen-section{
+
+        padding-top:110px;
+
+        padding-bottom:120px;
+    }
+
+
+    .envelope-grid{
+
+        width:100%;
+
+        max-width:430px;
+
+        gap:30px;
+    }
+
+
+    .letter-reveal.open{
+
+        margin-top:45px;
+    }
+
+
+    .openwhen-paper{
+
+        padding:
+        35px 25px 40px;
+    }
+
+
+    .openwhen-paper h3{
+
+        font-size:
+        clamp(1.8rem,9vw,2.5rem);
+    }
+
+
+    /* MUSIC */
+
+    .music-player{
+
+        left:14px;
+        right:14px;
+        bottom:12px;
+
+        width:auto;
+
+        border-radius:18px;
+    }
+
+
+    .music-title{
+
+        font-size:.9rem;
+    }
+
+
+    .music-progress-wrap{
+
+        margin-top:8px;
+    }
+
+
+    /* FINAL */
+
+    .final-buttons{
+
         flex-direction:column;
     }
 
-    .answer-button{
+
+    .final-button{
+
         width:100%;
     }
-
 }
 
 
-/* =====================================================
+/* =========================================================
 REDUCED MOTION
-===================================================== */
+========================================================= */
 
 @media(prefers-reduced-motion:reduce){
 
     *,
     *::before,
     *::after{
-        animation-duration:.001ms !important;
 
-        animation-iteration-count:1 !important;
+        animation-duration:
+        .001ms !important;
 
-        scroll-behavior:auto !important;
+        animation-iteration-count:
+        1 !important;
+
+        scroll-behavior:
+        auto !important;
     }
-
 }
 
 </style>
+
 </head>
 
 
 <body>
 
+
 <div class="noise"></div>
+
 
 <div
 class="cursor-glow"
 id="cursorGlow">
 </div>
+
+
+
+<!-- =====================================================
+MUSIC FILE
+===================================================== -->
+
+<audio
+id="backgroundMusic"
+preload="auto"
+loop>
+
+<source
+src="./assets/feby-music.mp3"
+type="audio/mpeg">
+
+</audio>
 
 
 
@@ -1902,16 +3685,16 @@ class="opening"
 id="opening">
 
 
-<div class="opening-content">
+<div class="opening-inner">
 
 
-<div class="opening-dot"></div>
+<div class="opening-light">
+</div>
 
 
 <div class="opening-label">
 
-a little corner
-of the internet
+a little corner of the internet
 
 </div>
 
@@ -1928,14 +3711,14 @@ Feby
 
 
 <p
-class="opening-text"
-id="openingText">
+class="opening-copy"
+id="openingCopy">
 </p>
 
 
 <button
-class="open-site"
-id="openSite"
+class="open-button"
+id="openButton"
 type="button">
 
 Buka pelan-pelan ♡
@@ -1977,26 +3760,126 @@ dari seseorang yang ingin jujur.
 <span></span>
 <span></span>
 <span></span>
+<span></span>
+<span></span>
+<span></span>
 
 </div>
-
-
-<button
-class="sound-button"
-id="soundButton"
-type="button">
-
-♫
-
-</button>
 
 
 </nav>
 
 
 
-<main>
+<!-- =====================================================
+MUSIC PLAYER
+===================================================== -->
 
+<div
+class="music-player"
+id="musicPlayer">
+
+
+<div class="music-main">
+
+
+<button
+class="music-button"
+id="musicButton"
+type="button"
+aria-label="Play atau pause musik">
+
+
+<span
+class="music-icon"
+id="musicIcon">
+
+❚❚
+
+</span>
+
+
+</button>
+
+
+
+<div class="music-details">
+
+
+<div class="music-small">
+
+now playing
+
+</div>
+
+
+<div class="music-title">
+
+For Feby ♡
+
+</div>
+
+
+<div
+class="music-time"
+id="musicTime">
+
+0:00 / 0:00
+
+</div>
+
+
+</div>
+
+
+
+<button
+class="volume-button"
+id="volumeButton"
+type="button"
+aria-label="Mute atau unmute musik">
+
+♬
+
+</button>
+
+
+</div>
+
+
+
+<div class="music-progress-wrap">
+
+
+<input
+class="music-progress"
+id="musicProgress"
+type="range"
+min="0"
+max="100"
+value="0"
+step="0.1"
+aria-label="Progress musik">
+
+
+</div>
+
+
+<div class="music-error">
+
+Musik tidak ditemukan.
+Pastikan file bernama
+<strong>feby-music.mp3</strong>
+ada di folder assets.
+
+</div>
+
+
+</div>
+
+
+
+<main>
 
 
 <!-- =====================================================
@@ -2008,7 +3891,7 @@ class="section hero-section"
 data-step="0">
 
 
-<div class="hero-layout">
+<div class="hero-grid">
 
 
 <div>
@@ -2035,7 +3918,7 @@ istimewa.
 </h2>
 
 
-<p class="hero-description fade">
+<p class="hero-copy fade">
 
 Dan anehnya,
 nama itu sering muncul
@@ -2053,7 +3936,7 @@ di kepala kita.
 </p>
 
 
-<p class="hero-small fade">
+<p class="hero-tiny fade">
 
 iya...
 nama itu Feby.
@@ -2065,26 +3948,38 @@ nama itu Feby.
 
 
 
-<div class="moon-area fade">
+<div class="moon-zone fade">
 
 
-<div class="orbit"></div>
+<div class="orbit">
+</div>
 
-<div class="moon"></div>
+
+<div class="moon">
+</div>
 
 
-<span class="moon-label label-one">
+<span
+class="floating-label float-one">
+
 sederhana
+
 </span>
 
 
-<span class="moon-label label-two">
+<span
+class="floating-label float-two">
+
 hangat
+
 </span>
 
 
-<span class="moon-label label-three">
+<span
+class="floating-label float-three">
+
 Feby ♡
+
 </span>
 
 
@@ -2106,7 +4001,7 @@ class="section"
 data-step="1">
 
 
-<div class="story-layout">
+<div class="story-grid">
 
 
 <div class="story-heading">
@@ -2161,7 +4056,9 @@ terasa berbeda.
 
 
 <h3>
+
 Aku suka caramu hadir.
+
 </h3>
 
 
@@ -2251,7 +4148,6 @@ di dalamnya.
 Sederhana.
 
 Tapi cukup membuatku sadar
-
 bahwa perasaan ini
 bukan sekadar lewat.
 
@@ -2270,12 +4166,233 @@ bukan sekadar lewat.
 
 
 <!-- =====================================================
-03 PHOTOS
+03 TIMELINE
+===================================================== -->
+
+<section
+class="section"
+data-step="2">
+
+
+<div class="section-inner">
+
+
+<div class="timeline-heading">
+
+
+<div class="eyebrow fade">
+
+03 —
+bagaimana semua ini terasa
+
+</div>
+
+
+<h2 class="title fade">
+
+Pelan-pelan,
+tanpa aku sadari,
+
+<em>
+kamu jadi berarti.
+</em>
+
+</h2>
+
+
+<p class="timeline-copy fade">
+
+Tidak ada satu tanggal khusus
+yang membuat semuanya berubah.
+
+Rasanya lebih seperti perjalanan kecil
+yang baru kusadari setelah
+melihat ke belakang.
+
+</p>
+
+
+</div>
+
+
+
+<div class="timeline">
+
+
+<div class="timeline-item fade">
+
+
+<div class="timeline-dot">
+</div>
+
+
+<div class="timeline-card">
+
+
+<div class="timeline-label">
+awal
+</div>
+
+
+<h3>
+Awalnya biasa saja.
+</h3>
+
+
+<p>
+
+Seseorang yang aku kenal.
+
+Seseorang yang mungkin saat itu
+belum kupikirkan terlalu jauh.
+
+</p>
+
+
+</div>
+
+</div>
+
+
+
+<div class="timeline-item fade">
+
+
+<div class="timeline-dot">
+</div>
+
+
+<div class="timeline-card">
+
+
+<div class="timeline-label">
+kemudian
+</div>
+
+
+<h3>
+
+Aku mulai memperhatikan.
+
+</h3>
+
+
+<p>
+
+Hal-hal kecil mulai terasa lebih jelas.
+
+Cara bicaramu,
+ekspresimu,
+
+dan hal sederhana
+yang sebelumnya
+mungkin akan kulewatkan.
+
+</p>
+
+
+</div>
+
+</div>
+
+
+
+<div class="timeline-item fade">
+
+
+<div class="timeline-dot">
+</div>
+
+
+<div class="timeline-card">
+
+
+<div class="timeline-label">
+
+pelan-pelan
+
+</div>
+
+
+<h3>
+
+Namamu mulai sering muncul.
+
+</h3>
+
+
+<p>
+
+Kadang tanpa alasan khusus.
+
+Hanya tiba-tiba teringat,
+lalu membuatku tersenyum sendiri.
+
+</p>
+
+
+</div>
+
+</div>
+
+
+
+<div class="timeline-item fade">
+
+
+<div class="timeline-dot">
+</div>
+
+
+<div class="timeline-card">
+
+
+<div class="timeline-label">
+
+sekarang
+
+</div>
+
+
+<h3>
+
+Aku akhirnya memilih jujur.
+
+</h3>
+
+
+<p>
+
+Dan mungkin itulah alasan
+kenapa halaman ini sekarang ada.
+
+Supaya sesuatu yang sulit kuucapkan
+bisa sampai kepadamu dengan baik.
+
+</p>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+04 PHOTOS
 ===================================================== -->
 
 <section
 class="section photos-section"
-data-step="2">
+data-step="3">
 
 
 <div class="photos-heading">
@@ -2283,7 +4400,7 @@ data-step="2">
 
 <div class="eyebrow fade">
 
-03 —
+04 —
 beberapa potongan
 tentang Feby
 
@@ -2326,13 +4443,6 @@ berhenti sebentar.
 
 
 
-<!--
-Galeri sengaja dikosongkan.
-JavaScript akan membuat 5 card dari
-PHOTO_DATA di bawah.
--->
-
-
 <div
 class="memory-grid"
 id="memoryGrid">
@@ -2346,10 +4456,10 @@ id="memoryGrid">
 menyimpan beberapa detik.
 
 Tapi kadang,
-beberapa detik itu
+beberapa detik itu cukup
 
-cukup untuk membuat
-seseorang terlihat istimewa.”
+untuk membuat seseorang
+terlihat istimewa.”
 
 </p>
 
@@ -2359,21 +4469,698 @@ seseorang terlihat istimewa.”
 
 
 <!-- =====================================================
-04 LETTER
+05 LIKES
 ===================================================== -->
 
 <section
-class="section letter-section"
-data-step="3">
+class="section"
+data-step="4">
 
 
-<div class="letter-wrapper">
+<div class="section-inner">
+
+
+<div class="likes-heading">
 
 
 <div class="eyebrow fade">
 
-04 —
-surat kecil
+05 —
+things i like about you
+
+</div>
+
+
+<h2 class="title fade">
+
+Bukan cuma soal
+penampilan.
+
+Ada banyak hal kecil
+
+<em>
+yang kusuka.
+</em>
+
+</h2>
+
+
+<p class="likes-copy fade">
+
+Klik setiap kartu.
+
+Mungkin beberapa hal ini
+tidak pernah kamu sadari
+
+kalau ada seseorang
+yang memperhatikannya.
+
+</p>
+
+
+</div>
+
+
+
+<div class="likes-grid">
+
+
+<button
+class="like-card fade"
+type="button">
+
+
+<div class="like-front">
+
+<div class="like-number">
+01
+</div>
+
+<div class="like-icon">
+♡
+</div>
+
+<h3>
+Senyummu
+</h3>
+
+<small>
+klik untuk membuka
+</small>
+
+</div>
+
+
+<div class="like-back">
+
+Ada sesuatu dari senyummu
+yang terasa sederhana,
+
+tapi entah kenapa
+cukup untuk membuat
+suasana menjadi lebih ringan.
+
+</div>
+
+
+</button>
+
+
+
+<button
+class="like-card fade"
+type="button">
+
+
+<div class="like-front">
+
+<div class="like-number">
+02
+</div>
+
+<div class="like-icon">
+✦
+</div>
+
+<h3>
+Caramu bicara
+</h3>
+
+<small>
+klik untuk membuka
+</small>
+
+</div>
+
+
+<div class="like-back">
+
+Entah dari cara kamu menjawab,
+bercerita,
+atau sekadar bereaksi,
+
+ada sesuatu yang membuatku
+ingin mendengarkan sedikit lebih lama.
+
+</div>
+
+
+</button>
+
+
+
+<button
+class="like-card fade"
+type="button">
+
+
+<div class="like-front">
+
+<div class="like-number">
+03
+</div>
+
+<div class="like-icon">
+☾
+</div>
+
+<h3>
+Ekspresimu
+</h3>
+
+<small>
+klik untuk membuka
+</small>
+
+</div>
+
+
+<div class="like-back">
+
+Kadang justru ekspresi kecil
+yang tidak kamu rencanakan
+
+yang paling mudah kuingat.
+
+</div>
+
+
+</button>
+
+
+
+<button
+class="like-card fade"
+type="button">
+
+
+<div class="like-front">
+
+<div class="like-number">
+04
+</div>
+
+<div class="like-icon">
+✧
+</div>
+
+<h3>
+
+Caramu menjadi dirimu
+
+</h3>
+
+<small>
+klik untuk membuka
+</small>
+
+</div>
+
+
+<div class="like-back">
+
+Aku tidak mencari seseorang
+yang sempurna.
+
+Aku hanya suka
+bagaimana kamu menjadi
+dirimu sendiri.
+
+</div>
+
+
+</button>
+
+
+
+<button
+class="like-card fade"
+type="button">
+
+
+<div class="like-front">
+
+<div class="like-number">
+05
+</div>
+
+<div class="like-icon">
+♡
+</div>
+
+<h3>
+Hal-hal kecil
+</h3>
+
+<small>
+klik untuk membuka
+</small>
+
+</div>
+
+
+<div class="like-back">
+
+Hal yang mungkin menurutmu biasa
+
+kadang justru menjadi hal
+
+yang membuat seseorang
+terlihat berbeda.
+
+</div>
+
+
+</button>
+
+
+
+<button
+class="like-card fade"
+type="button">
+
+
+<div class="like-front">
+
+<div class="like-number">
+06
+</div>
+
+<div class="like-icon">
+✦
+</div>
+
+<h3>
+
+Perasaan ketika ada kamu
+
+</h3>
+
+<small>
+klik untuk membuka
+</small>
+
+</div>
+
+
+<div class="like-back">
+
+Mungkin ini yang paling sulit dijelaskan.
+
+Beberapa hari terasa
+sedikit lebih menyenangkan
+
+hanya karena ada kamu
+di dalamnya.
+
+</div>
+
+
+</button>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+06 OPEN WHEN
+===================================================== -->
+
+<section
+class="section openwhen-section"
+data-step="5">
+
+
+<div class="section-inner">
+
+
+<div class="openwhen-heading">
+
+
+<div class="eyebrow fade">
+
+06 —
+open when...
+
+</div>
+
+
+<h2 class="title fade">
+
+Tiga surat kecil
+
+<em>
+untuk tiga keadaan.
+</em>
+
+</h2>
+
+
+<p class="fade">
+
+Tidak semuanya harus dibaca sekarang.
+
+Tapi kalau suatu hari
+kamu membutuhkannya,
+
+mungkin salah satu surat kecil ini
+bisa menemanimu.
+
+</p>
+
+
+</div>
+
+
+
+<div class="envelope-grid">
+
+
+<article
+class="envelope-card fade"
+data-letter="sad">
+
+
+<button
+class="envelope-button"
+type="button">
+
+
+<div class="envelope-shape">
+
+
+<div class="envelope-paper-preview">
+
+<small>
+open when...
+</small>
+
+<strong>
+Kamu sedang sedih
+</strong>
+
+</div>
+
+
+<div class="envelope-left-fold">
+</div>
+
+
+<div class="envelope-right-fold">
+</div>
+
+
+<div class="envelope-bottom-fold">
+</div>
+
+
+<div class="envelope-flap">
+</div>
+
+
+<div class="envelope-seal">
+
+F
+
+</div>
+
+
+</div>
+
+
+
+<div class="envelope-info">
+
+<h3>
+
+Buka saat kamu sedang sedih
+
+</h3>
+
+<small>
+
+klik untuk membuka surat
+
+</small>
+
+</div>
+
+
+</button>
+
+
+</article>
+
+
+
+<article
+class="envelope-card fade"
+data-letter="alone">
+
+
+<button
+class="envelope-button"
+type="button">
+
+
+<div class="envelope-shape">
+
+
+<div class="envelope-paper-preview">
+
+<small>
+open when...
+</small>
+
+<strong>
+Kamu merasa sendiri
+</strong>
+
+</div>
+
+
+<div class="envelope-left-fold">
+</div>
+
+
+<div class="envelope-right-fold">
+</div>
+
+
+<div class="envelope-bottom-fold">
+</div>
+
+
+<div class="envelope-flap">
+</div>
+
+
+<div class="envelope-seal">
+
+F
+
+</div>
+
+
+</div>
+
+
+
+<div class="envelope-info">
+
+<h3>
+
+Buka saat kamu merasa sendiri
+
+</h3>
+
+<small>
+
+klik untuk membuka surat
+
+</small>
+
+</div>
+
+
+</button>
+
+
+</article>
+
+
+
+<article
+class="envelope-card fade"
+data-letter="smile">
+
+
+<button
+class="envelope-button"
+type="button">
+
+
+<div class="envelope-shape">
+
+
+<div class="envelope-paper-preview">
+
+<small>
+open when...
+</small>
+
+<strong>
+Kamu ingin tersenyum
+</strong>
+
+</div>
+
+
+<div class="envelope-left-fold">
+</div>
+
+
+<div class="envelope-right-fold">
+</div>
+
+
+<div class="envelope-bottom-fold">
+</div>
+
+
+<div class="envelope-flap">
+</div>
+
+
+<div class="envelope-seal">
+
+F
+
+</div>
+
+
+</div>
+
+
+
+<div class="envelope-info">
+
+<h3>
+
+Buka saat kamu ingin tersenyum
+
+</h3>
+
+<small>
+
+klik untuk membuka surat
+
+</small>
+
+</div>
+
+
+</button>
+
+
+</article>
+
+
+</div>
+
+
+
+<div
+class="letter-reveal"
+id="letterReveal">
+
+
+<div class="letter-connector">
+</div>
+
+
+<article class="openwhen-paper">
+
+
+<button
+class="close-letter"
+id="closeLetter"
+type="button">
+
+×
+
+</button>
+
+
+
+<div class="openwhen-paper-top">
+
+
+<div
+class="openwhen-paper-tag"
+id="letterTag">
+
+OPEN WHEN...
+
+</div>
+
+
+<div
+class="openwhen-paper-number"
+id="letterNumber">
+
+01
+
+</div>
+
+
+</div>
+
+
+<h3 id="letterTitle">
+</h3>
+
+
+<div
+class="openwhen-paper-body"
+id="letterBody">
+</div>
+
+
+</article>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+07 MAIN LETTER
+===================================================== -->
+
+<section
+class="section main-letter-section"
+data-step="6">
+
+
+<div class="main-letter-wrapper">
+
+
+<div class="eyebrow fade">
+
+07 —
+surat yang sebenarnya
 
 </div>
 
@@ -2415,13 +5202,11 @@ aku ingin jujur.
 <p>
 
 Aku sebenarnya
-tidak tahu sejak kapan
-tepatnya.
+tidak tahu sejak kapan tepatnya.
 
 Tapi perlahan aku mulai
 melihatmu lebih dari
-sekadar seseorang
-yang aku kenal.
+sekadar seseorang yang aku kenal.
 
 </p>
 
@@ -2432,8 +5217,7 @@ Ada rasa senang
 setiap kali melihat namamu.
 
 Ada rasa penasaran
-untuk mengenalmu
-lebih jauh.
+untuk mengenalmu lebih jauh.
 
 Dan ada keinginan sederhana
 untuk bisa membuat
@@ -2446,11 +5230,11 @@ harimu sedikit lebih baik.
 
 Aku membuat halaman ini
 bukan untuk membuatmu
-merasa harus menjawab
-perasaanku.
+merasa harus menjawab perasaanku.
 
 Aku hanya ingin
 menyampaikannya
+
 dengan cara yang benar-benar
 aku pikirkan.
 
@@ -2486,6 +5270,7 @@ untuk Feby ♡
 
 </div>
 
+
 </div>
 
 </section>
@@ -2493,20 +5278,20 @@ untuk Feby ♡
 
 
 <!-- =====================================================
-05 HEART
+08 HEART
 ===================================================== -->
 
 <section
-class="section secret-section"
-data-step="4">
+class="section heart-section"
+data-step="7">
 
 
-<div class="secret-inner">
+<div class="heart-inner">
 
 
 <div class="eyebrow fade">
 
-05 —
+08 —
 satu kalimat terakhir
 
 </div>
@@ -2524,13 +5309,12 @@ secara langsung.
 </h2>
 
 
-<p class="secret-description fade">
+<p class="heart-copy fade">
 
-Ada satu hal terakhir
-yang ingin aku sampaikan.
+Aku rasa sekarang waktunya
+untuk tidak berputar-putar lagi.
 
-Klik hati
-di bawah ini. ♡
+Klik hati di bawah ini. ♡
 
 </p>
 
@@ -2542,11 +5326,7 @@ di bawah ini. ♡
 <button
 class="heart-button"
 id="heartButton"
-type="button"
-aria-label="Buka pesan terakhir">
-
-
-<!-- PROGRESS RING -->
+type="button">
 
 
 <svg
@@ -2555,7 +5335,7 @@ viewBox="0 0 160 160">
 
 
 <circle
-class="progress-background"
+class="progress-bg"
 cx="80"
 cy="80"
 r="70">
@@ -2563,7 +5343,7 @@ r="70">
 
 
 <circle
-class="progress-value"
+class="progress-main"
 id="progressCircle"
 cx="80"
 cy="80"
@@ -2575,11 +5355,8 @@ r="70">
 
 
 
-<!-- SVG HEART -->
-
-
 <svg
-class="heart-icon"
+class="heart-svg"
 viewBox="0 0 100 90">
 
 
@@ -2618,7 +5395,6 @@ stop-color="#9f3d5a">
 </defs>
 
 
-
 <path
 fill="url(#heartGradient)"
 d="
@@ -2644,8 +5420,8 @@ C92 56 54 79 50 84Z
 
 
 <div
-class="secret-result"
-id="secretResult">
+class="heart-result"
+id="heartResult">
 
 
 <strong>
@@ -2665,13 +5441,11 @@ Feby.
 
 Dan kalau kamu mengizinkan,
 
-aku ingin mengenalmu
-lebih dekat.
+aku ingin mengenalmu lebih dekat.
 
 Pelan-pelan.
 
-Tanpa perlu memaksa
-apa pun.
+Tanpa harus memaksa apa pun.
 
 </p>
 
@@ -2686,80 +5460,84 @@ apa pun.
 
 
 <!-- =====================================================
-06 ENDING
+09 FINAL
 ===================================================== -->
 
 <section
-class="section ending-section"
-data-step="5">
+class="section final-section"
+data-step="8">
 
 
-<div class="ending-card fade">
+<div
+class="final-stars"
+id="finalStars">
+</div>
+
+
+
+<div class="final-inner fade">
+
+
+<div class="final-moon">
+</div>
 
 
 <div class="eyebrow">
 
-06 —
-tidak ada jawaban
-yang harus dipaksakan
+09 —
+mungkin ini bukan akhir
 
 </div>
 
 
-<h3>
+<h2 class="final-title">
 
-Terima kasih
-sudah sampai
-di sini, Feby.
+Aku tidak tahu
+bagaimana cerita ini
 
-</h3>
+<em>
+akan berakhir.
+</em>
+
+</h2>
 
 
-<p>
+<p class="final-copy">
 
-Apa pun yang kamu rasakan
-setelah membaca semuanya,
+Tapi kalau boleh memilih,
 
-aku akan menghargainya.
+aku ingin halaman ini
+bukan menjadi akhir dari sesuatu,
 
-Aku tidak membuat
-halaman ini
+melainkan awal dari kesempatan
+untuk mengenalmu lebih jauh.
 
-untuk membuatmu merasa
-harus membalas sesuatu.
+Apa pun jawabanmu nanti,
 
-Aku hanya ingin
-kamu mengetahui
-isi pikiranku
-
-dengan cara yang sedikit
-lebih indah
-
-daripada sekadar
-satu chat singkat.
+terima kasih karena sudah membaca
+semuanya sampai sejauh ini.
 
 </p>
 
 
 
-<div class="answer-buttons">
+<div class="final-buttons">
 
 
 <button
-class="answer-button primary"
+class="final-button primary"
 type="button"
-data-message="Terima kasih sudah membaca semuanya. Itu saja sudah berarti buatku. ♡">
+data-response="Makasih sudah baca semuanya, Feby. Itu saja sudah berarti banyak buatku. ♡">
 
 Aku baca sampai akhir ♡
 
 </button>
 
 
-
 <button
-class="answer-button"
+class="final-button"
 type="button"
-data-message="Tidak apa-apa. Ambil waktu sebanyak yang kamu butuhkan.">
+data-response="Tidak apa-apa. Ambil waktu sebanyak yang kamu butuhkan. Aku menghargainya.">
 
 Aku butuh waktu dulu
 
@@ -2769,10 +5547,9 @@ Aku butuh waktu dulu
 </div>
 
 
-
 <div
-class="answer-result"
-id="answerResult">
+class="final-response"
+id="finalResponse">
 </div>
 
 
@@ -2799,7 +5576,34 @@ for Feby ♡
 
 
 <!-- =====================================================
-LIGHTBOX
+SECRET
+===================================================== -->
+
+<button
+class="secret-star"
+id="secretStar"
+type="button">
+
+✦
+
+</button>
+
+
+<div
+class="secret-toast"
+id="secretToast">
+
+Kamu menemukan pesan rahasianya.
+
+Berarti kamu benar-benar
+memperhatikan semuanya. ♡
+
+</div>
+
+
+
+<!-- =====================================================
+PHOTO LIGHTBOX
 ===================================================== -->
 
 <div
@@ -2835,85 +5639,83 @@ id="lightboxCaption">
 
 <script>
 
-/* =====================================================
-PHOTO DATA
-
-INI SATU-SATUNYA TEMPAT
-YANG MENENTUKAN PATH FOTO.
-===================================================== */
+/* =========================================================
+PHOTOS
+========================================================= */
 
 const PHOTO_DATA = [
 
-    {
-        src:
-        "./assets/IMG_0814.jpg",
+{
 
-        title:
-        "Momen sederhana yang kuingat.",
+src:
+"./assets/IMG_0814.jpg",
 
-        caption:
-        "Momen sederhana yang entah kenapa selalu membuatku tersenyum."
-    },
+title:
+"Momen sederhana yang kuingat.",
 
+caption:
+"Momen sederhana yang entah kenapa selalu membuatku tersenyum."
 
-    {
-        src:
-        "./assets/IMG_6245.jpg",
+},
 
-        title:
-        "Senyum yang sederhana.",
+{
 
-        caption:
-        "Ada sesuatu dari senyummu yang sederhana tapi sulit dilupakan."
-    },
+src:
+"./assets/IMG_6245.jpg",
 
+title:
+"Senyum yang sederhana.",
 
-    {
-        src:
-        "./assets/IMG_7540.jpg",
+caption:
+"Ada sesuatu dari senyummu yang sederhana tapi sulit dilupakan."
 
-        title:
-        "Tentang detail-detail kecil.",
+},
 
-        caption:
-        "Mungkin kamu menganggapnya foto biasa. Tapi aku tetap suka melihatnya."
-    },
+{
 
+src:
+"./assets/IMG_7540.jpg",
 
-    {
-        src:
-        "./assets/quality_restoration_20260528104251057.jpg",
+title:
+"Tentang detail-detail kecil.",
 
-        title:
-        "Hari yang terasa lebih hangat.",
+caption:
+"Mungkin kamu menganggapnya foto biasa. Tapi aku tetap suka melihatnya."
 
-        caption:
-        "Satu lagi momen kecil yang ingin kusimpan di sini."
-    },
+},
 
+{
 
-    {
-        src:
-        "./assets/f2751596-e3f9-447e-811d-c67002c07795.jpg",
+src:
+"./assets/quality_restoration_20260528104251057.jpg",
 
-        title:
-        "Satu foto lagi yang kusuka.",
+title:
+"Hari yang terasa lebih hangat.",
 
-        caption:
-        "Dan foto ini menjadi satu lagi alasan kenapa halaman kecil ini dibuat untukmu."
-    }
+caption:
+"Satu lagi momen kecil yang ingin kusimpan di sini."
+
+},
+
+{
+
+src:
+"./assets/f2751596-e3f9-447e-811d-c67002c07795.jpg",
+
+title:
+"Satu foto lagi yang kusuka.",
+
+caption:
+"Dan foto ini menjadi satu lagi alasan kenapa halaman kecil ini dibuat untukmu."
+
+}
 
 ];
 
 
-
-/* =====================================================
-CREATE GALLERY
-===================================================== */
-
 const memoryGrid =
 document.getElementById(
-    "memoryGrid"
+"memoryGrid"
 );
 
 
@@ -2923,245 +5725,147 @@ photo,
 index
 ){
 
+const figure =
+document.createElement(
+"figure"
+);
 
-    const figure =
-    document.createElement(
-        "figure"
-    );
 
+figure.className =
+"memory fade";
 
-    figure.className =
-    "memory fade";
 
+const button =
+document.createElement(
+"button"
+);
 
-    const button =
-    document.createElement(
-        "button"
-    );
 
+button.type =
+"button";
 
-    button.type =
-    "button";
 
+button.className =
+"photo-button";
 
-    button.className =
-    "photo-button";
 
+const surface =
+document.createElement(
+"div"
+);
 
-    button.setAttribute(
-        "aria-label",
-        "Buka foto Feby " +
-        (
-            index + 1
-        )
-    );
 
+surface.className =
+"photo-surface";
 
 
-    const surface =
-    document.createElement(
-        "div"
-    );
+surface.style.backgroundImage =
+`url("${photo.src}")`;
 
 
-    surface.className =
-    "photo-surface";
+const caption =
+document.createElement(
+"figcaption"
+);
 
 
-    button.appendChild(
-        surface
-    );
+const title =
+document.createElement(
+"h4"
+);
 
 
+title.textContent =
+photo.title;
 
-    const caption =
-    document.createElement(
-        "figcaption"
-    );
 
+const number =
+document.createElement(
+"span"
+);
 
-    const title =
-    document.createElement(
-        "h4"
-    );
 
+number.textContent =
+String(
+index + 1
+)
+.padStart(
+2,
+"0"
+)
++
+" ♡";
 
-    title.textContent =
-    photo.title;
 
+caption.appendChild(
+title
+);
 
 
-    const number =
-    document.createElement(
-        "span"
-    );
+caption.appendChild(
+number
+);
 
 
-    number.textContent =
-    String(
-        index + 1
-    )
-    .padStart(
-        2,
-        "0"
-    )
-    +
-    " ♡";
+button.appendChild(
+surface
+);
 
 
-    caption.appendChild(
-        title
-    );
+figure.appendChild(
+button
+);
 
 
-    caption.appendChild(
-        number
-    );
+figure.appendChild(
+caption
+);
 
 
-    figure.appendChild(
-        button
-    );
+memoryGrid.appendChild(
+figure
+);
 
 
-    figure.appendChild(
-        caption
-    );
+button.addEventListener(
+"click",
+function(){
 
+openLightbox(
+photo
+);
 
-    memoryGrid.appendChild(
-        figure
-    );
-
-
-
-    /* -----------------------------------------
-    PRELOAD IMAGE
-    ----------------------------------------- */
-
-
-    const loader =
-    new Image();
-
-
-    /*
-    Cache-buster ringan.
-    Sangat membantu ketika browser
-    masih menyimpan versi gambar lama.
-    */
-
-
-    loader.src =
-    photo.src +
-    "?v=3";
-
-
-    loader.onload =
-    function(){
-
-
-        surface.style.backgroundImage =
-
-        `url("${photo.src}?v=3")`;
-
-
-        surface
-        .classList
-        .add(
-            "loaded"
-        );
-
-    };
-
-
-
-    loader.onerror =
-    function(){
-
-
-        surface
-        .classList
-        .add(
-            "error"
-        );
-
-
-        surface.textContent =
-
-        "Foto gagal dimuat: "
-        +
-        photo.src;
-
-
-        console.error(
-            "Tidak bisa membuka:",
-            photo.src
-        );
-
-    };
-
-
-
-    /* -----------------------------------------
-    OPEN LIGHTBOX
-    ----------------------------------------- */
-
-
-    button.addEventListener(
-        "click",
-        function(){
-
-
-            if(
-                surface
-                .classList
-                .contains(
-                    "error"
-                )
-            ){
-
-                return;
-
-            }
-
-
-            openLightbox(
-                photo
-            );
-
-        }
-    );
-
+}
+);
 
 });
 
 
-
-/* =====================================================
+/* =========================================================
 OPENING
-===================================================== */
+========================================================= */
 
 const opening =
 document.getElementById(
-    "opening"
+"opening"
 );
 
 
-const openSite =
+const openButton =
 document.getElementById(
-    "openSite"
+"openButton"
 );
 
 
 const site =
 document.getElementById(
-    "site"
+"site"
 );
 
 
-const openingText =
+const openingCopy =
 document.getElementById(
-    "openingText"
+"openingCopy"
 );
 
 
@@ -3176,28 +5880,27 @@ let introIndex =
 
 function typeOpening(){
 
-
-    openingText.textContent =
-    introText.slice(
-        0,
-        introIndex
-    );
-
-
-    introIndex++;
+openingCopy.textContent =
+introText.slice(
+0,
+introIndex
+);
 
 
-    if(
-        introIndex <=
-        introText.length
-    ){
+introIndex++;
 
-        setTimeout(
-            typeOpening,
-            27
-        );
 
-    }
+if(
+introIndex <=
+introText.length
+){
+
+setTimeout(
+typeOpening,
+27
+);
+
+}
 
 }
 
@@ -3205,389 +5908,1188 @@ function typeOpening(){
 typeOpening();
 
 
+openButton.addEventListener(
+"click",
+function(){
 
-openSite
-.addEventListener(
-    "click",
-    function(){
-
-
-        opening
-        .classList
-        .add(
-            "hide"
-        );
-
-
-        site
-        .classList
-        .add(
-            "show"
-        );
-
-
-        initializeAudio();
-
-    }
+opening
+.classList
+.add(
+"hide"
 );
 
 
+site
+.classList
+.add(
+"show"
+);
 
-/* =====================================================
-CURSOR GLOW
-===================================================== */
+
+/*
+Browser menganggap ini sebagai
+user interaction, jadi musik
+boleh dimulai dari sini.
+*/
+
+startMusicWithFade();
+
+}
+);
+
+
+/* =========================================================
+MUSIC
+========================================================= */
+
+const backgroundMusic =
+document.getElementById(
+"backgroundMusic"
+);
+
+
+const musicPlayer =
+document.getElementById(
+"musicPlayer"
+);
+
+
+const musicButton =
+document.getElementById(
+"musicButton"
+);
+
+
+const musicIcon =
+document.getElementById(
+"musicIcon"
+);
+
+
+const musicProgress =
+document.getElementById(
+"musicProgress"
+);
+
+
+const musicTime =
+document.getElementById(
+"musicTime"
+);
+
+
+const volumeButton =
+document.getElementById(
+"volumeButton"
+);
+
+
+let previousVolume =
+0.38;
+
+
+backgroundMusic.volume =
+0;
+
+
+function startMusicWithFade(){
+
+const playPromise =
+backgroundMusic.play();
+
+
+if(
+playPromise !== undefined
+){
+
+playPromise
+.then(
+function(){
+
+fadeMusicVolume(
+0,
+previousVolume,
+1800
+);
+
+updateMusicIcon();
+
+}
+)
+.catch(
+function(error){
+
+console.log(
+"Music autoplay blocked:",
+error
+);
+
+updateMusicIcon();
+
+}
+);
+
+}
+
+}
+
+
+function fadeMusicVolume(
+from,
+to,
+duration
+){
+
+const start =
+performance.now();
+
+
+backgroundMusic.volume =
+from;
+
+
+function animate(
+time
+){
+
+const progress =
+Math.min(
+(
+time - start
+)
+/
+duration,
+1
+);
+
+
+const volume =
+from +
+(
+to - from
+)
+*
+progress;
+
+
+backgroundMusic.volume =
+Math.max(
+0,
+Math.min(
+1,
+volume
+)
+);
+
+
+if(
+progress < 1
+){
+
+requestAnimationFrame(
+animate
+);
+
+}
+
+}
+
+
+requestAnimationFrame(
+animate
+);
+
+}
+
+
+function updateMusicIcon(){
+
+if(
+backgroundMusic.paused
+){
+
+musicIcon.textContent =
+"▶";
+
+}else{
+
+musicIcon.textContent =
+"❚❚";
+
+}
+
+}
+
+
+musicButton.addEventListener(
+"click",
+function(){
+
+if(
+backgroundMusic.paused
+){
+
+backgroundMusic.play()
+.then(
+function(){
+
+fadeMusicVolume(
+0,
+previousVolume,
+500
+);
+
+updateMusicIcon();
+
+}
+)
+.catch(
+function(error){
+
+console.log(error);
+
+}
+);
+
+}else{
+
+const currentVolume =
+backgroundMusic.volume;
+
+
+fadeMusicVolume(
+currentVolume,
+0,
+400
+);
+
+
+setTimeout(
+function(){
+
+backgroundMusic.pause();
+
+backgroundMusic.volume =
+previousVolume;
+
+updateMusicIcon();
+
+},
+410
+);
+
+}
+
+}
+);
+
+
+volumeButton.addEventListener(
+"click",
+function(){
+
+if(
+backgroundMusic.muted
+){
+
+backgroundMusic.muted =
+false;
+
+volumeButton.textContent =
+"♬";
+
+}else{
+
+backgroundMusic.muted =
+true;
+
+volumeButton.textContent =
+"×";
+
+}
+
+}
+);
+
+
+backgroundMusic.addEventListener(
+"timeupdate",
+function(){
+
+if(
+!Number.isFinite(
+backgroundMusic.duration
+)
+){
+
+return;
+
+}
+
+
+const percent =
+(
+backgroundMusic.currentTime
+/
+backgroundMusic.duration
+)
+*
+100;
+
+
+musicProgress.value =
+percent;
+
+
+musicProgress.style.background =
+
+`linear-gradient(
+90deg,
+#ed91aa ${percent}%,
+rgba(255,255,255,.11) ${percent}%
+)`;
+
+
+musicTime.textContent =
+
+formatTime(
+backgroundMusic.currentTime
+)
++
+" / "
++
+formatTime(
+backgroundMusic.duration
+);
+
+}
+);
+
+
+musicProgress.addEventListener(
+"input",
+function(){
+
+if(
+!Number.isFinite(
+backgroundMusic.duration
+)
+){
+
+return;
+
+}
+
+
+const target =
+(
+Number(
+musicProgress.value
+)
+/
+100
+)
+*
+backgroundMusic.duration;
+
+
+backgroundMusic.currentTime =
+target;
+
+}
+);
+
+
+backgroundMusic.addEventListener(
+"play",
+updateMusicIcon
+);
+
+
+backgroundMusic.addEventListener(
+"pause",
+updateMusicIcon
+);
+
+
+backgroundMusic.addEventListener(
+"loadedmetadata",
+function(){
+
+musicTime.textContent =
+
+"0:00 / "
++
+formatTime(
+backgroundMusic.duration
+);
+
+}
+);
+
+
+backgroundMusic.addEventListener(
+"error",
+function(){
+
+musicPlayer
+.classList
+.add(
+"error"
+);
+
+
+musicIcon.textContent =
+"▶";
+
+}
+);
+
+
+function formatTime(
+seconds
+){
+
+if(
+!Number.isFinite(
+seconds
+)
+){
+
+return "0:00";
+
+}
+
+
+const minutes =
+Math.floor(
+seconds / 60
+);
+
+
+const remainder =
+Math.floor(
+seconds % 60
+)
+.toString()
+.padStart(
+2,
+"0"
+);
+
+
+return (
+minutes
++
+":"
++
+remainder
+);
+
+}
+
+
+/* =========================================================
+CURSOR
+========================================================= */
 
 const cursorGlow =
 document.getElementById(
-    "cursorGlow"
+"cursorGlow"
 );
 
 
-window
-.addEventListener(
-    "pointermove",
-    function(
-        event
-    ){
+window.addEventListener(
+"pointermove",
+function(event){
+
+cursorGlow.style.left =
+event.clientX +
+"px";
 
 
-        cursorGlow.style.left =
-        event.clientX +
-        "px";
+cursorGlow.style.top =
+event.clientY +
+"px";
 
-
-        cursorGlow.style.top =
-        event.clientY +
-        "px";
-
-    }
+}
 );
 
 
-
-/* =====================================================
+/* =========================================================
 REVEAL
-===================================================== */
+========================================================= */
 
 const fadeObserver =
 new IntersectionObserver(
 
-function(
-entries
+function(entries){
+
+entries.forEach(
+function(entry){
+
+if(
+entry.isIntersecting
 ){
 
+entry.target
+.classList
+.add(
+"visible"
+);
 
-    entries.forEach(
-    function(
-        entry
-    ){
+}
 
-
-        if(
-            entry.isIntersecting
-        ){
-
-            entry.target
-            .classList
-            .add(
-                "visible"
-            );
-
-        }
-
-    });
+}
+);
 
 },
 
 {
-    threshold:.12
+threshold:.12
 }
 
 );
 
 
+function observeFade(){
 
-function observeFadeElements(){
+document
+.querySelectorAll(
+".fade"
+)
+.forEach(
+function(element){
 
+fadeObserver
+.observe(
+element
+);
 
-    document
-    .querySelectorAll(
-        ".fade"
-    )
-    .forEach(
-    function(
-        element
-    ){
-
-
-        fadeObserver
-        .observe(
-            element
-        );
-
-    });
+}
+);
 
 }
 
 
-observeFadeElements();
+observeFade();
 
 
-
-/* =====================================================
-NAVIGATION DOTS
-===================================================== */
+/* =========================================================
+NAV
+========================================================= */
 
 const sections =
 document.querySelectorAll(
-    "[data-step]"
+"[data-step]"
 );
 
 
-const dots =
+const navDots =
 document.querySelectorAll(
-    ".nav-dots span"
+".nav-dots span"
 );
 
 
 const sectionObserver =
 new IntersectionObserver(
 
-function(
-entries
+function(entries){
+
+entries.forEach(
+function(entry){
+
+if(
+!entry.isIntersecting
 ){
 
+return;
 
-    entries.forEach(
-    function(
-        entry
-    ){
+}
 
 
-        if(
-            !entry.isIntersecting
-        ){
-
-            return;
-
-        }
-
-
-        const index =
-        Number(
-            entry.target
-            .dataset
-            .step
-        );
+const step =
+Number(
+entry.target
+.dataset
+.step
+);
 
 
-        dots.forEach(
-        function(
-            dot,
-            dotIndex
-        ){
+navDots.forEach(
+function(
+dot,
+index
+){
 
+dot
+.classList
+.toggle(
 
-            dot
-            .classList
-            .toggle(
+"active",
 
-                "active",
+index ===
+step
 
-                dotIndex ===
-                index
+);
 
-            );
+}
+);
 
-        });
-
-    });
+}
+);
 
 },
 
 {
-    threshold:.45
+threshold:.45
 }
 
 );
 
 
-sections
-.forEach(
-function(
+sections.forEach(
+function(section){
+
+sectionObserver
+.observe(
 section
+);
+
+}
+);
+
+
+/* =========================================================
+LIKE CARDS
+========================================================= */
+
+document
+.querySelectorAll(
+".like-card"
+)
+.forEach(
+function(card){
+
+card.addEventListener(
+"click",
+function(){
+
+card
+.classList
+.toggle(
+"open"
+);
+
+}
+);
+
+}
+);
+
+
+/* =========================================================
+OPEN WHEN DATA
+========================================================= */
+
+const LETTERS = {
+
+sad:{
+
+number:
+"01",
+
+tag:
+"OPEN WHEN YOU ARE SAD",
+
+title:
+"Untuk Feby, saat harimu terasa berat.",
+
+body:`
+
+<p>
+Tidak apa-apa kalau hari ini
+tidak berjalan seperti yang kamu harapkan.
+Tidak semua hari harus menjadi hari
+di mana kamu baik-baik saja.
+</p>
+
+<p>
+Kamu tidak harus selalu terlihat kuat.
+Kalau kamu lelah,
+istirahatlah sebentar.
+
+Kalau sesuatu membuatmu sedih,
+beri dirimu waktu untuk merasakannya.
+</p>
+
+<p>
+Dan kalau suatu hari
+semuanya terasa terlalu berat,
+
+ingat saja bahwa ada seseorang
+yang berharap besok
+menjadi hari yang sedikit lebih baik untukmu.
+</p>
+
+<p class="openwhen-signature">
+— semoga setelah membaca ini,
+hatimu terasa sedikit lebih ringan. ♡
+</p>
+
+`
+
+},
+
+
+alone:{
+
+number:
+"02",
+
+tag:
+"OPEN WHEN YOU FEEL ALONE",
+
+title:
+"Kalau suatu hari kamu merasa sendiri...",
+
+body:`
+
+<p>
+Mungkin aku tidak selalu tahu
+apa yang sedang terjadi di pikiranmu.
+
+Dan mungkin aku juga tidak selalu ada
+di tempat yang tepat
+untuk mendengar ceritamu.
+</p>
+
+<p>
+Tapi setidaknya ingat satu hal.
+
+Ada seseorang yang memikirkanmu
+lebih sering dari yang kamu kira.
+</p>
+
+<p>
+Seseorang yang berharap
+kamu baik-baik saja.
+
+Seseorang yang mungkin,
+tanpa kamu sadari,
+
+tersenyum ketika melihat namamu muncul.
+</p>
+
+<p class="openwhen-signature">
+Jadi kalau dunia terasa sepi,
+anggap saja surat kecil ini
+sedang menemanimu. ♡
+</p>
+
+`
+
+},
+
+
+smile:{
+
+number:
+"03",
+
+tag:
+"OPEN WHEN YOU WANT TO SMILE",
+
+title:
+"Kalau kamu sedang mencari alasan kecil untuk tersenyum...",
+
+body:`
+
+<p>
+Pertama,
+
+kamu sedang membaca
+sebuah website yang benar-benar
+dibuat seseorang
+
+hanya untuk menyampaikan
+perasaannya kepadamu.
+</p>
+
+<p>
+Agak berlebihan?
+
+Mungkin.
+</p>
+
+<p>
+Tapi kalau semuanya ini
+berhasil membuatmu tersenyum
+sedikit saja,
+
+berarti menurutku
+semuanya sudah cukup worth it.
+</p>
+
+<p>
+Dan kalau kamu kembali
+membuka surat ini di lain waktu,
+
+berarti website kecil ini
+berhasil membuatmu kembali ke sini.
+</p>
+
+<p class="openwhen-signature">
+Kalau sekarang kamu tersenyum,
+anggap saja aku menang sedikit. ♡
+</p>
+
+`
+
+}
+
+};
+
+
+/* =========================================================
+OPEN WHEN
+========================================================= */
+
+const envelopeCards =
+document.querySelectorAll(
+".envelope-card"
+);
+
+
+const letterReveal =
+document.getElementById(
+"letterReveal"
+);
+
+
+const letterTag =
+document.getElementById(
+"letterTag"
+);
+
+
+const letterNumber =
+document.getElementById(
+"letterNumber"
+);
+
+
+const letterTitle =
+document.getElementById(
+"letterTitle"
+);
+
+
+const letterBody =
+document.getElementById(
+"letterBody"
+);
+
+
+const closeLetter =
+document.getElementById(
+"closeLetter"
+);
+
+
+let activeLetter =
+null;
+
+
+function clearEnvelopeState(){
+
+envelopeCards.forEach(
+function(card){
+
+card
+.classList
+.remove(
+"active"
+);
+
+}
+);
+
+}
+
+
+function hideLetter(){
+
+clearEnvelopeState();
+
+
+activeLetter =
+null;
+
+
+letterReveal
+.classList
+.remove(
+"open"
+);
+
+}
+
+
+function showLetter(
+key,
+card
 ){
 
+const data =
+LETTERS[
+key
+];
 
-    sectionObserver
-    .observe(
-        section
-    );
+
+clearEnvelopeState();
+
+
+card
+.classList
+.add(
+"active"
+);
+
+
+letterTag.textContent =
+data.tag;
+
+
+letterNumber.textContent =
+data.number;
+
+
+letterTitle.textContent =
+data.title;
+
+
+letterBody.innerHTML =
+data.body;
+
+
+letterReveal
+.classList
+.add(
+"open"
+);
+
+
+activeLetter =
+key;
+
+
+createSmallBurst();
+
+
+setTimeout(
+function(){
+
+letterReveal
+.scrollIntoView({
+
+behavior:"smooth",
+
+block:"center"
 
 });
 
+},
+430
+);
+
+}
 
 
-/* =====================================================
+envelopeCards.forEach(
+function(card){
+
+const button =
+card.querySelector(
+".envelope-button"
+);
+
+
+const key =
+card.dataset.letter;
+
+
+button.addEventListener(
+"click",
+function(){
+
+if(
+activeLetter ===
+key
+){
+
+hideLetter();
+
+return;
+
+}
+
+
+showLetter(
+key,
+card
+);
+
+}
+);
+
+}
+);
+
+
+closeLetter.addEventListener(
+"click",
+hideLetter
+);
+
+
+/* =========================================================
 LIGHTBOX
-===================================================== */
+========================================================= */
 
 const lightbox =
 document.getElementById(
-    "lightbox"
+"lightbox"
 );
 
 
 const lightboxImage =
 document.getElementById(
-    "lightboxImage"
+"lightboxImage"
 );
 
 
 const lightboxCaption =
 document.getElementById(
-    "lightboxCaption"
+"lightboxCaption"
 );
 
 
 const lightboxClose =
 document.getElementById(
-    "lightboxClose"
+"lightboxClose"
 );
-
 
 
 function openLightbox(
 photo
 ){
 
-
-    lightboxImage
-    .style
-    .backgroundImage =
-
-    `url("${photo.src}?v=3")`;
+lightboxImage
+.style
+.backgroundImage =
+`url("${photo.src}")`;
 
 
-    lightboxCaption
-    .textContent =
-    photo.caption;
+lightboxCaption.textContent =
+photo.caption;
 
 
-    lightbox
-    .classList
-    .add(
-        "open"
-    );
+lightbox
+.classList
+.add(
+"open"
+);
 
 
-    document
-    .body
-    .style
-    .overflow =
-    "hidden";
+document.body.style.overflow =
+"hidden";
 
 }
-
 
 
 function closeLightbox(){
 
-
-    lightbox
-    .classList
-    .remove(
-        "open"
-    );
-
-
-    lightboxImage
-    .style
-    .backgroundImage =
-    "";
+lightbox
+.classList
+.remove(
+"open"
+);
 
 
-    document
-    .body
-    .style
-    .overflow =
-    "";
+lightboxImage
+.style
+.backgroundImage =
+"";
+
+
+document.body.style.overflow =
+"";
 
 }
 
 
-
-lightboxClose
-.addEventListener(
-    "click",
-    closeLightbox
+lightboxClose.addEventListener(
+"click",
+closeLightbox
 );
 
 
+lightbox.addEventListener(
+"click",
+function(event){
 
+if(
+event.target ===
 lightbox
-.addEventListener(
-    "click",
-    function(
-        event
-    ){
+){
 
+closeLightbox();
 
-        if(
-            event.target ===
-            lightbox
-        ){
+}
 
-            closeLightbox();
-
-        }
-
-    }
+}
 );
 
 
+document.addEventListener(
+"keydown",
+function(event){
 
-document
-.addEventListener(
-    "keydown",
-    function(
-        event
-    ){
+if(
+event.key ===
+"Escape"
+){
 
+closeLightbox();
 
-        if(
-            event.key ===
-            "Escape"
-        ){
+hideLetter();
 
-            closeLightbox();
+}
 
-        }
-
-    }
+}
 );
 
 
-
-/* =====================================================
-05 HEART
-===================================================== */
+/* =========================================================
+HEART
+========================================================= */
 
 const heartButton =
 document.getElementById(
-    "heartButton"
+"heartButton"
 );
 
 
 const progressCircle =
 document.getElementById(
-    "progressCircle"
+"progressCircle"
 );
 
 
-const secretResult =
+const heartResult =
 document.getElementById(
-    "secretResult"
+"heartResult"
 );
 
 
@@ -3599,557 +7101,364 @@ const circleLength =
 439.82;
 
 
+heartButton.addEventListener(
+"click",
+function(){
 
-heartButton
-.addEventListener(
-    "click",
-    function(){
+if(
+heartOpened
+){
 
+return;
 
-        if(
-            heartOpened
-        ){
-
-            return;
-
-        }
+}
 
 
-        heartOpened =
-        true;
+heartOpened =
+true;
 
 
-        const duration =
-        750;
+const duration =
+800;
 
 
-        const start =
-        performance.now();
+const start =
+performance.now();
 
 
+function animate(
+current
+){
 
-        function animate(
-            current
-        ){
-
-
-            const elapsed =
-            current -
-            start;
+const elapsed =
+current -
+start;
 
 
-            const progress =
-            Math.min(
+const progress =
+Math.min(
 
-                elapsed /
-                duration,
+elapsed /
+duration,
 
-                1
+1
 
-            );
-
-
-            const offset =
-            circleLength -
-            (
-                circleLength *
-                progress
-            );
-
-
-            progressCircle
-            .style
-            .strokeDashoffset =
-            offset;
-
-
-
-            if(
-                progress < 1
-            ){
-
-
-                requestAnimationFrame(
-                    animate
-                );
-
-
-            }else{
-
-
-                secretResult
-                .classList
-                .add(
-                    "show"
-                );
-
-
-                createBurst();
-
-
-                playTone(
-                    659.25,
-                    .08
-                );
-
-
-                setTimeout(
-                    function(){
-
-                        playTone(
-                            783.99,
-                            .06
-                        );
-
-                    },
-
-                    120
-                );
-
-            }
-
-        }
-
-
-        requestAnimationFrame(
-            animate
-        );
-
-    }
 );
 
 
+const offset =
+circleLength -
+(
+circleLength *
+progress
+);
 
-/* =====================================================
-06 BUTTONS
-===================================================== */
 
-const answerResult =
+progressCircle
+.style
+.strokeDashoffset =
+offset;
+
+
+if(
+progress <
+1
+){
+
+requestAnimationFrame(
+animate
+);
+
+}else{
+
+heartResult
+.classList
+.add(
+"show"
+);
+
+
+createBurst();
+
+}
+
+}
+
+
+requestAnimationFrame(
+animate
+);
+
+}
+);
+
+
+/* =========================================================
+FINAL
+========================================================= */
+
+const finalResponse =
 document.getElementById(
-    "answerResult"
+"finalResponse"
 );
 
 
 document
 .querySelectorAll(
-    ".answer-button"
+".final-button"
 )
 .forEach(
-function(
-button
-){
+function(button){
+
+button.addEventListener(
+"click",
+function(){
+
+finalResponse.textContent =
+button.dataset.response;
 
 
-    button
-    .addEventListener(
-        "click",
-        function(
-            event
-        ){
+createBurst();
+
+}
+);
+
+}
+);
 
 
-            event
-            .preventDefault();
+/* =========================================================
+FINAL STARS
+========================================================= */
 
-
-            const message =
-            button
-            .getAttribute(
-                "data-message"
-            );
-
-
-            answerResult
-            .textContent =
-            message;
-
-
-            createBurst();
-
-
-            playTone(
-                523.25,
-                .05
-            );
-
-        }
-    );
-
-});
-
-
-
-/* =====================================================
-AUDIO
-===================================================== */
-
-let audioContext =
-null;
-
-
-let soundEnabled =
-true;
-
-
-let ambienceTimer =
-null;
-
-
-const soundButton =
+const finalStars =
 document.getElementById(
-    "soundButton"
+"finalStars"
 );
 
 
-
-function initializeAudio(){
-
-
-    if(
-        !audioContext
-    ){
-
-
-        const AudioContextClass =
-
-        window.AudioContext
-        ||
-        window.webkitAudioContext;
-
-
-        if(
-            AudioContextClass
-        ){
-
-
-            audioContext =
-            new AudioContextClass();
-
-        }
-
-    }
-
-
-    if(
-        audioContext &&
-        soundEnabled
-    ){
-
-        startAmbience();
-
-    }
-
-}
-
-
-
-function playTone(
-frequency,
-gain
+for(
+let i = 0;
+i < 90;
+i++
 ){
 
-
-    if(
-        !audioContext ||
-        !soundEnabled
-    ){
-
-        return;
-
-    }
-
-
-    const oscillator =
-    audioContext
-    .createOscillator();
-
-
-    const volume =
-    audioContext
-    .createGain();
-
-
-    oscillator.type =
-    "sine";
-
-
-    oscillator.frequency.value =
-    frequency;
-
-
-    volume.gain
-    .setValueAtTime(
-
-        .0001,
-
-        audioContext
-        .currentTime
-
-    );
-
-
-    volume.gain
-    .exponentialRampToValueAtTime(
-
-        gain,
-
-        audioContext
-        .currentTime +
-        .04
-
-    );
-
-
-    volume.gain
-    .exponentialRampToValueAtTime(
-
-        .0001,
-
-        audioContext
-        .currentTime +
-        1.7
-
-    );
-
-
-    oscillator
-    .connect(
-        volume
-    )
-    .connect(
-        audioContext.destination
-    );
-
-
-    oscillator.start();
-
-
-    oscillator.stop(
-
-        audioContext
-        .currentTime +
-        1.8
-
-    );
-
-}
-
-
-
-function startAmbience(){
-
-
-    if(
-        ambienceTimer
-    ){
-
-        return;
-
-    }
-
-
-    const notes = [
-
-        130.81,
-        164.81,
-        196,
-        246.94
-
-    ];
-
-
-    let index =
-    0;
-
-
-    ambienceTimer =
-    setInterval(
-    function(){
-
-
-        playTone(
-
-            notes[
-                index %
-                notes.length
-            ],
-
-            .008
-
-        );
-
-
-        index++;
-
-    },
-
-    2800
-    );
-
-}
-
-
-
-function stopAmbience(){
-
-
-    clearInterval(
-        ambienceTimer
-    );
-
-
-    ambienceTimer =
-    null;
-
-}
-
-
-
-soundButton
-.addEventListener(
-    "click",
-    function(){
-
-
-        if(
-            !audioContext
-        ){
-
-            initializeAudio();
-
-        }
-
-
-        soundEnabled =
-        !soundEnabled;
-
-
-        soundButton.textContent =
-
-        soundEnabled
-        ?
-        "♫"
-        :
-        "×";
-
-
-        if(
-            soundEnabled
-        ){
-
-            startAmbience();
-
-        }else{
-
-            stopAmbience();
-
-        }
-
-    }
+const star =
+document.createElement(
+"span"
 );
 
 
+star.className =
+"final-star";
 
-/* =====================================================
+
+star.style.left =
+Math.random() *
+100 +
+"%";
+
+
+star.style.top =
+Math.random() *
+100 +
+"%";
+
+
+star.style
+.setProperty(
+
+"--speed",
+
+(
+2 +
+Math.random() *
+4
+)
++
+"s"
+
+);
+
+
+star.style.animationDelay =
+(
+Math.random() *
+4
+)
++
+"s";
+
+
+finalStars
+.appendChild(
+star
+);
+
+}
+
+
+/* =========================================================
+SECRET
+========================================================= */
+
+const secretStar =
+document.getElementById(
+"secretStar"
+);
+
+
+const secretToast =
+document.getElementById(
+"secretToast"
+);
+
+
+let secretTimeout =
+null;
+
+
+secretStar.addEventListener(
+"click",
+function(){
+
+secretToast
+.classList
+.add(
+"show"
+);
+
+
+createBurst();
+
+
+clearTimeout(
+secretTimeout
+);
+
+
+secretTimeout =
+setTimeout(
+function(){
+
+secretToast
+.classList
+.remove(
+"show"
+);
+
+},
+4500
+);
+
+}
+);
+
+
+/* =========================================================
 SPARKLES
-===================================================== */
+========================================================= */
 
 function createSpark(){
 
-
-    const spark =
-    document.createElement(
-        "span"
-    );
-
-
-    spark.className =
-    "spark";
+const spark =
+document.createElement(
+"span"
+);
 
 
-    spark.style.left =
-    Math.random() *
-    100 +
-    "vw";
+spark.className =
+"spark";
 
 
-    spark.style
-    .setProperty(
-
-        "--drift",
-
-        (
-            Math.random() *
-            160 -
-            80
-        )
-        +
-        "px"
-
-    );
+spark.style.left =
+Math.random() *
+100 +
+"vw";
 
 
-    spark.style
-    .animationDuration =
+spark.style
+.setProperty(
 
-    (
-        7 +
-        Math.random() *
-        5
-    )
-    +
-    "s";
+"--drift",
 
+(
+Math.random() *
+160 -
+80
+)
++
+"px"
 
-    document
-    .body
-    .appendChild(
-        spark
-    );
+);
 
 
-    setTimeout(
-    function(){
+spark.style.animationDuration =
+(
+7 +
+Math.random() *
+5
+)
++
+"s";
 
 
-        spark.remove();
+document.body
+.appendChild(
+spark
+);
 
-    },
 
-    13000
-    );
+setTimeout(
+function(){
+
+spark.remove();
+
+},
+13000
+);
 
 }
 
 
-
 setInterval(
-    createSpark,
-    850
+createSpark,
+900
 );
-
 
 
 function createBurst(){
 
+for(
+let i = 0;
+i < 28;
+i++
+){
 
-    for(
-        let i = 0;
-        i < 24;
-        i++
-    ){
+setTimeout(
+createSpark,
+i * 28
+);
+
+}
+
+}
 
 
-        setTimeout(
+function createSmallBurst(){
 
-            createSpark,
+for(
+let i = 0;
+i < 9;
+i++
+){
 
-            i *
-            30
+setTimeout(
+createSpark,
+i * 40
+);
 
-        );
-
-    }
+}
 
 }
 
