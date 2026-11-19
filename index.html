@@ -1,63 +1,41 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#efe5d3">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<title>Feby's Kitchen Journal ♡</title>
 
-<meta name="theme-color"
-content="#08060b">
-
-<title>Untuk Feby ♡</title>
-
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link
-href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Italiana&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
-rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Italiana&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 
 <style>
 
-/* =========================================================
-ROOT
-========================================================= */
-
 :root{
+    --cream:#f2e8d5;
+    --paper:#fbf4e7;
+    --paper2:#efe1c9;
+    --ink:#382d27;
+    --muted:#796b60;
 
-    --bg:#08060b;
-    --bg-soft:#100b12;
+    --terracotta:#b86547;
+    --terracotta2:#d68765;
+    --olive:#78815c;
+    --olive2:#a6aa78;
+    --wine:#854b4b;
+    --gold:#ba8c4c;
 
-    --text:#fff5ef;
-    --muted:#b5a7af;
+    --dark:#29201c;
+    --wood:#7a4e35;
+    --wood2:#a16e49;
 
-    --pink:#ed91aa;
-    --pink-light:#ffc0d0;
-    --pink-dark:#97415b;
-
-    --glass:rgba(255,255,255,.045);
-
-    --line:rgba(255,255,255,.11);
-
-    --paper:#f4e8df;
-    --paper-text:#432e36;
+    --line:rgba(56,45,39,.14);
 
     --shadow:
-    0 30px 90px rgba(0,0,0,.38);
+        0 24px 70px rgba(63,42,30,.17);
 }
-
-
-/* =========================================================
-RESET
-========================================================= */
 
 *{
     box-sizing:border-box;
@@ -68,103 +46,40 @@ html{
 }
 
 body{
-
     margin:0;
-
-    color:var(--text);
-
-    font-family:
-    "DM Sans",sans-serif;
-
-    background:
-
-    radial-gradient(
-        circle at 8% 6%,
-        rgba(154,55,84,.16),
-        transparent 35rem
-    ),
-
-    radial-gradient(
-        circle at 95% 38%,
-        rgba(85,48,118,.12),
-        transparent 38rem
-    ),
-
-    var(--bg);
-
+    color:var(--ink);
+    background:var(--cream);
+    font-family:"DM Sans",sans-serif;
     overflow-x:hidden;
 }
-
 
 button{
     font:inherit;
 }
 
-
 button,
 a{
-    -webkit-tap-highlight-color:
-    transparent;
+    -webkit-tap-highlight-color:transparent;
 }
 
-
 ::selection{
-
-    color:#fff;
-
-    background:
-    rgba(237,145,170,.3);
+    background:rgba(184,101,71,.22);
 }
 
 
 /* =========================================================
-BACKGROUND
+TEXTURE
 ========================================================= */
 
-.noise{
-
+.paper-noise{
     position:fixed;
-
     inset:0;
-
     z-index:9999;
-
-    opacity:.03;
-
     pointer-events:none;
+    opacity:.045;
 
     background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
-
-    mix-blend-mode:
-    soft-light;
-}
-
-
-.cursor-glow{
-
-    position:fixed;
-
-    left:50%;
-    top:50%;
-
-    z-index:0;
-
-    width:340px;
-    height:340px;
-
-    border-radius:50%;
-
-    background:
-    rgba(230,105,143,.12);
-
-    filter:
-    blur(100px);
-
-    transform:
-    translate(-50%,-50%);
-
-    pointer-events:none;
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
 }
 
 
@@ -173,493 +88,375 @@ OPENING
 ========================================================= */
 
 .opening{
-
     position:fixed;
-
     inset:0;
-
     z-index:5000;
 
     display:grid;
-
     place-items:center;
 
     background:
-
-    radial-gradient(
-        circle at 50% 35%,
-        rgba(148,52,82,.34),
-        transparent 28rem
-    ),
-
-    #07050a;
+        radial-gradient(circle at 50% 40%,rgba(184,101,71,.12),transparent 35rem),
+        #efe4d0;
 
     transition:
-
-    opacity 1s ease,
-    visibility 1s ease;
+        opacity .9s ease,
+        visibility .9s ease;
 }
 
-
 .opening.hide{
-
     opacity:0;
-
     visibility:hidden;
-
     pointer-events:none;
 }
 
+.cookbook{
+    position:relative;
 
-.opening-inner{
+    width:min(88%,700px);
 
-    width:min(90%,760px);
+    padding:
+        clamp(40px,8vw,80px);
 
-    text-align:center;
-}
-
-
-.opening-light{
-
-    width:9px;
-    height:9px;
-
-    margin:
-    0 auto 30px;
-
-    border-radius:50%;
+    border-radius:
+        8px 22px 22px 8px;
 
     background:
-    var(--pink-light);
+        var(--paper);
+
+    border:
+        1px solid rgba(80,52,35,.12);
 
     box-shadow:
-
-    0 0 25px var(--pink),
-
-    0 0 70px
-    rgba(237,145,170,.5);
-
-    animation:
-    openingPulse 2s
-    ease-in-out infinite;
+        0 40px 100px rgba(65,42,25,.22);
 }
 
+.cookbook::before{
+    content:"";
 
-@keyframes openingPulse{
+    position:absolute;
 
-    50%{
+    top:0;
+    bottom:0;
+    left:26px;
 
-        transform:
-        scale(1.8);
+    width:1px;
 
-        opacity:.6;
-    }
+    background:
+        rgba(126,89,60,.15);
 }
 
+.cookbook-tab{
+    position:absolute;
 
-.opening-label{
+    right:-12px;
+    top:75px;
 
-    color:
-    var(--pink-light);
+    padding:10px 8px;
 
-    font-size:.68rem;
+    border-radius:
+        0 8px 8px 0;
 
-    letter-spacing:.34em;
+    color:#fff;
+
+    background:
+        var(--terracotta);
+
+    font-size:.58rem;
+
+    letter-spacing:.15em;
+
+    writing-mode:vertical-rl;
 
     text-transform:uppercase;
 }
 
+.cookbook-header{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
 
-.opening h1{
+    color:var(--olive);
 
+    font-size:.68rem;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+}
+
+.mini-spoon{
+    width:28px;
+    height:28px;
+}
+
+.cookbook h1{
     margin:
-    25px 0 20px;
+        22px 0 16px;
 
-    font-family:
-    "Italiana",serif;
+    text-align:center;
+
+    font-family:"Italiana",serif;
 
     font-size:
-    clamp(4rem,12vw,8rem);
+        clamp(3.5rem,10vw,7.5rem);
 
     font-weight:400;
 
-    line-height:.87;
+    line-height:.9;
 }
 
-
-.opening h1 span{
-
-    color:
-    var(--pink-light);
+.cookbook h1 span{
+    color:var(--terracotta);
 }
 
-
-.opening-copy{
-
-    min-height:65px;
-
-    max-width:590px;
+.cookbook-copy{
+    max-width:530px;
 
     margin:auto;
 
-    color:
-    var(--muted);
+    text-align:center;
+
+    color:var(--muted);
 
     line-height:1.9;
 }
 
-
 .open-button{
+    display:block;
 
-    margin-top:30px;
+    margin:
+        30px auto 0;
 
     padding:
-    14px 24px;
+        14px 24px;
 
-    border:
-    1px solid
-    rgba(255,255,255,.16);
+    border:0;
 
     border-radius:999px;
 
-    color:white;
+    color:#fff;
 
     background:
-    rgba(255,255,255,.07);
+        var(--terracotta);
 
     cursor:pointer;
 
-    transition:.3s;
+    box-shadow:
+        0 12px 30px rgba(184,101,71,.22);
+
+    transition:.25s;
 }
 
-
 .open-button:hover{
-
     transform:
-    translateY(-3px);
-
-    border-color:
-    rgba(237,145,170,.5);
+        translateY(-3px);
 
     background:
-    rgba(237,145,170,.11);
+        #a9563c;
 }
 
 
 /* =========================================================
-SITE
+SITE / NAV
 ========================================================= */
 
 .site{
-
-    position:relative;
-
-    z-index:2;
-
     opacity:0;
-
-    transition:
-    opacity 1.1s ease;
+    transition:.9s;
 }
-
 
 .site.show{
     opacity:1;
 }
 
-
-/* =========================================================
-NAVIGATION
-========================================================= */
-
 .navbar{
-
     position:fixed;
 
     top:15px;
     left:50%;
 
-    transform:
-    translateX(-50%);
-
     z-index:1000;
 
+    transform:
+        translateX(-50%);
+
     width:
-    min(calc(100% - 28px),1100px);
+        min(calc(100% - 24px),1120px);
 
     display:flex;
-
     align-items:center;
+    justify-content:space-between;
 
-    justify-content:
-    space-between;
-
-    gap:20px;
+    gap:18px;
 
     padding:
-    10px 13px 10px 18px;
+        10px 14px 10px 18px;
 
     border:
-    1px solid
-    rgba(255,255,255,.09);
+        1px solid rgba(60,42,32,.11);
 
     border-radius:999px;
 
     background:
-    rgba(9,6,12,.72);
+        rgba(251,244,231,.88);
 
     backdrop-filter:
-    blur(18px);
-}
+        blur(18px);
 
+    box-shadow:
+        0 10px 30px rgba(73,53,40,.09);
+}
 
 .brand{
+    display:flex;
+    align-items:center;
+    gap:8px;
 
     font-family:
-    "Playfair Display",serif;
+        "Playfair Display",serif;
 
     font-style:italic;
-
-    font-size:.9rem;
 }
 
+.brand svg{
+    width:22px;
+    height:22px;
+}
 
 .nav-dots{
-
     display:flex;
-
-    align-items:center;
-
     gap:5px;
 }
 
-
 .nav-dots span{
-
     width:5px;
     height:5px;
 
     border-radius:20px;
 
     background:
-    rgba(255,255,255,.18);
+        rgba(56,45,39,.2);
 
     transition:.3s;
 }
 
-
 .nav-dots span.active{
-
-    width:21px;
-
-    background:
-    var(--pink);
+    width:23px;
+    background:var(--terracotta);
 }
 
+.nav-label{
+    color:var(--olive);
 
-/* =========================================================
-MUSIC PLAYER
-========================================================= */
+    font-size:.62rem;
 
-.music-player{
-
-    position:fixed;
-
-    z-index:1400;
-
-    right:20px;
-    bottom:20px;
-
-    width:310px;
-
-    padding:
-    13px 14px;
-
-    border:
-    1px solid
-    rgba(255,255,255,.1);
-
-    border-radius:22px;
-
-    background:
-    rgba(12,8,14,.82);
-
-    backdrop-filter:
-    blur(20px);
-
-    box-shadow:
-    0 22px 60px
-    rgba(0,0,0,.35);
-
-    opacity:0;
-
-    transform:
-    translateY(25px);
-
-    pointer-events:none;
-
-    transition:
-    opacity .6s ease,
-    transform .6s ease;
-}
-
-
-.site.show
-.music-player{
-
-    opacity:1;
-
-    transform:none;
-
-    pointer-events:auto;
-}
-
-
-.music-main{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-}
-
-
-.music-button{
-
-    flex:
-    0 0 auto;
-
-    width:43px;
-    height:43px;
-
-    display:grid;
-
-    place-items:center;
-
-    padding:0;
-
-    border:
-    1px solid
-    rgba(255,255,255,.12);
-
-    border-radius:50%;
-
-    color:white;
-
-    background:
-
-    linear-gradient(
-        145deg,
-        rgba(221,111,143,.28),
-        rgba(255,255,255,.04)
-    );
-
-    cursor:pointer;
-
-    transition:.25s;
-}
-
-
-.music-button:hover{
-
-    transform:
-    scale(1.06);
-
-    border-color:
-    rgba(237,145,170,.4);
-}
-
-
-.music-icon{
-
-    display:block;
-
-    font-size:1rem;
-}
-
-
-.music-details{
-
-    min-width:0;
-
-    flex:1;
-}
-
-
-.music-small{
-
-    color:
-    var(--pink);
-
-    font-size:.55rem;
-
-    letter-spacing:.16em;
+    letter-spacing:.13em;
 
     text-transform:uppercase;
 }
 
 
+/* =========================================================
+MUSIC
+========================================================= */
+
+.music-player{
+    position:fixed;
+
+    right:18px;
+    bottom:18px;
+
+    z-index:1300;
+
+    width:300px;
+
+    padding:13px 14px;
+
+    border:
+        1px solid rgba(70,50,35,.12);
+
+    border-radius:19px;
+
+    background:
+        rgba(251,244,231,.92);
+
+    box-shadow:
+        0 18px 45px rgba(75,50,35,.16);
+
+    backdrop-filter:blur(18px);
+}
+
+.music-row{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.music-play{
+    width:42px;
+    height:42px;
+
+    flex:0 0 auto;
+
+    border:0;
+    border-radius:50%;
+
+    color:#fff;
+    background:var(--terracotta);
+
+    cursor:pointer;
+}
+
+.music-info{
+    min-width:0;
+    flex:1;
+}
+
+.music-label{
+    color:var(--olive);
+
+    font-size:.53rem;
+
+    letter-spacing:.14em;
+
+    text-transform:uppercase;
+}
+
 .music-title{
-
-    margin-top:3px;
-
     overflow:hidden;
-
     white-space:nowrap;
-
     text-overflow:ellipsis;
 
     font-family:
-    "Playfair Display",serif;
-
-    font-size:.96rem;
+        "Playfair Display",serif;
 }
-
 
 .music-time{
-
-    margin-top:2px;
-
-    color:#776b72;
-
-    font-size:.65rem;
+    color:#93867c;
+    font-size:.62rem;
 }
 
-
-.music-progress-wrap{
-
-    margin-top:11px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:9px;
+.music-mute{
+    border:0;
+    background:none;
+    cursor:pointer;
 }
-
 
 .music-progress{
-
     width:100%;
-
     height:3px;
+
+    margin-top:10px;
 
     appearance:none;
 
     border-radius:20px;
 
-    outline:none;
-
-    cursor:pointer;
-
     background:
-    rgba(255,255,255,.11);
+        rgba(80,60,45,.14);
 }
 
-
 .music-progress::-webkit-slider-thumb{
-
     appearance:none;
 
     width:9px;
@@ -667,56 +464,7 @@ MUSIC PLAYER
 
     border-radius:50%;
 
-    background:
-    var(--pink-light);
-
-    box-shadow:
-    0 0 10px
-    rgba(237,145,170,.4);
-}
-
-
-.volume-button{
-
-    flex:
-    0 0 auto;
-
-    width:28px;
-    height:28px;
-
-    padding:0;
-
-    border:0;
-
-    color:
-    rgba(255,255,255,.65);
-
-    background:
-    transparent;
-
-    cursor:pointer;
-}
-
-
-.music-error{
-
-    display:none;
-
-    margin-top:8px;
-
-    color:
-    #ca8297;
-
-    font-size:.67rem;
-
-    line-height:1.4;
-}
-
-
-.music-player.error
-.music-error{
-
-    display:block;
+    background:var(--terracotta);
 }
 
 
@@ -724,974 +472,1064 @@ MUSIC PLAYER
 GENERAL
 ========================================================= */
 
-main{
-
-    position:relative;
-
-    z-index:5;
-}
-
-
 .section{
-
     position:relative;
 
     min-height:100svh;
 
     padding:
-
-    125px
-    max(24px,7vw)
-    95px;
+        125px
+        max(22px,7vw)
+        100px;
 
     display:grid;
-
     align-items:center;
 }
 
-
 .section-inner{
-
-    width:
-    min(100%,1250px);
-
+    width:min(100%,1240px);
     margin:auto;
 }
 
+.section-kicker{
+    color:var(--terracotta);
 
-.eyebrow{
+    font-size:.67rem;
 
-    margin-bottom:20px;
-
-    color:
-    var(--pink);
-
-    font-size:.68rem;
-
-    letter-spacing:.27em;
+    letter-spacing:.25em;
 
     text-transform:uppercase;
 }
 
-
 .title{
+    margin:
+        17px 0 0;
 
-    margin:0;
-
-    font-family:
-    "Playfair Display",serif;
+    font-family:"Playfair Display",serif;
 
     font-size:
-    clamp(3rem,7vw,6.8rem);
+        clamp(3rem,7vw,6.5rem);
 
     font-weight:500;
-
-    letter-spacing:-.045em;
 
     line-height:.98;
-}
 
+    letter-spacing:-.045em;
+}
 
 .title em{
-
-    color:
-    var(--pink);
-
-    font-weight:500;
+    color:var(--terracotta);
 }
 
+.section-copy{
+    max-width:620px;
 
-/* =========================================================
-REVEAL
-========================================================= */
+    color:var(--muted);
+
+    line-height:1.9;
+}
 
 .fade{
-
     opacity:0;
 
     transform:
-    translateY(28px);
+        translateY(26px);
 
     transition:
-
-    opacity .85s ease,
-
-    transform .85s ease;
+        opacity .8s ease,
+        transform .8s ease;
 }
 
-
 .fade.visible{
-
     opacity:1;
-
     transform:none;
 }
 
 
 /* =========================================================
-01 HERO
+01 KITCHEN HERO
 ========================================================= */
 
-.hero-grid{
+.hero{
+    background:
+        linear-gradient(
+            180deg,
+            #f3e9d5 0%,
+            #efe1ca 100%
+        );
+}
 
-    width:
-    min(100%,1350px);
+.hero-grid{
+    width:min(100%,1320px);
 
     margin:auto;
 
     display:grid;
 
     grid-template-columns:
-    1.08fr .92fr;
+        1fr 1fr;
 
     gap:
-    clamp(40px,7vw,105px);
+        clamp(45px,7vw,100px);
 
     align-items:center;
 }
 
-
 .hero-copy{
+    margin-top:27px;
 
-    max-width:630px;
+    max-width:610px;
 
-    margin-top:30px;
+    color:var(--muted);
 
-    color:
-    var(--muted);
+    line-height:1.95;
+}
 
-    line-height:2;
+.hero-note{
+    margin-top:25px;
 
-    font-size:
-    clamp(.98rem,1.4vw,1.15rem);
+    width:max-content;
+    max-width:100%;
+
+    padding:
+        11px 16px;
+
+    border-radius:
+        4px 13px 13px 4px;
+
+    color:#fff;
+
+    background:var(--terracotta);
+
+    font-family:
+        "Playfair Display",serif;
+
+    font-style:italic;
+
+    transform:
+        rotate(-1deg);
 }
 
 
-.hero-tiny{
+/* kitchen illustration */
 
-    margin-top:18px;
-
-    color:#887b84;
-
-    font-size:.8rem;
-}
-
-
-/* =========================================================
-MOON
-========================================================= */
-
-.moon-zone{
-
+.kitchen-scene{
     position:relative;
 
-    min-height:550px;
-
-    display:grid;
-
-    place-items:center;
+    min-height:560px;
 }
 
-
-.moon{
-
-    width:
-    min(30vw,390px);
-
-    min-width:280px;
-
-    aspect-ratio:1;
-
-    border-radius:50%;
-
-    background:
-
-    radial-gradient(
-        circle at 35% 28%,
-        rgba(255,255,255,.85),
-        transparent 5%
-    ),
-
-    radial-gradient(
-        circle at 64% 63%,
-        rgba(80,40,60,.13),
-        transparent 15%
-    ),
-
-    linear-gradient(
-        145deg,
-        #fff6ee,
-        #dbc4cc 65%,
-        #9d7885
-    );
-
-    box-shadow:
-
-    0 0 80px
-    rgba(255,220,228,.16),
-
-    0 0 170px
-    rgba(190,85,115,.15);
-
-    animation:
-    moonFloat 6s
-    ease-in-out infinite;
-}
-
-
-@keyframes moonFloat{
-
-    50%{
-
-        transform:
-        translateY(-14px);
-    }
-}
-
-
-.orbit{
-
+.wall{
     position:absolute;
 
-    width:
-    min(39vw,510px);
+    inset:
+        0 0 160px;
 
-    min-width:350px;
+    border-radius:
+        30px 30px 0 0;
 
-    aspect-ratio:1;
+    background:
+        #e8dbc5;
 
     border:
-    1px solid
-    rgba(255,255,255,.08);
+        1px solid rgba(84,57,41,.08);
 
-    border-radius:50%;
-
-    pointer-events:none;
-
-    animation:
-    orbitSpin 17s
-    linear infinite;
+    overflow:hidden;
 }
 
+.tile-grid{
+    position:absolute;
 
-.orbit::after{
+    inset:0;
 
+    opacity:.25;
+
+    background-image:
+        linear-gradient(
+            rgba(85,62,45,.17) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(85,62,45,.17) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        70px 70px;
+}
+
+.kitchen-shelf{
+    position:absolute;
+
+    left:9%;
+    right:9%;
+    top:50px;
+
+    height:15px;
+
+    border-radius:6px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #8b5e41,
+            #6d4530
+        );
+
+    box-shadow:
+        0 12px 18px rgba(70,43,27,.14);
+}
+
+.jar{
+    position:absolute;
+
+    bottom:15px;
+
+    width:47px;
+    height:68px;
+
+    border:
+        2px solid rgba(72,53,40,.25);
+
+    border-radius:
+        5px 5px 15px 15px;
+
+    background:
+        rgba(247,239,220,.65);
+}
+
+.jar::before{
     content:"";
 
     position:absolute;
 
-    top:14%;
-    left:16%;
+    top:-7px;
+    left:4px;
+    right:4px;
 
-    width:9px;
-    height:9px;
+    height:8px;
+
+    border-radius:4px;
+
+    background:#694a38;
+}
+
+.jar.one{
+    left:11%;
+}
+
+.jar.two{
+    left:24%;
+}
+
+.jar.three{
+    right:12%;
+}
+
+.jar.one::after{
+    content:"SALT";
+}
+
+.jar.two::after{
+    content:"SUGAR";
+}
+
+.jar.three::after{
+    content:"LOVE";
+}
+
+.jar::after{
+    position:absolute;
+
+    inset:auto 0 18px;
+
+    text-align:center;
+
+    color:#806f62;
+
+    font-size:.47rem;
+
+    letter-spacing:.1em;
+}
+
+.hanging-tools{
+    position:absolute;
+
+    top:108px;
+    right:13%;
+
+    display:flex;
+
+    gap:20px;
+}
+
+.tool{
+    position:relative;
+
+    width:14px;
+    height:110px;
+
+    border-radius:8px;
+
+    background:#665249;
+}
+
+.tool::before{
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    bottom:-11px;
+
+    width:38px;
+    height:30px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:50%;
+
+    border:
+        4px solid #665249;
+}
+
+.tool.whisk::before{
+    width:34px;
+    height:50px;
 
     border-radius:50%;
 
     background:
-    var(--pink-light);
+        repeating-linear-gradient(
+            90deg,
+            transparent 0 5px,
+            #665249 5px 7px
+        );
 
-    box-shadow:
-    0 0 20px
-    var(--pink);
+    border:none;
 }
 
+.counter{
+    position:absolute;
 
-@keyframes orbitSpin{
+    left:0;
+    right:0;
+    bottom:0;
 
-    to{
+    height:170px;
+
+    border-radius:
+        0 0 30px 30px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #9c6848,
+            #765038
+        );
+
+    box-shadow:
+        inset 0 5px rgba(255,255,255,.08);
+}
+
+.cutting-board{
+    position:absolute;
+
+    left:15%;
+    bottom:55px;
+
+    width:45%;
+    height:170px;
+
+    border-radius:
+        24px 24px 35px 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #c18b5e,
+            #9a6745
+        );
+
+    box-shadow:
+        0 20px 35px rgba(65,40,25,.2);
+
+    transform:
+        rotate(-4deg);
+}
+
+.cutting-board::before{
+    content:"";
+
+    position:absolute;
+
+    top:15px;
+    right:18px;
+
+    width:24px;
+    height:24px;
+
+    border:
+        5px solid rgba(90,52,33,.4);
+
+    border-radius:50%;
+}
+
+.board-writing{
+    position:absolute;
+
+    left:20px;
+    bottom:25px;
+
+    font-family:
+        "Playfair Display",serif;
+
+    font-size:
+        clamp(1.4rem,3vw,2.4rem);
+
+    font-style:italic;
+
+    color:
+        rgba(67,43,28,.76);
+}
+
+.pot{
+    position:absolute;
+
+    right:12%;
+    bottom:60px;
+
+    width:150px;
+    height:105px;
+
+    border-radius:
+        15px 15px 45px 45px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #5e5852,
+            #332f2d
+        );
+
+    box-shadow:
+        0 20px 30px rgba(45,31,24,.25);
+}
+
+.pot::before{
+    content:"";
+
+    position:absolute;
+
+    top:-16px;
+    left:-12px;
+
+    width:175px;
+    height:23px;
+
+    border-radius:50%;
+
+    background:#403a36;
+}
+
+.pot::after{
+    content:"";
+
+    position:absolute;
+
+    right:-60px;
+    top:25px;
+
+    width:70px;
+    height:14px;
+
+    border-radius:8px;
+
+    background:#423a35;
+}
+
+.steam{
+    position:absolute;
+
+    bottom:147px;
+
+    width:12px;
+    height:70px;
+
+    border-left:
+        3px solid rgba(255,255,255,.42);
+
+    border-radius:50%;
+
+    filter:blur(1px);
+
+    animation:
+        steam 3.2s ease-in-out infinite;
+}
+
+.steam.a{
+    right:23%;
+}
+
+.steam.b{
+    right:19%;
+    animation-delay:.8s;
+}
+
+.steam.c{
+    right:15%;
+    animation-delay:1.4s;
+}
+
+@keyframes steam{
+    0%{
         transform:
-        rotate(360deg);
+            translateY(20px)
+            translateX(0);
+
+        opacity:0;
+    }
+
+    40%{
+        opacity:.55;
+    }
+
+    100%{
+        transform:
+            translateY(-50px)
+            translateX(15px);
+
+        opacity:0;
     }
 }
 
 
-.floating-label{
-
-    position:absolute;
-
-    padding:
-    8px 13px;
-
-    border:
-    1px solid
-    rgba(255,255,255,.09);
-
-    border-radius:999px;
-
-    background:
-    rgba(9,7,12,.7);
-
-    color:
-    rgba(255,255,255,.75);
-
-    font-family:
-    "Playfair Display",serif;
-
-    font-style:italic;
-}
-
-
-.float-one{
-
-    top:14%;
-    right:3%;
-}
-
-
-.float-two{
-
-    bottom:15%;
-    left:2%;
-}
-
-
-.float-three{
-
-    right:2%;
-    bottom:29%;
-}
-
-
 /* =========================================================
-02 STORY
+02 PANTRY / INGREDIENTS
 ========================================================= */
 
-.story-grid{
+.ingredients{
+    background:#faf4e8;
+}
 
-    width:
-    min(100%,1250px);
+.ingredients-head{
+    max-width:850px;
+
+    margin:
+        0 auto 70px;
+
+    text-align:center;
+}
+
+.ingredients-head .section-copy{
+    margin:
+        25px auto 0;
+}
+
+.pantry{
+    width:min(100%,1100px);
 
     margin:auto;
 
     display:grid;
 
     grid-template-columns:
-    .8fr 1.2fr;
-
-    gap:
-    clamp(50px,8vw,120px);
-
-    align-items:start;
-}
-
-
-.story-heading{
-
-    position:sticky;
-
-    top:130px;
-}
-
-
-.story-heading p{
-
-    max-width:410px;
-
-    color:
-    var(--muted);
-
-    line-height:1.9;
-}
-
-
-.story-list{
-
-    display:grid;
+        repeat(3,1fr);
 
     gap:20px;
 }
 
-
-.story-card{
-
+.pantry-item{
     position:relative;
 
-    min-height:220px;
+    min-height:260px;
 
     padding:
-    clamp(27px,4vw,45px);
+        34px 30px;
 
     border:
-    1px solid var(--line);
+        1px solid rgba(85,58,42,.11);
 
-    border-radius:28px;
+    border-radius:
+        18px;
 
     background:
-    var(--glass);
+        #eee0c8;
+
+    box-shadow:
+        0 15px 40px rgba(78,55,39,.08);
 
     overflow:hidden;
 
     transition:.3s;
 }
 
-
-.story-card:hover{
-
+.pantry-item:hover{
     transform:
-    translateY(-4px);
-
-    border-color:
-    rgba(237,145,170,.3);
+        translateY(-6px);
 }
 
-
-.story-number{
-
-    position:absolute;
-
-    top:15px;
-    right:24px;
-
-    color:
-    rgba(237,145,170,.18);
-
-    font-family:
-    "Italiana",serif;
-
-    font-size:3.2rem;
-}
-
-
-.story-card h3{
-
-    margin:
-    0 0 14px;
-
-    font-family:
-    "Playfair Display",serif;
-
-    font-size:
-    clamp(1.5rem,3vw,2.4rem);
-
-    font-weight:500;
-}
-
-
-.story-card p{
-
-    max-width:650px;
-
-    margin:0;
-
-    color:
-    var(--muted);
-
-    line-height:1.9;
-}
-
-
-/* =========================================================
-03 TIMELINE
-========================================================= */
-
-.timeline-heading{
-
-    max-width:850px;
-
-    margin:
-    0 auto 75px;
-
-    text-align:center;
-}
-
-
-.timeline-copy{
-
-    max-width:580px;
-
-    margin:
-    25px auto 0;
-
-    color:
-    var(--muted);
-
-    line-height:1.9;
-}
-
-
-.timeline{
-
-    position:relative;
-
-    width:
-    min(100%,950px);
-
-    margin:auto;
-}
-
-
-.timeline::before{
-
+.pantry-item::before{
     content:"";
 
     position:absolute;
 
     top:0;
-    bottom:0;
-    left:50%;
+    left:0;
+    right:0;
 
-    width:1px;
-
-    background:
-
-    linear-gradient(
-        transparent,
-        rgba(237,145,170,.45),
-        rgba(255,255,255,.12),
-        transparent
-    );
-}
-
-
-.timeline-item{
-
-    position:relative;
-
-    width:50%;
-
-    padding:
-    0 55px 70px 0;
-}
-
-
-.timeline-item:nth-child(even){
-
-    margin-left:50%;
-
-    padding:
-    0 0 70px 55px;
-}
-
-
-.timeline-dot{
-
-    position:absolute;
-
-    top:13px;
-    right:-7px;
-
-    width:14px;
-    height:14px;
-
-    border-radius:50%;
-
-    border:
-    3px solid var(--bg);
+    height:9px;
 
     background:
-    var(--pink);
-
-    box-shadow:
-    0 0 22px
-    rgba(237,145,170,.45);
+        var(--accent);
 }
 
+.pantry-amount{
+    color:var(--accent);
 
-.timeline-item:nth-child(even)
-.timeline-dot{
+    font-family:"Italiana",serif;
 
-    right:auto;
-
-    left:-7px;
+    font-size:2rem;
 }
 
-
-.timeline-card{
-
-    padding:
-    26px 28px;
-
-    border:
-    1px solid var(--line);
-
-    border-radius:22px;
-
-    background:
-    rgba(255,255,255,.04);
-}
-
-
-.timeline-label{
-
-    color:
-    var(--pink);
-
-    font-size:.67rem;
-
-    letter-spacing:.18em;
-
-    text-transform:uppercase;
-}
-
-
-.timeline-card h3{
-
+.pantry-item h3{
     margin:
-    11px 0 10px;
+        16px 0 12px;
 
     font-family:
-    "Playfair Display",serif;
+        "Playfair Display",serif;
 
     font-size:1.8rem;
 
     font-weight:500;
 }
 
-
-.timeline-card p{
-
+.pantry-item p{
     margin:0;
 
+    color:var(--muted);
+
+    line-height:1.8;
+}
+
+.pantry-sticker{
+    position:absolute;
+
+    right:-15px;
+    bottom:-25px;
+
+    width:100px;
+    height:100px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
     color:
-    var(--muted);
+        rgba(255,255,255,.65);
+
+    background:
+        var(--accent);
+
+    font-family:
+        "Italiana",serif;
+
+    font-size:2.5rem;
+
+    transform:
+        rotate(15deg);
+}
+
+
+/* =========================================================
+03 RECIPE STEPS
+========================================================= */
+
+.steps{
+    background:
+        linear-gradient(
+            180deg,
+            #ede0ca,
+            #e6d4b9
+        );
+}
+
+.steps-layout{
+    width:min(100%,1080px);
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        .78fr 1.22fr;
+
+    gap:
+        clamp(45px,7vw,90px);
+
+    align-items:start;
+}
+
+.steps-title{
+    position:sticky;
+
+    top:125px;
+}
+
+.steps-title .section-copy{
+    margin-top:25px;
+}
+
+.recipe-steps{
+    display:grid;
+    gap:18px;
+}
+
+.recipe-step{
+    position:relative;
+
+    padding:
+        29px 30px 29px 95px;
+
+    border-radius:
+        15px;
+
+    background:
+        var(--paper);
+
+    border:
+        1px solid rgba(78,54,39,.1);
+
+    box-shadow:
+        0 13px 35px rgba(74,53,38,.08);
+}
+
+.step-number{
+    position:absolute;
+
+    left:25px;
+    top:25px;
+
+    width:49px;
+    height:49px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    color:#fff;
+
+    background:
+        var(--terracotta);
+
+    font-family:
+        "Italiana",serif;
+
+    font-size:1.5rem;
+}
+
+.recipe-step small{
+    color:var(--olive);
+
+    font-size:.6rem;
+
+    letter-spacing:.17em;
+
+    text-transform:uppercase;
+}
+
+.recipe-step h3{
+    margin:
+        9px 0 10px;
+
+    font-family:
+        "Playfair Display",serif;
+
+    font-size:
+        1.75rem;
+
+    font-weight:500;
+}
+
+.recipe-step p{
+    margin:0;
+
+    color:var(--muted);
 
     line-height:1.8;
 }
 
 
 /* =========================================================
-04 PHOTOS
+04 COOKBOOK PHOTOS
 ========================================================= */
 
-.photos-section{
-
+.photos{
     display:block;
 
     min-height:auto;
 
     padding-top:145px;
-
     padding-bottom:170px;
+
+    background:#f8f0e1;
 }
 
-
-.photos-heading{
-
-    max-width:900px;
+.photos-head{
+    max-width:850px;
 
     margin:
-    0 auto 75px;
+        0 auto 75px;
 
     text-align:center;
 }
 
-
-.photos-heading p{
-
-    max-width:610px;
-
+.photos-head .section-copy{
     margin:
-    27px auto 0;
-
-    color:
-    var(--muted);
-
-    line-height:1.9;
+        25px auto 0;
 }
 
-
-.memory-grid{
-
-    width:
-    min(100%,1120px);
+.cookbook-page{
+    width:min(100%,1150px);
 
     margin:auto;
 
+    padding:
+        clamp(25px,5vw,55px);
+
+    border:
+        1px solid rgba(72,50,35,.1);
+
+    border-radius:
+        8px 28px 28px 8px;
+
+    background:
+        #eee0c8;
+
+    box-shadow:
+        0 35px 90px rgba(78,52,35,.15);
+
+    position:relative;
+}
+
+.cookbook-page::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    bottom:0;
+    left:45px;
+
+    width:1px;
+
+    background:
+        rgba(90,55,35,.11);
+}
+
+.memory-grid{
     display:grid;
 
     grid-template-columns:
-    repeat(12,1fr);
+        repeat(12,1fr);
 
     gap:
-    clamp(17px,2.6vw,35px);
+        clamp(16px,2.4vw,32px);
 }
 
-
 .memory{
-
-    min-width:0;
-
     margin:0;
 }
 
-
 .memory:nth-child(1){
-
     grid-column:
-    1 / span 6;
+        1 / span 6;
 }
-
 
 .memory:nth-child(2){
-
     grid-column:
-    7 / span 6;
+        7 / span 6;
 
-    margin-top:95px;
+    margin-top:65px;
 }
-
 
 .memory:nth-child(3){
-
     grid-column:
-    2 / span 5;
-
-    margin-top:-20px;
+        2 / span 5;
 }
-
 
 .memory:nth-child(4){
-
     grid-column:
-    7 / span 5;
+        7 / span 5;
 
-    margin-top:60px;
+    margin-top:50px;
 }
 
-
 .memory:nth-child(5){
-
     grid-column:
-    4 / span 6;
+        4 / span 6;
 
     margin-top:40px;
 }
 
-
 .photo-button{
-
-    display:block;
+    position:relative;
 
     width:100%;
 
-    padding:10px;
+    padding:
+        9px 9px 40px;
 
     border:0;
 
-    background:
-    #f1e7e0;
+    background:#fffaf1;
 
     box-shadow:
-    0 25px 70px
-    rgba(0,0,0,.33);
+        0 18px 45px rgba(75,50,35,.17);
 
     cursor:pointer;
 
-    transition:.4s;
+    transition:.35s;
 }
 
-
-.memory:nth-child(1)
+.memory:nth-child(odd)
 .photo-button{
-    transform:rotate(-2deg);
+    transform:
+        rotate(-1.5deg);
 }
 
-
-.memory:nth-child(2)
+.memory:nth-child(even)
 .photo-button{
-    transform:rotate(2deg);
+    transform:
+        rotate(1.5deg);
 }
-
-
-.memory:nth-child(3)
-.photo-button{
-    transform:rotate(1.4deg);
-}
-
-
-.memory:nth-child(4)
-.photo-button{
-    transform:rotate(-1.5deg);
-}
-
-
-.memory:nth-child(5)
-.photo-button{
-    transform:rotate(.8deg);
-}
-
 
 .photo-button:hover{
-
     transform:
-    translateY(-7px)
-    rotate(0deg);
-
-    box-shadow:
-    0 35px 85px
-    rgba(0,0,0,.42);
+        translateY(-8px)
+        rotate(0deg);
 }
-
 
 .photo-surface{
-
     width:100%;
-
-    aspect-ratio:
-    3 / 4;
-
-    background-color:
-    #d9cbc5;
-
-    background-position:center;
-
-    background-repeat:no-repeat;
+    aspect-ratio:3/4;
 
     background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
 }
 
+.photo-tape{
+    position:absolute;
 
-.memory figcaption{
+    top:-12px;
+    left:50%;
 
-    display:flex;
+    width:90px;
+    height:28px;
 
-    justify-content:
-    space-between;
+    transform:
+        translateX(-50%)
+        rotate(-2deg);
 
-    gap:20px;
-
-    padding:
-    17px 4px 0;
+    background:
+        rgba(194,171,128,.55);
 }
 
+.photo-note{
+    position:absolute;
 
-.memory h4{
+    left:13px;
+    right:13px;
+    bottom:12px;
 
-    margin:0;
-
-    font-family:
-    "Playfair Display",serif;
-
-    font-size:
-    clamp(1.1rem,2.4vw,1.7rem);
-
-    font-weight:500;
-}
-
-
-.memory figcaption span{
-
-    color:
-    var(--pink);
-
-    font-family:
-    "Italiana",serif;
-
-    font-size:1.6rem;
-}
-
-
-.photo-quote{
-
-    max-width:720px;
-
-    margin:
-    95px auto 0;
-
-    color:
-    var(--muted);
+    color:#58483f;
 
     text-align:center;
 
     font-family:
-    "Playfair Display",serif;
+        "Playfair Display",serif;
 
-    font-size:
-    clamp(1.15rem,2.5vw,1.6rem);
+    font-size:.95rem;
 
     font-style:italic;
+}
 
-    line-height:1.7;
+.memory figcaption{
+    padding-top:14px;
+
+    color:#625348;
+
+    font-family:
+        "Playfair Display",serif;
+
+    font-size:1.2rem;
 }
 
 
 /* =========================================================
-05 LIKES
+05 FLIP CARDS
 ========================================================= */
 
-.likes-heading{
+.favorite{
+    background:
+        #e5d3b8;
+}
 
+.favorite-head{
     max-width:850px;
 
     margin:
-    0 auto 65px;
+        0 auto 65px;
 
     text-align:center;
 }
 
-
-.likes-copy{
-
-    max-width:580px;
-
+.favorite-head .section-copy{
     margin:
-    25px auto 0;
-
-    color:
-    var(--muted);
-
-    line-height:1.9;
+        25px auto 0;
 }
 
-
-.likes-grid{
-
-    width:
-    min(100%,1050px);
+.favorite-grid{
+    width:min(100%,1080px);
 
     margin:auto;
 
     display:grid;
 
     grid-template-columns:
-    repeat(3,1fr);
+        repeat(3,1fr);
 
     gap:18px;
 }
 
-
-.like-card{
-
+.favorite-card{
     position:relative;
 
-    min-height:250px;
-
-    padding:0;
+    min-height:260px;
 
     border:
-    1px solid var(--line);
+        1px solid rgba(83,58,43,.12);
 
-    border-radius:25px;
-
-    color:var(--text);
+    border-radius:16px;
 
     background:
-    rgba(255,255,255,.04);
+        var(--paper);
 
     overflow:hidden;
 
     cursor:pointer;
 
-    text-align:left;
-
-    transition:.35s;
+    box-shadow:
+        0 14px 40px rgba(75,51,34,.08);
 }
 
-
-.like-card:hover{
-
-    transform:
-    translateY(-5px);
-
-    border-color:
-    rgba(237,145,170,.3);
-}
-
-
-.like-front,
-.like-back{
-
+.favorite-front,
+.favorite-back{
     position:absolute;
 
     inset:0;
@@ -1701,1039 +1539,604 @@ MOON
     transition:.45s;
 }
 
-
-.like-front{
-
+.favorite-front{
     display:flex;
-
     flex-direction:column;
-
     justify-content:flex-end;
 }
 
-
-.like-number{
+.favorite-front::before{
+    content:"";
 
     position:absolute;
 
-    top:20px;
-    right:22px;
+    top:0;
+    left:0;
+    right:0;
 
-    font-family:
-    "Italiana",serif;
+    height:10px;
 
-    font-size:2.6rem;
-
-    color:
-    rgba(237,145,170,.18);
+    background:
+        var(--accent);
 }
 
+.favorite-label{
+    position:absolute;
 
-.like-icon{
+    top:28px;
+    left:30px;
 
-    margin-bottom:15px;
+    color:var(--olive);
 
-    color:
-    var(--pink);
+    font-size:.6rem;
 
-    font-size:1.5rem;
+    letter-spacing:.17em;
+
+    text-transform:uppercase;
 }
 
+.favorite-number{
+    position:absolute;
 
-.like-front h3{
+    right:24px;
+    top:18px;
 
+    color:
+        rgba(114,77,52,.14);
+
+    font-family:"Italiana",serif;
+
+    font-size:3rem;
+}
+
+.favorite-front h3{
     margin:0;
 
     font-family:
-    "Playfair Display",serif;
+        "Playfair Display",serif;
 
     font-size:1.8rem;
 
     font-weight:500;
 }
 
-
-.like-front small{
-
+.favorite-front small{
     margin-top:10px;
-
-    color:#867a82;
+    color:#998b80;
 }
 
-
-.like-back{
-
+.favorite-back{
     display:flex;
-
     align-items:center;
 
-    color:
-    var(--muted);
+    color:#69594f;
 
     line-height:1.85;
 
     opacity:0;
 
     transform:
-    translateY(20px);
+        translateY(20px);
 
     background:
+        #fbf3e6;
+}
 
-    linear-gradient(
-        145deg,
-        rgba(111,40,62,.24),
-        rgba(255,255,255,.025)
-    );
+.favorite-card.open
+.favorite-front{
+    opacity:0;
+    transform:
+        translateY(-20px);
+}
+
+.favorite-card.open
+.favorite-back{
+    opacity:1;
+    transform:none;
 }
 
 
-.like-card.open
-.like-front{
+/* =========================================================
+06 RECIPE BOX
+========================================================= */
+
+.recipebox{
+    display:block;
+
+    min-height:auto;
+
+    padding-top:145px;
+    padding-bottom:160px;
+
+    background:#f7efe1;
+}
+
+.recipebox-head{
+    max-width:850px;
+
+    margin:
+        0 auto 70px;
+
+    text-align:center;
+}
+
+.recipebox-head .section-copy{
+    margin:
+        25px auto 0;
+}
+
+.wood-box{
+    position:relative;
+
+    width:min(100%,1080px);
+
+    margin:auto;
+
+    padding:
+        45px 40px 55px;
+
+    border-radius:
+        12px 12px 35px 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #9d6745,
+            #72482f
+        );
+
+    box-shadow:
+        0 35px 70px rgba(72,45,29,.25);
+}
+
+.wood-box::before{
+    content:"FEBY'S RECIPE BOX";
+
+    position:absolute;
+
+    top:16px;
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    color:
+        rgba(255,245,225,.7);
+
+    font-size:.58rem;
+
+    letter-spacing:.2em;
+}
+
+.letter-cards{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:22px;
+
+    margin-top:20px;
+}
+
+.letter-card{
+    min-height:250px;
+
+    padding:28px;
+
+    border:0;
+
+    border-radius:
+        5px 5px 17px 5px;
+
+    color:var(--ink);
+
+    background:
+        var(--paper);
+
+    text-align:left;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 18px 35px rgba(55,33,20,.22);
+
+    transition:.35s;
+}
+
+.letter-card:nth-child(1){
+    transform:
+        rotate(-1.7deg);
+}
+
+.letter-card:nth-child(2){
+    transform:
+        translateY(10px);
+}
+
+.letter-card:nth-child(3){
+    transform:
+        rotate(1.7deg);
+}
+
+.letter-card:hover{
+    transform:
+        translateY(-10px)
+        rotate(0);
+}
+
+.letter-label{
+    color:var(--terracotta);
+
+    font-size:.58rem;
+
+    letter-spacing:.17em;
+
+    text-transform:uppercase;
+}
+
+.letter-card h3{
+    margin:
+        17px 0 13px;
+
+    font-family:
+        "Playfair Display",serif;
+
+    font-size:1.85rem;
+
+    font-weight:500;
+}
+
+.letter-card p{
+    margin:0;
+
+    color:#7a675d;
+
+    line-height:1.75;
+}
+
+.letter-reading{
+    width:min(100%,900px);
+
+    max-height:0;
+
+    margin:
+        0 auto;
+
+    overflow:hidden;
 
     opacity:0;
 
     transform:
-    translateY(-20px);
+        translateY(-10px);
+
+    transition:
+        max-height .7s,
+        opacity .5s,
+        transform .6s,
+        margin .6s;
 }
 
+.letter-reading.open{
+    max-height:1100px;
 
-.like-card.open
-.like-back{
+    margin:
+        65px auto 0;
 
     opacity:1;
 
     transform:none;
 }
 
+.letter-paper{
+    position:relative;
+
+    padding:
+        clamp(36px,6vw,65px);
+
+    border:
+        1px solid rgba(75,52,36,.1);
+
+    border-radius:
+        7px 7px 26px 7px;
+
+    color:var(--ink);
+
+    background:
+        var(--paper);
+
+    box-shadow:
+        var(--shadow);
+}
+
+.letter-paper::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+    bottom:0;
+
+    width:7px;
+
+    background:var(--terracotta);
+}
+
+.letter-paper h3{
+    max-width:680px;
+
+    margin:
+        20px 0 28px;
+
+    font-family:
+        "Playfair Display",serif;
+
+    font-size:
+        clamp(2rem,4vw,3.5rem);
+
+    font-weight:500;
+
+    line-height:1.08;
+}
+
+.letter-meta{
+    color:var(--olive);
+
+    font-size:.62rem;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+}
+
+.letter-body{
+    max-width:700px;
+}
+
+.letter-body p{
+    font-family:
+        "Playfair Display",serif;
+
+    font-size:
+        clamp(1rem,1.5vw,1.14rem);
+
+    line-height:1.95;
+}
+
+.letter-close{
+    position:absolute;
+
+    top:20px;
+    right:20px;
+
+    width:40px;
+    height:40px;
+
+    border:
+        1px solid rgba(76,52,38,.12);
+
+    border-radius:50%;
+
+    background:none;
+
+    cursor:pointer;
+}
+
 
 /* =========================================================
-06 OPEN WHEN
+07 SECRET INGREDIENT
 ========================================================= */
 
-.openwhen-section{
-
-    min-height:auto;
-
-    padding-top:145px;
-
-    padding-bottom:155px;
+.secret{
+    background:
+        linear-gradient(
+            180deg,
+            #e7d7bd,
+            #e1ceb0
+        );
 }
 
-
-.openwhen-heading{
-
-    max-width:900px;
-
-    margin:
-    0 auto 70px;
-
-    text-align:center;
-}
-
-
-.openwhen-heading p{
-
-    max-width:610px;
-
-    margin:
-    26px auto 0;
-
-    color:
-    var(--muted);
-
-    line-height:1.9;
-}
-
-
-.envelope-grid{
-
-    width:
-    min(100%,1080px);
+.secret-grid{
+    width:min(100%,1160px);
 
     margin:auto;
 
     display:grid;
 
     grid-template-columns:
-    repeat(3,1fr);
+        .8fr 1.2fr;
 
-    gap:28px;
+    gap:
+        clamp(45px,7vw,90px);
+
+    align-items:center;
 }
 
-
-.envelope-card{
-
-    min-width:0;
-
-    text-align:center;
-}
-
-
-.envelope-button{
-
-    display:block;
-
-    width:100%;
-
-    padding:0;
-
-    border:0;
-
-    color:inherit;
-
-    background:
-    transparent;
-
-    cursor:pointer;
-}
-
-
-.envelope-shape{
-
+.secret-visual{
     position:relative;
 
-    width:100%;
+    min-height:520px;
 
-    aspect-ratio:
-    1.55 / 1;
-
-    overflow:hidden;
-
-    border-radius:14px;
-
-    background:
-
-    linear-gradient(
-        145deg,
-        #d997ab,
-        #b96c85
-    );
-
-    box-shadow:
-    0 25px 60px
-    rgba(0,0,0,.28);
-
-    transition:
-    transform .35s ease,
-    filter .35s ease;
+    display:grid;
+    place-items:center;
 }
 
+.recipe-book{
+    position:relative;
 
-.envelope-button:hover
-.envelope-shape{
+    width:min(90%,480px);
 
-    transform:
-    translateY(-6px);
-
-    filter:
-    brightness(1.04);
-}
-
-
-.envelope-paper-preview{
-
-    position:absolute;
-
-    z-index:2;
-
-    left:10%;
-    right:10%;
-
-    bottom:4%;
-
-    height:72%;
+    min-height:420px;
 
     padding:
-    19px 18px;
-
-    overflow:hidden;
+        55px 45px;
 
     border-radius:
-    8px 8px 4px 4px;
+        8px 22px 22px 8px;
 
     background:
-    var(--paper);
+        var(--paper);
 
-    color:
-    var(--paper-text);
-
-    text-align:left;
+    box-shadow:
+        0 35px 80px rgba(70,48,33,.18);
 
     transform:
-    translateY(42%);
-
-    transition:
-
-    transform .55s
-    cubic-bezier(.2,.8,.2,1);
+        rotate(-2deg);
 }
 
+.recipe-book::before{
+    content:"SECRET";
+    position:absolute;
 
-.envelope-paper-preview small{
+    top:0;
+    right:35px;
 
-    display:block;
+    padding:
+        7px 10px;
 
-    color:#9a6173;
+    color:white;
+
+    background:var(--wine);
 
     font-size:.56rem;
 
-    letter-spacing:.16em;
-
-    text-transform:uppercase;
+    letter-spacing:.15em;
 }
 
-
-.envelope-paper-preview strong{
-
-    display:block;
-
-    margin-top:11px;
+.recipe-book h3{
+    margin:
+        20px 0;
 
     font-family:
-    "Playfair Display",serif;
+        "Playfair Display",serif;
 
     font-size:
-    clamp(1rem,1.5vw,1.35rem);
-
-    font-weight:500;
-
-    line-height:1.15;
-}
-
-
-.envelope-left-fold,
-.envelope-right-fold,
-.envelope-bottom-fold{
-
-    position:absolute;
-
-    z-index:4;
-
-    inset:0;
-
-    pointer-events:none;
-}
-
-
-.envelope-left-fold{
-
-    background:#c47791;
-
-    clip-path:
-
-    polygon(
-        0 24%,
-        52% 64%,
-        0 100%
-    );
-}
-
-
-.envelope-right-fold{
-
-    background:#ba6d86;
-
-    clip-path:
-
-    polygon(
-        100% 24%,
-        48% 64%,
-        100% 100%
-    );
-}
-
-
-.envelope-bottom-fold{
-
-    background:#c77d94;
-
-    clip-path:
-
-    polygon(
-        0 100%,
-        50% 55%,
-        100% 100%
-    );
-}
-
-
-.envelope-flap{
-
-    position:absolute;
-
-    z-index:6;
-
-    left:0;
-    right:0;
-    top:0;
-
-    height:55%;
-
-    background:
-
-    linear-gradient(
-        145deg,
-        #e8b3c1,
-        #cf8da2
-    );
-
-    clip-path:
-
-    polygon(
-        0 0,
-        100% 0,
-        50% 100%
-    );
-
-    transform-origin:
-    top center;
-
-    transition:
-    transform .55s ease;
-
-    backface-visibility:hidden;
-}
-
-
-.envelope-seal{
-
-    position:absolute;
-
-    z-index:8;
-
-    top:51%;
-    left:50%;
-
-    width:40px;
-    height:40px;
-
-    display:grid;
-
-    place-items:center;
-
-    transform:
-    translate(-50%,-50%);
-
-    border-radius:50%;
-
-    color:
-    rgba(255,255,255,.8);
-
-    background:
-
-    radial-gradient(
-        circle at 35% 30%,
-        #c66c86,
-        #702e44
-    );
-
-    font-family:
-    "Playfair Display",serif;
-
-    font-style:italic;
-
-    box-shadow:
-    0 5px 15px
-    rgba(55,15,30,.3);
-
-    transition:
-
-    opacity .3s ease,
-
-    transform .3s ease;
-}
-
-
-.envelope-card.active
-.envelope-flap{
-
-    transform:
-    rotateX(180deg);
-}
-
-
-.envelope-card.active
-.envelope-seal{
-
-    opacity:0;
-
-    transform:
-    translate(-50%,-50%)
-    scale(.55);
-}
-
-
-.envelope-card.active
-.envelope-paper-preview{
-
-    transform:
-    translateY(11%);
-}
-
-
-.envelope-info{
-
-    padding:
-    20px 8px 0;
-}
-
-
-.envelope-info h3{
-
-    margin:0;
-
-    font-family:
-    "Playfair Display",serif;
-
-    font-size:
-    clamp(1.15rem,1.7vw,1.42rem);
-
-    font-weight:500;
-
-    line-height:1.3;
-}
-
-
-.envelope-info small{
-
-    display:block;
-
-    margin-top:8px;
-
-    color:#74686f;
-
-    font-size:.67rem;
-
-    letter-spacing:.07em;
-}
-
-
-/* =========================================================
-OPEN WHEN READING PANEL
-========================================================= */
-
-.letter-reveal{
-
-    width:
-    min(100%,900px);
-
-    max-height:0;
-
-    margin:
-    0 auto;
-
-    overflow:hidden;
-
-    opacity:0;
-
-    transform:
-    translateY(-10px);
-
-    transition:
-
-    max-height .7s ease,
-
-    opacity .5s ease,
-
-    transform .6s ease,
-
-    margin .6s ease;
-}
-
-
-.letter-reveal.open{
-
-    max-height:1000px;
-
-    margin:
-    70px auto 0;
-
-    opacity:1;
-
-    transform:none;
-}
-
-
-.letter-connector{
-
-    position:relative;
-
-    width:1px;
-
-    height:45px;
-
-    margin:
-    0 auto;
-
-    background:
-
-    linear-gradient(
-        var(--pink),
-        rgba(237,145,170,.08)
-    );
-}
-
-
-.letter-connector::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:-4px;
-    left:50%;
-
-    width:9px;
-    height:9px;
-
-    transform:
-    translateX(-50%);
-
-    border-radius:50%;
-
-    background:
-    var(--pink);
-
-    box-shadow:
-    0 0 18px
-    rgba(237,145,170,.4);
-}
-
-
-.openwhen-paper{
-
-    position:relative;
-
-    width:100%;
-
-    padding:
-    clamp(35px,6vw,65px);
-
-    overflow:hidden;
-
-    border-radius:
-    12px 12px 30px 12px;
-
-    background:
-
-    linear-gradient(
-        rgba(255,255,255,.15),
-        rgba(255,255,255,.15)
-    ),
-
-    var(--paper);
-
-    color:
-    var(--paper-text);
-
-    text-align:left;
-
-    box-shadow:
-    0 35px 90px
-    rgba(0,0,0,.35);
-}
-
-
-.openwhen-paper::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:0;
-    right:0;
-
-    height:5px;
-
-    background:
-
-    linear-gradient(
-        90deg,
-        #94415b,
-        #d4859e,
-        #94415b
-    );
-}
-
-
-.openwhen-paper::after{
-
-    content:"♡";
-
-    position:absolute;
-
-    right:35px;
-    bottom:20px;
-
-    color:
-    rgba(151,65,91,.09);
-
-    font-family:
-    "Playfair Display",serif;
-
-    font-size:7rem;
-
-    pointer-events:none;
-}
-
-
-.openwhen-paper-top{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:
-    space-between;
-
-    gap:20px;
-
-    margin-bottom:22px;
-
-    padding-bottom:20px;
-
-    border-bottom:
-    1px solid
-    rgba(70,40,50,.1);
-}
-
-
-.openwhen-paper-tag{
-
-    color:#9a6073;
-
-    font-size:.64rem;
-
-    letter-spacing:.2em;
-
-    text-transform:uppercase;
-}
-
-
-.openwhen-paper-number{
-
-    color:
-    rgba(90,50,65,.35);
-
-    font-family:
-    "Italiana",serif;
-
-    font-size:1.6rem;
-}
-
-
-.openwhen-paper h3{
-
-    max-width:680px;
-
-    margin:
-    0 0 28px;
-
-    font-family:
-    "Playfair Display",serif;
-
-    font-size:
-    clamp(2rem,4.2vw,3.7rem);
-
-    font-weight:500;
-
-    letter-spacing:-.025em;
-
-    line-height:1.05;
-}
-
-
-.openwhen-paper-body{
-
-    max-width:690px;
-}
-
-
-.openwhen-paper-body p{
-
-    margin:
-    0 0 20px;
-
-    font-family:
-    "Playfair Display",serif;
-
-    font-size:
-    clamp(1rem,1.5vw,1.15rem);
-
-    line-height:1.95;
-}
-
-
-.openwhen-signature{
-
-    margin-top:30px !important;
-
-    color:#8c4f62;
-
-    font-style:italic;
-}
-
-
-.close-letter{
-
-    position:absolute;
-
-    top:25px;
-    right:25px;
-
-    width:39px;
-    height:39px;
-
-    display:grid;
-
-    place-items:center;
-
-    border:
-    1px solid
-    rgba(70,40,50,.12);
-
-    border-radius:50%;
-
-    color:#845163;
-
-    background:
-    rgba(140,70,90,.05);
-
-    cursor:pointer;
-
-    font-size:1.25rem;
-
-    transition:.25s;
-}
-
-
-.close-letter:hover{
-
-    transform:
-    rotate(90deg);
-
-    background:
-    rgba(140,70,90,.1);
-}
-
-
-/* =========================================================
-07 MAIN LETTER
-========================================================= */
-
-.main-letter-section{
-
-    place-items:center;
-}
-
-
-.main-letter-wrapper{
-
-    width:
-    min(100%,930px);
-
-    text-align:center;
-}
-
-
-.paper{
-
-    position:relative;
-
-    margin-top:45px;
-
-    padding:
-    clamp(38px,7vw,82px);
-
-    border-radius:
-    8px 8px 28px 8px;
-
-    background:
-    var(--paper);
-
-    color:#3a2a31;
-
-    text-align:left;
-
-    box-shadow:
-    var(--shadow);
-}
-
-
-.paper::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:88px;
-    height:88px;
-
-    top:-32px;
-    right:35px;
-
-    border-radius:50%;
-
-    background:
-
-    radial-gradient(
-        circle at 32% 28%,
-        #d37c93,
-        #81324a 70%
-    );
-}
-
-
-.paper::after{
-
-    content:"F";
-
-    position:absolute;
-
-    top:-4px;
-    right:68px;
-
-    color:
-    rgba(255,255,255,.72);
-
-    font-family:
-    "Playfair Display",serif;
-
-    font-size:2rem;
-
-    font-style:italic;
-}
-
-
-.paper-label{
-
-    color:#8d5c6c;
-
-    font-size:.65rem;
-
-    letter-spacing:.22em;
-
-    text-transform:uppercase;
-}
-
-
-.paper h3{
-
-    margin:
-    20px 0 28px;
-
-    font-family:
-    "Playfair Display",serif;
-
-    font-size:
-    clamp(2.1rem,5vw,4.2rem);
+        clamp(2rem,4vw,3.5rem);
 
     font-weight:500;
 }
 
-
-.paper p{
-
-    font-family:
-    "Playfair Display",serif;
-
-    font-size:
-    clamp(1rem,2vw,1.18rem);
-
-    line-height:2;
-}
-
-
-.signature{
-
-    margin-top:32px;
-
-    color:#733b4e;
+.recipe-book p{
+    color:#66574f;
 
     font-family:
-    "Italiana",serif !important;
-
-    font-size:
-    2rem !important;
-}
-
-
-/* =========================================================
-08 HEART
-========================================================= */
-
-.heart-section{
-
-    text-align:center;
-}
-
-
-.heart-inner{
-
-    width:
-    min(100%,950px);
-
-    margin:auto;
-}
-
-
-.heart-copy{
-
-    max-width:600px;
-
-    margin:
-    26px auto 40px;
-
-    color:
-    var(--muted);
+        "Playfair Display",serif;
 
     line-height:1.9;
 }
 
+.secret-answer{
+    margin:
+        35px 0;
 
-.heart-button{
+    padding:
+        25px 0;
 
+    border-top:
+        1px solid var(--line);
+
+    border-bottom:
+        1px solid var(--line);
+
+    text-align:center;
+
+    color:var(--terracotta);
+
+    font-family:
+        "Italiana",serif;
+
+    font-size:
+        clamp(3rem,7vw,5.5rem);
+}
+
+.signature{
+    color:var(--wine) !important;
+    font-style:italic;
+}
+
+.secret-copy .section-copy{
+    margin-top:26px;
+}
+
+
+/* =========================================================
+08 FINAL INGREDIENT
+========================================================= */
+
+.final-ingredient{
+    background:#faf4e7;
+
+    text-align:center;
+}
+
+.final-ingredient-inner{
+    width:min(100%,900px);
+    margin:auto;
+}
+
+.heart-copy{
+    max-width:580px;
+
+    margin:
+        25px auto 38px;
+
+    color:var(--muted);
+
+    line-height:1.9;
+}
+
+.plate-button{
     position:relative;
 
-    z-index:100;
-
-    width:165px;
-    height:165px;
-
-    display:grid;
-
-    place-items:center;
+    width:190px;
+    height:190px;
 
     margin:auto;
 
-    padding:0;
+    display:grid;
+    place-items:center;
 
-    border:0;
+    border:
+        1px solid rgba(73,50,35,.12);
 
     border-radius:50%;
 
     background:
-    rgba(255,255,255,.025);
+        radial-gradient(
+            circle,
+            #fffaf0 0 48%,
+            #e7dac6 49% 54%,
+            #f9f1e5 55%
+        );
 
     cursor:pointer;
 
-    transition:.25s;
+    box-shadow:
+        0 20px 50px rgba(78,52,35,.12);
+
+    transition:.3s;
 }
 
-
-.heart-button:hover{
-
+.plate-button:hover{
     transform:
-    scale(1.06);
-
-    background:
-    rgba(237,145,170,.05);
+        scale(1.04);
 }
 
+.plate-heart{
+    width:75px;
+    height:68px;
 
-.heart-progress{
+    fill:var(--terracotta);
 
+    filter:
+        drop-shadow(
+            0 10px 18px
+            rgba(184,101,71,.24)
+        );
+}
+
+.plate-progress{
     position:absolute;
 
     inset:0;
@@ -2741,64 +2144,35 @@ OPEN WHEN READING PANEL
     width:100%;
     height:100%;
 
-    pointer-events:none;
-
     transform:
-    rotate(-90deg);
+        rotate(-90deg);
+
+    pointer-events:none;
 }
 
-
-.progress-bg{
-
+.plate-progress circle{
     fill:none;
-
-    stroke:
-    rgba(255,255,255,.08);
 
     stroke-width:4;
 }
 
-
-.progress-main{
-
-    fill:none;
-
+.plate-progress-bg{
     stroke:
-    var(--pink);
+        rgba(83,55,38,.09);
+}
 
-    stroke-width:4;
+.plate-progress-main{
+    stroke:
+        var(--olive);
 
     stroke-linecap:round;
 
-    stroke-dasharray:
-    439.82;
+    stroke-dasharray:502;
 
-    stroke-dashoffset:
-    439.82;
+    stroke-dashoffset:502;
 }
-
-
-.heart-svg{
-
-    position:relative;
-
-    z-index:10;
-
-    width:88px;
-
-    pointer-events:none;
-
-    filter:
-
-    drop-shadow(
-        0 15px 25px
-        rgba(220,70,110,.4)
-    );
-}
-
 
 .heart-result{
-
     max-height:0;
 
     margin-top:0;
@@ -2808,365 +2182,177 @@ OPEN WHEN READING PANEL
     opacity:0;
 
     transform:
-    translateY(20px);
+        translateY(20px);
 
     transition:
-
-    opacity .7s ease,
-
-    transform .7s ease,
-
-    max-height .7s ease,
-
-    margin .7s ease;
+        .7s;
 }
 
-
 .heart-result.show{
+    max-height:450px;
 
-    max-height:430px;
-
-    margin-top:42px;
+    margin-top:40px;
 
     opacity:1;
 
     transform:none;
 }
 
-
 .heart-result strong{
-
     display:block;
 
     font-family:
-    "Playfair Display",serif;
+        "Playfair Display",serif;
 
     font-size:
-    clamp(2.5rem,6vw,5.5rem);
+        clamp(2.6rem,6vw,5.4rem);
 
     font-weight:500;
 }
 
-
 .heart-result strong span{
-
-    color:
-    var(--pink);
+    color:var(--terracotta);
 }
 
-
 .heart-result p{
-
-    max-width:620px;
+    max-width:600px;
 
     margin:
-    20px auto 0;
+        20px auto 0;
 
-    color:
-    var(--muted);
+    color:var(--muted);
 
     line-height:1.9;
 }
 
 
 /* =========================================================
-09 FINAL
+09 ENDING
 ========================================================= */
 
-.final-section{
-
+.ending{
     position:relative;
 
     min-height:110svh;
 
-    overflow:hidden;
+    color:#f8ecdf;
 
     text-align:center;
 
     background:
-
-    radial-gradient(
-        circle at 50% 70%,
-        rgba(118,45,70,.17),
-        transparent 35rem
-    );
+        linear-gradient(
+            rgba(35,25,21,.9),
+            rgba(35,25,21,.95)
+        ),
+        linear-gradient(
+            145deg,
+            #62432f,
+            #2d211c
+        );
 }
 
-
-.final-stars{
-
-    position:absolute;
-
-    inset:0;
-
-    pointer-events:none;
-}
-
-
-.final-star{
-
-    position:absolute;
-
-    width:3px;
-    height:3px;
-
-    border-radius:50%;
-
-    background:#fff;
-
-    opacity:.3;
-
-    animation:
-
-    twinkle var(--speed)
-    ease-in-out infinite;
-}
-
-
-@keyframes twinkle{
-
-    50%{
-
-        opacity:1;
-
-        transform:
-        scale(1.8);
-    }
-}
-
-
-.final-inner{
-
-    position:relative;
-
-    z-index:10;
-
-    width:
-    min(100%,920px);
-
+.ending-inner{
+    width:min(100%,900px);
     margin:auto;
 }
 
-
-.final-moon{
-
-    width:110px;
-    height:110px;
+.ending-plate{
+    width:120px;
+    height:120px;
 
     margin:
-    0 auto 35px;
+        0 auto 35px;
+
+    display:grid;
+    place-items:center;
+
+    border:
+        1px solid rgba(255,255,255,.15);
 
     border-radius:50%;
 
-    background:
-
-    linear-gradient(
-        145deg,
-        #fff3ea,
-        #cfabb7
-    );
-
     box-shadow:
-    0 0 70px
-    rgba(255,210,223,.18);
+        inset 0 0 0 10px rgba(255,255,255,.03);
 }
 
-
-.final-title{
-
-    font-family:
-    "Playfair Display",serif;
-
-    font-size:
-    clamp(3rem,7vw,6.5rem);
-
-    font-weight:500;
-
-    letter-spacing:-.045em;
-
-    line-height:1;
+.ending-plate span{
+    color:var(--rose-light);
+    font-size:2.6rem;
 }
 
-
-.final-title em{
-
-    color:
-    var(--pink);
+.ending .section-kicker{
+    color:#d7b77f;
 }
 
+.ending .title{
+    color:#fff4e8;
+}
 
-.final-copy{
+.ending .title em{
+    color:#e59c83;
+}
 
+.ending-copy{
     max-width:680px;
 
     margin:
-    28px auto 38px;
+        28px auto 38px;
 
-    color:
-    var(--muted);
+    color:#c7b7ae;
 
     line-height:1.95;
 }
 
-
 .final-buttons{
-
     display:flex;
-
     justify-content:center;
-
     flex-wrap:wrap;
-
     gap:12px;
 }
 
-
 .final-button{
-
     padding:
-    14px 21px;
+        14px 22px;
 
     border:
-    1px solid
-    rgba(255,255,255,.15);
+        1px solid rgba(255,255,255,.18);
 
     border-radius:999px;
 
     color:white;
 
     background:
-    rgba(255,255,255,.06);
+        rgba(255,255,255,.06);
 
     cursor:pointer;
 
     transition:.3s;
 }
-
 
 .final-button:hover{
-
     transform:
-    translateY(-3px);
-
-    background:
-    rgba(255,255,255,.11);
+        translateY(-3px);
 }
-
 
 .final-button.primary{
-
     border:0;
 
-    background:
+    color:#39251d;
 
-    linear-gradient(
-        135deg,
-        #d16c88,
-        #80394f
-    );
+    background:#d4ad70;
 }
-
 
 .final-response{
-
     min-height:35px;
 
-    margin-top:24px;
+    margin-top:25px;
 
-    color:
-    var(--pink-light);
+    color:#e8b8a5;
 
     font-family:
-    "Playfair Display",serif;
+        "Playfair Display",serif;
 
     font-style:italic;
-}
-
-
-/* =========================================================
-SECRET
-========================================================= */
-
-.secret-star{
-
-    position:fixed;
-
-    left:18px;
-    bottom:18px;
-
-    z-index:1200;
-
-    width:34px;
-    height:34px;
-
-    border:0;
-
-    color:
-    rgba(255,255,255,.28);
-
-    background:
-    transparent;
-
-    cursor:pointer;
-
-    font-size:1rem;
-
-    transition:.3s;
-}
-
-
-.secret-star:hover{
-
-    color:
-    var(--pink-light);
-
-    transform:
-    rotate(20deg)
-    scale(1.2);
-}
-
-
-.secret-toast{
-
-    position:fixed;
-
-    left:20px;
-    bottom:60px;
-
-    z-index:1500;
-
-    max-width:300px;
-
-    padding:
-    15px 17px;
-
-    border:
-    1px solid var(--line);
-
-    border-radius:15px;
-
-    color:
-    var(--text);
-
-    background:
-    rgba(18,12,20,.92);
-
-    opacity:0;
-
-    transform:
-    translateY(10px);
-
-    pointer-events:none;
-
-    transition:.35s;
-}
-
-
-.secret-toast.show{
-
-    opacity:1;
-
-    transform:none;
 }
 
 
@@ -3175,7 +2361,6 @@ LIGHTBOX
 ========================================================= */
 
 .lightbox{
-
     position:fixed;
 
     inset:0;
@@ -3183,137 +2368,70 @@ LIGHTBOX
     z-index:10000;
 
     display:none;
-
     place-items:center;
 
     padding:
-    70px 25px 100px;
+        70px 25px 100px;
 
     background:
-    rgba(5,4,8,.96);
+        rgba(30,21,17,.96);
 
-    backdrop-filter:
-    blur(20px);
+    backdrop-filter:blur(20px);
 }
 
-
 .lightbox.open{
-
     display:grid;
 }
 
-
 .lightbox-image{
+    width:min(90vw,850px);
 
-    width:
-    min(90vw,850px);
-
-    height:
-    min(76vh,850px);
+    height:min(76vh,850px);
 
     background-position:center;
-
     background-repeat:no-repeat;
-
     background-size:contain;
 }
 
-
 .lightbox-close{
-
     position:absolute;
 
     top:18px;
     right:20px;
 
-    width:46px;
-    height:46px;
+    width:45px;
+    height:45px;
 
     border:
-    1px solid
-    rgba(255,255,255,.2);
+        1px solid rgba(255,255,255,.2);
 
     border-radius:50%;
 
     color:white;
 
     background:
-    rgba(255,255,255,.08);
+        rgba(255,255,255,.06);
 
     cursor:pointer;
 
-    font-size:1.5rem;
+    font-size:1.4rem;
 }
 
-
 .lightbox-caption{
-
     position:absolute;
 
     bottom:28px;
 
-    width:
-    min(90%,800px);
+    width:min(90%,800px);
+
+    color:#e8d7c8;
 
     text-align:center;
 
-    color:
-    var(--pink-light);
-
     font-family:
-    "Playfair Display",serif;
+        "Playfair Display",serif;
 
-    font-size:1.15rem;
-}
-
-
-/* =========================================================
-SPARK
-========================================================= */
-
-.spark{
-
-    position:fixed;
-
-    bottom:-15px;
-
-    z-index:1;
-
-    width:4px;
-    height:4px;
-
-    border-radius:50%;
-
-    background:
-    #fbd5df;
-
-    opacity:0;
-
-    pointer-events:none;
-
-    animation:
-    sparkleRise linear forwards;
-}
-
-
-@keyframes sparkleRise{
-
-    15%{
-        opacity:.55;
-    }
-
-    100%{
-
-        transform:
-
-        translateY(-115vh)
-
-        translateX(
-            var(--drift)
-        );
-
-        opacity:0;
-    }
+    font-style:italic;
 }
 
 
@@ -3322,19 +2440,20 @@ FOOTER
 ========================================================= */
 
 footer{
-
     padding:
-    35px 20px 110px;
+        35px 20px 115px;
 
-    color:#6f646b;
+    color:#8b776d;
 
     text-align:center;
 
-    text-transform:uppercase;
+    background:#f3e7d4;
+
+    font-size:.65rem;
 
     letter-spacing:.13em;
 
-    font-size:.68rem;
+    text-transform:uppercase;
 }
 
 
@@ -3345,35 +2464,30 @@ TABLET
 @media(max-width:900px){
 
     .hero-grid,
-    .story-grid{
-
-        grid-template-columns:
-        1fr;
+    .steps-layout,
+    .secret-grid{
+        grid-template-columns:1fr;
     }
 
-
-    .story-heading{
-
+    .steps-title{
         position:relative;
-
         top:auto;
     }
 
-
-    .likes-grid{
-
+    .pantry,
+    .favorite-grid{
         grid-template-columns:
-        repeat(2,1fr);
+            repeat(2,1fr);
     }
 
+    .letter-cards{
+        grid-template-columns:1fr;
 
-    .envelope-grid{
-
-        grid-template-columns:
-        1fr;
-
-        max-width:530px;
+        max-width:550px;
+        margin:
+            20px auto 0;
     }
+
 }
 
 
@@ -3384,284 +2498,152 @@ MOBILE
 @media(max-width:650px){
 
     .section{
-
         min-height:auto;
 
         padding:
-
-        105px
-        20px
-        90px;
+            105px
+            20px
+            90px;
     }
 
-
-    .hero-section{
-
-        min-height:
-        100svh;
-    }
-
-
-    .nav-dots{
-
+    .nav-dots,
+    .nav-label{
         display:none;
     }
 
-
     .brand{
-
-        max-width:82%;
-
         overflow:hidden;
-
         white-space:nowrap;
-
         text-overflow:ellipsis;
     }
 
-
-    .moon-zone{
-
-        min-height:390px;
+    .kitchen-scene{
+        min-height:450px;
     }
 
-
-    .moon{
-
-        width:255px;
-
-        min-width:255px;
+    .wall{
+        bottom:130px;
     }
 
-
-    .orbit{
-
-        width:315px;
-
-        min-width:315px;
+    .counter{
+        height:140px;
     }
 
-
-    /* TIMELINE */
-
-    .timeline::before{
-
-        left:9px;
+    .cutting-board{
+        left:7%;
+        width:54%;
+        height:140px;
     }
 
+    .pot{
+        right:8%;
+        width:105px;
+        height:78px;
+    }
 
-    .timeline-item,
-    .timeline-item:nth-child(even){
+    .pot::before{
+        width:125px;
+    }
 
-        width:100%;
+    .steam{
+        bottom:112px;
+    }
 
-        margin-left:0;
+    .pantry,
+    .favorite-grid{
+        grid-template-columns:1fr;
+    }
 
+    .recipe-step{
         padding:
-        0 0 45px 38px;
+            85px 25px 27px;
     }
 
-
-    .timeline-dot,
-    .timeline-item:nth-child(even)
-    .timeline-dot{
-
-        left:2px;
-
-        right:auto;
+    .step-number{
+        top:22px;
+        left:25px;
     }
 
+    .cookbook-page{
+        padding:
+            25px 18px 35px;
+    }
 
-    /* GALLERY */
+    .cookbook-page::before{
+        left:28px;
+    }
 
     .memory-grid{
-
         grid-template-columns:
-        repeat(2,1fr);
+            repeat(2,1fr);
 
         gap:14px;
     }
-
 
     .memory:nth-child(1),
     .memory:nth-child(2),
     .memory:nth-child(3),
     .memory:nth-child(4){
-
         grid-column:auto;
-
         margin-top:0;
     }
 
-
     .memory:nth-child(5){
-
         grid-column:
-        1 / span 2;
+            1 / span 2;
 
         width:
-        calc(50% - 7px);
+            calc(50% - 7px);
 
         justify-self:center;
-    }
 
+        margin-top:5px;
+    }
 
     .photo-button{
-
-        padding:6px;
+        padding:
+            5px 5px 32px;
     }
 
+    .photo-note{
+        font-size:.72rem;
+    }
 
     .memory figcaption{
-
-        display:block;
-    }
-
-
-    .memory h4{
-
-        font-size:.95rem;
-    }
-
-
-    .memory figcaption span{
-
-        display:none;
-    }
-
-
-    /* LIKES */
-
-    .likes-grid{
-
-        grid-template-columns:
-        1fr;
-    }
-
-
-    /* OPEN WHEN */
-
-    .openwhen-section{
-
-        padding-top:110px;
-
-        padding-bottom:120px;
-    }
-
-
-    .envelope-grid{
-
-        width:100%;
-
-        max-width:430px;
-
-        gap:30px;
-    }
-
-
-    .letter-reveal.open{
-
-        margin-top:45px;
-    }
-
-
-    .openwhen-paper{
-
-        padding:
-        35px 25px 40px;
-    }
-
-
-    .openwhen-paper h3{
-
-        font-size:
-        clamp(1.8rem,9vw,2.5rem);
-    }
-
-
-    /* MUSIC */
-
-    .music-player{
-
-        left:14px;
-        right:14px;
-        bottom:12px;
-
-        width:auto;
-
-        border-radius:18px;
-    }
-
-
-    .music-title{
-
         font-size:.9rem;
     }
 
-
-    .music-progress-wrap{
-
-        margin-top:8px;
+    .wood-box{
+        padding:
+            42px 18px 35px;
     }
 
+    .music-player{
+        left:12px;
+        right:12px;
+        bottom:10px;
 
-    /* FINAL */
+        width:auto;
+    }
 
     .final-buttons{
-
         flex-direction:column;
     }
 
-
     .final-button{
-
         width:100%;
     }
-}
 
-
-/* =========================================================
-REDUCED MOTION
-========================================================= */
-
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *::before,
-    *::after{
-
-        animation-duration:
-        .001ms !important;
-
-        animation-iteration-count:
-        1 !important;
-
-        scroll-behavior:
-        auto !important;
-    }
 }
 
 </style>
-
 </head>
 
 
 <body>
 
+<div class="paper-noise"></div>
 
-<div class="noise"></div>
-
-
-<div
-class="cursor-glow"
-id="cursorGlow">
-</div>
-
-
-
-<!-- =====================================================
-MUSIC FILE
-===================================================== -->
 
 <audio
 id="backgroundMusic"
@@ -3675,66 +2657,87 @@ type="audio/mpeg">
 </audio>
 
 
-
-<!-- =====================================================
+<!-- =========================================================
 OPENING
-===================================================== -->
+========================================================= -->
 
 <section
 class="opening"
 id="opening">
 
+<div class="cookbook">
 
-<div class="opening-inner">
-
-
-<div class="opening-light">
+<div class="cookbook-tab">
+PRIVATE RECIPE
 </div>
 
+<div class="cookbook-header">
 
-<div class="opening-label">
+<svg
+class="mini-spoon"
+viewBox="0 0 50 50">
 
-a little corner of the internet
+<ellipse
+cx="17"
+cy="13"
+rx="8"
+ry="11"
+fill="none"
+stroke="currentColor"
+stroke-width="3"/>
+
+<path
+d="M21 22 L39 43"
+stroke="currentColor"
+stroke-width="3"
+stroke-linecap="round"/>
+
+</svg>
+
+Feby's Personal Cookbook
 
 </div>
-
 
 <h1>
 
-Untuk
+Made for
 
 <span>
 Feby
-</span>.
+</span>
 
 </h1>
 
+<p class="cookbook-copy">
 
-<p
-class="opening-copy"
-id="openingCopy">
+Tidak semua resep dibuat untuk dimakan.
+
+Yang satu ini dibuat
+dari hal-hal kecil,
+sedikit keberanian,
+
+dan satu perasaan
+yang akhirnya ingin kusampaikan.
+
 </p>
-
 
 <button
 class="open-button"
 id="openButton"
 type="button">
 
-Buka pelan-pelan ♡
+Open the cookbook ♡
 
 </button>
-
 
 </div>
 
 </section>
 
 
-
-<!-- =====================================================
+<!-- =========================================================
 SITE
-===================================================== -->
+========================================================= -->
 
 <div
 class="site"
@@ -3743,11 +2746,30 @@ id="site">
 
 <nav class="navbar">
 
-
 <div class="brand">
 
-Untuk Feby,
-dari seseorang yang ingin jujur.
+<svg viewBox="0 0 40 40">
+
+<path
+d="M8 8 C8 17 12 21 20 21 C28 21 32 17 32 8"
+fill="none"
+stroke="#b86547"
+stroke-width="2.5"/>
+
+<path
+d="M20 21 V34"
+stroke="#b86547"
+stroke-width="2.5"/>
+
+<path
+d="M14 34 H26"
+stroke="#b86547"
+stroke-width="2.5"
+stroke-linecap="round"/>
+
+</svg>
+
+Feby's Kitchen Journal
 
 </div>
 
@@ -3767,58 +2789,42 @@ dari seseorang yang ingin jujur.
 </div>
 
 
+<div class="nav-label">
+private cookbook
+</div>
+
 </nav>
 
 
-
-<!-- =====================================================
+<!-- =========================================================
 MUSIC PLAYER
-===================================================== -->
+========================================================= -->
 
-<div
-class="music-player"
-id="musicPlayer">
+<div class="music-player">
 
-
-<div class="music-main">
-
+<div class="music-row">
 
 <button
-class="music-button"
-id="musicButton"
-type="button"
-aria-label="Play atau pause musik">
+class="music-play"
+id="musicPlay"
+type="button">
 
-
-<span
-class="music-icon"
-id="musicIcon">
-
+<span id="musicIcon">
 ❚❚
-
 </span>
-
 
 </button>
 
 
+<div class="music-info">
 
-<div class="music-details">
-
-
-<div class="music-small">
-
-now playing
-
+<div class="music-label">
+Kitchen playlist
 </div>
-
 
 <div class="music-title">
-
-For Feby ♡
-
+Cooking for Feby ♡
 </div>
-
 
 <div
 class="music-time"
@@ -3828,27 +2834,19 @@ id="musicTime">
 
 </div>
 
-
 </div>
 
 
-
 <button
-class="volume-button"
-id="volumeButton"
-type="button"
-aria-label="Mute atau unmute musik">
+class="music-mute"
+id="musicMute"
+type="button">
 
 ♬
 
 </button>
 
-
 </div>
-
-
-
-<div class="music-progress-wrap">
 
 
 <input
@@ -3858,129 +2856,125 @@ type="range"
 min="0"
 max="100"
 value="0"
-step="0.1"
-aria-label="Progress musik">
-
+step=".1">
 
 </div>
-
-
-<div class="music-error">
-
-Musik tidak ditemukan.
-Pastikan file bernama
-<strong>feby-music.mp3</strong>
-ada di folder assets.
-
-</div>
-
-
-</div>
-
 
 
 <main>
 
 
-<!-- =====================================================
-01 HERO
-===================================================== -->
+<!-- =========================================================
+01 KITCHEN
+========================================================= -->
 
 <section
-class="section hero-section"
+class="section hero"
 data-step="0">
-
 
 <div class="hero-grid">
 
 
 <div>
 
-
-<div class="eyebrow fade">
-
-01 —
-sesuatu yang sederhana
-
+<div class="section-kicker fade">
+01 — welcome to Feby's kitchen
 </div>
-
 
 <h2 class="title fade">
 
-Ada nama yang
-akhir-akhir ini
-terasa lebih
+Kalau aku harus
+menjelaskan perasaan ini
+
+seperti sebuah masakan,
+
+mungkin aku akan
 
 <em>
-istimewa.
+mulai dari sini.
 </em>
 
 </h2>
-
 
 <p class="hero-copy fade">
 
-Dan anehnya,
-nama itu sering muncul
-di pikiranku tanpa perlu dicari.
+Bukan dari sesuatu yang besar.
 
-Bukan karena aku sengaja
-mengingatnya.
+Tapi dari banyak detail kecil
+yang perlahan tercampur.
 
-Mungkin beberapa orang
-memang punya caranya sendiri
+Senyummu.
 
-untuk tinggal sedikit lebih lama
-di kepala kita.
+Cara kamu bicara.
 
-</p>
+Ekspresi kecil yang mungkin
+bahkan tidak kamu sadari.
 
+Dan semakin lama,
 
-<p class="hero-tiny fade">
-
-iya...
-nama itu Feby.
+semuanya mulai terasa
+seperti sesuatu
+yang ingin kusimpan.
 
 </p>
 
+<div class="hero-note fade">
 
-</div>
-
-
-
-<div class="moon-zone fade">
-
-
-<div class="orbit">
-</div>
-
-
-<div class="moon">
-</div>
-
-
-<span
-class="floating-label float-one">
-
-sederhana
-
-</span>
-
-
-<span
-class="floating-label float-two">
-
-hangat
-
-</span>
-
-
-<span
-class="floating-label float-three">
-
+Today's special:
 Feby ♡
 
-</span>
+</div>
+
+</div>
+
+
+<div class="kitchen-scene fade">
+
+<div class="wall">
+
+<div class="tile-grid"></div>
+
+<div class="kitchen-shelf">
+
+<div class="jar one"></div>
+<div class="jar two"></div>
+<div class="jar three"></div>
+
+</div>
+
+
+<div class="hanging-tools">
+
+<div class="tool"></div>
+<div class="tool whisk"></div>
+<div class="tool"></div>
+
+</div>
+
+</div>
+
+
+<div class="counter"></div>
+
+
+<div class="cutting-board">
+
+<div class="board-writing">
+
+Made with<br>
+a little courage ♡
+
+</div>
+
+</div>
+
+
+<div class="pot"></div>
+
+
+<div class="steam a"></div>
+<div class="steam b"></div>
+<div class="steam c"></div>
 
 
 </div>
@@ -3991,390 +2985,376 @@ Feby ♡
 </section>
 
 
-
-<!-- =====================================================
-02 STORY
-===================================================== -->
+<!-- =========================================================
+02 PANTRY
+========================================================= -->
 
 <section
-class="section"
+class="section ingredients"
 data-step="1">
-
-
-<div class="story-grid">
-
-
-<div class="story-heading">
-
-
-<div class="eyebrow fade">
-
-02 —
-hal-hal kecil
-
-</div>
-
-
-<h2 class="title fade">
-
-Bukan satu
-alasan
-
-<em>
-besar.
-</em>
-
-</h2>
-
-
-<p class="fade">
-
-Karena kadang rasa suka
-tidak muncul dari
-satu kejadian besar.
-
-Justru dari banyak hal kecil
-yang perlahan mulai
-terasa berbeda.
-
-</p>
-
-
-</div>
-
-
-
-<div class="story-list">
-
-
-<article class="story-card fade">
-
-
-<span class="story-number">
-01
-</span>
-
-
-<h3>
-
-Aku suka caramu hadir.
-
-</h3>
-
-
-<p>
-
-Bukan karena kamu
-harus selalu menjadi
-pusat perhatian.
-
-Tapi ada sesuatu
-dari keberadaanmu
-yang membuat suasana
-terasa berbeda.
-
-Lebih hidup,
-tapi tetap terasa nyaman.
-
-</p>
-
-
-</article>
-
-
-
-<article class="story-card fade">
-
-
-<span class="story-number">
-02
-</span>
-
-
-<h3>
-
-Aku mengingat
-hal-hal sederhana.
-
-</h3>
-
-
-<p>
-
-Cara kamu merespons sesuatu,
-ekspresi kecil,
-caramu berbicara,
-
-bahkan beberapa hal
-yang mungkin menurutmu
-tidak penting.
-
-Entah kenapa,
-aku justru mengingatnya.
-
-</p>
-
-
-</article>
-
-
-
-<article class="story-card fade">
-
-
-<span class="story-number">
-03
-</span>
-
-
-<h3>
-
-Dan mungkin itu
-yang membuatku sadar.
-
-</h3>
-
-
-<p>
-
-Ada bagian kecil
-dari hariku
-
-yang terasa sedikit
-lebih menyenangkan
-ketika ada kamu
-di dalamnya.
-
-Sederhana.
-
-Tapi cukup membuatku sadar
-bahwa perasaan ini
-bukan sekadar lewat.
-
-</p>
-
-
-</article>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-03 TIMELINE
-===================================================== -->
-
-<section
-class="section"
-data-step="2">
-
 
 <div class="section-inner">
 
 
-<div class="timeline-heading">
+<div class="ingredients-head">
 
-
-<div class="eyebrow fade">
-
-03 —
-bagaimana semua ini terasa
-
+<div class="section-kicker fade">
+02 — ingredients
 </div>
-
 
 <h2 class="title fade">
 
-Pelan-pelan,
-tanpa aku sadari,
+Yang dibutuhkan
+untuk membuat
 
 <em>
-kamu jadi berarti.
+satu rasa ini.
 </em>
 
 </h2>
 
+<p class="section-copy fade">
 
-<p class="timeline-copy fade">
+Kalau perasaan bisa ditulis
+seperti resep masakan,
 
-Tidak ada satu tanggal khusus
-yang membuat semuanya berubah.
-
-Rasanya lebih seperti perjalanan kecil
-yang baru kusadari setelah
-melihat ke belakang.
+mungkin enam bahan inilah
+yang tanpa sengaja
+membuat semuanya terbentuk.
 
 </p>
 
+</div>
+
+
+<div class="pantry">
+
+
+<article
+class="pantry-item fade"
+style="--accent:#b86547">
+
+<div class="pantry-amount">
+1 cup
+</div>
+
+<h3>
+Senyummu
+</h3>
+
+<p>
+
+Sederhana,
+tapi punya cara sendiri
+untuk tinggal sedikit lebih lama
+di pikiranku.
+
+</p>
+
+<div class="pantry-sticker">
+01
+</div>
+
+</article>
+
+
+<article
+class="pantry-item fade"
+style="--accent:#78815c">
+
+<div class="pantry-amount">
+2 tbsp
+</div>
+
+<h3>
+Caramu bicara
+</h3>
+
+<p>
+
+Kadang hal yang sebenarnya biasa,
+tapi entah kenapa
+membuatku ingin mendengarkan
+lebih lama.
+
+</p>
+
+<div class="pantry-sticker">
+02
+</div>
+
+</article>
+
+
+<article
+class="pantry-item fade"
+style="--accent:#ba8c4c">
+
+<div class="pantry-amount">
+a pinch
+</div>
+
+<h3>
+Ekspresi kecil
+</h3>
+
+<p>
+
+Beberapa ekspresi
+yang mungkin tidak kamu sadari,
+
+tapi justru mudah kuingat.
+
+</p>
+
+<div class="pantry-sticker">
+03
+</div>
+
+</article>
+
+
+<article
+class="pantry-item fade"
+style="--accent:#854b4b">
+
+<div class="pantry-amount">
+a lot
+</div>
+
+<h3>
+Rasa penasaran
+</h3>
+
+<p>
+
+Tentang harimu,
+hal yang kamu suka,
+dan cerita lain
+tentang dirimu.
+
+</p>
+
+<div class="pantry-sticker">
+04
+</div>
+
+</article>
+
+
+<article
+class="pantry-item fade"
+style="--accent:#a0765a">
+
+<div class="pantry-amount">
+too much
+</div>
+
+<h3>
+Memikirkanmu
+</h3>
+
+<p>
+
+Yang kadang muncul sendiri
+tanpa diminta,
+
+bahkan ketika aku
+sedang melakukan hal lain.
+
+</p>
+
+<div class="pantry-sticker">
+05
+</div>
+
+</article>
+
+
+<article
+class="pantry-item fade"
+style="--accent:#a6aa78">
+
+<div class="pantry-amount">
+1 secret
+</div>
+
+<h3>
+Satu perasaan
+</h3>
+
+<p>
+
+Yang awalnya kupikir
+mungkin hanya sementara.
+
+Ternyata tidak.
+
+</p>
+
+<div class="pantry-sticker">
+06
+</div>
+
+</article>
+
 
 </div>
 
 
+</div>
 
-<div class="timeline">
-
-
-<div class="timeline-item fade">
+</section>
 
 
-<div class="timeline-dot">
+<!-- =========================================================
+03 STEPS
+========================================================= -->
+
+<section
+class="section steps"
+data-step="2">
+
+<div class="steps-layout">
+
+
+<div class="steps-title">
+
+<div class="section-kicker fade">
+03 — method
+</div>
+
+<h2 class="title fade">
+
+Cara semuanya
+
+<em>
+perlahan matang.
+</em>
+
+</h2>
+
+<p class="section-copy fade">
+
+Seperti memasak,
+beberapa hal memang
+tidak bisa dipercepat.
+
+Kadang baru terasa jelas
+setelah diberi waktu.
+
+</p>
+
 </div>
 
 
-<div class="timeline-card">
+<div class="recipe-steps">
 
 
-<div class="timeline-label">
-awal
+<article class="recipe-step fade">
+
+<div class="step-number">
+01
 </div>
 
+<small>
+Preparation
+</small>
 
 <h3>
 Awalnya biasa saja.
 </h3>
 
-
 <p>
 
-Seseorang yang aku kenal.
+Aku mengenalmu
+seperti mengenal seseorang pada umumnya.
 
-Seseorang yang mungkin saat itu
-belum kupikirkan terlalu jauh.
+Tidak ada rencana apa-apa.
 
 </p>
 
+</article>
 
+
+<article class="recipe-step fade">
+
+<div class="step-number">
+02
 </div>
 
-</div>
-
-
-
-<div class="timeline-item fade">
-
-
-<div class="timeline-dot">
-</div>
-
-
-<div class="timeline-card">
-
-
-<div class="timeline-label">
-kemudian
-</div>
-
+<small>
+Low heat
+</small>
 
 <h3>
-
-Aku mulai memperhatikan.
-
+Mulai memperhatikan.
 </h3>
 
-
 <p>
 
-Hal-hal kecil mulai terasa lebih jelas.
+Perlahan aku mulai
+memperhatikan detail-detail kecil.
 
-Cara bicaramu,
-ekspresimu,
-
-dan hal sederhana
-yang sebelumnya
-mungkin akan kulewatkan.
+Dan anehnya,
+aku mengingatnya.
 
 </p>
 
+</article>
 
+
+<article class="recipe-step fade">
+
+<div class="step-number">
+03
 </div>
 
-</div>
-
-
-
-<div class="timeline-item fade">
-
-
-<div class="timeline-dot">
-</div>
-
-
-<div class="timeline-card">
-
-
-<div class="timeline-label">
-
-pelan-pelan
-
-</div>
-
+<small>
+Slow simmer
+</small>
 
 <h3>
-
 Namamu mulai sering muncul.
-
 </h3>
-
 
 <p>
 
 Kadang tanpa alasan khusus.
 
-Hanya tiba-tiba teringat,
+Tiba-tiba teringat,
 lalu membuatku tersenyum sendiri.
 
 </p>
 
+</article>
 
+
+<article class="recipe-step fade">
+
+<div class="step-number">
+04
 </div>
 
-</div>
-
-
-
-<div class="timeline-item fade">
-
-
-<div class="timeline-dot">
-</div>
-
-
-<div class="timeline-card">
-
-
-<div class="timeline-label">
-
-sekarang
-
-</div>
-
+<small>
+Ready to serve
+</small>
 
 <h3>
-
-Aku akhirnya memilih jujur.
-
+Aku akhirnya jujur.
 </h3>
-
 
 <p>
 
-Dan mungkin itulah alasan
-kenapa halaman ini sekarang ada.
+Dan mungkin itu alasan
+kenapa sekarang
+ada satu cookbook digital
 
-Supaya sesuatu yang sulit kuucapkan
-bisa sampai kepadamu dengan baik.
+yang dibuat khusus untukmu.
 
 </p>
 
-
-</div>
-
-</div>
+</article>
 
 
 </div>
@@ -4385,159 +3365,117 @@ bisa sampai kepadamu dengan baik.
 </section>
 
 
-
-<!-- =====================================================
-04 PHOTOS
-===================================================== -->
+<!-- =========================================================
+04 PHOTO COOKBOOK
+========================================================= -->
 
 <section
-class="section photos-section"
+class="section photos"
 data-step="3">
 
+<div class="photos-head">
 
-<div class="photos-heading">
-
-
-<div class="eyebrow fade">
-
-04 —
-beberapa potongan
-tentang Feby
-
+<div class="section-kicker fade">
+04 — cookbook memories
 </div>
-
 
 <h2 class="title fade">
 
-Ada banyak hal
-indah di dunia.
+Beberapa foto
 
-Tapi bagiku,
+yang ingin kusimpan
+di halaman
 
 <em>
-kamu salah satunya.
+favorit.
 </em>
 
 </h2>
 
+<p class="section-copy fade">
 
-<p class="fade">
+Bukan foto makanan.
 
-Lima foto,
-lima potongan momen.
-
-Bagi orang lain
-mungkin hanya foto biasa.
-
-Tapi untukku,
-ada sesuatu
-dari setiap foto ini
-
-yang selalu membuatku
-berhenti sebentar.
+Tapi tetap menjadi
+beberapa hal favorit
+di cookbook kecil ini.
 
 </p>
-
 
 </div>
 
 
+<div class="cookbook-page">
 
 <div
 class="memory-grid"
 id="memoryGrid">
 </div>
 
-
-
-<p class="photo-quote fade">
-
-“Foto mungkin hanya
-menyimpan beberapa detik.
-
-Tapi kadang,
-beberapa detik itu cukup
-
-untuk membuat seseorang
-terlihat istimewa.”
-
-</p>
+</div>
 
 
 </section>
 
 
-
-<!-- =====================================================
-05 LIKES
-===================================================== -->
+<!-- =========================================================
+05 FAVORITES
+========================================================= -->
 
 <section
-class="section"
+class="section favorite"
 data-step="4">
-
 
 <div class="section-inner">
 
 
-<div class="likes-heading">
+<div class="favorite-head">
 
-
-<div class="eyebrow fade">
-
-05 —
-things i like about you
-
+<div class="section-kicker fade">
+05 — chef's notes
 </div>
-
 
 <h2 class="title fade">
 
-Bukan cuma soal
-penampilan.
+Hal-hal tentangmu
 
-Ada banyak hal kecil
+yang menjadi
 
 <em>
-yang kusuka.
+favorite ingredients.
 </em>
 
 </h2>
 
+<p class="section-copy fade">
 
-<p class="likes-copy fade">
+Klik setiap kartu resep.
 
-Klik setiap kartu.
-
-Mungkin beberapa hal ini
-tidak pernah kamu sadari
-
-kalau ada seseorang
-yang memperhatikannya.
+Ada beberapa catatan kecil
+yang mungkin belum pernah
+kusampaikan langsung.
 
 </p>
 
-
 </div>
 
 
-
-<div class="likes-grid">
+<div class="favorite-grid">
 
 
 <button
-class="like-card fade"
+class="favorite-card fade"
+style="--accent:#b86547"
 type="button">
 
+<div class="favorite-front">
 
-<div class="like-front">
-
-<div class="like-number">
-01
+<div class="favorite-label">
+Chef's note
 </div>
 
-<div class="like-icon">
-♡
+<div class="favorite-number">
+01
 </div>
 
 <h3>
@@ -4545,41 +3483,38 @@ Senyummu
 </h3>
 
 <small>
-klik untuk membuka
+tap recipe card
 </small>
 
 </div>
 
+<div class="favorite-back">
 
-<div class="like-back">
-
-Ada sesuatu dari senyummu
+Ada sesuatu
+dari senyummu
 yang terasa sederhana,
 
-tapi entah kenapa
-cukup untuk membuat
+tapi cukup membuat
 suasana menjadi lebih ringan.
 
 </div>
 
-
 </button>
 
 
-
 <button
-class="like-card fade"
+class="favorite-card fade"
+style="--accent:#78815c"
 type="button">
 
+<div class="favorite-front">
 
-<div class="like-front">
-
-<div class="like-number">
-02
+<div class="favorite-label">
+Chef's note
 </div>
 
-<div class="like-icon">
-✦
+<div class="favorite-number">
+02
 </div>
 
 <h3>
@@ -4587,41 +3522,39 @@ Caramu bicara
 </h3>
 
 <small>
-klik untuk membuka
+tap recipe card
 </small>
 
 </div>
 
-
-<div class="like-back">
+<div class="favorite-back">
 
 Entah dari cara kamu menjawab,
 bercerita,
+
 atau sekadar bereaksi,
 
 ada sesuatu yang membuatku
-ingin mendengarkan sedikit lebih lama.
+ingin mendengarkan lebih lama.
 
 </div>
-
 
 </button>
 
 
-
 <button
-class="like-card fade"
+class="favorite-card fade"
+style="--accent:#ba8c4c"
 type="button">
 
+<div class="favorite-front">
 
-<div class="like-front">
-
-<div class="like-number">
-03
+<div class="favorite-label">
+Chef's note
 </div>
 
-<div class="like-icon">
-☾
+<div class="favorite-number">
+03
 </div>
 
 <h3>
@@ -4629,83 +3562,76 @@ Ekspresimu
 </h3>
 
 <small>
-klik untuk membuka
+tap recipe card
 </small>
 
 </div>
 
+<div class="favorite-back">
 
-<div class="like-back">
-
-Kadang justru ekspresi kecil
+Kadang justru
+ekspresi kecil
 yang tidak kamu rencanakan
 
 yang paling mudah kuingat.
 
 </div>
 
-
 </button>
 
 
-
 <button
-class="like-card fade"
+class="favorite-card fade"
+style="--accent:#854b4b"
 type="button">
 
+<div class="favorite-front">
 
-<div class="like-front">
+<div class="favorite-label">
+Chef's note
+</div>
 
-<div class="like-number">
+<div class="favorite-number">
 04
 </div>
 
-<div class="like-icon">
-✧
-</div>
-
 <h3>
-
 Caramu menjadi dirimu
-
 </h3>
 
 <small>
-klik untuk membuka
+tap recipe card
 </small>
 
 </div>
 
+<div class="favorite-back">
 
-<div class="like-back">
-
-Aku tidak mencari seseorang
-yang sempurna.
+Aku tidak mencari
+seseorang yang sempurna.
 
 Aku hanya suka
-bagaimana kamu menjadi
-dirimu sendiri.
+bagaimana kamu
+menjadi dirimu sendiri.
 
 </div>
-
 
 </button>
 
 
-
 <button
-class="like-card fade"
+class="favorite-card fade"
+style="--accent:#9b765b"
 type="button">
 
+<div class="favorite-front">
 
-<div class="like-front">
-
-<div class="like-number">
-05
+<div class="favorite-label">
+Chef's note
 </div>
 
-<div class="like-icon">
-♡
+<div class="favorite-number">
+05
 </div>
 
 <h3>
@@ -4713,68 +3639,59 @@ Hal-hal kecil
 </h3>
 
 <small>
-klik untuk membuka
+tap recipe card
 </small>
 
 </div>
 
+<div class="favorite-back">
 
-<div class="like-back">
+Hal yang mungkin menurutmu
+tidak terlalu penting
 
-Hal yang mungkin menurutmu biasa
-
-kadang justru menjadi hal
-
-yang membuat seseorang
-terlihat berbeda.
+kadang justru menjadi
+hal yang paling mudah diingat.
 
 </div>
-
 
 </button>
 
 
-
 <button
-class="like-card fade"
+class="favorite-card fade"
+style="--accent:#7f8760"
 type="button">
 
+<div class="favorite-front">
 
-<div class="like-front">
+<div class="favorite-label">
+Chef's note
+</div>
 
-<div class="like-number">
+<div class="favorite-number">
 06
 </div>
 
-<div class="like-icon">
-✦
-</div>
-
 <h3>
-
 Perasaan ketika ada kamu
-
 </h3>
 
 <small>
-klik untuk membuka
+tap recipe card
 </small>
 
 </div>
 
+<div class="favorite-back">
 
-<div class="like-back">
+Beberapa hari
+terasa sedikit
+lebih menyenangkan
 
-Mungkin ini yang paling sulit dijelaskan.
-
-Beberapa hari terasa
-sedikit lebih menyenangkan
-
-hanya karena ada kamu
-di dalamnya.
+hanya karena
+ada kamu di dalamnya.
 
 </div>
-
 
 </button>
 
@@ -4787,310 +3704,147 @@ di dalamnya.
 </section>
 
 
-
-<!-- =====================================================
-06 OPEN WHEN
-===================================================== -->
+<!-- =========================================================
+06 RECIPE BOX
+========================================================= -->
 
 <section
-class="section openwhen-section"
+class="section recipebox"
 data-step="5">
 
+<div class="recipebox-head">
 
-<div class="section-inner">
-
-
-<div class="openwhen-heading">
-
-
-<div class="eyebrow fade">
-
-06 —
-open when...
-
+<div class="section-kicker fade">
+06 — recipe box
 </div>
-
 
 <h2 class="title fade">
 
-Tiga surat kecil
+Tiga resep kecil
+
+untuk hari
 
 <em>
-untuk tiga keadaan.
+yang berbeda.
 </em>
 
 </h2>
 
+<p class="section-copy fade">
 
-<p class="fade">
-
-Tidak semuanya harus dibaca sekarang.
-
-Tapi kalau suatu hari
+Kalau suatu hari
 kamu membutuhkannya,
 
-mungkin salah satu surat kecil ini
-bisa menemanimu.
+ambil salah satu kartu
+dari recipe box ini.
 
 </p>
 
-
 </div>
 
 
+<div class="wood-box fade">
 
-<div class="envelope-grid">
 
-
-<article
-class="envelope-card fade"
-data-letter="sad">
+<div class="letter-cards">
 
 
 <button
-class="envelope-button"
+class="letter-card"
+data-letter="sad"
 type="button">
 
-
-<div class="envelope-shape">
-
-
-<div class="envelope-paper-preview">
-
-<small>
-open when...
-</small>
-
-<strong>
-Kamu sedang sedih
-</strong>
-
+<div class="letter-label">
+Recipe for a bad day
 </div>
-
-
-<div class="envelope-left-fold">
-</div>
-
-
-<div class="envelope-right-fold">
-</div>
-
-
-<div class="envelope-bottom-fold">
-</div>
-
-
-<div class="envelope-flap">
-</div>
-
-
-<div class="envelope-seal">
-
-F
-
-</div>
-
-
-</div>
-
-
-
-<div class="envelope-info">
 
 <h3>
-
-Buka saat kamu sedang sedih
-
+Saat kamu sedang sedih
 </h3>
 
-<small>
+<p>
 
-klik untuk membuka surat
+Sedikit istirahat,
+sedikit ruang,
 
-</small>
+dan satu pengingat
+bahwa kamu tidak harus
+selalu baik-baik saja.
 
-</div>
-
+</p>
 
 </button>
 
 
-</article>
-
-
-
-<article
-class="envelope-card fade"
-data-letter="alone">
-
-
 <button
-class="envelope-button"
+class="letter-card"
+data-letter="alone"
 type="button">
 
-
-<div class="envelope-shape">
-
-
-<div class="envelope-paper-preview">
-
-<small>
-open when...
-</small>
-
-<strong>
-Kamu merasa sendiri
-</strong>
-
+<div class="letter-label">
+Recipe for company
 </div>
-
-
-<div class="envelope-left-fold">
-</div>
-
-
-<div class="envelope-right-fold">
-</div>
-
-
-<div class="envelope-bottom-fold">
-</div>
-
-
-<div class="envelope-flap">
-</div>
-
-
-<div class="envelope-seal">
-
-F
-
-</div>
-
-
-</div>
-
-
-
-<div class="envelope-info">
 
 <h3>
-
-Buka saat kamu merasa sendiri
-
+Saat kamu merasa sendiri
 </h3>
 
-<small>
+<p>
 
-klik untuk membuka surat
+Satu pengingat
+bahwa mungkin ada seseorang
 
-</small>
+yang memikirkanmu
+lebih sering
+dari yang kamu kira.
 
-</div>
-
+</p>
 
 </button>
 
 
-</article>
-
-
-
-<article
-class="envelope-card fade"
-data-letter="smile">
-
-
 <button
-class="envelope-button"
+class="letter-card"
+data-letter="smile"
 type="button">
 
-
-<div class="envelope-shape">
-
-
-<div class="envelope-paper-preview">
-
-<small>
-open when...
-</small>
-
-<strong>
-Kamu ingin tersenyum
-</strong>
-
+<div class="letter-label">
+Recipe for a smile
 </div>
-
-
-<div class="envelope-left-fold">
-</div>
-
-
-<div class="envelope-right-fold">
-</div>
-
-
-<div class="envelope-bottom-fold">
-</div>
-
-
-<div class="envelope-flap">
-</div>
-
-
-<div class="envelope-seal">
-
-F
-
-</div>
-
-
-</div>
-
-
-
-<div class="envelope-info">
 
 <h3>
-
-Buka saat kamu ingin tersenyum
-
+Saat kamu ingin tersenyum
 </h3>
 
-<small>
+<p>
 
-klik untuk membuka surat
+Sedikit hal absurd,
+sedikit keberanian,
 
-</small>
+dan fakta bahwa seseorang
+membuat semua ini untukmu.
 
-</div>
-
+</p>
 
 </button>
 
 
-</article>
+</div>
 
 
 </div>
-
 
 
 <div
-class="letter-reveal"
-id="letterReveal">
+class="letter-reading"
+id="letterReading">
 
-
-<div class="letter-connector">
-</div>
-
-
-<article class="openwhen-paper">
+<div class="letter-paper">
 
 
 <button
-class="close-letter"
-id="closeLetter"
+class="letter-close"
+id="letterClose"
 type="button">
 
 ×
@@ -5098,120 +3852,112 @@ type="button">
 </button>
 
 
-
-<div class="openwhen-paper-top">
-
-
 <div
-class="openwhen-paper-tag"
-id="letterTag">
+class="letter-meta"
+id="letterMeta">
 
-OPEN WHEN...
-
-</div>
-
-
-<div
-class="openwhen-paper-number"
-id="letterNumber">
-
-01
+RECIPE CARD
 
 </div>
 
 
-</div>
-
-
-<h3 id="letterTitle">
+<h3
+id="letterTitle">
 </h3>
 
 
 <div
-class="openwhen-paper-body"
+class="letter-body"
 id="letterBody">
 </div>
 
 
-</article>
-
+</div>
 
 </div>
 
-
-</div>
 
 </section>
 
 
-
-<!-- =====================================================
-07 MAIN LETTER
-===================================================== -->
+<!-- =========================================================
+07 SECRET
+========================================================= -->
 
 <section
-class="section main-letter-section"
+class="section secret"
 data-step="6">
 
+<div class="secret-grid">
 
-<div class="main-letter-wrapper">
 
+<div class="secret-visual fade">
 
-<div class="eyebrow fade">
+<div class="recipe-book">
 
-07 —
-surat yang sebenarnya
+<div class="section-kicker">
+Secret Recipe
+</div>
+
+<h3>
+Satu bahan terakhir.
+</h3>
+
+<p>
+
+Setelah semua hal
+kecil tadi dicampur,
+
+aku akhirnya menemukan
+satu bahan
+
+yang membuat semuanya
+terasa berbeda.
+
+</p>
+
+<div class="secret-answer">
+
+Kamu.
+
+</div>
+
+<p class="signature">
+
+— untuk Feby ♡
+
+</p>
+
+</div>
 
 </div>
 
 
+<div class="secret-copy">
+
+<div class="section-kicker fade">
+07 — secret ingredient
+</div>
+
 <h2 class="title fade">
 
-Kalau sulit
-diucapkan,
+Ada sesuatu
 
-mungkin lebih baik
+yang sebenarnya
+
+ingin aku
 
 <em>
-dituliskan.
+katakan.
 </em>
 
 </h2>
 
+<p class="section-copy fade">
 
-
-<div class="paper fade">
-
-
-<div class="paper-label">
-
-Untuk Feby —
-tanpa perlu terburu-buru
-
-</div>
-
-
-<h3>
-
-Feby,
-aku ingin jujur.
-
-</h3>
-
-
-<p>
-
-Aku sebenarnya
-tidak tahu sejak kapan tepatnya.
-
-Tapi perlahan aku mulai
-melihatmu lebih dari
-sekadar seseorang yang aku kenal.
-
-</p>
-
-
-<p>
+Aku mulai melihatmu
+lebih dari sekadar seseorang
+yang aku kenal.
 
 Ada rasa senang
 setiap kali melihat namamu.
@@ -5225,48 +3971,18 @@ harimu sedikit lebih baik.
 
 </p>
 
+<p class="section-copy fade">
 
-<p>
-
-Aku membuat halaman ini
+Aku membuat tempat kecil ini
 bukan untuk membuatmu
-merasa harus menjawab perasaanku.
+merasa harus menjawab apa pun.
 
-Aku hanya ingin
-menyampaikannya
+Aku hanya ingin jujur.
 
-dengan cara yang benar-benar
-aku pikirkan.
-
-</p>
-
-
-<p>
-
-Kalau setelah membaca ini
-kamu membutuhkan waktu,
-
+Dan kalau kamu membutuhkan waktu,
 aku akan menghargainya.
 
-Karena yang terpenting
-buatku sekarang
-
-adalah kamu tahu
-bahwa ada seseorang
-
-yang melihat sesuatu
-yang istimewa dalam dirimu.
-
 </p>
-
-
-<p class="signature">
-
-— dari aku,
-untuk Feby ♡
-
-</p>
-
 
 </div>
 
@@ -5276,31 +3992,27 @@ untuk Feby ♡
 </section>
 
 
-
-<!-- =====================================================
-08 HEART
-===================================================== -->
+<!-- =========================================================
+08 FINAL INGREDIENT
+========================================================= -->
 
 <section
-class="section heart-section"
+class="section final-ingredient"
 data-step="7">
 
+<div class="final-ingredient-inner">
 
-<div class="heart-inner">
 
-
-<div class="eyebrow fade">
-
-08 —
-satu kalimat terakhir
-
+<div class="section-kicker fade">
+08 — final ingredient
 </div>
-
 
 <h2 class="title fade">
 
-Ada sesuatu
-yang belum aku tulis
+Ada satu bahan
+
+yang belum
+aku tambahkan
 
 <em>
 secara langsung.
@@ -5308,95 +4020,53 @@ secara langsung.
 
 </h2>
 
-
 <p class="heart-copy fade">
 
-Aku rasa sekarang waktunya
-untuk tidak berputar-putar lagi.
+Yang ini tidak perlu
+diiris,
+ditumis,
+atau direbus.
 
-Klik hati di bawah ini. ♡
+Cukup klik
+piring di bawah ini.
 
 </p>
 
 
-
 <div class="fade">
 
-
 <button
-class="heart-button"
+class="plate-button"
 id="heartButton"
 type="button">
 
-
 <svg
-class="heart-progress"
-viewBox="0 0 160 160">
-
+class="plate-progress"
+viewBox="0 0 190 190">
 
 <circle
-class="progress-bg"
-cx="80"
-cy="80"
-r="70">
+class="plate-progress-bg"
+cx="95"
+cy="95"
+r="80">
 </circle>
 
-
 <circle
-class="progress-main"
+class="plate-progress-main"
 id="progressCircle"
-cx="80"
-cy="80"
-r="70">
+cx="95"
+cy="95"
+r="80">
 </circle>
-
 
 </svg>
 
 
-
 <svg
-class="heart-svg"
+class="plate-heart"
 viewBox="0 0 100 90">
 
-
-<defs>
-
-
-<linearGradient
-id="heartGradient"
-x1="0"
-y1="0"
-x2="1"
-y2="1">
-
-
-<stop
-offset="0%"
-stop-color="#ffb3c7">
-</stop>
-
-
-<stop
-offset="55%"
-stop-color="#e86f92">
-</stop>
-
-
-<stop
-offset="100%"
-stop-color="#9f3d5a">
-</stop>
-
-
-</linearGradient>
-
-
-</defs>
-
-
 <path
-fill="url(#heartGradient)"
 d="
 M50 84
 C46 79 8 56 8 28
@@ -5408,21 +4078,16 @@ C92 56 54 79 50 84Z
 ">
 </path>
 
-
 </svg>
-
 
 </button>
 
-
 </div>
-
 
 
 <div
 class="heart-result"
 id="heartResult">
-
 
 <strong>
 
@@ -5436,19 +4101,18 @@ Feby.
 
 </strong>
 
-
 <p>
 
 Dan kalau kamu mengizinkan,
 
-aku ingin mengenalmu lebih dekat.
+aku ingin mengenalmu
+lebih dekat.
 
 Pelan-pelan.
 
-Tanpa harus memaksa apa pun.
+Tidak perlu terburu-buru.
 
 </p>
-
 
 </div>
 
@@ -5458,42 +4122,35 @@ Tanpa harus memaksa apa pun.
 </section>
 
 
-
-<!-- =====================================================
-09 FINAL
-===================================================== -->
+<!-- =========================================================
+09 ENDING
+========================================================= -->
 
 <section
-class="section final-section"
+class="section ending"
 data-step="8">
 
-
-<div
-class="final-stars"
-id="finalStars">
-</div>
+<div class="ending-inner">
 
 
+<div class="ending-plate fade">
 
-<div class="final-inner fade">
-
-
-<div class="final-moon">
-</div>
-
-
-<div class="eyebrow">
-
-09 —
-mungkin ini bukan akhir
+<span>
+♡
+</span>
 
 </div>
 
 
-<h2 class="final-title">
+<div class="section-kicker fade">
+09 — after dinner
+</div>
 
-Aku tidak tahu
-bagaimana cerita ini
+<h2 class="title fade">
+
+Aku belum tahu
+
+bagaimana resep ini
 
 <em>
 akan berakhir.
@@ -5502,34 +4159,36 @@ akan berakhir.
 </h2>
 
 
-<p class="final-copy">
+<p class="ending-copy fade">
 
 Tapi kalau boleh memilih,
 
 aku ingin halaman ini
-bukan menjadi akhir dari sesuatu,
+bukan menjadi penutup.
 
-melainkan awal dari kesempatan
-untuk mengenalmu lebih jauh.
+Mungkin hanya menjadi
+kesempatan kecil
 
-Apa pun jawabanmu nanti,
+untuk mengenalmu
+sedikit lebih dekat.
 
-terima kasih karena sudah membaca
-semuanya sampai sejauh ini.
+Dan siapa tahu,
+
+suatu hari ada cerita lain
+yang bisa kita masak bersama.
 
 </p>
 
 
-
-<div class="final-buttons">
+<div class="final-buttons fade">
 
 
 <button
 class="final-button primary"
 type="button"
-data-response="Makasih sudah baca semuanya, Feby. Itu saja sudah berarti banyak buatku. ♡">
+data-response="Makasih sudah membaca semuanya, Feby. Mungkin ini baru appetizer-nya. ♡">
 
-Aku baca sampai akhir ♡
+Let's see where this goes ♡
 
 </button>
 
@@ -5537,9 +4196,9 @@ Aku baca sampai akhir ♡
 <button
 class="final-button"
 type="button"
-data-response="Tidak apa-apa. Ambil waktu sebanyak yang kamu butuhkan. Aku menghargainya.">
+data-response="Tidak apa-apa. Beberapa resep memang butuh waktu. Aku akan menghargainya.">
 
-Aku butuh waktu dulu
+Give me a little time
 
 </button>
 
@@ -5561,12 +4220,12 @@ id="finalResponse">
 </main>
 
 
-
 <footer>
 
-made with courage,
-not pressure —
-for Feby ♡
+Feby's Kitchen Journal —
+one recipe,
+one feeling,
+made carefully ♡
 
 </footer>
 
@@ -5574,42 +4233,13 @@ for Feby ♡
 </div>
 
 
-
-<!-- =====================================================
-SECRET
-===================================================== -->
-
-<button
-class="secret-star"
-id="secretStar"
-type="button">
-
-✦
-
-</button>
-
-
-<div
-class="secret-toast"
-id="secretToast">
-
-Kamu menemukan pesan rahasianya.
-
-Berarti kamu benar-benar
-memperhatikan semuanya. ♡
-
-</div>
-
-
-
-<!-- =====================================================
-PHOTO LIGHTBOX
-===================================================== -->
+<!-- =========================================================
+LIGHTBOX
+========================================================= -->
 
 <div
 class="lightbox"
 id="lightbox">
-
 
 <button
 class="lightbox-close"
@@ -5620,94 +4250,60 @@ type="button">
 
 </button>
 
-
 <div
 class="lightbox-image"
 id="lightboxImage">
 </div>
-
 
 <div
 class="lightbox-caption"
 id="lightboxCaption">
 </div>
 
-
 </div>
-
 
 
 <script>
 
 /* =========================================================
-PHOTOS
+PHOTO DATA
 ========================================================= */
 
 const PHOTO_DATA = [
 
 {
-
-src:
-"./assets/IMG_0814.jpg",
-
-title:
-"Momen sederhana yang kuingat.",
-
-caption:
-"Momen sederhana yang entah kenapa selalu membuatku tersenyum."
-
+    src:"./assets/IMG_0814.jpg",
+    title:"Cookbook memory #01",
+    note:"A simple moment worth keeping.",
+    caption:"Momen sederhana yang entah kenapa tetap mudah kuingat."
 },
 
 {
-
-src:
-"./assets/IMG_6245.jpg",
-
-title:
-"Senyum yang sederhana.",
-
-caption:
-"Ada sesuatu dari senyummu yang sederhana tapi sulit dilupakan."
-
+    src:"./assets/IMG_6245.jpg",
+    title:"Cookbook memory #02",
+    note:"Chef's favorite smile.",
+    caption:"Kalau cookbook ini punya chef's recommendation, mungkin senyum ini masuk daftarnya."
 },
 
 {
-
-src:
-"./assets/IMG_7540.jpg",
-
-title:
-"Tentang detail-detail kecil.",
-
-caption:
-"Mungkin kamu menganggapnya foto biasa. Tapi aku tetap suka melihatnya."
-
+    src:"./assets/IMG_7540.jpg",
+    title:"Cookbook memory #03",
+    note:"Little details matter.",
+    caption:"Kadang justru detail yang sederhana yang paling mudah diingat."
 },
 
 {
-
-src:
-"./assets/quality_restoration_20260528104251057.jpg",
-
-title:
-"Hari yang terasa lebih hangat.",
-
-caption:
-"Satu lagi momen kecil yang ingin kusimpan di sini."
-
+    src:"./assets/quality_restoration_20260528104251057.jpg",
+    title:"Cookbook memory #04",
+    note:"Another warm little moment.",
+    caption:"Satu lagi potongan kecil yang ingin kusimpan di halaman ini."
 },
 
 {
-
-src:
-"./assets/f2751596-e3f9-447e-811d-c67002c07795.jpg",
-
-title:
-"Satu foto lagi yang kusuka.",
-
-caption:
-"Dan foto ini menjadi satu lagi alasan kenapa halaman kecil ini dibuat untukmu."
-
+    src:"./assets/f2751596-e3f9-447e-811d-c67002c07795.jpg",
+    title:"Cookbook memory #05",
+    note:"Today's special: Feby.",
+    caption:"Dan ini mungkin menjadi penutup yang tepat untuk halaman foto favorit."
 }
 
 ];
@@ -5715,128 +4311,125 @@ caption:
 
 const memoryGrid =
 document.getElementById(
-"memoryGrid"
+    "memoryGrid"
 );
 
 
 PHOTO_DATA.forEach(
-function(
-photo,
-index
-){
+function(photo){
 
-const figure =
-document.createElement(
-"figure"
-);
+    const figure =
+    document.createElement(
+        "figure"
+    );
 
 
-figure.className =
-"memory fade";
+    figure.className =
+        "memory fade";
 
 
-const button =
-document.createElement(
-"button"
-);
+    const button =
+    document.createElement(
+        "button"
+    );
 
 
-button.type =
-"button";
+    button.type =
+        "button";
 
 
-button.className =
-"photo-button";
+    button.className =
+        "photo-button";
 
 
-const surface =
-document.createElement(
-"div"
-);
+    const tape =
+    document.createElement(
+        "span"
+    );
 
 
-surface.className =
-"photo-surface";
+    tape.className =
+        "photo-tape";
 
 
-surface.style.backgroundImage =
-`url("${photo.src}")`;
+    const surface =
+    document.createElement(
+        "div"
+    );
 
 
-const caption =
-document.createElement(
-"figcaption"
-);
+    surface.className =
+        "photo-surface";
 
 
-const title =
-document.createElement(
-"h4"
-);
+    surface.style.backgroundImage =
+        `url("${photo.src}")`;
 
 
-title.textContent =
-photo.title;
+    const note =
+    document.createElement(
+        "div"
+    );
 
 
-const number =
-document.createElement(
-"span"
-);
+    note.className =
+        "photo-note";
 
 
-number.textContent =
-String(
-index + 1
-)
-.padStart(
-2,
-"0"
-)
-+
-" ♡";
+    note.textContent =
+        photo.note;
 
 
-caption.appendChild(
-title
-);
+    const caption =
+    document.createElement(
+        "figcaption"
+    );
 
 
-caption.appendChild(
-number
-);
+    caption.textContent =
+        photo.title;
 
 
-button.appendChild(
-surface
-);
+    button.appendChild(
+        tape
+    );
 
 
-figure.appendChild(
-button
-);
+    button.appendChild(
+        surface
+    );
 
 
-figure.appendChild(
-caption
-);
+    button.appendChild(
+        note
+    );
 
 
-memoryGrid.appendChild(
-figure
-);
+    figure.appendChild(
+        button
+    );
 
 
-button.addEventListener(
-"click",
-function(){
+    figure.appendChild(
+        caption
+    );
 
-openLightbox(
-photo
-);
 
-}
-);
+    memoryGrid.appendChild(
+        figure
+    );
+
+
+    button.addEventListener(
+        "click",
+        function(){
+
+            openLightbox(
+                photo
+            );
+
+        }
+    );
 
 });
 
@@ -5847,94 +4440,41 @@ OPENING
 
 const opening =
 document.getElementById(
-"opening"
-);
-
-
-const openButton =
-document.getElementById(
-"openButton"
+    "opening"
 );
 
 
 const site =
 document.getElementById(
-"site"
+    "site"
 );
 
 
-const openingCopy =
-document.getElementById(
-"openingCopy"
-);
+document
+.getElementById(
+    "openButton"
+)
+.addEventListener(
+    "click",
+    function(){
+
+        opening
+        .classList
+        .add(
+            "hide"
+        );
 
 
-const introText =
-
-"Aku ingin mengatakan sesuatu. Bukan lewat chat yang cepat tenggelam, tapi lewat tempat kecil yang sengaja kubuat khusus untukmu.";
-
-
-let introIndex =
-0;
+        site
+        .classList
+        .add(
+            "show"
+        );
 
 
-function typeOpening(){
+        startMusic();
 
-openingCopy.textContent =
-introText.slice(
-0,
-introIndex
-);
-
-
-introIndex++;
-
-
-if(
-introIndex <=
-introText.length
-){
-
-setTimeout(
-typeOpening,
-27
-);
-
-}
-
-}
-
-
-typeOpening();
-
-
-openButton.addEventListener(
-"click",
-function(){
-
-opening
-.classList
-.add(
-"hide"
-);
-
-
-site
-.classList
-.add(
-"show"
-);
-
-
-/*
-Browser menganggap ini sebagai
-user interaction, jadi musik
-boleh dimulai dari sini.
-*/
-
-startMusicWithFade();
-
-}
+    }
 );
 
 
@@ -5942,482 +4482,333 @@ startMusicWithFade();
 MUSIC
 ========================================================= */
 
-const backgroundMusic =
+const music =
 document.getElementById(
-"backgroundMusic"
+    "backgroundMusic"
 );
 
 
-const musicPlayer =
+const musicPlay =
 document.getElementById(
-"musicPlayer"
-);
-
-
-const musicButton =
-document.getElementById(
-"musicButton"
+    "musicPlay"
 );
 
 
 const musicIcon =
 document.getElementById(
-"musicIcon"
+    "musicIcon"
+);
+
+
+const musicMute =
+document.getElementById(
+    "musicMute"
 );
 
 
 const musicProgress =
 document.getElementById(
-"musicProgress"
+    "musicProgress"
 );
 
 
 const musicTime =
 document.getElementById(
-"musicTime"
+    "musicTime"
 );
 
 
-const volumeButton =
-document.getElementById(
-"volumeButton"
-);
-
-
-let previousVolume =
+const normalVolume =
 0.38;
 
 
-backgroundMusic.volume =
+music.volume =
 0;
 
 
-function startMusicWithFade(){
+function startMusic(){
 
-const playPromise =
-backgroundMusic.play();
+    music
+    .play()
+    .then(
+    function(){
+
+        fadeVolume(
+            0,
+            normalVolume,
+            1600
+        );
 
 
-if(
-playPromise !== undefined
-){
+        updateMusicIcon();
 
-playPromise
-.then(
-function(){
+    })
+    .catch(
+    function(){
 
-fadeMusicVolume(
-0,
-previousVolume,
-1800
-);
+        updateMusicIcon();
 
-updateMusicIcon();
-
-}
-)
-.catch(
-function(error){
-
-console.log(
-"Music autoplay blocked:",
-error
-);
-
-updateMusicIcon();
-
-}
-);
-
-}
+    });
 
 }
 
 
-function fadeMusicVolume(
+function fadeVolume(
 from,
 to,
 duration
 ){
 
-const start =
-performance.now();
+    const start =
+    performance.now();
 
 
-backgroundMusic.volume =
-from;
+    function animate(time){
+
+        const progress =
+        Math.min(
+            (
+                time -
+                start
+            )
+            /
+            duration,
+            1
+        );
 
 
-function animate(
-time
-){
-
-const progress =
-Math.min(
-(
-time - start
-)
-/
-duration,
-1
-);
-
-
-const volume =
-from +
-(
-to - from
-)
-*
-progress;
+        music.volume =
+        Math.max(
+            0,
+            Math.min(
+                1,
+                from +
+                (
+                    to -
+                    from
+                )
+                *
+                progress
+            )
+        );
 
 
-backgroundMusic.volume =
-Math.max(
-0,
-Math.min(
-1,
-volume
-)
-);
+        if(
+            progress <
+            1
+        ){
+
+            requestAnimationFrame(
+                animate
+            );
+
+        }
+
+    }
 
 
-if(
-progress < 1
-){
-
-requestAnimationFrame(
-animate
-);
-
-}
-
-}
-
-
-requestAnimationFrame(
-animate
-);
+    requestAnimationFrame(
+        animate
+    );
 
 }
 
 
 function updateMusicIcon(){
 
-if(
-backgroundMusic.paused
-){
-
-musicIcon.textContent =
-"▶";
-
-}else{
-
-musicIcon.textContent =
-"❚❚";
-
-}
+    musicIcon.textContent =
+        music.paused
+        ?
+        "▶"
+        :
+        "❚❚";
 
 }
 
 
-musicButton.addEventListener(
-"click",
-function(){
+musicPlay.addEventListener(
+    "click",
+    function(){
 
-if(
-backgroundMusic.paused
-){
+        if(
+            music.paused
+        ){
 
-backgroundMusic.play()
-.then(
-function(){
-
-fadeMusicVolume(
-0,
-previousVolume,
-500
-);
-
-updateMusicIcon();
-
-}
-)
-.catch(
-function(error){
-
-console.log(error);
-
-}
-);
-
-}else{
-
-const currentVolume =
-backgroundMusic.volume;
+            music.volume =
+                0;
 
 
-fadeMusicVolume(
-currentVolume,
-0,
-400
+            music
+            .play()
+            .then(
+            function(){
+
+                fadeVolume(
+                    0,
+                    normalVolume,
+                    500
+                );
+
+
+                updateMusicIcon();
+
+            });
+
+        }else{
+
+            music.pause();
+
+            updateMusicIcon();
+
+        }
+
+    }
 );
 
 
-setTimeout(
-function(){
+musicMute.addEventListener(
+    "click",
+    function(){
 
-backgroundMusic.pause();
-
-backgroundMusic.volume =
-previousVolume;
-
-updateMusicIcon();
-
-},
-410
-);
-
-}
-
-}
-);
+        music.muted =
+            !music.muted;
 
 
-volumeButton.addEventListener(
-"click",
-function(){
+        musicMute.textContent =
+            music.muted
+            ?
+            "×"
+            :
+            "♬";
 
-if(
-backgroundMusic.muted
-){
-
-backgroundMusic.muted =
-false;
-
-volumeButton.textContent =
-"♬";
-
-}else{
-
-backgroundMusic.muted =
-true;
-
-volumeButton.textContent =
-"×";
-
-}
-
-}
+    }
 );
 
 
-backgroundMusic.addEventListener(
-"timeupdate",
-function(){
+music.addEventListener(
+    "timeupdate",
+    function(){
 
-if(
-!Number.isFinite(
-backgroundMusic.duration
-)
-){
+        if(
+            !Number.isFinite(
+                music.duration
+            )
+        ){
 
-return;
+            return;
 
-}
-
-
-const percent =
-(
-backgroundMusic.currentTime
-/
-backgroundMusic.duration
-)
-*
-100;
+        }
 
 
-musicProgress.value =
-percent;
+        const progress =
+            (
+                music.currentTime
+                /
+                music.duration
+            )
+            *
+            100;
 
 
-musicProgress.style.background =
-
-`linear-gradient(
-90deg,
-#ed91aa ${percent}%,
-rgba(255,255,255,.11) ${percent}%
-)`;
+        musicProgress.value =
+            progress;
 
 
-musicTime.textContent =
+        musicProgress.style.background =
 
-formatTime(
-backgroundMusic.currentTime
-)
-+
-" / "
-+
-formatTime(
-backgroundMusic.duration
-);
+        `linear-gradient(
+            90deg,
+            #b86547 ${progress}%,
+            rgba(80,60,45,.14) ${progress}%
+        )`;
 
-}
+
+        musicTime.textContent =
+
+        formatTime(
+            music.currentTime
+        )
+        +
+        " / "
+        +
+        formatTime(
+            music.duration
+        );
+
+    }
 );
 
 
 musicProgress.addEventListener(
-"input",
-function(){
+    "input",
+    function(){
 
-if(
-!Number.isFinite(
-backgroundMusic.duration
-)
-){
+        if(
+            Number.isFinite(
+                music.duration
+            )
+        ){
 
-return;
+            music.currentTime =
+                (
+                    Number(
+                        musicProgress.value
+                    )
+                    /
+                    100
+                )
+                *
+                music.duration;
 
-}
+        }
 
-
-const target =
-(
-Number(
-musicProgress.value
-)
-/
-100
-)
-*
-backgroundMusic.duration;
-
-
-backgroundMusic.currentTime =
-target;
-
-}
+    }
 );
 
 
-backgroundMusic.addEventListener(
-"play",
-updateMusicIcon
-);
+function formatTime(seconds){
+
+    if(
+        !Number.isFinite(
+            seconds
+        )
+    ){
+
+        return "0:00";
+
+    }
 
 
-backgroundMusic.addEventListener(
-"pause",
-updateMusicIcon
-);
+    const minutes =
+        Math.floor(
+            seconds /
+            60
+        );
 
 
-backgroundMusic.addEventListener(
-"loadedmetadata",
-function(){
-
-musicTime.textContent =
-
-"0:00 / "
-+
-formatTime(
-backgroundMusic.duration
-);
-
-}
-);
+    const sec =
+        Math.floor(
+            seconds %
+            60
+        )
+        .toString()
+        .padStart(
+            2,
+            "0"
+        );
 
 
-backgroundMusic.addEventListener(
-"error",
-function(){
-
-musicPlayer
-.classList
-.add(
-"error"
-);
-
-
-musicIcon.textContent =
-"▶";
-
-}
-);
-
-
-function formatTime(
-seconds
-){
-
-if(
-!Number.isFinite(
-seconds
-)
-){
-
-return "0:00";
-
-}
-
-
-const minutes =
-Math.floor(
-seconds / 60
-);
-
-
-const remainder =
-Math.floor(
-seconds % 60
-)
-.toString()
-.padStart(
-2,
-"0"
-);
-
-
-return (
-minutes
-+
-":"
-+
-remainder
-);
+    return (
+        minutes +
+        ":" +
+        sec
+    );
 
 }
 
 
 /* =========================================================
-CURSOR
-========================================================= */
-
-const cursorGlow =
-document.getElementById(
-"cursorGlow"
-);
-
-
-window.addEventListener(
-"pointermove",
-function(event){
-
-cursorGlow.style.left =
-event.clientX +
-"px";
-
-
-cursorGlow.style.top =
-event.clientY +
-"px";
-
-}
-);
-
-
-/* =========================================================
-REVEAL
+SCROLL REVEAL
 ========================================================= */
 
 const fadeObserver =
@@ -6425,69 +4816,59 @@ new IntersectionObserver(
 
 function(entries){
 
-entries.forEach(
-function(entry){
+    entries.forEach(
+    function(entry){
 
-if(
-entry.isIntersecting
-){
+        if(
+            entry.isIntersecting
+        ){
 
-entry.target
-.classList
-.add(
-"visible"
-);
+            entry.target
+            .classList
+            .add(
+                "visible"
+            );
 
-}
+        }
 
-}
-);
+    });
 
 },
 
 {
-threshold:.12
+    threshold:.12
 }
 
 );
 
 
-function observeFade(){
-
 document
 .querySelectorAll(
-".fade"
+    ".fade"
 )
 .forEach(
 function(element){
 
-fadeObserver
-.observe(
-element
-);
+    fadeObserver.observe(
+        element
+    );
 
-}
-);
-
-}
-
-
-observeFade();
+});
 
 
 /* =========================================================
-NAV
+NAVIGATION
 ========================================================= */
 
 const sections =
 document.querySelectorAll(
-"[data-step]"
+    "[data-step]"
 );
 
 
-const navDots =
+const dots =
 document.querySelectorAll(
-".nav-dots span"
+    ".nav-dots span"
 );
 
 
@@ -6496,53 +4877,42 @@ new IntersectionObserver(
 
 function(entries){
 
-entries.forEach(
-function(entry){
+    entries.forEach(
+    function(entry){
 
-if(
-!entry.isIntersecting
-){
+        if(
+            !entry.isIntersecting
+        ){
 
-return;
+            return;
 
-}
-
-
-const step =
-Number(
-entry.target
-.dataset
-.step
-);
+        }
 
 
-navDots.forEach(
-function(
-dot,
-index
-){
+        const step =
+            Number(
+                entry.target
+                .dataset
+                .step
+            );
 
-dot
-.classList
-.toggle(
 
-"active",
+        dots.forEach(
+        function(dot,index){
 
-index ===
-step
+            dot.classList.toggle(
+                "active",
+                index === step
+            );
 
-);
+        });
 
-}
-);
-
-}
-);
+    });
 
 },
 
 {
-threshold:.45
+    threshold:.45
 }
 
 );
@@ -6551,249 +4921,200 @@ threshold:.45
 sections.forEach(
 function(section){
 
-sectionObserver
-.observe(
-section
-);
+    sectionObserver.observe(
+        section
+    );
 
-}
-);
+});
 
 
 /* =========================================================
-LIKE CARDS
+FAVORITE CARDS
 ========================================================= */
 
 document
 .querySelectorAll(
-".like-card"
+    ".favorite-card"
 )
 .forEach(
 function(card){
 
-card.addEventListener(
-"click",
-function(){
+    card.addEventListener(
+        "click",
+        function(){
 
-card
-.classList
-.toggle(
-"open"
-);
+            card
+            .classList
+            .toggle(
+                "open"
+            );
 
-}
-);
+        }
+    );
 
-}
-);
+});
 
 
 /* =========================================================
-OPEN WHEN DATA
+LETTERS
 ========================================================= */
 
 const LETTERS = {
 
 sad:{
 
-number:
-"01",
+    meta:
+    "RECIPE FOR A BAD DAY",
 
-tag:
-"OPEN WHEN YOU ARE SAD",
+    title:
+    "Untuk Feby, saat harimu terasa berat.",
 
-title:
-"Untuk Feby, saat harimu terasa berat.",
+    body:`
 
-body:`
+    <p>
+    Tidak apa-apa kalau hari ini
+    tidak berjalan seperti yang kamu harapkan.
+    </p>
 
-<p>
-Tidak apa-apa kalau hari ini
-tidak berjalan seperti yang kamu harapkan.
-Tidak semua hari harus menjadi hari
-di mana kamu baik-baik saja.
-</p>
+    <p>
+    Tidak semua hari harus menjadi hari
+    di mana kamu baik-baik saja.
+    </p>
 
-<p>
-Kamu tidak harus selalu terlihat kuat.
-Kalau kamu lelah,
-istirahatlah sebentar.
+    <p>
+    Kamu juga tidak harus
+    selalu terlihat kuat.
+    Kalau kamu lelah,
+    istirahatlah sebentar.
+    </p>
 
-Kalau sesuatu membuatmu sedih,
-beri dirimu waktu untuk merasakannya.
-</p>
+    <p>
+    Kalau sesuatu membuatmu sedih,
+    beri dirimu waktu untuk merasakannya.
+    </p>
 
-<p>
-Dan kalau suatu hari
-semuanya terasa terlalu berat,
+    <p class="signature">
+    Serving suggestion:
+    sesuatu yang kamu suka,
+    sedikit istirahat,
+    dan jangan terlalu keras
+    pada dirimu sendiri. ♡
+    </p>
 
-ingat saja bahwa ada seseorang
-yang berharap besok
-menjadi hari yang sedikit lebih baik untukmu.
-</p>
-
-<p class="openwhen-signature">
-— semoga setelah membaca ini,
-hatimu terasa sedikit lebih ringan. ♡
-</p>
-
-`
+    `
 
 },
 
 
 alone:{
 
-number:
-"02",
+    meta:
+    "RECIPE FOR COMPANY",
 
-tag:
-"OPEN WHEN YOU FEEL ALONE",
+    title:
+    "Kalau suatu hari kamu merasa sendiri...",
 
-title:
-"Kalau suatu hari kamu merasa sendiri...",
+    body:`
 
-body:`
+    <p>
+    Mungkin aku tidak selalu tahu
+    apa yang sedang terjadi
+    di pikiranmu.
+    </p>
 
-<p>
-Mungkin aku tidak selalu tahu
-apa yang sedang terjadi di pikiranmu.
+    <p>
+    Tapi setidaknya
+    ingat satu hal.
+    </p>
 
-Dan mungkin aku juga tidak selalu ada
-di tempat yang tepat
-untuk mendengar ceritamu.
-</p>
+    <p>
+    Ada seseorang
+    yang memikirkanmu
+    lebih sering dari yang kamu kira.
+    </p>
 
-<p>
-Tapi setidaknya ingat satu hal.
+    <p>
+    Seseorang yang berharap
+    kamu baik-baik saja.
+    </p>
 
-Ada seseorang yang memikirkanmu
-lebih sering dari yang kamu kira.
-</p>
+    <p class="signature">
+    Kalau dunia terasa sepi,
+    anggap saja kartu kecil ini
+    sedang menemanimu. ♡
+    </p>
 
-<p>
-Seseorang yang berharap
-kamu baik-baik saja.
-
-Seseorang yang mungkin,
-tanpa kamu sadari,
-
-tersenyum ketika melihat namamu muncul.
-</p>
-
-<p class="openwhen-signature">
-Jadi kalau dunia terasa sepi,
-anggap saja surat kecil ini
-sedang menemanimu. ♡
-</p>
-
-`
+    `
 
 },
 
 
 smile:{
 
-number:
-"03",
+    meta:
+    "RECIPE FOR A SMILE",
 
-tag:
-"OPEN WHEN YOU WANT TO SMILE",
+    title:
+    "Kalau kamu sedang mencari alasan kecil untuk tersenyum...",
 
-title:
-"Kalau kamu sedang mencari alasan kecil untuk tersenyum...",
+    body:`
 
-body:`
+    <p>
+    Kamu sedang membaca
+    sebuah website
+    yang benar-benar dibuat seseorang
+    hanya untukmu.
+    </p>
 
-<p>
-Pertama,
+    <p>
+    Agak berlebihan?
+    </p>
 
-kamu sedang membaca
-sebuah website yang benar-benar
-dibuat seseorang
+    <p>
+    Mungkin.
+    </p>
 
-hanya untuk menyampaikan
-perasaannya kepadamu.
-</p>
+    <p>
+    Tapi kalau semua ini
+    berhasil membuatmu tersenyum
+    sedikit saja,
+    berarti menurutku
+    semuanya cukup worth it.
+    </p>
 
-<p>
-Agak berlebihan?
+    <p class="signature">
+    Kalau sekarang kamu tersenyum,
+    anggap saja resep ini berhasil. ♡
+    </p>
 
-Mungkin.
-</p>
-
-<p>
-Tapi kalau semuanya ini
-berhasil membuatmu tersenyum
-sedikit saja,
-
-berarti menurutku
-semuanya sudah cukup worth it.
-</p>
-
-<p>
-Dan kalau kamu kembali
-membuka surat ini di lain waktu,
-
-berarti website kecil ini
-berhasil membuatmu kembali ke sini.
-</p>
-
-<p class="openwhen-signature">
-Kalau sekarang kamu tersenyum,
-anggap saja aku menang sedikit. ♡
-</p>
-
-`
+    `
 
 }
 
 };
 
 
-/* =========================================================
-OPEN WHEN
-========================================================= */
-
-const envelopeCards =
-document.querySelectorAll(
-".envelope-card"
+const letterReading =
+document.getElementById(
+    "letterReading"
 );
 
 
-const letterReveal =
+const letterMeta =
 document.getElementById(
-"letterReveal"
-);
-
-
-const letterTag =
-document.getElementById(
-"letterTag"
-);
-
-
-const letterNumber =
-document.getElementById(
-"letterNumber"
+    "letterMeta"
 );
 
 
 const letterTitle =
 document.getElementById(
-"letterTitle"
+    "letterTitle"
 );
 
 
 const letterBody =
 document.getElementById(
-"letterBody"
-);
-
-
-const closeLetter =
-document.getElementById(
-"closeLetter"
+    "letterBody"
 );
 
 
@@ -6801,155 +5122,106 @@ let activeLetter =
 null;
 
 
-function clearEnvelopeState(){
+document
+.querySelectorAll(
+    ".letter-card"
+)
+.forEach(
+function(button){
 
-envelopeCards.forEach(
-function(card){
+    button.addEventListener(
+        "click",
+        function(){
 
-card
-.classList
-.remove(
-"active"
-);
-
-}
-);
-
-}
+            const key =
+                button.dataset.letter;
 
 
-function hideLetter(){
+            if(
+                activeLetter ===
+                key
+            ){
 
-clearEnvelopeState();
+                closeLetter();
 
+                return;
 
-activeLetter =
-null;
-
-
-letterReveal
-.classList
-.remove(
-"open"
-);
-
-}
+            }
 
 
-function showLetter(
-key,
-card
-){
-
-const data =
-LETTERS[
-key
-];
+            const data =
+                LETTERS[
+                    key
+                ];
 
 
-clearEnvelopeState();
+            activeLetter =
+                key;
 
 
-card
-.classList
-.add(
-"active"
-);
+            letterMeta.textContent =
+                data.meta;
 
 
-letterTag.textContent =
-data.tag;
+            letterTitle.textContent =
+                data.title;
 
 
-letterNumber.textContent =
-data.number;
+            letterBody.innerHTML =
+                data.body;
 
 
-letterTitle.textContent =
-data.title;
+            letterReading
+            .classList
+            .add(
+                "open"
+            );
 
 
-letterBody.innerHTML =
-data.body;
+            setTimeout(
+            function(){
 
+                letterReading
+                .scrollIntoView({
 
-letterReveal
-.classList
-.add(
-"open"
-);
+                    behavior:"smooth",
 
+                    block:"center"
 
-activeLetter =
-key;
+                });
 
+            },
+            400
+            );
 
-createSmallBurst();
-
-
-setTimeout(
-function(){
-
-letterReveal
-.scrollIntoView({
-
-behavior:"smooth",
-
-block:"center"
+        }
+    );
 
 });
 
-},
-430
-);
+
+function closeLetter(){
+
+    activeLetter =
+        null;
+
+
+    letterReading
+    .classList
+    .remove(
+        "open"
+    );
 
 }
 
 
-envelopeCards.forEach(
-function(card){
-
-const button =
-card.querySelector(
-".envelope-button"
-);
-
-
-const key =
-card.dataset.letter;
-
-
-button.addEventListener(
-"click",
-function(){
-
-if(
-activeLetter ===
-key
-){
-
-hideLetter();
-
-return;
-
-}
-
-
-showLetter(
-key,
-card
-);
-
-}
-);
-
-}
-);
-
-
-closeLetter.addEventListener(
-"click",
-hideLetter
+document
+.getElementById(
+    "letterClose"
+)
+.addEventListener(
+    "click",
+    closeLetter
 );
 
 
@@ -6959,115 +5231,86 @@ LIGHTBOX
 
 const lightbox =
 document.getElementById(
-"lightbox"
+    "lightbox"
 );
 
 
 const lightboxImage =
 document.getElementById(
-"lightboxImage"
+    "lightboxImage"
 );
 
 
 const lightboxCaption =
 document.getElementById(
-"lightboxCaption"
+    "lightboxCaption"
 );
 
 
-const lightboxClose =
-document.getElementById(
-"lightboxClose"
-);
+function openLightbox(photo){
+
+    lightboxImage
+    .style
+    .backgroundImage =
+        `url("${photo.src}")`;
 
 
-function openLightbox(
-photo
-){
-
-lightboxImage
-.style
-.backgroundImage =
-`url("${photo.src}")`;
+    lightboxCaption.textContent =
+        photo.caption;
 
 
-lightboxCaption.textContent =
-photo.caption;
+    lightbox
+    .classList
+    .add(
+        "open"
+    );
 
 
-lightbox
-.classList
-.add(
-"open"
-);
-
-
-document.body.style.overflow =
-"hidden";
+    document.body.style.overflow =
+        "hidden";
 
 }
 
 
 function closeLightbox(){
 
-lightbox
-.classList
-.remove(
-"open"
-);
+    lightbox
+    .classList
+    .remove(
+        "open"
+    );
 
 
-lightboxImage
-.style
-.backgroundImage =
-"";
-
-
-document.body.style.overflow =
-"";
+    document.body.style.overflow =
+        "";
 
 }
 
 
-lightboxClose.addEventListener(
-"click",
-closeLightbox
+document
+.getElementById(
+    "lightboxClose"
+)
+.addEventListener(
+    "click",
+    closeLightbox
 );
 
 
 lightbox.addEventListener(
-"click",
-function(event){
+    "click",
+    function(event){
 
-if(
-event.target ===
-lightbox
-){
+        if(
+            event.target ===
+            lightbox
+        ){
 
-closeLightbox();
+            closeLightbox();
 
-}
+        }
 
-}
-);
-
-
-document.addEventListener(
-"keydown",
-function(event){
-
-if(
-event.key ===
-"Escape"
-){
-
-closeLightbox();
-
-hideLetter();
-
-}
-
-}
+    }
 );
 
 
@@ -7077,19 +5320,19 @@ HEART
 
 const heartButton =
 document.getElementById(
-"heartButton"
+    "heartButton"
 );
 
 
 const progressCircle =
 document.getElementById(
-"progressCircle"
+    "progressCircle"
 );
 
 
 const heartResult =
 document.getElementById(
-"heartResult"
+    "heartResult"
 );
 
 
@@ -7098,98 +5341,85 @@ false;
 
 
 const circleLength =
-439.82;
+502;
 
 
 heartButton.addEventListener(
-"click",
-function(){
+    "click",
+    function(){
 
-if(
-heartOpened
-){
+        if(
+            heartOpened
+        ){
 
-return;
+            return;
 
-}
-
-
-heartOpened =
-true;
+        }
 
 
-const duration =
-800;
+        heartOpened =
+            true;
 
 
-const start =
-performance.now();
+        const start =
+            performance.now();
 
 
-function animate(
-current
-){
-
-const elapsed =
-current -
-start;
+        const duration =
+            900;
 
 
-const progress =
-Math.min(
+        function animate(time){
 
-elapsed /
-duration,
-
-1
-
-);
-
-
-const offset =
-circleLength -
-(
-circleLength *
-progress
-);
+            const progress =
+                Math.min(
+                    (
+                        time -
+                        start
+                    )
+                    /
+                    duration,
+                    1
+                );
 
 
-progressCircle
-.style
-.strokeDashoffset =
-offset;
+            progressCircle
+            .style
+            .strokeDashoffset =
+                circleLength -
+                (
+                    circleLength *
+                    progress
+                );
 
 
-if(
-progress <
-1
-){
+            if(
+                progress <
+                1
+            ){
 
-requestAnimationFrame(
-animate
-);
+                requestAnimationFrame(
+                    animate
+                );
 
-}else{
+            }else{
 
-heartResult
-.classList
-.add(
-"show"
-);
+                heartResult
+                .classList
+                .add(
+                    "show"
+                );
 
+            }
 
-createBurst();
-
-}
-
-}
+        }
 
 
-requestAnimationFrame(
-animate
-);
+        requestAnimationFrame(
+            animate
+        );
 
-}
+    }
 );
 
 
@@ -7199,268 +5429,49 @@ FINAL
 
 const finalResponse =
 document.getElementById(
-"finalResponse"
+    "finalResponse"
 );
 
 
 document
 .querySelectorAll(
-".final-button"
+    ".final-button"
 )
 .forEach(
 function(button){
 
-button.addEventListener(
-"click",
-function(){
+    button.addEventListener(
+        "click",
+        function(){
 
-finalResponse.textContent =
-button.dataset.response;
+            finalResponse.textContent =
+                button.dataset.response;
+
+        }
+    );
+
+});
 
 
-createBurst();
+/* ESC */
 
-}
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key ===
+            "Escape"
+        ){
+
+            closeLightbox();
+
+            closeLetter();
+
+        }
+
+    }
 );
-
-}
-);
-
-
-/* =========================================================
-FINAL STARS
-========================================================= */
-
-const finalStars =
-document.getElementById(
-"finalStars"
-);
-
-
-for(
-let i = 0;
-i < 90;
-i++
-){
-
-const star =
-document.createElement(
-"span"
-);
-
-
-star.className =
-"final-star";
-
-
-star.style.left =
-Math.random() *
-100 +
-"%";
-
-
-star.style.top =
-Math.random() *
-100 +
-"%";
-
-
-star.style
-.setProperty(
-
-"--speed",
-
-(
-2 +
-Math.random() *
-4
-)
-+
-"s"
-
-);
-
-
-star.style.animationDelay =
-(
-Math.random() *
-4
-)
-+
-"s";
-
-
-finalStars
-.appendChild(
-star
-);
-
-}
-
-
-/* =========================================================
-SECRET
-========================================================= */
-
-const secretStar =
-document.getElementById(
-"secretStar"
-);
-
-
-const secretToast =
-document.getElementById(
-"secretToast"
-);
-
-
-let secretTimeout =
-null;
-
-
-secretStar.addEventListener(
-"click",
-function(){
-
-secretToast
-.classList
-.add(
-"show"
-);
-
-
-createBurst();
-
-
-clearTimeout(
-secretTimeout
-);
-
-
-secretTimeout =
-setTimeout(
-function(){
-
-secretToast
-.classList
-.remove(
-"show"
-);
-
-},
-4500
-);
-
-}
-);
-
-
-/* =========================================================
-SPARKLES
-========================================================= */
-
-function createSpark(){
-
-const spark =
-document.createElement(
-"span"
-);
-
-
-spark.className =
-"spark";
-
-
-spark.style.left =
-Math.random() *
-100 +
-"vw";
-
-
-spark.style
-.setProperty(
-
-"--drift",
-
-(
-Math.random() *
-160 -
-80
-)
-+
-"px"
-
-);
-
-
-spark.style.animationDuration =
-(
-7 +
-Math.random() *
-5
-)
-+
-"s";
-
-
-document.body
-.appendChild(
-spark
-);
-
-
-setTimeout(
-function(){
-
-spark.remove();
-
-},
-13000
-);
-
-}
-
-
-setInterval(
-createSpark,
-900
-);
-
-
-function createBurst(){
-
-for(
-let i = 0;
-i < 28;
-i++
-){
-
-setTimeout(
-createSpark,
-i * 28
-);
-
-}
-
-}
-
-
-function createSmallBurst(){
-
-for(
-let i = 0;
-i < 9;
-i++
-){
-
-setTimeout(
-createSpark,
-i * 40
-);
-
-}
-
-}
 
 </script>
 
