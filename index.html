@@ -2,84 +2,275 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#efe5d3">
 
-<title>Feby's Kitchen Journal ♡</title>
+<meta
+name="viewport"
+content="width=device-width,initial-scale=1.0">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Italiana&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<meta
+name="theme-color"
+content="#110b08">
+
+<title>
+Feby — A Private Tasting Menu ♡
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Italiana&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+rel="stylesheet">
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
+</script>
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
+</script>
 
 <style>
 
+/* =========================================================
+ROOT
+========================================================= */
+
 :root{
-    --cream:#f2e8d5;
-    --paper:#fbf4e7;
-    --paper2:#efe1c9;
-    --ink:#382d27;
-    --muted:#796b60;
 
-    --terracotta:#b86547;
-    --terracotta2:#d68765;
-    --olive:#78815c;
-    --olive2:#a6aa78;
-    --wine:#854b4b;
-    --gold:#ba8c4c;
+    --bg:#110b08;
+    --bg2:#1b100c;
+    --bg3:#251610;
 
-    --dark:#29201c;
-    --wood:#7a4e35;
-    --wood2:#a16e49;
+    --cream:#f7ead7;
+    --cream2:#e7d4bc;
 
-    --line:rgba(56,45,39,.14);
+    --paper:#fff8ea;
+
+    --ink:#382820;
+
+    --orange:#cf7250;
+    --orange2:#ef9c78;
+
+    --rose:#d9808b;
+    --wine:#7c3f4e;
+
+    --gold:#d4ae67;
+
+    --green:#7b8460;
+
+    --muted:#a89486;
+
+    --line:
+    rgba(255,255,255,.09);
 
     --shadow:
-        0 24px 70px rgba(63,42,30,.17);
+    0 35px 100px
+    rgba(0,0,0,.35);
+
 }
+
+
+/* =========================================================
+RESET
+========================================================= */
 
 *{
     box-sizing:border-box;
 }
 
+
 html{
     scroll-behavior:smooth;
 }
 
+
 body{
+
     margin:0;
-    color:var(--ink);
-    background:var(--cream);
-    font-family:"DM Sans",sans-serif;
+
     overflow-x:hidden;
+
+    color:
+    var(--cream);
+
+    background:
+    var(--bg);
+
+    font-family:
+    "DM Sans",
+    sans-serif;
+
 }
+
 
 button{
     font:inherit;
 }
 
+
 button,
 a{
-    -webkit-tap-highlight-color:transparent;
+
+    -webkit-tap-highlight-color:
+    transparent;
+
 }
 
+
+button{
+
+    color:inherit;
+
+}
+
+
 ::selection{
-    background:rgba(184,101,71,.22);
+
+    color:white;
+
+    background:
+    rgba(207,114,80,.4);
+
 }
 
 
 /* =========================================================
-TEXTURE
+GLOBAL BACKGROUND
 ========================================================= */
 
-.paper-noise{
+.grain{
+
     position:fixed;
+
     inset:0;
-    z-index:9999;
+
+    z-index:99999;
+
     pointer-events:none;
-    opacity:.045;
+
+    opacity:.035;
 
     background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='x'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23x)' opacity='.9'/%3E%3C/svg%3E");
+
+}
+
+
+.vignette{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:9998;
+
+    pointer-events:none;
+
+    background:
+
+    radial-gradient(
+        circle at center,
+        transparent 50%,
+        rgba(0,0,0,.32)
+    );
+
+}
+
+
+.cursor-glow{
+
+    position:fixed;
+
+    z-index:0;
+
+    left:0;
+    top:0;
+
+    width:450px;
+    height:450px;
+
+    border-radius:50%;
+
+    background:
+    rgba(221,116,86,.08);
+
+    filter:
+    blur(110px);
+
+    transform:
+    translate(-50%,-50%);
+
+    pointer-events:none;
+
+}
+
+
+/* =========================================================
+FLOATING DUST
+========================================================= */
+
+.dust-layer{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:4;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+}
+
+
+.dust{
+
+    position:absolute;
+
+    bottom:-20px;
+
+    width:3px;
+    height:3px;
+
+    border-radius:50%;
+
+    background:
+    var(--gold);
+
+    opacity:0;
+
+    animation:
+    dustFloat linear forwards;
+
+}
+
+
+@keyframes dustFloat{
+
+    10%{
+        opacity:.35;
+    }
+
+    100%{
+
+        transform:
+
+        translateY(-110vh)
+        translateX(var(--drift));
+
+        opacity:0;
+
+    }
+
 }
 
 
@@ -88,271 +279,754 @@ OPENING
 ========================================================= */
 
 .opening{
+
     position:fixed;
+
     inset:0;
-    z-index:5000;
 
-    display:grid;
-    place-items:center;
+    z-index:20000;
 
-    background:
-        radial-gradient(circle at 50% 40%,rgba(184,101,71,.12),transparent 35rem),
-        #efe4d0;
-
-    transition:
-        opacity .9s ease,
-        visibility .9s ease;
-}
-
-.opening.hide{
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-}
-
-.cookbook{
-    position:relative;
-
-    width:min(88%,700px);
-
-    padding:
-        clamp(40px,8vw,80px);
-
-    border-radius:
-        8px 22px 22px 8px;
+    overflow:hidden;
 
     background:
-        var(--paper);
 
-    border:
-        1px solid rgba(80,52,35,.12);
+    radial-gradient(
+        circle at 50% 60%,
+        #382018,
+        #100907 67%
+    );
 
-    box-shadow:
-        0 40px 100px rgba(65,42,25,.22);
 }
 
-.cookbook::before{
+
+.opening-wall{
+
+    position:absolute;
+
+    inset:
+    0 0 38%;
+
+    background:
+
+    linear-gradient(
+        #271711,
+        #1a0f0c
+    );
+
+}
+
+
+.opening-wall::before{
+
     content:"";
 
     position:absolute;
 
-    top:0;
-    bottom:0;
-    left:26px;
+    inset:0;
 
-    width:1px;
+    opacity:.12;
 
-    background:
-        rgba(126,89,60,.15);
+    background-image:
+
+    linear-gradient(
+        rgba(255,255,255,.12) 1px,
+        transparent 1px
+    ),
+
+    linear-gradient(
+        90deg,
+        rgba(255,255,255,.12) 1px,
+        transparent 1px
+    );
+
+    background-size:
+    90px 90px;
+
 }
 
-.cookbook-tab{
+
+.opening-table{
+
     position:absolute;
 
-    right:-12px;
-    top:75px;
+    left:-5%;
+    right:-5%;
 
-    padding:10px 8px;
+    bottom:-5%;
 
-    border-radius:
-        0 8px 8px 0;
-
-    color:#fff;
+    height:45%;
 
     background:
-        var(--terracotta);
 
-    font-size:.58rem;
+    linear-gradient(
+        180deg,
+        #89583d,
+        #563322
+    );
 
-    letter-spacing:.15em;
-
-    writing-mode:vertical-rl;
-
-    text-transform:uppercase;
-}
-
-.cookbook-header{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:14px;
-
-    color:var(--olive);
-
-    font-size:.68rem;
-    letter-spacing:.25em;
-    text-transform:uppercase;
-}
-
-.mini-spoon{
-    width:28px;
-    height:28px;
-}
-
-.cookbook h1{
-    margin:
-        22px 0 16px;
-
-    text-align:center;
-
-    font-family:"Italiana",serif;
-
-    font-size:
-        clamp(3.5rem,10vw,7.5rem);
-
-    font-weight:400;
-
-    line-height:.9;
-}
-
-.cookbook h1 span{
-    color:var(--terracotta);
-}
-
-.cookbook-copy{
-    max-width:530px;
-
-    margin:auto;
-
-    text-align:center;
-
-    color:var(--muted);
-
-    line-height:1.9;
-}
-
-.open-button{
-    display:block;
-
-    margin:
-        30px auto 0;
-
-    padding:
-        14px 24px;
-
-    border:0;
-
-    border-radius:999px;
-
-    color:#fff;
-
-    background:
-        var(--terracotta);
-
-    cursor:pointer;
-
-    box-shadow:
-        0 12px 30px rgba(184,101,71,.22);
-
-    transition:.25s;
-}
-
-.open-button:hover{
-    transform:
-        translateY(-3px);
-
-    background:
-        #a9563c;
 }
 
 
 /* =========================================================
-SITE / NAV
+OPENING COPY
+========================================================= */
+
+.opening-copy{
+
+    position:absolute;
+
+    z-index:20;
+
+    top:7%;
+    left:50%;
+
+    width:
+    min(90%,760px);
+
+    transform:
+    translateX(-50%);
+
+    text-align:center;
+
+}
+
+
+.micro{
+
+    color:
+    var(--gold);
+
+    font-size:.6rem;
+
+    letter-spacing:.28em;
+
+    text-transform:uppercase;
+
+}
+
+
+.opening-copy h1{
+
+    margin:
+    13px 0;
+
+    font-family:
+    "Italiana",
+    serif;
+
+    font-size:
+
+    clamp(
+        3rem,
+        8vw,
+        6.4rem
+    );
+
+    font-weight:400;
+
+    line-height:.95;
+
+}
+
+
+.opening-copy h1 em{
+
+    color:
+    var(--orange2);
+
+    font-style:normal;
+
+}
+
+
+.opening-copy p{
+
+    max-width:570px;
+
+    margin:auto;
+
+    color:#ae978a;
+
+    line-height:1.8;
+
+}
+
+
+/* =========================================================
+CLOCHE
+========================================================= */
+
+.cloche-stage{
+
+    position:absolute;
+
+    left:50%;
+    top:59%;
+
+    width:
+    min(90vw,650px);
+
+    height:390px;
+
+    transform:
+    translate(-50%,-50%);
+
+}
+
+
+.open-plate{
+
+    position:absolute;
+
+    left:50%;
+    bottom:25px;
+
+    width:390px;
+    height:82px;
+
+    transform:
+    translateX(-50%);
+
+    border-radius:50%;
+
+    background:
+
+    linear-gradient(
+        #f5eee5,
+        #aea399
+    );
+
+    box-shadow:
+
+    0 25px 45px
+    rgba(0,0,0,.32);
+
+}
+
+
+.open-plate::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:
+    13px 30px;
+
+    border:
+
+    2px solid
+    rgba(80,55,40,.15);
+
+    border-radius:50%;
+
+}
+
+
+.cloche{
+
+    position:absolute;
+
+    z-index:5;
+
+    left:50%;
+    bottom:70px;
+
+    width:350px;
+    height:210px;
+
+    transform:
+    translateX(-50%);
+
+}
+
+
+.cloche-body{
+
+    position:absolute;
+
+    inset:
+    27px 0 0;
+
+    border-radius:
+    200px 200px 25px 25px;
+
+    background:
+
+    linear-gradient(
+        110deg,
+        #514946,
+        #90847f 18%,
+        #403a37 42%,
+        #817671 64%,
+        #38322f
+    );
+
+    box-shadow:
+
+    inset 28px 10px 35px
+    rgba(255,255,255,.09),
+
+    0 35px 50px
+    rgba(0,0,0,.3);
+
+}
+
+
+.cloche-handle{
+
+    position:absolute;
+
+    top:0;
+    left:50%;
+
+    width:58px;
+    height:40px;
+
+    transform:
+    translateX(-50%);
+
+    border-radius:
+    30px 30px 5px 5px;
+
+    background:
+    #514743;
+
+}
+
+
+.cloche-shine{
+
+    position:absolute;
+
+    z-index:2;
+
+    left:65px;
+    top:60px;
+
+    width:38px;
+    height:90px;
+
+    border-radius:50%;
+
+    transform:
+    rotate(18deg);
+
+    background:
+
+    linear-gradient(
+        rgba(255,255,255,.18),
+        transparent
+    );
+
+    filter:
+    blur(4px);
+
+}
+
+
+.hidden-course{
+
+    position:absolute;
+
+    z-index:3;
+
+    left:50%;
+    bottom:75px;
+
+    width:290px;
+    height:150px;
+
+    display:grid;
+
+    place-items:center;
+
+    transform:
+    translateX(-50%);
+
+    text-align:center;
+
+    opacity:0;
+
+}
+
+
+.hidden-course strong{
+
+    display:block;
+
+    color:
+    var(--orange2);
+
+    font-family:
+    "Italiana",
+    serif;
+
+    font-size:
+    clamp(2.8rem,7vw,5rem);
+
+    font-weight:400;
+
+    line-height:.87;
+
+}
+
+
+.hidden-course small{
+
+    display:block;
+
+    margin-top:12px;
+
+    color:#8f786b;
+
+    font-size:.58rem;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+
+}
+
+
+/* =========================================================
+OPENING STEAM
+========================================================= */
+
+.open-steam{
+
+    position:absolute;
+
+    z-index:4;
+
+    bottom:180px;
+
+    width:15px;
+    height:95px;
+
+    opacity:0;
+
+    border-left:
+
+    3px solid
+    rgba(255,255,255,.34);
+
+    border-radius:50%;
+
+    filter:
+    blur(2px);
+
+}
+
+
+.open-steam.a{
+    left:43%;
+}
+
+
+.open-steam.b{
+    left:50%;
+}
+
+
+.open-steam.c{
+    left:57%;
+}
+
+
+/* =========================================================
+OPENING BUTTON
+========================================================= */
+
+.open-button{
+
+    position:absolute;
+
+    z-index:30;
+
+    left:50%;
+    bottom:6%;
+
+    transform:
+    translateX(-50%);
+
+    padding:
+    14px 27px;
+
+    border:
+
+    1px solid
+    rgba(255,255,255,.16);
+
+    border-radius:999px;
+
+    color:white;
+
+    background:
+    rgba(255,255,255,.055);
+
+    backdrop-filter:
+    blur(12px);
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+.open-button:hover{
+
+    border-color:
+    var(--orange);
+
+    background:
+    var(--orange);
+
+    transform:
+
+    translateX(-50%)
+    translateY(-4px);
+
+}
+
+
+/* =========================================================
+SITE
 ========================================================= */
 
 .site{
-    opacity:0;
-    transition:.9s;
+
+    display:none;
+
 }
 
-.site.show{
-    opacity:1;
+
+.site.active{
+
+    display:block;
+
 }
 
-.navbar{
+
+/* =========================================================
+NAVIGATION
+========================================================= */
+
+.nav{
+
     position:fixed;
 
-    top:15px;
+    z-index:1400;
+
     left:50%;
-
-    z-index:1000;
-
-    transform:
-        translateX(-50%);
+    top:14px;
 
     width:
-        min(calc(100% - 24px),1120px);
+
+    min(
+        calc(100% - 24px),
+        1150px
+    );
 
     display:flex;
-    align-items:center;
-    justify-content:space-between;
 
-    gap:18px;
+    align-items:center;
+
+    justify-content:
+    space-between;
+
+    gap:20px;
 
     padding:
-        10px 14px 10px 18px;
+    10px 14px 10px 18px;
+
+    transform:
+    translateX(-50%);
 
     border:
-        1px solid rgba(60,42,32,.11);
+
+    1px solid
+    rgba(255,255,255,.08);
 
     border-radius:999px;
 
     background:
-        rgba(251,244,231,.88);
+    rgba(18,10,8,.73);
 
     backdrop-filter:
-        blur(18px);
+    blur(20px);
 
-    box-shadow:
-        0 10px 30px rgba(73,53,40,.09);
 }
 
-.brand{
-    display:flex;
-    align-items:center;
-    gap:8px;
+
+.nav-logo{
 
     font-family:
-        "Playfair Display",serif;
+    "Playfair Display",
+    serif;
 
     font-style:italic;
+
 }
 
-.brand svg{
-    width:22px;
-    height:22px;
+
+.nav-logo span{
+
+    color:
+    var(--orange2);
+
 }
 
-.nav-dots{
+
+.nav-progress{
+
     display:flex;
+
+    align-items:center;
+
     gap:5px;
+
 }
 
-.nav-dots span{
+
+.nav-progress span{
+
     width:5px;
     height:5px;
 
-    border-radius:20px;
+    border-radius:10px;
 
     background:
-        rgba(56,45,39,.2);
+    rgba(255,255,255,.16);
 
     transition:.3s;
+
 }
 
-.nav-dots span.active{
-    width:23px;
-    background:var(--terracotta);
+
+.nav-progress span.active{
+
+    width:22px;
+
+    background:
+    var(--orange2);
+
 }
 
-.nav-label{
-    color:var(--olive);
 
-    font-size:.62rem;
+.nav-small{
 
-    letter-spacing:.13em;
+    color:#a99386;
+
+    font-size:.56rem;
+
+    letter-spacing:.15em;
 
     text-transform:uppercase;
+
+}
+
+
+/* =========================================================
+COURSE RAIL
+========================================================= */
+
+.course-rail{
+
+    position:fixed;
+
+    z-index:900;
+
+    left:24px;
+    top:50%;
+
+    transform:
+    translateY(-50%);
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+
+.course-dot{
+
+    position:relative;
+
+    width:8px;
+    height:8px;
+
+    border:
+
+    1px solid
+    rgba(255,255,255,.25);
+
+    border-radius:50%;
+
+    background:
+    var(--bg);
+
+    transition:.3s;
+
+}
+
+
+.course-dot.active{
+
+    background:
+    var(--orange2);
+
+    border-color:
+    var(--orange2);
+
+    box-shadow:
+
+    0 0 18px
+    rgba(239,156,120,.35);
+
+}
+
+
+.course-dot::after{
+
+    content:
+    attr(data-label);
+
+    position:absolute;
+
+    left:19px;
+    top:50%;
+
+    width:max-content;
+
+    transform:
+    translateY(-50%);
+
+    color:
+    rgba(255,255,255,.36);
+
+    font-size:.5rem;
+
+    letter-spacing:.15em;
+
+    text-transform:uppercase;
+
+    opacity:0;
+
+    transition:.25s;
+
+}
+
+
+.course-dot:hover::after,
+.course-dot.active::after{
+
+    opacity:1;
+
 }
 
 
@@ -360,103 +1034,157 @@ SITE / NAV
 MUSIC
 ========================================================= */
 
-.music-player{
+.music{
+
     position:fixed;
 
-    right:18px;
-    bottom:18px;
+    z-index:1500;
 
-    z-index:1300;
+    right:17px;
+    bottom:17px;
 
     width:300px;
 
-    padding:13px 14px;
+    padding:
+    12px 14px;
 
     border:
-        1px solid rgba(70,50,35,.12);
 
-    border-radius:19px;
+    1px solid
+    rgba(255,255,255,.08);
+
+    border-radius:20px;
 
     background:
-        rgba(251,244,231,.92);
+    rgba(20,12,9,.87);
+
+    backdrop-filter:
+    blur(20px);
 
     box-shadow:
-        0 18px 45px rgba(75,50,35,.16);
 
-    backdrop-filter:blur(18px);
+    0 20px 55px
+    rgba(0,0,0,.28);
+
 }
+
 
 .music-row{
+
     display:flex;
+
     align-items:center;
+
     gap:11px;
+
 }
 
-.music-play{
+
+.music-button{
+
     width:42px;
     height:42px;
 
     flex:0 0 auto;
 
+    display:grid;
+
+    place-items:center;
+
     border:0;
+
     border-radius:50%;
 
-    color:#fff;
-    background:var(--terracotta);
+    color:white;
+
+    background:
+    var(--orange);
 
     cursor:pointer;
+
 }
+
 
 .music-info{
+
     min-width:0;
+
     flex:1;
+
 }
+
 
 .music-label{
-    color:var(--olive);
 
-    font-size:.53rem;
+    color:
+    var(--gold);
 
-    letter-spacing:.14em;
+    font-size:.49rem;
+
+    letter-spacing:.15em;
 
     text-transform:uppercase;
+
 }
 
-.music-title{
+
+.music-name{
+
     overflow:hidden;
+
     white-space:nowrap;
+
     text-overflow:ellipsis;
 
     font-family:
-        "Playfair Display",serif;
+    "Playfair Display",
+    serif;
+
 }
+
 
 .music-time{
-    color:#93867c;
-    font-size:.62rem;
+
+    color:#88746a;
+
+    font-size:.59rem;
+
 }
+
 
 .music-mute{
+
     border:0;
+
+    color:#c6b2a8;
+
     background:none;
+
     cursor:pointer;
+
 }
 
-.music-progress{
+
+.music-range{
+
     width:100%;
+
     height:3px;
 
     margin-top:10px;
 
     appearance:none;
 
-    border-radius:20px;
+    border-radius:10px;
 
     background:
-        rgba(80,60,45,.14);
+    rgba(255,255,255,.1);
+
 }
 
-.music-progress::-webkit-slider-thumb{
+
+.music-range::-webkit-slider-thumb{
+
     appearance:none;
 
     width:9px;
@@ -464,242 +1192,313 @@ MUSIC
 
     border-radius:50%;
 
-    background:var(--terracotta);
+    background:
+    var(--orange2);
+
 }
 
 
 /* =========================================================
-GENERAL
+GENERAL SECTION
 ========================================================= */
 
 .section{
+
     position:relative;
 
-    min-height:100svh;
-
-    padding:
-        125px
-        max(22px,7vw)
-        100px;
+    min-height:
+    100svh;
 
     display:grid;
+
     align-items:center;
+
+    padding:
+
+    130px
+    max(28px,7vw)
+    100px;
+
 }
 
-.section-inner{
-    width:min(100%,1240px);
+
+.container{
+
+    position:relative;
+
+    z-index:10;
+
+    width:
+    min(100%,1240px);
+
     margin:auto;
+
 }
 
-.section-kicker{
-    color:var(--terracotta);
 
-    font-size:.67rem;
+.course-label{
 
-    letter-spacing:.25em;
+    color:
+    var(--gold);
+
+    font-size:.6rem;
+
+    letter-spacing:.27em;
 
     text-transform:uppercase;
+
 }
 
-.title{
-    margin:
-        17px 0 0;
 
-    font-family:"Playfair Display",serif;
+.title{
+
+    margin:
+    18px 0 0;
+
+    font-family:
+    "Playfair Display",
+    serif;
 
     font-size:
-        clamp(3rem,7vw,6.5rem);
+
+    clamp(
+        3rem,
+        7vw,
+        6.7rem
+    );
 
     font-weight:500;
 
-    line-height:.98;
+    letter-spacing:-.05em;
 
-    letter-spacing:-.045em;
+    line-height:.96;
+
 }
+
 
 .title em{
-    color:var(--terracotta);
+
+    color:
+    var(--orange2);
+
+    font-weight:500;
+
 }
 
-.section-copy{
+
+.copy{
+
     max-width:620px;
 
-    color:var(--muted);
+    color:
+    var(--muted);
 
-    line-height:1.9;
-}
+    line-height:1.95;
 
-.fade{
-    opacity:0;
-
-    transform:
-        translateY(26px);
-
-    transition:
-        opacity .8s ease,
-        transform .8s ease;
-}
-
-.fade.visible{
-    opacity:1;
-    transform:none;
 }
 
 
 /* =========================================================
-01 KITCHEN HERO
+01 AMUSE BOUCHE
 ========================================================= */
 
 .hero{
+
+    overflow:hidden;
+
     background:
-        linear-gradient(
-            180deg,
-            #f3e9d5 0%,
-            #efe1ca 100%
-        );
+
+    radial-gradient(
+        circle at 74% 48%,
+        rgba(207,114,80,.12),
+        transparent 31rem
+    ),
+
+    var(--bg);
+
 }
 
+
 .hero-grid{
-    width:min(100%,1320px);
+
+    width:
+    min(100%,1320px);
 
     margin:auto;
 
     display:grid;
 
     grid-template-columns:
-        1fr 1fr;
+    1fr 1fr;
 
     gap:
-        clamp(45px,7vw,100px);
+
+    clamp(
+        50px,
+        7vw,
+        100px
+    );
 
     align-items:center;
+
 }
+
 
 .hero-copy{
-    margin-top:27px;
 
-    max-width:610px;
+    margin-top:30px;
 
-    color:var(--muted);
+    color:
+    var(--muted);
 
     line-height:1.95;
+
 }
 
-.hero-note{
+
+.hero-pill{
+
+    display:inline-block;
+
     margin-top:25px;
 
-    width:max-content;
-    max-width:100%;
-
     padding:
-        11px 16px;
+    10px 16px;
 
-    border-radius:
-        4px 13px 13px 4px;
+    border:
 
-    color:#fff;
+    1px solid
+    rgba(207,114,80,.3);
 
-    background:var(--terracotta);
+    border-radius:999px;
+
+    color:
+    var(--orange2);
 
     font-family:
-        "Playfair Display",serif;
+    "Playfair Display",
+    serif;
 
     font-style:italic;
 
-    transform:
-        rotate(-1deg);
 }
 
 
-/* kitchen illustration */
+/* =========================================================
+CHEF TABLE SCENE
+========================================================= */
 
-.kitchen-scene{
+.table-scene{
+
     position:relative;
 
-    min-height:560px;
+    min-height:610px;
+
+    perspective:1000px;
+
 }
 
-.wall{
+
+.table-window{
+
+    position:absolute;
+
+    inset:30px;
+
+    overflow:hidden;
+
+    border:
+
+    1px solid
+    rgba(255,255,255,.07);
+
+    border-radius:36px;
+
+    background:
+
+    linear-gradient(
+        #332219 0 64%,
+        #70462f 64%
+    );
+
+    box-shadow:
+
+    0 40px 100px
+    rgba(0,0,0,.28);
+
+}
+
+
+.restaurant-wall{
+
     position:absolute;
 
     inset:
-        0 0 160px;
+    0 0 36%;
 
-    border-radius:
-        30px 30px 0 0;
-
-    background:
-        #e8dbc5;
-
-    border:
-        1px solid rgba(84,57,41,.08);
-
-    overflow:hidden;
-}
-
-.tile-grid{
-    position:absolute;
-
-    inset:0;
-
-    opacity:.25;
+    opacity:.13;
 
     background-image:
-        linear-gradient(
-            rgba(85,62,45,.17) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(85,62,45,.17) 1px,
-            transparent 1px
-        );
+
+    linear-gradient(
+        rgba(255,255,255,.14) 1px,
+        transparent 1px
+    ),
+
+    linear-gradient(
+        90deg,
+        rgba(255,255,255,.14) 1px,
+        transparent 1px
+    );
 
     background-size:
-        70px 70px;
+    75px 75px;
+
 }
 
-.kitchen-shelf{
+
+.restaurant-shelf{
+
     position:absolute;
 
-    left:9%;
-    right:9%;
-    top:50px;
+    top:72px;
+    left:10%;
+    right:10%;
 
-    height:15px;
+    height:14px;
 
     border-radius:6px;
 
-    background:
-        linear-gradient(
-            180deg,
-            #8b5e41,
-            #6d4530
-        );
+    background:#835239;
 
-    box-shadow:
-        0 12px 18px rgba(70,43,27,.14);
 }
+
 
 .jar{
+
     position:absolute;
 
-    bottom:15px;
+    bottom:14px;
 
-    width:47px;
-    height:68px;
+    width:46px;
+    height:64px;
 
     border:
-        2px solid rgba(72,53,40,.25);
+
+    2px solid
+    rgba(255,255,255,.17);
 
     border-radius:
-        5px 5px 15px 15px;
+    5px 5px 15px 15px;
 
     background:
-        rgba(247,239,220,.65);
+    rgba(255,255,255,.06);
+
 }
 
+
 .jar::before{
+
     content:"";
 
     position:absolute;
@@ -708,1651 +1507,2879 @@ GENERAL
     left:4px;
     right:4px;
 
-    height:8px;
+    height:7px;
 
-    border-radius:4px;
+    border-radius:3px;
 
-    background:#694a38;
+    background:#56382a;
+
 }
+
+
+.jar::after{
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:17px;
+
+    color:
+    rgba(255,255,255,.6);
+
+    text-align:center;
+
+    font-size:.42rem;
+
+}
+
 
 .jar.one{
-    left:11%;
+    left:8%;
 }
 
-.jar.two{
-    left:24%;
-}
-
-.jar.three{
-    right:12%;
-}
 
 .jar.one::after{
     content:"SALT";
 }
 
+
+.jar.two{
+    left:21%;
+}
+
+
 .jar.two::after{
     content:"SUGAR";
 }
 
+
+.jar.three{
+    right:8%;
+}
+
+
 .jar.three::after{
-    content:"LOVE";
+    content:"FEBY";
 }
 
-.jar::after{
+
+/* pan */
+
+.pan{
+
     position:absolute;
 
-    inset:auto 0 18px;
+    right:11%;
+    bottom:115px;
 
-    text-align:center;
+    width:170px;
+    height:72px;
 
-    color:#806f62;
+    border-radius:
+    15px 15px 60px 60px;
 
-    font-size:.47rem;
+    background:
 
-    letter-spacing:.1em;
+    linear-gradient(
+        #625853,
+        #28221f
+    );
+
 }
 
-.hanging-tools{
+
+.pan::after{
+
+    content:"";
+
     position:absolute;
 
-    top:108px;
-    right:13%;
+    right:-105px;
+    top:21px;
 
-    display:flex;
-
-    gap:20px;
-}
-
-.tool{
-    position:relative;
-
-    width:14px;
-    height:110px;
+    width:120px;
+    height:15px;
 
     border-radius:8px;
 
-    background:#665249;
+    background:#312b28;
+
 }
 
-.tool::before{
+
+/* stove */
+
+.stove{
+
+    position:absolute;
+
+    right:8%;
+    bottom:35px;
+
+    width:220px;
+    height:120px;
+
+    border-radius:16px;
+
+    background:#292320;
+
+}
+
+
+.fire{
+
+    position:absolute;
+
+    left:50%;
+    top:28px;
+
+    transform:
+    translateX(-50%);
+
+    display:flex;
+
+    gap:4px;
+
+}
+
+
+.fire span{
+
+    width:15px;
+    height:42px;
+
+    border-radius:
+    60% 60% 25% 25%;
+
+    background:
+
+    linear-gradient(
+        #f5c87b,
+        #df663f
+    );
+
+    transform-origin:
+    50% 100%;
+
+    animation:
+    flameDance .8s
+    ease-in-out infinite alternate;
+
+}
+
+
+.fire span:nth-child(2){
+    animation-delay:.2s;
+}
+
+
+.fire span:nth-child(3){
+    animation-delay:.4s;
+}
+
+
+@keyframes flameDance{
+
+    from{
+
+        transform:
+        scaleY(.65)
+        rotate(-5deg);
+
+    }
+
+    to{
+
+        transform:
+        scaleY(1.08)
+        rotate(5deg);
+
+    }
+
+}
+
+
+/* steam hearts */
+
+.steam-heart{
+
+    position:absolute;
+
+    right:25%;
+    bottom:210px;
+
+    color:
+    rgba(239,156,120,.45);
+
+    font-family:
+    "Playfair Display",
+    serif;
+
+    font-size:2rem;
+
+    animation:
+    steamHeart 4s
+    ease-in-out infinite;
+
+}
+
+
+.steam-heart.second{
+
+    right:19%;
+
+    animation-delay:
+    1.4s;
+
+}
+
+
+@keyframes steamHeart{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+        translateY(25px)
+        scale(.6);
+
+    }
+
+    35%{
+
+        opacity:.55;
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+
+        translateY(-95px)
+        translateX(18px)
+        scale(1.25);
+
+    }
+
+}
+
+
+/* board */
+
+.board{
+
+    position:absolute;
+
+    left:8%;
+    bottom:43px;
+
+    width:300px;
+    height:180px;
+
+    transform:
+    rotate(-4deg);
+
+    border-radius:
+    20px 20px 40px 20px;
+
+    background:
+
+    linear-gradient(
+        145deg,
+        #ba7d52,
+        #825238
+    );
+
+    box-shadow:
+
+    0 20px 35px
+    rgba(0,0,0,.23);
+
+}
+
+
+.board-text{
+
+    position:absolute;
+
+    left:25px;
+    bottom:25px;
+
+    color:
+    rgba(54,29,18,.75);
+
+    font-family:
+    "Playfair Display",
+    serif;
+
+    font-size:2rem;
+
+    font-style:italic;
+
+}
+
+
+/* floating tags */
+
+.floating-tag{
+
+    position:absolute;
+
+    z-index:8;
+
+    padding:
+    8px 12px;
+
+    border:
+
+    1px solid
+    rgba(255,255,255,.09);
+
+    border-radius:999px;
+
+    color:#dbc6b8;
+
+    background:
+    rgba(18,10,8,.72);
+
+    font-size:.66rem;
+
+    backdrop-filter:
+    blur(12px);
+
+}
+
+
+.floating-tag.t1{
+    top:17%;
+    left:2%;
+}
+
+
+.floating-tag.t2{
+    top:14%;
+    right:2%;
+}
+
+
+.floating-tag.t3{
+    left:2%;
+    bottom:26%;
+}
+
+
+.floating-tag.t4{
+    right:2%;
+    bottom:25%;
+}
+
+
+/* =========================================================
+02 MISE EN PLACE
+========================================================= */
+
+.ingredients{
+
+    overflow:hidden;
+
+    color:
+    var(--ink);
+
+    background:
+    #f0e1cb;
+
+}
+
+
+.ingredients
+.title{
+
+    color:
+    var(--ink);
+
+}
+
+
+.ingredients-head{
+
+    max-width:850px;
+
+    margin:
+    0 auto 50px;
+
+    text-align:center;
+
+}
+
+
+.ingredients-head
+.copy{
+
+    margin:
+    25px auto 0;
+
+    color:#77665b;
+
+}
+
+
+/* =========================================================
+ORBIT
+========================================================= */
+
+.orbit-stage{
+
+    position:relative;
+
+    width:
+    min(100%,1050px);
+
+    height:700px;
+
+    margin:auto;
+
+}
+
+
+.orbit-ring{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:550px;
+    height:550px;
+
+    transform:
+    translate(-50%,-50%);
+
+    border:
+
+    1px dashed
+    rgba(105,76,55,.18);
+
+    border-radius:50%;
+
+    animation:
+    orbitSpin 40s
+    linear infinite;
+
+}
+
+
+.orbit-ring.second{
+
+    width:380px;
+    height:380px;
+
+    animation-direction:
+    reverse;
+
+    animation-duration:
+    28s;
+
+}
+
+
+@keyframes orbitSpin{
+
+    to{
+
+        transform:
+
+        translate(-50%,-50%)
+        rotate(360deg);
+
+    }
+
+}
+
+
+/* bowl */
+
+.central-bowl{
+
+    position:absolute;
+
+    z-index:5;
+
+    left:50%;
+    top:53%;
+
+    width:330px;
+    height:165px;
+
+    transform:
+    translate(-50%,-50%);
+
+    border-radius:
+    24px 24px 180px 180px;
+
+    background:
+
+    linear-gradient(
+        145deg,
+        #fff9ef,
+        #b9ada1
+    );
+
+    box-shadow:
+
+    0 35px 50px
+    rgba(80,55,40,.17);
+
+}
+
+
+.central-bowl::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-11px;
+    top:-22px;
+
+    width:352px;
+    height:55px;
+
+    border-radius:50%;
+
+    background:#d9cec1;
+
+}
+
+
+/* ingredient floating cards */
+
+.ing-card{
+
+    position:absolute;
+
+    z-index:7;
+
+    width:190px;
+
+    padding:
+    20px;
+
+    border:
+
+    1px solid
+    rgba(70,50,35,.11);
+
+    border-radius:17px;
+
+    background:
+    var(--paper);
+
+    box-shadow:
+
+    0 16px 40px
+    rgba(75,55,40,.1);
+
+}
+
+
+.ing-card strong{
+
+    display:block;
+
+    color:
+    var(--orange);
+
+    font-family:
+    "Italiana",
+    serif;
+
+    font-size:1.55rem;
+
+}
+
+
+.ing-card span{
+
+    display:block;
+
+    margin-top:7px;
+
+    color:#77675c;
+
+    font-family:
+    "Playfair Display",
+    serif;
+
+}
+
+
+.ing-card.a{
+
+    top:5%;
+    left:8%;
+
+}
+
+
+.ing-card.b{
+
+    top:4%;
+    right:8%;
+
+}
+
+
+.ing-card.c{
+
+    top:42%;
+    left:0;
+
+}
+
+
+.ing-card.d{
+
+    top:43%;
+    right:0;
+
+}
+
+
+.ing-card.e{
+
+    left:12%;
+    bottom:4%;
+
+}
+
+
+.ing-card.f{
+
+    right:12%;
+    bottom:4%;
+
+}
+
+
+/* =========================================================
+03 SLOW SIMMER
+========================================================= */
+
+.process{
+
+    background:
+
+    radial-gradient(
+        circle at 15% 50%,
+        rgba(207,114,80,.08),
+        transparent 30rem
+    ),
+
+    var(--bg2);
+
+}
+
+
+.process-head{
+
+    max-width:850px;
+
+    margin:
+    0 auto 70px;
+
+    text-align:center;
+
+}
+
+
+.process-head
+.copy{
+
+    margin:
+    25px auto 0;
+
+}
+
+
+.process-line{
+
+    position:relative;
+
+    width:
+    min(100%,1050px);
+
+    margin:auto;
+
+}
+
+
+.process-line::before{
+
     content:"";
 
     position:absolute;
 
     left:50%;
-    bottom:-11px;
-
-    width:38px;
-    height:30px;
-
-    transform:
-        translateX(-50%);
-
-    border-radius:50%;
-
-    border:
-        4px solid #665249;
-}
-
-.tool.whisk::before{
-    width:34px;
-    height:50px;
-
-    border-radius:50%;
-
-    background:
-        repeating-linear-gradient(
-            90deg,
-            transparent 0 5px,
-            #665249 5px 7px
-        );
-
-    border:none;
-}
-
-.counter{
-    position:absolute;
-
-    left:0;
-    right:0;
-    bottom:0;
-
-    height:170px;
-
-    border-radius:
-        0 0 30px 30px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #9c6848,
-            #765038
-        );
-
-    box-shadow:
-        inset 0 5px rgba(255,255,255,.08);
-}
-
-.cutting-board{
-    position:absolute;
-
-    left:15%;
-    bottom:55px;
-
-    width:45%;
-    height:170px;
-
-    border-radius:
-        24px 24px 35px 24px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #c18b5e,
-            #9a6745
-        );
-
-    box-shadow:
-        0 20px 35px rgba(65,40,25,.2);
-
-    transform:
-        rotate(-4deg);
-}
-
-.cutting-board::before{
-    content:"";
-
-    position:absolute;
-
-    top:15px;
-    right:18px;
-
-    width:24px;
-    height:24px;
-
-    border:
-        5px solid rgba(90,52,33,.4);
-
-    border-radius:50%;
-}
-
-.board-writing{
-    position:absolute;
-
-    left:20px;
-    bottom:25px;
-
-    font-family:
-        "Playfair Display",serif;
-
-    font-size:
-        clamp(1.4rem,3vw,2.4rem);
-
-    font-style:italic;
-
-    color:
-        rgba(67,43,28,.76);
-}
-
-.pot{
-    position:absolute;
-
-    right:12%;
-    bottom:60px;
-
-    width:150px;
-    height:105px;
-
-    border-radius:
-        15px 15px 45px 45px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #5e5852,
-            #332f2d
-        );
-
-    box-shadow:
-        0 20px 30px rgba(45,31,24,.25);
-}
-
-.pot::before{
-    content:"";
-
-    position:absolute;
-
-    top:-16px;
-    left:-12px;
-
-    width:175px;
-    height:23px;
-
-    border-radius:50%;
-
-    background:#403a36;
-}
-
-.pot::after{
-    content:"";
-
-    position:absolute;
-
-    right:-60px;
-    top:25px;
-
-    width:70px;
-    height:14px;
-
-    border-radius:8px;
-
-    background:#423a35;
-}
-
-.steam{
-    position:absolute;
-
-    bottom:147px;
-
-    width:12px;
-    height:70px;
-
-    border-left:
-        3px solid rgba(255,255,255,.42);
-
-    border-radius:50%;
-
-    filter:blur(1px);
-
-    animation:
-        steam 3.2s ease-in-out infinite;
-}
-
-.steam.a{
-    right:23%;
-}
-
-.steam.b{
-    right:19%;
-    animation-delay:.8s;
-}
-
-.steam.c{
-    right:15%;
-    animation-delay:1.4s;
-}
-
-@keyframes steam{
-    0%{
-        transform:
-            translateY(20px)
-            translateX(0);
-
-        opacity:0;
-    }
-
-    40%{
-        opacity:.55;
-    }
-
-    100%{
-        transform:
-            translateY(-50px)
-            translateX(15px);
-
-        opacity:0;
-    }
-}
-
-
-/* =========================================================
-02 PANTRY / INGREDIENTS
-========================================================= */
-
-.ingredients{
-    background:#faf4e8;
-}
-
-.ingredients-head{
-    max-width:850px;
-
-    margin:
-        0 auto 70px;
-
-    text-align:center;
-}
-
-.ingredients-head .section-copy{
-    margin:
-        25px auto 0;
-}
-
-.pantry{
-    width:min(100%,1100px);
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:20px;
-}
-
-.pantry-item{
-    position:relative;
-
-    min-height:260px;
-
-    padding:
-        34px 30px;
-
-    border:
-        1px solid rgba(85,58,42,.11);
-
-    border-radius:
-        18px;
-
-    background:
-        #eee0c8;
-
-    box-shadow:
-        0 15px 40px rgba(78,55,39,.08);
-
-    overflow:hidden;
-
-    transition:.3s;
-}
-
-.pantry-item:hover{
-    transform:
-        translateY(-6px);
-}
-
-.pantry-item::before{
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:0;
-    right:0;
-
-    height:9px;
-
-    background:
-        var(--accent);
-}
-
-.pantry-amount{
-    color:var(--accent);
-
-    font-family:"Italiana",serif;
-
-    font-size:2rem;
-}
-
-.pantry-item h3{
-    margin:
-        16px 0 12px;
-
-    font-family:
-        "Playfair Display",serif;
-
-    font-size:1.8rem;
-
-    font-weight:500;
-}
-
-.pantry-item p{
-    margin:0;
-
-    color:var(--muted);
-
-    line-height:1.8;
-}
-
-.pantry-sticker{
-    position:absolute;
-
-    right:-15px;
-    bottom:-25px;
-
-    width:100px;
-    height:100px;
-
-    display:grid;
-    place-items:center;
-
-    border-radius:50%;
-
-    color:
-        rgba(255,255,255,.65);
-
-    background:
-        var(--accent);
-
-    font-family:
-        "Italiana",serif;
-
-    font-size:2.5rem;
-
-    transform:
-        rotate(15deg);
-}
-
-
-/* =========================================================
-03 RECIPE STEPS
-========================================================= */
-
-.steps{
-    background:
-        linear-gradient(
-            180deg,
-            #ede0ca,
-            #e6d4b9
-        );
-}
-
-.steps-layout{
-    width:min(100%,1080px);
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-        .78fr 1.22fr;
-
-    gap:
-        clamp(45px,7vw,90px);
-
-    align-items:start;
-}
-
-.steps-title{
-    position:sticky;
-
-    top:125px;
-}
-
-.steps-title .section-copy{
-    margin-top:25px;
-}
-
-.recipe-steps{
-    display:grid;
-    gap:18px;
-}
-
-.recipe-step{
-    position:relative;
-
-    padding:
-        29px 30px 29px 95px;
-
-    border-radius:
-        15px;
-
-    background:
-        var(--paper);
-
-    border:
-        1px solid rgba(78,54,39,.1);
-
-    box-shadow:
-        0 13px 35px rgba(74,53,38,.08);
-}
-
-.step-number{
-    position:absolute;
-
-    left:25px;
-    top:25px;
-
-    width:49px;
-    height:49px;
-
-    display:grid;
-    place-items:center;
-
-    border-radius:50%;
-
-    color:#fff;
-
-    background:
-        var(--terracotta);
-
-    font-family:
-        "Italiana",serif;
-
-    font-size:1.5rem;
-}
-
-.recipe-step small{
-    color:var(--olive);
-
-    font-size:.6rem;
-
-    letter-spacing:.17em;
-
-    text-transform:uppercase;
-}
-
-.recipe-step h3{
-    margin:
-        9px 0 10px;
-
-    font-family:
-        "Playfair Display",serif;
-
-    font-size:
-        1.75rem;
-
-    font-weight:500;
-}
-
-.recipe-step p{
-    margin:0;
-
-    color:var(--muted);
-
-    line-height:1.8;
-}
-
-
-/* =========================================================
-04 COOKBOOK PHOTOS
-========================================================= */
-
-.photos{
-    display:block;
-
-    min-height:auto;
-
-    padding-top:145px;
-    padding-bottom:170px;
-
-    background:#f8f0e1;
-}
-
-.photos-head{
-    max-width:850px;
-
-    margin:
-        0 auto 75px;
-
-    text-align:center;
-}
-
-.photos-head .section-copy{
-    margin:
-        25px auto 0;
-}
-
-.cookbook-page{
-    width:min(100%,1150px);
-
-    margin:auto;
-
-    padding:
-        clamp(25px,5vw,55px);
-
-    border:
-        1px solid rgba(72,50,35,.1);
-
-    border-radius:
-        8px 28px 28px 8px;
-
-    background:
-        #eee0c8;
-
-    box-shadow:
-        0 35px 90px rgba(78,52,35,.15);
-
-    position:relative;
-}
-
-.cookbook-page::before{
-    content:"";
-
-    position:absolute;
-
     top:0;
     bottom:0;
-    left:45px;
 
     width:1px;
 
     background:
-        rgba(90,55,35,.11);
+
+    linear-gradient(
+        transparent,
+        rgba(212,174,103,.45),
+        rgba(207,114,80,.38),
+        transparent
+    );
+
 }
 
-.memory-grid{
+
+.process-step{
+
+    position:relative;
+
+    width:50%;
+
+    padding:
+    0 55px 70px 0;
+
+}
+
+
+.process-step:nth-child(even){
+
+    margin-left:50%;
+
+    padding:
+    0 0 70px 55px;
+
+}
+
+
+.timeline-dot{
+
+    position:absolute;
+
+    z-index:5;
+
+    right:-8px;
+    top:25px;
+
+    width:16px;
+    height:16px;
+
+    border:
+
+    4px solid
+    var(--bg2);
+
+    border-radius:50%;
+
+    background:
+    var(--gold);
+
+    box-shadow:
+
+    0 0 22px
+    rgba(212,174,103,.38);
+
+}
+
+
+.process-step:nth-child(even)
+.timeline-dot{
+
+    right:auto;
+    left:-8px;
+
+}
+
+
+.timeline-card{
+
+    padding:
+    27px 29px;
+
+    border:
+
+    1px solid
+    rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    background:
+    rgba(255,255,255,.035);
+
+    transition:.35s;
+
+}
+
+
+.timeline-card:hover{
+
+    transform:
+    translateY(-6px);
+
+    border-color:
+    rgba(239,156,120,.3);
+
+}
+
+
+.timeline-card small{
+
+    color:
+    var(--orange2);
+
+    font-size:.58rem;
+
+    letter-spacing:.16em;
+
+    text-transform:uppercase;
+
+}
+
+
+.timeline-card h3{
+
+    margin:
+    11px 0;
+
+    font-family:
+    "Playfair Display",
+    serif;
+
+    font-size:1.9rem;
+
+    font-weight:500;
+
+}
+
+
+.timeline-card p{
+
+    color:
+    var(--muted);
+
+    line-height:1.85;
+
+}
+
+
+/* =========================================================
+04 MEMORY COURSE
+========================================================= */
+
+.gallery{
+
+    overflow:hidden;
+
+    color:
+    var(--ink);
+
+    background:
+    #ead7bb;
+
+}
+
+
+.gallery
+.title{
+
+    color:
+    var(--ink);
+
+}
+
+
+.gallery-head{
+
+    max-width:860px;
+
+    margin:
+    0 auto 75px;
+
+    text-align:center;
+
+}
+
+
+.gallery-head
+.copy{
+
+    margin:
+    25px auto 0;
+
+    color:#78675d;
+
+}
+
+
+.gallery-board{
+
+    position:relative;
+
+    width:
+    min(100%,1150px);
+
+    margin:auto;
+
+    padding:
+    50px;
+
+    border-radius:35px;
+
+    background:
+
+    linear-gradient(
+        145deg,
+        #8e5d3e,
+        #68402c
+    );
+
+    box-shadow:
+
+    0 35px 80px
+    rgba(70,45,30,.2);
+
+}
+
+
+.gallery-board::before{
+
+    content:
+    "CHEF'S FAVORITE MEMORIES";
+
+    position:absolute;
+
+    top:18px;
+    left:50%;
+
+    transform:
+    translateX(-50%);
+
+    color:
+    rgba(255,244,230,.6);
+
+    font-size:.55rem;
+
+    letter-spacing:.2em;
+
+}
+
+
+.gallery-grid{
+
     display:grid;
 
     grid-template-columns:
-        repeat(12,1fr);
+    repeat(5,1fr);
 
-    gap:
-        clamp(16px,2.4vw,32px);
+    gap:18px;
+
+    perspective:1200px;
+
 }
 
-.memory{
-    margin:0;
-}
 
-.memory:nth-child(1){
-    grid-column:
-        1 / span 6;
-}
+.photo-card{
 
-.memory:nth-child(2){
-    grid-column:
-        7 / span 6;
-
-    margin-top:65px;
-}
-
-.memory:nth-child(3){
-    grid-column:
-        2 / span 5;
-}
-
-.memory:nth-child(4){
-    grid-column:
-        7 / span 5;
-
-    margin-top:50px;
-}
-
-.memory:nth-child(5){
-    grid-column:
-        4 / span 6;
-
-    margin-top:40px;
-}
-
-.photo-button{
     position:relative;
 
     width:100%;
 
     padding:
-        9px 9px 40px;
+    7px 7px 50px;
 
     border:0;
 
-    background:#fffaf1;
+    color:
+    var(--ink);
+
+    background:
+    #fffaf1;
 
     box-shadow:
-        0 18px 45px rgba(75,50,35,.17);
+
+    0 20px 45px
+    rgba(45,25,15,.27);
 
     cursor:pointer;
 
-    transition:.35s;
+    transform-style:
+    preserve-3d;
+
+    transition:
+    box-shadow .3s;
+
 }
 
-.memory:nth-child(odd)
-.photo-button{
+
+.photo-card:nth-child(1){
+
     transform:
-        rotate(-1.5deg);
+    rotate(-5deg);
+
 }
 
-.memory:nth-child(even)
-.photo-button{
+
+.photo-card:nth-child(2){
+
     transform:
-        rotate(1.5deg);
+    rotate(3deg)
+    translateY(25px);
+
 }
 
-.photo-button:hover{
+
+.photo-card:nth-child(3){
+
     transform:
-        translateY(-8px)
-        rotate(0deg);
+    rotate(-1deg)
+    scale(1.06);
+
 }
 
-.photo-surface{
+
+.photo-card:nth-child(4){
+
+    transform:
+    rotate(4deg)
+    translateY(25px);
+
+}
+
+
+.photo-card:nth-child(5){
+
+    transform:
+    rotate(-4deg);
+
+}
+
+
+.photo-card img{
+
+    display:block;
+
     width:100%;
-    aspect-ratio:3/4;
 
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
+    aspect-ratio:
+    3 / 4;
+
+    object-fit:cover;
+
+    pointer-events:none;
+
 }
 
-.photo-tape{
+
+.photo-caption{
+
     position:absolute;
+
+    left:10px;
+    right:10px;
+    bottom:13px;
+
+    text-align:center;
+
+    color:#55463d;
+
+    font-family:
+    "Playfair Display",
+    serif;
+
+    font-size:.78rem;
+
+    font-style:italic;
+
+}
+
+
+.tape{
+
+    position:absolute;
+
+    z-index:5;
 
     top:-12px;
     left:50%;
 
-    width:90px;
-    height:28px;
+    width:75px;
+    height:25px;
 
     transform:
-        translateX(-50%)
-        rotate(-2deg);
+
+    translateX(-50%)
+    rotate(-3deg);
 
     background:
-        rgba(194,171,128,.55);
-}
+    rgba(212,191,148,.65);
 
-.photo-note{
-    position:absolute;
-
-    left:13px;
-    right:13px;
-    bottom:12px;
-
-    color:#58483f;
-
-    text-align:center;
-
-    font-family:
-        "Playfair Display",serif;
-
-    font-size:.95rem;
-
-    font-style:italic;
-}
-
-.memory figcaption{
-    padding-top:14px;
-
-    color:#625348;
-
-    font-family:
-        "Playfair Display",serif;
-
-    font-size:1.2rem;
 }
 
 
 /* =========================================================
-05 FLIP CARDS
+05 STIR THE FEELINGS
 ========================================================= */
 
-.favorite{
-    background:
-        #e5d3b8;
-}
-
-.favorite-head{
-    max-width:850px;
-
-    margin:
-        0 auto 65px;
-
-    text-align:center;
-}
-
-.favorite-head .section-copy{
-    margin:
-        25px auto 0;
-}
-
-.favorite-grid{
-    width:min(100%,1080px);
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:18px;
-}
-
-.favorite-card{
-    position:relative;
-
-    min-height:260px;
-
-    border:
-        1px solid rgba(83,58,43,.12);
-
-    border-radius:16px;
-
-    background:
-        var(--paper);
+.stir-section{
 
     overflow:hidden;
 
-    cursor:pointer;
+    color:
+    var(--ink);
 
-    box-shadow:
-        0 14px 40px rgba(75,51,34,.08);
+    background:
+    #f7ecda;
+
 }
 
-.favorite-front,
-.favorite-back{
+
+.stir-section
+.title{
+
+    color:
+    var(--ink);
+
+}
+
+
+.stir-head{
+
+    max-width:850px;
+
+    margin:
+    0 auto 55px;
+
+    text-align:center;
+
+}
+
+
+.stir-head
+.copy{
+
+    margin:
+    25px auto 0;
+
+    color:#74645a;
+
+}
+
+
+.stir-stage{
+
+    position:relative;
+
+    width:
+    min(100%,760px);
+
+    height:590px;
+
+    margin:auto;
+
+    user-select:none;
+
+    touch-action:none;
+
+}
+
+
+.stir-glow{
+
     position:absolute;
 
-    inset:0;
+    left:50%;
+    top:53%;
 
-    padding:30px;
+    width:420px;
+    height:420px;
 
-    transition:.45s;
+    transform:
+    translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+    rgba(207,114,80,.1);
+
+    filter:
+    blur(70px);
+
 }
 
-.favorite-front{
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
+
+.stir-bowl{
+
+    position:absolute;
+
+    left:50%;
+    top:55%;
+
+    width:430px;
+    height:210px;
+
+    transform:
+    translate(-50%,-50%);
+
+    border-radius:
+    35px 35px 230px 230px;
+
+    background:
+
+    linear-gradient(
+        145deg,
+        #fff9ef,
+        #b7aa9e
+    );
+
+    box-shadow:
+
+    0 45px 60px
+    rgba(80,55,40,.19);
+
 }
 
-.favorite-front::before{
+
+.stir-bowl::before{
+
     content:"";
 
     position:absolute;
 
-    top:0;
-    left:0;
-    right:0;
+    left:-15px;
+    top:-31px;
 
-    height:10px;
+    width:460px;
+    height:75px;
 
-    background:
-        var(--accent);
+    border-radius:50%;
+
+    background:#ddd2c7;
+
+    box-shadow:
+
+    inset 0 10px 20px
+    rgba(70,45,30,.12);
+
 }
 
-.favorite-label{
+
+/* mixture */
+
+.mixture{
+
     position:absolute;
 
-    top:28px;
-    left:30px;
+    z-index:2;
 
-    color:var(--olive);
+    left:50%;
+    top:calc(55% - 25px);
 
-    font-size:.6rem;
+    width:400px;
+    height:70px;
 
-    letter-spacing:.17em;
+    transform:
+    translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+        circle at center,
+        #db8a70,
+        #a75343
+    );
+
+    overflow:hidden;
+
+}
+
+
+.mixture::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:10px;
+
+    border:
+
+    2px dashed
+    rgba(255,245,225,.25);
+
+    border-radius:50%;
+
+    animation:
+    mixtureSpin 7s linear infinite;
+
+}
+
+
+@keyframes mixtureSpin{
+
+    to{
+
+        transform:
+        rotate(360deg);
+
+    }
+
+}
+
+
+/* whisk */
+
+.whisk{
+
+    position:absolute;
+
+    z-index:10;
+
+    left:50%;
+    top:19%;
+
+    width:34px;
+    height:285px;
+
+    transform-origin:
+    50% 89%;
+
+    cursor:grab;
+
+    touch-action:none;
+
+}
+
+
+.whisk.dragging{
+
+    cursor:grabbing;
+
+}
+
+
+.whisk-handle{
+
+    position:absolute;
+
+    left:8px;
+    top:0;
+
+    width:18px;
+    height:170px;
+
+    border-radius:12px;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        #5d554f,
+        #8a817b,
+        #4e4743
+    );
+
+}
+
+
+.whisk-wire{
+
+    position:absolute;
+
+    left:-7px;
+    bottom:0;
+
+    width:48px;
+    height:120px;
+
+    border:
+
+    3px solid
+    #716864;
+
+    border-radius:50%;
+
+}
+
+
+.whisk-wire::before,
+.whisk-wire::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:5px;
+    bottom:5px;
+
+    width:18px;
+
+    border:
+
+    2px solid
+    #716864;
+
+    border-radius:50%;
+
+}
+
+
+.whisk-wire::before{
+
+    left:4px;
+
+}
+
+
+.whisk-wire::after{
+
+    right:4px;
+
+}
+
+
+/* progress */
+
+.stir-progress-wrap{
+
+    position:absolute;
+
+    left:50%;
+    bottom:10px;
+
+    width:
+    min(90%,500px);
+
+    transform:
+    translateX(-50%);
+
+    text-align:center;
+
+}
+
+
+.stir-progress-label{
+
+    margin-bottom:10px;
+
+    color:#77665d;
+
+    font-size:.64rem;
+
+    letter-spacing:.14em;
 
     text-transform:uppercase;
+
 }
 
-.favorite-number{
-    position:absolute;
 
-    right:24px;
-    top:18px;
+.stir-progress{
 
-    color:
-        rgba(114,77,52,.14);
+    height:7px;
 
-    font-family:"Italiana",serif;
+    overflow:hidden;
 
-    font-size:3rem;
-}
-
-.favorite-front h3{
-    margin:0;
-
-    font-family:
-        "Playfair Display",serif;
-
-    font-size:1.8rem;
-
-    font-weight:500;
-}
-
-.favorite-front small{
-    margin-top:10px;
-    color:#998b80;
-}
-
-.favorite-back{
-    display:flex;
-    align-items:center;
-
-    color:#69594f;
-
-    line-height:1.85;
-
-    opacity:0;
-
-    transform:
-        translateY(20px);
+    border-radius:999px;
 
     background:
-        #fbf3e6;
+    rgba(80,55,40,.1);
+
 }
 
-.favorite-card.open
-.favorite-front{
-    opacity:0;
+
+.stir-progress-bar{
+
+    width:0%;
+    height:100%;
+
+    border-radius:999px;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        var(--orange),
+        var(--rose),
+        var(--gold)
+    );
+
+    transition:
+    width .12s linear;
+
+}
+
+
+.stir-hint{
+
+    margin-top:11px;
+
+    color:#95847a;
+
+    font-size:.7rem;
+
+}
+
+
+.stir-reveal{
+
+    position:absolute;
+
+    z-index:30;
+
+    left:50%;
+    top:51%;
+
+    width:
+    min(90%,580px);
+
     transform:
-        translateY(-20px);
+
+    translate(-50%,-50%)
+    scale(.7);
+
+    text-align:center;
+
+    pointer-events:none;
+
+    opacity:0;
+
 }
 
-.favorite-card.open
-.favorite-back{
-    opacity:1;
-    transform:none;
+
+.stir-reveal.show{
+
+    animation:
+    revealResult .8s
+    forwards;
+
+}
+
+
+@keyframes revealResult{
+
+    to{
+
+        opacity:1;
+
+        transform:
+
+        translate(-50%,-50%)
+        scale(1);
+
+    }
+
+}
+
+
+.stir-reveal small{
+
+    color:#f6c1ae;
+
+    letter-spacing:.2em;
+
+    text-transform:uppercase;
+
+}
+
+
+.stir-reveal strong{
+
+    display:block;
+
+    margin-top:12px;
+
+    color:#fff6e9;
+
+    font-family:
+    "Italiana",
+    serif;
+
+    font-size:
+
+    clamp(
+        3rem,
+        8vw,
+        6rem
+    );
+
+    font-weight:400;
+
 }
 
 
 /* =========================================================
-06 RECIPE BOX
+06 OPEN WHEN
 ========================================================= */
 
-.recipebox{
-    display:block;
+.letters{
 
-    min-height:auto;
+    overflow:hidden;
 
-    padding-top:145px;
-    padding-bottom:160px;
+    background:
+    var(--bg);
 
-    background:#f7efe1;
 }
 
-.recipebox-head{
+
+.letters-head{
+
     max-width:850px;
 
     margin:
-        0 auto 70px;
+    0 auto 70px;
 
     text-align:center;
+
 }
 
-.recipebox-head .section-copy{
+
+.letters-head
+.copy{
+
     margin:
-        25px auto 0;
+    25px auto 0;
+
 }
 
-.wood-box{
+
+.recipe-box{
+
     position:relative;
 
-    width:min(100%,1080px);
+    width:
+    min(100%,1050px);
 
     margin:auto;
 
     padding:
-        45px 40px 55px;
+    65px 45px 50px;
 
     border-radius:
-        12px 12px 35px 35px;
+    13px 13px 40px 40px;
 
     background:
-        linear-gradient(
-            145deg,
-            #9d6745,
-            #72482f
-        );
+
+    repeating-linear-gradient(
+        90deg,
+        rgba(255,255,255,.018) 0 3px,
+        transparent 3px 60px
+    ),
+
+    linear-gradient(
+        145deg,
+        #9a6445,
+        #5b3828
+    );
 
     box-shadow:
-        0 35px 70px rgba(72,45,29,.25);
+
+    0 40px 90px
+    rgba(0,0,0,.3);
+
 }
 
-.wood-box::before{
-    content:"FEBY'S RECIPE BOX";
+
+.recipe-box::before{
+
+    content:
+    "FEBY'S PRIVATE RECIPE BOX";
 
     position:absolute;
 
-    top:16px;
+    top:22px;
     left:50%;
 
     transform:
-        translateX(-50%);
+    translateX(-50%);
 
     color:
-        rgba(255,245,225,.7);
+    rgba(255,245,230,.62);
 
-    font-size:.58rem;
+    font-size:.55rem;
 
     letter-spacing:.2em;
+
 }
 
-.letter-cards{
+
+.letters-grid{
+
     display:grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+    repeat(3,1fr);
 
     gap:22px;
 
-    margin-top:20px;
 }
 
+
 .letter-card{
-    min-height:250px;
+
+    position:relative;
+
+    min-height:285px;
 
     padding:28px;
 
     border:0;
 
     border-radius:
-        5px 5px 17px 5px;
+    6px 6px 20px 6px;
 
-    color:var(--ink);
+    color:
+    var(--ink);
 
     background:
-        var(--paper);
+    var(--paper);
 
     text-align:left;
 
     cursor:pointer;
 
     box-shadow:
-        0 18px 35px rgba(55,33,20,.22);
+
+    0 22px 40px
+    rgba(45,27,18,.25);
 
     transition:.35s;
+
 }
+
 
 .letter-card:nth-child(1){
+
     transform:
-        rotate(-1.7deg);
+    rotate(-2deg);
+
 }
+
 
 .letter-card:nth-child(2){
+
     transform:
-        translateY(10px);
+    translateY(13px);
+
 }
+
 
 .letter-card:nth-child(3){
+
     transform:
-        rotate(1.7deg);
+    rotate(2deg);
+
 }
+
 
 .letter-card:hover{
+
     transform:
-        translateY(-10px)
-        rotate(0);
+
+    translateY(-10px)
+    rotate(0);
+
 }
 
-.letter-label{
-    color:var(--terracotta);
 
-    font-size:.58rem;
+.letter-card::after{
 
-    letter-spacing:.17em;
+    content:"F";
 
-    text-transform:uppercase;
-}
+    position:absolute;
 
-.letter-card h3{
-    margin:
-        17px 0 13px;
+    right:22px;
+    bottom:20px;
+
+    width:40px;
+    height:40px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:50%;
+
+    color:
+    rgba(255,255,255,.78);
+
+    background:
+
+    radial-gradient(
+        circle at 30% 25%,
+        #ca6e80,
+        #753043
+    );
 
     font-family:
-        "Playfair Display",serif;
+    "Playfair Display",
+    serif;
 
-    font-size:1.85rem;
+    font-style:italic;
+
+    box-shadow:
+
+    0 8px 15px
+    rgba(75,25,38,.2);
+
+}
+
+
+.letter-card small{
+
+    color:
+    var(--orange);
+
+    font-size:.57rem;
+
+    letter-spacing:.16em;
+
+    text-transform:uppercase;
+
+}
+
+
+.letter-card h3{
+
+    margin:
+    20px 0 14px;
+
+    font-family:
+    "Playfair Display",
+    serif;
+
+    font-size:1.8rem;
 
     font-weight:500;
+
 }
+
 
 .letter-card p{
-    margin:0;
 
-    color:#7a675d;
+    color:#77645a;
 
     line-height:1.75;
+
 }
 
-.letter-reading{
-    width:min(100%,900px);
+
+/* reader */
+
+.reader{
+
+    width:
+    min(100%,900px);
 
     max-height:0;
 
     margin:
-        0 auto;
+    0 auto;
 
     overflow:hidden;
 
     opacity:0;
 
     transform:
-        translateY(-10px);
+    translateY(-10px);
 
     transition:
-        max-height .7s,
-        opacity .5s,
-        transform .6s,
-        margin .6s;
+
+    max-height .7s,
+    opacity .5s,
+    margin .6s,
+    transform .6s;
+
 }
 
-.letter-reading.open{
-    max-height:1100px;
+
+.reader.open{
+
+    max-height:1200px;
 
     margin:
-        65px auto 0;
+    60px auto 0;
 
     opacity:1;
 
     transform:none;
+
 }
 
-.letter-paper{
+
+.reader-paper{
+
     position:relative;
 
     padding:
-        clamp(36px,6vw,65px);
 
-    border:
-        1px solid rgba(75,52,36,.1);
+    clamp(
+        38px,
+        6vw,
+        70px
+    );
 
-    border-radius:
-        7px 7px 26px 7px;
-
-    color:var(--ink);
+    color:
+    var(--ink);
 
     background:
-        var(--paper);
+    var(--paper);
+
+    border-radius:
+    7px 7px 30px 7px;
 
     box-shadow:
-        var(--shadow);
+    var(--shadow);
+
 }
 
-.letter-paper::before{
+
+.reader-paper::before{
+
     content:"";
 
     position:absolute;
 
-    top:0;
     left:0;
+    top:0;
     bottom:0;
 
     width:7px;
 
-    background:var(--terracotta);
+    background:
+
+    linear-gradient(
+        var(--orange),
+        var(--rose)
+    );
+
 }
 
-.letter-paper h3{
-    max-width:680px;
 
-    margin:
-        20px 0 28px;
+.reader-close{
 
-    font-family:
-        "Playfair Display",serif;
-
-    font-size:
-        clamp(2rem,4vw,3.5rem);
-
-    font-weight:500;
-
-    line-height:1.08;
-}
-
-.letter-meta{
-    color:var(--olive);
-
-    font-size:.62rem;
-
-    letter-spacing:.18em;
-
-    text-transform:uppercase;
-}
-
-.letter-body{
-    max-width:700px;
-}
-
-.letter-body p{
-    font-family:
-        "Playfair Display",serif;
-
-    font-size:
-        clamp(1rem,1.5vw,1.14rem);
-
-    line-height:1.95;
-}
-
-.letter-close{
     position:absolute;
 
-    top:20px;
-    right:20px;
+    right:22px;
+    top:22px;
 
     width:40px;
     height:40px;
 
     border:
-        1px solid rgba(76,52,38,.12);
+
+    1px solid
+    rgba(60,40,30,.12);
 
     border-radius:50%;
+
+    color:
+    var(--ink);
 
     background:none;
 
     cursor:pointer;
+
 }
 
 
-/* =========================================================
-07 SECRET INGREDIENT
-========================================================= */
+.reader-label{
 
-.secret{
-    background:
-        linear-gradient(
-            180deg,
-            #e7d7bd,
-            #e1ceb0
-        );
+    color:
+    var(--green);
+
+    font-size:.6rem;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+
 }
 
-.secret-grid{
-    width:min(100%,1160px);
 
-    margin:auto;
+.reader-title{
 
-    display:grid;
+    max-width:690px;
 
-    grid-template-columns:
-        .8fr 1.2fr;
-
-    gap:
-        clamp(45px,7vw,90px);
-
-    align-items:center;
-}
-
-.secret-visual{
-    position:relative;
-
-    min-height:520px;
-
-    display:grid;
-    place-items:center;
-}
-
-.recipe-book{
-    position:relative;
-
-    width:min(90%,480px);
-
-    min-height:420px;
-
-    padding:
-        55px 45px;
-
-    border-radius:
-        8px 22px 22px 8px;
-
-    background:
-        var(--paper);
-
-    box-shadow:
-        0 35px 80px rgba(70,48,33,.18);
-
-    transform:
-        rotate(-2deg);
-}
-
-.recipe-book::before{
-    content:"SECRET";
-    position:absolute;
-
-    top:0;
-    right:35px;
-
-    padding:
-        7px 10px;
-
-    color:white;
-
-    background:var(--wine);
-
-    font-size:.56rem;
-
-    letter-spacing:.15em;
-}
-
-.recipe-book h3{
     margin:
-        20px 0;
+    20px 0 28px;
 
     font-family:
-        "Playfair Display",serif;
+    "Playfair Display",
+    serif;
 
     font-size:
-        clamp(2rem,4vw,3.5rem);
+
+    clamp(
+        2rem,
+        4vw,
+        3.7rem
+    );
 
     font-weight:500;
+
+    line-height:1.08;
+
 }
 
-.recipe-book p{
-    color:#66574f;
 
-    font-family:
-        "Playfair Display",serif;
+.reader-body{
 
-    line-height:1.9;
+    max-width:700px;
+
 }
 
-.secret-answer{
-    margin:
-        35px 0;
 
-    padding:
-        25px 0;
-
-    border-top:
-        1px solid var(--line);
-
-    border-bottom:
-        1px solid var(--line);
-
-    text-align:center;
-
-    color:var(--terracotta);
+.reader-body p{
 
     font-family:
-        "Italiana",serif;
+    "Playfair Display",
+    serif;
 
     font-size:
-        clamp(3rem,7vw,5.5rem);
+
+    clamp(
+        1rem,
+        1.5vw,
+        1.15rem
+    );
+
+    line-height:1.95;
+
 }
 
-.signature{
-    color:var(--wine) !important;
+
+.reader-sign{
+
+    color:
+    var(--wine);
+
     font-style:italic;
-}
 
-.secret-copy .section-copy{
-    margin-top:26px;
 }
 
 
 /* =========================================================
-08 FINAL INGREDIENT
+07 CANDLE
 ========================================================= */
 
-.final-ingredient{
-    background:#faf4e7;
+.wish{
+
+    overflow:hidden;
 
     text-align:center;
+
+    background:
+
+    radial-gradient(
+        circle at 50% 56%,
+        rgba(220,121,111,.12),
+        transparent 28rem
+    ),
+
+    #160d0b;
+
 }
 
-.final-ingredient-inner{
-    width:min(100%,900px);
+
+.wish-inner{
+
+    width:
+    min(100%,900px);
+
     margin:auto;
+
 }
 
-.heart-copy{
-    max-width:580px;
+
+.wish-copy{
+
+    max-width:600px;
 
     margin:
-        25px auto 38px;
+    25px auto 45px;
 
-    color:var(--muted);
+    color:
+    var(--muted);
 
     line-height:1.9;
+
 }
 
-.plate-button{
+
+.candle-scene{
+
     position:relative;
 
-    width:190px;
-    height:190px;
+    width:260px;
+    height:355px;
 
     margin:auto;
 
-    display:grid;
-    place-items:center;
+}
 
-    border:
-        1px solid rgba(73,50,35,.12);
+
+.candle-aura{
+
+    position:absolute;
+
+    left:50%;
+    top:70px;
+
+    width:210px;
+    height:210px;
+
+    transform:
+    translate(-50%,-50%);
 
     border-radius:50%;
 
     background:
-        radial-gradient(
-            circle,
-            #fffaf0 0 48%,
-            #e7dac6 49% 54%,
-            #f9f1e5 55%
-        );
+    rgba(247,174,102,.14);
+
+    filter:
+    blur(30px);
+
+    animation:
+    auraPulse 2.5s
+    ease-in-out infinite;
+
+}
+
+
+@keyframes auraPulse{
+
+    50%{
+
+        transform:
+
+        translate(-50%,-50%)
+        scale(1.22);
+
+        opacity:.65;
+
+    }
+
+}
+
+
+.candle{
+
+    position:absolute;
+
+    left:50%;
+    bottom:0;
+
+    width:95px;
+    height:225px;
+
+    transform:
+    translateX(-50%);
+
+    border:0;
+
+    border-radius:
+    8px 8px 20px 20px;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        #e7d6bd,
+        #fff7e6 48%,
+        #d4bea1
+    );
+
+    box-shadow:
+
+    0 28px 50px
+    rgba(0,0,0,.25);
 
     cursor:pointer;
 
-    box-shadow:
-        0 20px 50px rgba(78,52,35,.12);
-
-    transition:.3s;
 }
 
-.plate-button:hover{
-    transform:
-        scale(1.04);
-}
 
-.plate-heart{
-    width:75px;
-    height:68px;
+.wick{
 
-    fill:var(--terracotta);
-
-    filter:
-        drop-shadow(
-            0 10px 18px
-            rgba(184,101,71,.24)
-        );
-}
-
-.plate-progress{
     position:absolute;
 
-    inset:0;
+    left:50%;
+    top:-26px;
 
-    width:100%;
-    height:100%;
+    width:3px;
+    height:28px;
 
     transform:
-        rotate(-90deg);
+    translateX(-50%);
 
-    pointer-events:none;
+    background:#251a15;
+
 }
 
-.plate-progress circle{
-    fill:none;
 
-    stroke-width:4;
+.candle-flame{
+
+    position:absolute;
+
+    left:50%;
+    top:-83px;
+
+    width:35px;
+    height:63px;
+
+    transform:
+    translateX(-50%);
+
+    transform-origin:
+    50% 100%;
+
+    border-radius:
+    60% 45% 55% 50%;
+
+    background:
+
+    radial-gradient(
+        circle at 50% 72%,
+        #fff5b3 0 18%,
+        transparent 20%
+    ),
+
+    linear-gradient(
+        #f6ce78,
+        #f18b43 58%,
+        #d85b39
+    );
+
+    filter:
+
+    drop-shadow(
+        0 0 17px
+        rgba(241,149,74,.7)
+    );
+
+    animation:
+    flicker .8s
+    ease-in-out infinite alternate;
+
 }
 
-.plate-progress-bg{
-    stroke:
-        rgba(83,55,38,.09);
+
+@keyframes flicker{
+
+    from{
+
+        transform:
+
+        translateX(-50%)
+        rotate(-3deg)
+        scaleX(.9);
+
+    }
+
+    to{
+
+        transform:
+
+        translateX(-50%)
+        rotate(3deg)
+        scaleX(1.07);
+
+    }
+
 }
 
-.plate-progress-main{
-    stroke:
-        var(--olive);
 
-    stroke-linecap:round;
+.candle-heart{
 
-    stroke-dasharray:502;
+    position:absolute;
 
-    stroke-dashoffset:502;
+    left:50%;
+    top:87px;
+
+    transform:
+    translateX(-50%);
+
+    color:
+    var(--wine);
+
+    font-family:
+    "Playfair Display",
+    serif;
+
+    font-size:2rem;
+
 }
 
-.heart-result{
+
+.wish-hint{
+
+    margin-top:18px;
+
+    color:#806f66;
+
+    font-size:.65rem;
+
+    letter-spacing:.15em;
+
+    text-transform:uppercase;
+
+}
+
+
+.wish-result{
+
     max-height:0;
-
-    margin-top:0;
 
     overflow:hidden;
 
     opacity:0;
 
     transform:
-        translateY(20px);
+    translateY(18px);
 
-    transition:
-        .7s;
+    transition:.7s;
+
 }
 
-.heart-result.show{
-    max-height:450px;
 
-    margin-top:40px;
+.wish-result.show{
+
+    max-height:400px;
+
+    margin-top:35px;
 
     opacity:1;
 
     transform:none;
+
 }
 
-.heart-result strong{
-    display:block;
+
+.wish-result p{
+
+    max-width:620px;
+
+    margin:auto;
+
+    color:#d1bdb1;
 
     font-family:
-        "Playfair Display",serif;
+    "Playfair Display",
+    serif;
 
     font-size:
-        clamp(2.6rem,6vw,5.4rem);
 
-    font-weight:500;
-}
+    clamp(
+        1.3rem,
+        3vw,
+        2rem
+    );
 
-.heart-result strong span{
-    color:var(--terracotta);
-}
+    font-style:italic;
 
-.heart-result p{
-    max-width:600px;
+    line-height:1.7;
 
-    margin:
-        20px auto 0;
-
-    color:var(--muted);
-
-    line-height:1.9;
 }
 
 
 /* =========================================================
-09 ENDING
+08 DESSERT CONFESSION
+========================================================= */
+
+.dessert{
+
+    overflow:hidden;
+
+    color:
+    var(--ink);
+
+    background:
+    #f5e9d7;
+
+    text-align:center;
+
+}
+
+
+.dessert
+.title{
+
+    color:
+    var(--ink);
+
+}
+
+
+.dessert-copy{
+
+    max-width:620px;
+
+    margin:
+    25px auto 50px;
+
+    color:#78675e;
+
+    line-height:1.9;
+
+}
+
+
+.dessert-stage{
+
+    position:relative;
+
+    width:340px;
+    height:340px;
+
+    margin:auto;
+
+    cursor:pointer;
+
+}
+
+
+.dessert-plate{
+
+    position:absolute;
+
+    inset:0;
+
+    border:
+
+    1px solid
+    rgba(80,55,40,.12);
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+        circle,
+        #fffaf2 0 49%,
+        #ded0bc 50% 56%,
+        #f8ede0 57%
+    );
+
+    box-shadow:
+
+    0 30px 60px
+    rgba(80,55,40,.15);
+
+}
+
+
+.chocolate-shell{
+
+    position:absolute;
+
+    z-index:5;
+
+    left:50%;
+    top:50%;
+
+    width:165px;
+    height:165px;
+
+    transform:
+    translate(-50%,-50%);
+
+}
+
+
+.shell-left,
+.shell-right{
+
+    position:absolute;
+
+    top:0;
+
+    width:83px;
+    height:165px;
+
+    background:
+
+    radial-gradient(
+        circle at 45% 35%,
+        #824f3c,
+        #3d2219 70%
+    );
+
+    box-shadow:
+
+    inset 8px 10px 18px
+    rgba(255,255,255,.06),
+
+    0 15px 25px
+    rgba(55,30,20,.22);
+
+    transition:
+
+    transform .9s
+    cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+.shell-left{
+
+    left:0;
+
+    border-radius:
+    100px 0 0 100px;
+
+    transform-origin:
+    100% 50%;
+
+}
+
+
+.shell-right{
+
+    right:0;
+
+    border-radius:
+    0 100px 100px 0;
+
+    transform-origin:
+    0 50%;
+
+}
+
+
+.dessert-stage.open
+.shell-left{
+
+    transform:
+
+    translateX(-55px)
+    rotate(-20deg);
+
+}
+
+
+.dessert-stage.open
+.shell-right{
+
+    transform:
+
+    translateX(55px)
+    rotate(20deg);
+
+}
+
+
+.dessert-message{
+
+    position:absolute;
+
+    z-index:4;
+
+    left:50%;
+    top:50%;
+
+    width:230px;
+
+    transform:
+
+    translate(-50%,-50%)
+    scale(.6);
+
+    opacity:0;
+
+    transition:.8s .25s;
+
+}
+
+
+.dessert-stage.open
+.dessert-message{
+
+    opacity:1;
+
+    transform:
+
+    translate(-50%,-50%)
+    scale(1);
+
+}
+
+
+.dessert-message strong{
+
+    color:
+    var(--orange);
+
+    font-family:
+    "Italiana",
+    serif;
+
+    font-size:2.6rem;
+
+    font-weight:400;
+
+    line-height:.9;
+
+}
+
+
+.dessert-hint{
+
+    margin-top:22px;
+
+    color:#8b786d;
+
+    font-size:.65rem;
+
+    letter-spacing:.14em;
+
+    text-transform:uppercase;
+
+}
+
+
+.confession{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    opacity:0;
+
+    transform:
+    translateY(20px);
+
+    transition:.8s;
+
+}
+
+
+.confession.show{
+
+    max-height:500px;
+
+    margin-top:45px;
+
+    opacity:1;
+
+    transform:none;
+
+}
+
+
+.confession strong{
+
+    display:block;
+
+    font-family:
+    "Playfair Display",
+    serif;
+
+    font-size:
+
+    clamp(
+        2.8rem,
+        7vw,
+        5.8rem
+    );
+
+    font-weight:500;
+
+}
+
+
+.confession strong span{
+
+    color:
+    var(--orange);
+
+}
+
+
+.confession p{
+
+    max-width:650px;
+
+    margin:
+    22px auto 0;
+
+    color:#78675e;
+
+    line-height:1.95;
+
+}
+
+
+/* =========================================================
+09 AFTER DINNER
 ========================================================= */
 
 .ending{
-    position:relative;
 
-    min-height:110svh;
+    min-height:
+    110svh;
 
-    color:#f8ecdf;
+    overflow:hidden;
 
     text-align:center;
 
     background:
-        linear-gradient(
-            rgba(35,25,21,.9),
-            rgba(35,25,21,.95)
-        ),
-        linear-gradient(
-            145deg,
-            #62432f,
-            #2d211c
-        );
+
+    radial-gradient(
+        circle at 50% 62%,
+        rgba(207,114,80,.13),
+        transparent 30rem
+    ),
+
+    #120c09;
+
 }
+
 
 .ending-inner{
-    width:min(100%,900px);
+
+    width:
+    min(100%,900px);
+
     margin:auto;
+
 }
 
-.ending-plate{
+
+.final-symbol{
+
     width:120px;
     height:120px;
 
     margin:
-        0 auto 35px;
+    0 auto 40px;
 
     display:grid;
+
     place-items:center;
 
     border:
-        1px solid rgba(255,255,255,.15);
+
+    1px solid
+    rgba(255,255,255,.12);
 
     border-radius:50%;
 
-    box-shadow:
-        inset 0 0 0 10px rgba(255,255,255,.03);
-}
+    color:
+    var(--orange2);
 
-.ending-plate span{
-    color:var(--rose-light);
+    font-family:
+    "Playfair Display",
+    serif;
+
     font-size:2.6rem;
+
+    box-shadow:
+
+    inset 0 0 0 10px
+    rgba(255,255,255,.025);
+
 }
 
-.ending .section-kicker{
-    color:#d7b77f;
-}
-
-.ending .title{
-    color:#fff4e8;
-}
-
-.ending .title em{
-    color:#e59c83;
-}
 
 .ending-copy{
-    max-width:680px;
+
+    max-width:690px;
 
     margin:
-        28px auto 38px;
+    28px auto 38px;
 
-    color:#c7b7ae;
+    color:
+    var(--muted);
 
     line-height:1.95;
+
 }
 
-.final-buttons{
+
+.final-actions{
+
     display:flex;
+
     justify-content:center;
+
     flex-wrap:wrap;
+
     gap:12px;
+
 }
+
 
 .final-button{
+
     padding:
-        14px 22px;
+    14px 22px;
 
     border:
-        1px solid rgba(255,255,255,.18);
+
+    1px solid
+    rgba(255,255,255,.15);
 
     border-radius:999px;
 
     color:white;
 
     background:
-        rgba(255,255,255,.06);
+    rgba(255,255,255,.055);
 
     cursor:pointer;
 
     transition:.3s;
+
 }
+
 
 .final-button:hover{
+
     transform:
-        translateY(-3px);
+    translateY(-4px);
+
 }
+
 
 .final-button.primary{
+
     border:0;
 
-    color:#39251d;
+    color:#39251b;
 
-    background:#d4ad70;
+    background:
+    var(--gold);
+
 }
 
+
 .final-response{
+
     min-height:35px;
 
     margin-top:25px;
 
-    color:#e8b8a5;
+    color:
+    var(--orange2);
 
     font-family:
-        "Playfair Display",serif;
+    "Playfair Display",
+    serif;
 
     font-style:italic;
+
 }
 
 
@@ -2361,99 +4388,98 @@ LIGHTBOX
 ========================================================= */
 
 .lightbox{
+
     position:fixed;
 
     inset:0;
 
-    z-index:10000;
+    z-index:30000;
 
     display:none;
+
     place-items:center;
 
     padding:
-        70px 25px 100px;
+    70px 25px 100px;
 
     background:
-        rgba(30,21,17,.96);
+    rgba(12,7,5,.96);
 
-    backdrop-filter:blur(20px);
+    backdrop-filter:
+    blur(20px);
+
 }
+
 
 .lightbox.open{
+
     display:grid;
+
 }
 
-.lightbox-image{
-    width:min(90vw,850px);
 
-    height:min(76vh,850px);
+.lightbox img{
 
-    background-position:center;
-    background-repeat:no-repeat;
-    background-size:contain;
+    max-width:90vw;
+
+    max-height:76vh;
+
+    object-fit:contain;
+
+    box-shadow:
+
+    0 35px 90px
+    rgba(0,0,0,.45);
+
 }
+
 
 .lightbox-close{
+
     position:absolute;
 
-    top:18px;
     right:20px;
+    top:18px;
 
     width:45px;
     height:45px;
 
     border:
-        1px solid rgba(255,255,255,.2);
+
+    1px solid
+    rgba(255,255,255,.2);
 
     border-radius:50%;
 
     color:white;
 
     background:
-        rgba(255,255,255,.06);
+    rgba(255,255,255,.06);
 
     cursor:pointer;
 
-    font-size:1.4rem;
 }
 
+
 .lightbox-caption{
+
     position:absolute;
 
     bottom:28px;
 
-    width:min(90%,800px);
+    width:
+    min(90%,800px);
 
-    color:#e8d7c8;
+    color:#d5c2b7;
 
     text-align:center;
 
     font-family:
-        "Playfair Display",serif;
+    "Playfair Display",
+    serif;
 
     font-style:italic;
-}
 
-
-/* =========================================================
-FOOTER
-========================================================= */
-
-footer{
-    padding:
-        35px 20px 115px;
-
-    color:#8b776d;
-
-    text-align:center;
-
-    background:#f3e7d4;
-
-    font-size:.65rem;
-
-    letter-spacing:.13em;
-
-    text-transform:uppercase;
 }
 
 
@@ -2461,31 +4487,49 @@ footer{
 TABLET
 ========================================================= */
 
-@media(max-width:900px){
+@media(max-width:950px){
 
-    .hero-grid,
-    .steps-layout,
-    .secret-grid{
-        grid-template-columns:1fr;
-    }
+    .hero-grid{
 
-    .steps-title{
-        position:relative;
-        top:auto;
-    }
-
-    .pantry,
-    .favorite-grid{
         grid-template-columns:
-            repeat(2,1fr);
+        1fr;
+
     }
 
-    .letter-cards{
-        grid-template-columns:1fr;
+
+    .gallery-grid{
+
+        grid-template-columns:
+        repeat(3,1fr);
+
+    }
+
+
+    .letters-grid{
+
+        grid-template-columns:
+        1fr;
 
         max-width:550px;
-        margin:
-            20px auto 0;
+
+        margin:auto;
+
+    }
+
+
+    .letter-card:nth-child(1),
+    .letter-card:nth-child(2),
+    .letter-card:nth-child(3){
+
+        transform:none;
+
+    }
+
+
+    .course-rail{
+
+        display:none;
+
     }
 
 }
@@ -2498,140 +4542,396 @@ MOBILE
 @media(max-width:650px){
 
     .section{
+
         min-height:auto;
 
         padding:
-            105px
-            20px
-            90px;
+
+        105px
+        20px
+        90px;
+
     }
 
-    .nav-dots,
-    .nav-label{
+
+    .nav-progress,
+    .nav-small{
+
         display:none;
+
     }
 
-    .brand{
-        overflow:hidden;
-        white-space:nowrap;
-        text-overflow:ellipsis;
+
+    .opening-copy{
+
+        top:4%;
+
     }
 
-    .kitchen-scene{
-        min-height:450px;
+
+    .opening-copy h1{
+
+        font-size:
+
+        clamp(
+            2.7rem,
+            13vw,
+            4.5rem
+        );
+
     }
 
-    .wall{
-        bottom:130px;
+
+    .opening-copy p{
+
+        padding:
+        0 18px;
+
+        font-size:.85rem;
+
     }
 
-    .counter{
-        height:140px;
+
+    .cloche-stage{
+
+        top:60%;
+
+        transform:
+
+        translate(-50%,-50%)
+        scale(.7);
+
     }
 
-    .cutting-board{
-        left:7%;
-        width:54%;
-        height:140px;
+
+    .open-button{
+
+        bottom:4%;
+
     }
 
-    .pot{
+
+    .table-scene{
+
+        min-height:500px;
+
+    }
+
+
+    .table-window{
+
+        inset:
+        15px 0;
+
+    }
+
+
+    .board{
+
+        left:4%;
+
+        width:210px;
+        height:145px;
+
+    }
+
+
+    .board-text{
+
+        font-size:1.4rem;
+
+    }
+
+
+    .stove{
+
+        right:4%;
+
+        width:150px;
+
+    }
+
+
+    .pan{
+
         right:8%;
-        width:105px;
-        height:78px;
-    }
 
-    .pot::before{
         width:125px;
+
     }
 
-    .steam{
-        bottom:112px;
+
+    .pan::after{
+
+        right:-78px;
+
+        width:90px;
+
     }
 
-    .pantry,
-    .favorite-grid{
-        grid-template-columns:1fr;
+
+    .floating-tag{
+
+        font-size:.5rem;
+
     }
 
-    .recipe-step{
+
+    .orbit-stage{
+
+        height:850px;
+
+    }
+
+
+    .orbit-ring{
+
+        width:300px;
+        height:300px;
+
+    }
+
+
+    .orbit-ring.second{
+
+        width:220px;
+        height:220px;
+
+    }
+
+
+    .central-bowl{
+
+        width:250px;
+        height:130px;
+
+    }
+
+
+    .central-bowl::before{
+
+        width:270px;
+
+    }
+
+
+    .ing-card{
+
+        width:145px;
+
+        padding:15px;
+
+    }
+
+
+    .ing-card.a{
+
+        top:1%;
+        left:0;
+
+    }
+
+
+    .ing-card.b{
+
+        top:17%;
+        right:0;
+
+    }
+
+
+    .ing-card.c{
+
+        top:35%;
+        left:0;
+
+    }
+
+
+    .ing-card.d{
+
+        top:52%;
+        right:0;
+
+    }
+
+
+    .ing-card.e{
+
+        left:0;
+        bottom:13%;
+
+    }
+
+
+    .ing-card.f{
+
+        right:0;
+        bottom:0;
+
+    }
+
+
+    .process-line::before{
+
+        left:8px;
+
+    }
+
+
+    .process-step,
+    .process-step:nth-child(even){
+
+        width:100%;
+
+        margin-left:0;
+
         padding:
-            85px 25px 27px;
+        0 0 45px 37px;
+
     }
 
-    .step-number{
-        top:22px;
-        left:25px;
+
+    .timeline-dot,
+    .process-step:nth-child(even)
+    .timeline-dot{
+
+        left:0;
+        right:auto;
+
     }
 
-    .cookbook-page{
+
+    .gallery-board{
+
         padding:
-            25px 18px 35px;
+        45px 18px 30px;
+
     }
 
-    .cookbook-page::before{
-        left:28px;
-    }
 
-    .memory-grid{
+    .gallery-grid{
+
         grid-template-columns:
-            repeat(2,1fr);
+        repeat(2,1fr);
 
         gap:14px;
+
     }
 
-    .memory:nth-child(1),
-    .memory:nth-child(2),
-    .memory:nth-child(3),
-    .memory:nth-child(4){
-        grid-column:auto;
-        margin-top:0;
+
+    .photo-card,
+    .photo-card:nth-child(1),
+    .photo-card:nth-child(2),
+    .photo-card:nth-child(3),
+    .photo-card:nth-child(4),
+    .photo-card:nth-child(5){
+
+        transform:none;
+
     }
 
-    .memory:nth-child(5){
+
+    .photo-card:nth-child(5){
+
         grid-column:
-            1 / span 2;
+        1 / span 2;
 
         width:
-            calc(50% - 7px);
+        calc(50% - 7px);
 
         justify-self:center;
 
-        margin-top:5px;
     }
 
-    .photo-button{
+
+    .stir-stage{
+
+        height:520px;
+
+    }
+
+
+    .stir-bowl{
+
+        width:280px;
+        height:145px;
+
+    }
+
+
+    .stir-bowl::before{
+
+        width:305px;
+        height:60px;
+
+    }
+
+
+    .mixture{
+
+        width:255px;
+
+    }
+
+
+    .recipe-box{
+
         padding:
-            5px 5px 32px;
+        65px 18px 35px;
+
     }
 
-    .photo-note{
-        font-size:.72rem;
+
+    .dessert-stage{
+
+        transform:
+        scale(.88);
+
     }
 
-    .memory figcaption{
-        font-size:.9rem;
-    }
 
-    .wood-box{
-        padding:
-            42px 18px 35px;
-    }
+    .music{
 
-    .music-player{
         left:12px;
         right:12px;
         bottom:10px;
 
         width:auto;
+
     }
 
-    .final-buttons{
+
+    .final-actions{
+
         flex-direction:column;
+
     }
+
 
     .final-button{
+
         width:100%;
+
+    }
+
+}
+
+
+/* =========================================================
+REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+
+        animation-duration:
+        .001ms !important;
+
+        animation-iteration-count:
+        1 !important;
+
     }
 
 }
@@ -2642,11 +4942,22 @@ MOBILE
 
 <body>
 
-<div class="paper-noise"></div>
+<div class="grain"></div>
+<div class="vignette"></div>
+
+<div
+class="cursor-glow"
+id="cursorGlow">
+</div>
+
+<div
+class="dust-layer"
+id="dustLayer">
+</div>
 
 
 <audio
-id="backgroundMusic"
+id="music"
 preload="auto"
 loop>
 
@@ -2665,72 +4976,115 @@ OPENING
 class="opening"
 id="opening">
 
-<div class="cookbook">
 
-<div class="cookbook-tab">
-PRIVATE RECIPE
-</div>
+<div class="opening-wall"></div>
 
-<div class="cookbook-header">
+<div class="opening-table"></div>
 
-<svg
-class="mini-spoon"
-viewBox="0 0 50 50">
 
-<ellipse
-cx="17"
-cy="13"
-rx="8"
-ry="11"
-fill="none"
-stroke="currentColor"
-stroke-width="3"/>
+<div class="opening-copy">
 
-<path
-d="M21 22 L39 43"
-stroke="currentColor"
-stroke-width="3"
-stroke-linecap="round"/>
 
-</svg>
+<div class="micro">
 
-Feby's Personal Cookbook
+Private tasting menu —
+one special guest
 
 </div>
+
 
 <h1>
 
-Made for
+Tonight,
 
-<span>
-Feby
-</span>
+we're serving
+
+<em>
+Feby.
+</em>
 
 </h1>
 
-<p class="cookbook-copy">
 
-Tidak semua resep dibuat untuk dimakan.
+<p>
 
-Yang satu ini dibuat
-dari hal-hal kecil,
-sedikit keberanian,
+Tidak semua perasaan
+harus disampaikan
+dengan kalimat yang panjang.
 
-dan satu perasaan
-yang akhirnya ingin kusampaikan.
+Kadang mungkin lebih menyenangkan
+kalau disajikan seperti sebuah dinner.
+
+Satu course.
+
+Satu cerita.
+
+Pelan-pelan.
 
 </p>
+
+
+</div>
+
+
+<div class="cloche-stage">
+
+
+<div class="open-plate"></div>
+
+
+<div class="hidden-course">
+
+<div>
+
+<strong>
+
+For<br>
+Feby ♡
+
+</strong>
+
+<small>
+
+prepared with courage
+
+</small>
+
+</div>
+
+</div>
+
+
+<div
+class="cloche"
+id="cloche">
+
+<div class="cloche-handle"></div>
+
+<div class="cloche-body"></div>
+
+<div class="cloche-shine"></div>
+
+</div>
+
+
+<div class="open-steam a"></div>
+<div class="open-steam b"></div>
+<div class="open-steam c"></div>
+
+
+</div>
+
 
 <button
 class="open-button"
 id="openButton"
 type="button">
 
-Open the cookbook ♡
+Begin the tasting menu ♡
 
 </button>
 
-</div>
 
 </section>
 
@@ -2744,37 +5098,21 @@ class="site"
 id="site">
 
 
-<nav class="navbar">
+<nav class="nav">
 
-<div class="brand">
 
-<svg viewBox="0 0 40 40">
+<div class="nav-logo">
 
-<path
-d="M8 8 C8 17 12 21 20 21 C28 21 32 17 32 8"
-fill="none"
-stroke="#b86547"
-stroke-width="2.5"/>
+<span>
+✦
+</span>
 
-<path
-d="M20 21 V34"
-stroke="#b86547"
-stroke-width="2.5"/>
-
-<path
-d="M14 34 H26"
-stroke="#b86547"
-stroke-width="2.5"
-stroke-linecap="round"/>
-
-</svg>
-
-Feby's Kitchen Journal
+Feby's Table
 
 </div>
 
 
-<div class="nav-dots">
+<div class="nav-progress">
 
 <span class="active"></span>
 <span></span>
@@ -2789,24 +5127,93 @@ Feby's Kitchen Journal
 </div>
 
 
-<div class="nav-label">
-private cookbook
+<div class="nav-small">
+
+private tasting menu
+
 </div>
+
 
 </nav>
 
 
 <!-- =========================================================
-MUSIC PLAYER
+COURSE RAIL
 ========================================================= -->
 
-<div class="music-player">
+<div class="course-rail">
+
+
+<span
+class="course-dot active"
+data-label="welcome">
+</span>
+
+
+<span
+class="course-dot"
+data-label="mise en place">
+</span>
+
+
+<span
+class="course-dot"
+data-label="slow simmer">
+</span>
+
+
+<span
+class="course-dot"
+data-label="memories">
+</span>
+
+
+<span
+class="course-dot"
+data-label="stir">
+</span>
+
+
+<span
+class="course-dot"
+data-label="open when">
+</span>
+
+
+<span
+class="course-dot"
+data-label="wish">
+</span>
+
+
+<span
+class="course-dot"
+data-label="dessert">
+</span>
+
+
+<span
+class="course-dot"
+data-label="after dinner">
+</span>
+
+
+</div>
+
+
+<!-- =========================================================
+MUSIC
+========================================================= -->
+
+<div class="music">
+
 
 <div class="music-row">
 
+
 <button
-class="music-play"
-id="musicPlay"
+class="music-button"
+id="musicButton"
 type="button">
 
 <span id="musicIcon">
@@ -2818,13 +5225,20 @@ type="button">
 
 <div class="music-info">
 
+
 <div class="music-label">
-Kitchen playlist
+
+Chef's table playlist
+
 </div>
 
-<div class="music-title">
-Cooking for Feby ♡
+
+<div class="music-name">
+
+For Feby ♡
+
 </div>
+
 
 <div
 class="music-time"
@@ -2833,6 +5247,7 @@ id="musicTime">
 0:00 / 0:00
 
 </div>
+
 
 </div>
 
@@ -2846,17 +5261,19 @@ type="button">
 
 </button>
 
+
 </div>
 
 
 <input
-class="music-progress"
-id="musicProgress"
+class="music-range"
+id="musicRange"
 type="range"
 min="0"
 max="100"
-value="0"
-step=".1">
+step=".1"
+value="0">
+
 
 </div>
 
@@ -2865,552 +5282,599 @@ step=".1">
 
 
 <!-- =========================================================
-01 KITCHEN
+01 WELCOME
 ========================================================= -->
 
 <section
 class="section hero"
-data-step="0">
+data-course="0">
+
 
 <div class="hero-grid">
 
 
 <div>
 
-<div class="section-kicker fade">
-01 — welcome to Feby's kitchen
+
+<div class="course-label">
+
+Course 01 —
+Amuse-bouche
+
 </div>
 
-<h2 class="title fade">
 
-Kalau aku harus
-menjelaskan perasaan ini
+<h2 class="title">
 
-seperti sebuah masakan,
+Semuanya
 
-mungkin aku akan
+dimulai dari
+
+sesuatu yang
 
 <em>
-mulai dari sini.
+sederhana.
 </em>
 
 </h2>
 
-<p class="hero-copy fade">
 
-Bukan dari sesuatu yang besar.
+<p class="hero-copy">
 
-Tapi dari banyak detail kecil
-yang perlahan tercampur.
+Awalnya aku tidak memikirkan
+apa-apa.
+
+Lalu perlahan,
+aku mulai menyadari
+beberapa detail kecil.
 
 Senyummu.
 
 Cara kamu bicara.
 
-Ekspresi kecil yang mungkin
-bahkan tidak kamu sadari.
+Ekspresimu.
 
-Dan semakin lama,
-
+Dan anehnya,
 semuanya mulai terasa
-seperti sesuatu
-yang ingin kusimpan.
+lebih mudah diingat.
 
 </p>
 
-<div class="hero-note fade">
 
-Today's special:
+<div class="hero-pill">
+
+Today's chef recommendation:
 Feby ♡
 
 </div>
 
+
 </div>
 
 
-<div class="kitchen-scene fade">
+<div class="table-scene">
 
-<div class="wall">
 
-<div class="tile-grid"></div>
+<div class="table-window">
 
-<div class="kitchen-shelf">
+
+<div class="restaurant-wall"></div>
+
+
+<div class="restaurant-shelf">
 
 <div class="jar one"></div>
+
 <div class="jar two"></div>
+
 <div class="jar three"></div>
 
 </div>
 
 
-<div class="hanging-tools">
+<div class="board">
 
-<div class="tool"></div>
-<div class="tool whisk"></div>
-<div class="tool"></div>
+<div class="board-text">
 
-</div>
-
-</div>
-
-
-<div class="counter"></div>
-
-
-<div class="cutting-board">
-
-<div class="board-writing">
-
-Made with<br>
-a little courage ♡
+made slowly,<br>
+with feelings.
 
 </div>
 
 </div>
 
 
-<div class="pot"></div>
+<div class="stove">
+
+<div class="fire">
+
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+</div>
 
 
-<div class="steam a"></div>
-<div class="steam b"></div>
-<div class="steam c"></div>
+<div class="pan"></div>
 
+
+<div class="steam-heart">
+♡
+</div>
+
+
+<div class="steam-heart second">
+♡
+</div>
+
+
+</div>
+
+
+<div class="floating-tag t1">
+
+a little courage
+
+</div>
+
+
+<div class="floating-tag t2">
+
+warm thoughts
+
+</div>
+
+
+<div class="floating-tag t3">
+
+too much curiosity
+
+</div>
+
+
+<div class="floating-tag t4">
+
+Feby ♡
 
 </div>
 
 
 </div>
+
+
+</div>
+
 
 </section>
 
 
 <!-- =========================================================
-02 PANTRY
+02 INGREDIENTS
 ========================================================= -->
 
 <section
 class="section ingredients"
-data-step="1">
+data-course="1">
 
-<div class="section-inner">
+
+<div class="container">
 
 
 <div class="ingredients-head">
 
-<div class="section-kicker fade">
-02 — ingredients
+
+<div class="course-label">
+
+Course 02 —
+Mise en place
+
 </div>
 
-<h2 class="title fade">
 
-Yang dibutuhkan
-untuk membuat
+<h2 class="title">
+
+Sebelum dimasak,
+
+semuanya harus
 
 <em>
-satu rasa ini.
+disiapkan.
 </em>
 
 </h2>
 
-<p class="section-copy fade">
 
-Kalau perasaan bisa ditulis
-seperti resep masakan,
+<p class="copy">
 
-mungkin enam bahan inilah
-yang tanpa sengaja
-membuat semuanya terbentuk.
+Kalau aku harus menuliskan
+perasaan ini sebagai sebuah resep,
+
+mungkin inilah bahan-bahannya.
 
 </p>
+
 
 </div>
 
 
-<div class="pantry">
+<div class="orbit-stage">
 
 
-<article
-class="pantry-item fade"
-style="--accent:#b86547">
+<div class="orbit-ring"></div>
 
-<div class="pantry-amount">
+<div class="orbit-ring second"></div>
+
+
+<div class="central-bowl"></div>
+
+
+<div class="ing-card a">
+
+<strong>
 1 cup
+</strong>
+
+<span>
+senyummu
+</span>
+
 </div>
 
-<h3>
-Senyummu
-</h3>
 
-<p>
+<div class="ing-card b">
 
-Sederhana,
-tapi punya cara sendiri
-untuk tinggal sedikit lebih lama
-di pikiranku.
-
-</p>
-
-<div class="pantry-sticker">
-01
-</div>
-
-</article>
-
-
-<article
-class="pantry-item fade"
-style="--accent:#78815c">
-
-<div class="pantry-amount">
+<strong>
 2 tbsp
+</strong>
+
+<span>
+caramu bicara
+</span>
+
 </div>
 
-<h3>
-Caramu bicara
-</h3>
 
-<p>
+<div class="ing-card c">
 
-Kadang hal yang sebenarnya biasa,
-tapi entah kenapa
-membuatku ingin mendengarkan
-lebih lama.
-
-</p>
-
-<div class="pantry-sticker">
-02
-</div>
-
-</article>
-
-
-<article
-class="pantry-item fade"
-style="--accent:#ba8c4c">
-
-<div class="pantry-amount">
+<strong>
 a pinch
+</strong>
+
+<span>
+ekspresi kecil
+</span>
+
 </div>
 
-<h3>
-Ekspresi kecil
-</h3>
 
-<p>
+<div class="ing-card d">
 
-Beberapa ekspresi
-yang mungkin tidak kamu sadari,
-
-tapi justru mudah kuingat.
-
-</p>
-
-<div class="pantry-sticker">
-03
-</div>
-
-</article>
-
-
-<article
-class="pantry-item fade"
-style="--accent:#854b4b">
-
-<div class="pantry-amount">
+<strong>
 a lot
+</strong>
+
+<span>
+rasa penasaran
+</span>
+
 </div>
 
-<h3>
-Rasa penasaran
-</h3>
 
-<p>
+<div class="ing-card e">
 
-Tentang harimu,
-hal yang kamu suka,
-dan cerita lain
-tentang dirimu.
-
-</p>
-
-<div class="pantry-sticker">
-04
-</div>
-
-</article>
-
-
-<article
-class="pantry-item fade"
-style="--accent:#a0765a">
-
-<div class="pantry-amount">
+<strong>
 too much
+</strong>
+
+<span>
+memikirkanmu
+</span>
+
 </div>
 
-<h3>
-Memikirkanmu
-</h3>
 
-<p>
+<div class="ing-card f">
 
-Yang kadang muncul sendiri
-tanpa diminta,
-
-bahkan ketika aku
-sedang melakukan hal lain.
-
-</p>
-
-<div class="pantry-sticker">
-05
-</div>
-
-</article>
-
-
-<article
-class="pantry-item fade"
-style="--accent:#a6aa78">
-
-<div class="pantry-amount">
+<strong>
 1 secret
+</strong>
+
+<span>
+perasaan yang sulit dijelaskan
+</span>
+
 </div>
-
-<h3>
-Satu perasaan
-</h3>
-
-<p>
-
-Yang awalnya kupikir
-mungkin hanya sementara.
-
-Ternyata tidak.
-
-</p>
-
-<div class="pantry-sticker">
-06
-</div>
-
-</article>
 
 
 </div>
 
 
 </div>
+
 
 </section>
 
 
 <!-- =========================================================
-03 STEPS
+03 SLOW SIMMER
 ========================================================= -->
 
 <section
-class="section steps"
-data-step="2">
-
-<div class="steps-layout">
+class="section process"
+data-course="2">
 
 
-<div class="steps-title">
-
-<div class="section-kicker fade">
-03 — method
-</div>
-
-<h2 class="title fade">
-
-Cara semuanya
-
-<em>
-perlahan matang.
-</em>
-
-</h2>
-
-<p class="section-copy fade">
-
-Seperti memasak,
-beberapa hal memang
-tidak bisa dipercepat.
-
-Kadang baru terasa jelas
-setelah diberi waktu.
-
-</p>
-
-</div>
+<div class="container">
 
 
-<div class="recipe-steps">
+<div class="process-head">
 
 
-<article class="recipe-step fade">
+<div class="course-label">
 
-<div class="step-number">
-01
-</div>
-
-<small>
-Preparation
-</small>
-
-<h3>
-Awalnya biasa saja.
-</h3>
-
-<p>
-
-Aku mengenalmu
-seperti mengenal seseorang pada umumnya.
-
-Tidak ada rencana apa-apa.
-
-</p>
-
-</article>
-
-
-<article class="recipe-step fade">
-
-<div class="step-number">
-02
-</div>
-
-<small>
-Low heat
-</small>
-
-<h3>
-Mulai memperhatikan.
-</h3>
-
-<p>
-
-Perlahan aku mulai
-memperhatikan detail-detail kecil.
-
-Dan anehnya,
-aku mengingatnya.
-
-</p>
-
-</article>
-
-
-<article class="recipe-step fade">
-
-<div class="step-number">
-03
-</div>
-
-<small>
+Course 03 —
 Slow simmer
-</small>
 
-<h3>
-Namamu mulai sering muncul.
-</h3>
+</div>
 
-<p>
 
-Kadang tanpa alasan khusus.
+<h2 class="title">
 
-Tiba-tiba teringat,
-lalu membuatku tersenyum sendiri.
+Beberapa rasa
+
+memang membutuhkan
+
+<em>
+waktu.
+</em>
+
+</h2>
+
+
+<p class="copy">
+
+Mungkin itu sebabnya
+aku tidak langsung menyadarinya.
+
+Semuanya matang
+pelan-pelan.
 
 </p>
 
-</article>
 
-
-<article class="recipe-step fade">
-
-<div class="step-number">
-04
 </div>
+
+
+<div class="process-line">
+
+
+<div class="process-step">
+
+
+<div class="timeline-dot"></div>
+
+
+<div class="timeline-card">
+
 
 <small>
-Ready to serve
+01 — preparation
 </small>
 
+
 <h3>
-Aku akhirnya jujur.
+
+Awalnya biasa saja.
+
 </h3>
+
 
 <p>
 
-Dan mungkin itu alasan
-kenapa sekarang
-ada satu cookbook digital
+Tidak ada rencana.
 
-yang dibuat khusus untukmu.
+Tidak ada ekspektasi.
+
+Aku hanya mengenalmu
+seperti seseorang pada umumnya.
 
 </p>
 
-</article>
+
+</div>
+
+
+</div>
+
+
+<div class="process-step">
+
+
+<div class="timeline-dot"></div>
+
+
+<div class="timeline-card">
+
+
+<small>
+02 — low heat
+</small>
+
+
+<h3>
+
+Aku mulai memperhatikan.
+
+</h3>
+
+
+<p>
+
+Hal yang sebelumnya biasa,
+
+perlahan mulai terasa
+sedikit berbeda.
+
+</p>
 
 
 </div>
 
 
 </div>
+
+
+<div class="process-step">
+
+
+<div class="timeline-dot"></div>
+
+
+<div class="timeline-card">
+
+
+<small>
+03 — simmering
+</small>
+
+
+<h3>
+
+Aku mulai sering teringat.
+
+</h3>
+
+
+<p>
+
+Kadang namamu
+muncul tanpa alasan.
+
+Dan entah kenapa,
+
+aku tidak keberatan.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+<div class="process-step">
+
+
+<div class="timeline-dot"></div>
+
+
+<div class="timeline-card">
+
+
+<small>
+04 — ready to serve
+</small>
+
+
+<h3>
+
+Lalu aku membuat ini.
+
+</h3>
+
+
+<p>
+
+Karena ternyata
+ada sesuatu yang ingin kusampaikan,
+
+tapi rasanya terlalu sederhana
+kalau hanya lewat chat.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
 
 </section>
 
 
 <!-- =========================================================
-04 PHOTO COOKBOOK
+04 MEMORIES
 ========================================================= -->
 
 <section
-class="section photos"
-data-step="3">
+class="section gallery"
+data-course="3">
 
-<div class="photos-head">
 
-<div class="section-kicker fade">
-04 — cookbook memories
+<div class="container">
+
+
+<div class="gallery-head">
+
+
+<div class="course-label">
+
+Course 04 —
+Chef's selection
+
 </div>
 
-<h2 class="title fade">
 
-Beberapa foto
+<h2 class="title">
 
-yang ingin kusimpan
-di halaman
+Beberapa momen
+
+yang layak masuk
 
 <em>
-favorit.
+menu favorit.
 </em>
 
 </h2>
 
-<p class="section-copy fade">
 
-Bukan foto makanan.
+<p class="copy">
 
-Tapi tetap menjadi
-beberapa hal favorit
-di cookbook kecil ini.
+Mungkin untukmu
+hanya beberapa foto biasa.
+
+Tapi untuk seseorang,
+
+bisa saja foto-foto ini
+punya arti sedikit berbeda.
 
 </p>
+
 
 </div>
 
 
-<div class="cookbook-page">
+<div class="gallery-board">
+
 
 <div
-class="memory-grid"
-id="memoryGrid">
+class="gallery-grid"
+id="galleryGrid">
 </div>
+
+
+</div>
+
 
 </div>
 
@@ -3419,334 +5883,204 @@ id="memoryGrid">
 
 
 <!-- =========================================================
-05 FAVORITES
+05 STIR
 ========================================================= -->
 
 <section
-class="section favorite"
-data-step="4">
-
-<div class="section-inner">
+class="section stir-section"
+data-course="4">
 
 
-<div class="favorite-head">
+<div class="container">
 
-<div class="section-kicker fade">
-05 — chef's notes
+
+<div class="stir-head">
+
+
+<div class="course-label">
+
+Course 05 —
+Mixing
+
 </div>
 
-<h2 class="title fade">
 
-Hal-hal tentangmu
+<h2 class="title">
 
-yang menjadi
+Sekarang,
+
+coba kamu sendiri
 
 <em>
-favorite ingredients.
+yang mengaduknya.
 </em>
 
 </h2>
 
-<p class="section-copy fade">
 
-Klik setiap kartu resep.
+<p class="copy">
 
-Ada beberapa catatan kecil
-yang mungkin belum pernah
-kusampaikan langsung.
+Pegang whisk-nya dengan mouse
+atau jarimu.
+
+Putar beberapa kali.
+
+Kita lihat
+apa yang sebenarnya
+tercampur di dalamnya.
 
 </p>
 
+
 </div>
 
 
-<div class="favorite-grid">
+<div
+class="stir-stage"
+id="stirStage">
 
 
-<button
-class="favorite-card fade"
-style="--accent:#b86547"
-type="button">
+<div class="stir-glow"></div>
 
-<div class="favorite-front">
 
-<div class="favorite-label">
-Chef's note
+<div class="stir-bowl"></div>
+
+<div class="mixture"></div>
+
+
+<div
+class="whisk"
+id="whisk">
+
+
+<div class="whisk-handle"></div>
+
+<div class="whisk-wire"></div>
+
+
 </div>
 
-<div class="favorite-number">
-01
-</div>
 
-<h3>
-Senyummu
-</h3>
+<div
+class="stir-reveal"
+id="stirReveal">
+
 
 <small>
-tap recipe card
+
+after mixing everything...
+
 </small>
 
-</div>
 
-<div class="favorite-back">
+<strong>
 
-Ada sesuatu
-dari senyummu
-yang terasa sederhana,
+Kamu.
 
-tapi cukup membuat
-suasana menjadi lebih ringan.
+</strong>
+
 
 </div>
 
-</button>
+
+<div class="stir-progress-wrap">
 
 
-<button
-class="favorite-card fade"
-style="--accent:#78815c"
-type="button">
+<div class="stir-progress-label">
 
-<div class="favorite-front">
-
-<div class="favorite-label">
-Chef's note
-</div>
-
-<div class="favorite-number">
-02
-</div>
-
-<h3>
-Caramu bicara
-</h3>
-
-<small>
-tap recipe card
-</small>
+mixing feelings
 
 </div>
 
-<div class="favorite-back">
 
-Entah dari cara kamu menjawab,
-bercerita,
+<div class="stir-progress">
 
-atau sekadar bereaksi,
-
-ada sesuatu yang membuatku
-ingin mendengarkan lebih lama.
+<div
+class="stir-progress-bar"
+id="stirProgress">
+</div>
 
 </div>
 
-</button>
 
+<div
+class="stir-hint"
+id="stirHint">
 
-<button
-class="favorite-card fade"
-style="--accent:#ba8c4c"
-type="button">
-
-<div class="favorite-front">
-
-<div class="favorite-label">
-Chef's note
-</div>
-
-<div class="favorite-number">
-03
-</div>
-
-<h3>
-Ekspresimu
-</h3>
-
-<small>
-tap recipe card
-</small>
+drag the whisk in circles
 
 </div>
 
-<div class="favorite-back">
-
-Kadang justru
-ekspresi kecil
-yang tidak kamu rencanakan
-
-yang paling mudah kuingat.
 
 </div>
-
-</button>
-
-
-<button
-class="favorite-card fade"
-style="--accent:#854b4b"
-type="button">
-
-<div class="favorite-front">
-
-<div class="favorite-label">
-Chef's note
-</div>
-
-<div class="favorite-number">
-04
-</div>
-
-<h3>
-Caramu menjadi dirimu
-</h3>
-
-<small>
-tap recipe card
-</small>
-
-</div>
-
-<div class="favorite-back">
-
-Aku tidak mencari
-seseorang yang sempurna.
-
-Aku hanya suka
-bagaimana kamu
-menjadi dirimu sendiri.
-
-</div>
-
-</button>
-
-
-<button
-class="favorite-card fade"
-style="--accent:#9b765b"
-type="button">
-
-<div class="favorite-front">
-
-<div class="favorite-label">
-Chef's note
-</div>
-
-<div class="favorite-number">
-05
-</div>
-
-<h3>
-Hal-hal kecil
-</h3>
-
-<small>
-tap recipe card
-</small>
-
-</div>
-
-<div class="favorite-back">
-
-Hal yang mungkin menurutmu
-tidak terlalu penting
-
-kadang justru menjadi
-hal yang paling mudah diingat.
-
-</div>
-
-</button>
-
-
-<button
-class="favorite-card fade"
-style="--accent:#7f8760"
-type="button">
-
-<div class="favorite-front">
-
-<div class="favorite-label">
-Chef's note
-</div>
-
-<div class="favorite-number">
-06
-</div>
-
-<h3>
-Perasaan ketika ada kamu
-</h3>
-
-<small>
-tap recipe card
-</small>
-
-</div>
-
-<div class="favorite-back">
-
-Beberapa hari
-terasa sedikit
-lebih menyenangkan
-
-hanya karena
-ada kamu di dalamnya.
-
-</div>
-
-</button>
 
 
 </div>
 
 
 </div>
+
 
 </section>
 
 
 <!-- =========================================================
-06 RECIPE BOX
+06 LETTERS
 ========================================================= -->
 
 <section
-class="section recipebox"
-data-step="5">
+class="section letters"
+data-course="5">
 
-<div class="recipebox-head">
 
-<div class="section-kicker fade">
-06 — recipe box
+<div class="container">
+
+
+<div class="letters-head">
+
+
+<div class="course-label">
+
+Course 06 —
+Open when...
+
 </div>
 
-<h2 class="title fade">
+
+<h2 class="title">
 
 Tiga resep kecil
 
-untuk hari
+untuk tiga
 
 <em>
-yang berbeda.
+jenis hari.
 </em>
 
 </h2>
 
-<p class="section-copy fade">
 
-Kalau suatu hari
-kamu membutuhkannya,
+<p class="copy">
 
-ambil salah satu kartu
-dari recipe box ini.
+Tidak semuanya
+harus kamu buka sekarang.
+
+Anggap saja
+ini tiga resep kecil
+
+yang bisa disimpan
+untuk hari tertentu.
 
 </p>
+
 
 </div>
 
 
-<div class="wood-box fade">
+<div class="recipe-box">
 
 
-<div class="letter-cards">
+<div class="letters-grid">
 
 
 <button
@@ -3754,24 +6088,33 @@ class="letter-card"
 data-letter="sad"
 type="button">
 
-<div class="letter-label">
+
+<small>
+
 Recipe for a bad day
-</div>
+
+</small>
+
 
 <h3>
+
 Saat kamu sedang sedih
+
 </h3>
+
 
 <p>
 
 Sedikit istirahat,
+
 sedikit ruang,
 
 dan satu pengingat
 bahwa kamu tidak harus
-selalu baik-baik saja.
+selalu terlihat kuat.
 
 </p>
+
 
 </button>
 
@@ -3781,24 +6124,34 @@ class="letter-card"
 data-letter="alone"
 type="button">
 
-<div class="letter-label">
+
+<small>
+
 Recipe for company
-</div>
+
+</small>
+
 
 <h3>
+
 Saat kamu merasa sendiri
+
 </h3>
+
 
 <p>
 
-Satu pengingat
-bahwa mungkin ada seseorang
+Satu pengingat kecil
+
+bahwa mungkin
+ada seseorang
 
 yang memikirkanmu
 lebih sering
 dari yang kamu kira.
 
 </p>
+
 
 </button>
 
@@ -3808,23 +6161,33 @@ class="letter-card"
 data-letter="smile"
 type="button">
 
-<div class="letter-label">
+
+<small>
+
 Recipe for a smile
-</div>
+
+</small>
+
 
 <h3>
+
 Saat kamu ingin tersenyum
+
 </h3>
+
 
 <p>
 
-Sedikit hal absurd,
-sedikit keberanian,
+Sedikit keberanian,
 
-dan fakta bahwa seseorang
-membuat semua ini untukmu.
+satu website,
+
+dan fakta bahwa
+seseorang membuat
+semua ini khusus untukmu.
 
 </p>
+
 
 </button>
 
@@ -3836,15 +6199,16 @@ membuat semua ini untukmu.
 
 
 <div
-class="letter-reading"
-id="letterReading">
+class="reader"
+id="reader">
 
-<div class="letter-paper">
+
+<div class="reader-paper">
 
 
 <button
-class="letter-close"
-id="letterClose"
+class="reader-close"
+id="readerClose"
 type="button">
 
 ×
@@ -3853,26 +6217,28 @@ type="button">
 
 
 <div
-class="letter-meta"
-id="letterMeta">
-
-RECIPE CARD
-
+class="reader-label"
+id="readerLabel">
 </div>
 
 
 <h3
-id="letterTitle">
+class="reader-title"
+id="readerTitle">
 </h3>
 
 
 <div
-class="letter-body"
-id="letterBody">
+class="reader-body"
+id="readerBody">
 </div>
 
 
 </div>
+
+
+</div>
+
 
 </div>
 
@@ -3881,213 +6247,205 @@ id="letterBody">
 
 
 <!-- =========================================================
-07 SECRET
+07 WISH
 ========================================================= -->
 
 <section
-class="section secret"
-data-step="6">
-
-<div class="secret-grid">
+class="section wish"
+data-course="6">
 
 
-<div class="secret-visual fade">
+<div class="wish-inner">
 
-<div class="recipe-book">
 
-<div class="section-kicker">
-Secret Recipe
-</div>
+<div class="course-label">
 
-<h3>
-Satu bahan terakhir.
-</h3>
-
-<p>
-
-Setelah semua hal
-kecil tadi dicampur,
-
-aku akhirnya menemukan
-satu bahan
-
-yang membuat semuanya
-terasa berbeda.
-
-</p>
-
-<div class="secret-answer">
-
-Kamu.
-
-</div>
-
-<p class="signature">
-
-— untuk Feby ♡
-
-</p>
-
-</div>
+Course 07 —
+Candlelight
 
 </div>
 
 
-<div class="secret-copy">
+<h2 class="title">
 
-<div class="section-kicker fade">
-07 — secret ingredient
-</div>
+Sebelum dessert,
 
-<h2 class="title fade">
-
-Ada sesuatu
-
-yang sebenarnya
-
-ingin aku
+aku ingin membuat
 
 <em>
-katakan.
+satu harapan.
 </em>
 
 </h2>
 
-<p class="section-copy fade">
 
-Aku mulai melihatmu
-lebih dari sekadar seseorang
-yang aku kenal.
+<p class="wish-copy">
 
-Ada rasa senang
-setiap kali melihat namamu.
+Katanya,
+harapan tidak boleh langsung disebutkan.
 
-Ada rasa penasaran
-untuk mengenalmu lebih jauh.
+Jadi aku akan menitipkannya
+ke satu lilin kecil.
 
-Dan ada keinginan sederhana
-untuk bisa membuat
-harimu sedikit lebih baik.
-
-</p>
-
-<p class="section-copy fade">
-
-Aku membuat tempat kecil ini
-bukan untuk membuatmu
-merasa harus menjawab apa pun.
-
-Aku hanya ingin jujur.
-
-Dan kalau kamu membutuhkan waktu,
-aku akan menghargainya.
-
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =========================================================
-08 FINAL INGREDIENT
-========================================================= -->
-
-<section
-class="section final-ingredient"
-data-step="7">
-
-<div class="final-ingredient-inner">
-
-
-<div class="section-kicker fade">
-08 — final ingredient
-</div>
-
-<h2 class="title fade">
-
-Ada satu bahan
-
-yang belum
-aku tambahkan
-
-<em>
-secara langsung.
-</em>
-
-</h2>
-
-<p class="heart-copy fade">
-
-Yang ini tidak perlu
-diiris,
-ditumis,
-atau direbus.
-
-Cukup klik
-piring di bawah ini.
+Klik lilinnya.
 
 </p>
 
 
-<div class="fade">
+<div class="candle-scene">
+
+
+<div class="candle-aura"></div>
+
 
 <button
-class="plate-button"
-id="heartButton"
+class="candle"
+id="candle"
 type="button">
 
-<svg
-class="plate-progress"
-viewBox="0 0 190 190">
 
-<circle
-class="plate-progress-bg"
-cx="95"
-cy="95"
-r="80">
-</circle>
+<span class="wick"></span>
 
-<circle
-class="plate-progress-main"
-id="progressCircle"
-cx="95"
-cy="95"
-r="80">
-</circle>
+<span class="candle-flame"></span>
 
-</svg>
+<span class="candle-heart">
 
+♡
 
-<svg
-class="plate-heart"
-viewBox="0 0 100 90">
+</span>
 
-<path
-d="
-M50 84
-C46 79 8 56 8 28
-C8 12 19 3 32 3
-C41 3 47 8 50 15
-C53 8 59 3 68 3
-C81 3 92 12 92 28
-C92 56 54 79 50 84Z
-">
-</path>
-
-</svg>
 
 </button>
 
+
+</div>
+
+
+<div class="wish-hint">
+
+tap the candle ♡
+
 </div>
 
 
 <div
-class="heart-result"
-id="heartResult">
+class="wish-result"
+id="wishResult">
+
+
+<p>
+
+“Harapanku sederhana.
+
+Semoga setelah halaman ini selesai,
+
+aku masih punya kesempatan
+untuk mengenalmu
+sedikit lebih jauh.”
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================================
+08 DESSERT
+========================================================= -->
+
+<section
+class="section dessert"
+data-course="7">
+
+
+<div class="container">
+
+
+<div class="course-label">
+
+Course 08 —
+Dessert
+
+</div>
+
+
+<h2 class="title">
+
+Hidangan terakhir.
+
+Tidak ada lagi
+
+<em>
+metafora.
+</em>
+
+</h2>
+
+
+<p class="dessert-copy">
+
+Ada sesuatu
+di dalam dessert ini.
+
+Klik cokelatnya
+untuk membukanya.
+
+</p>
+
+
+<div
+class="dessert-stage"
+id="dessertStage">
+
+
+<div class="dessert-plate"></div>
+
+
+<div class="dessert-message">
+
+
+<strong>
+
+for<br>
+Feby ♡
+
+</strong>
+
+
+</div>
+
+
+<div class="chocolate-shell">
+
+
+<div class="shell-left"></div>
+
+<div class="shell-right"></div>
+
+
+</div>
+
+
+</div>
+
+
+<div class="dessert-hint">
+
+tap the chocolate shell
+
+</div>
+
+
+<div
+class="confession"
+id="confession">
+
 
 <strong>
 
@@ -4101,23 +6459,41 @@ Feby.
 
 </strong>
 
+
 <p>
 
-Dan kalau kamu mengizinkan,
+Bukan karena website ini.
 
-aku ingin mengenalmu
-lebih dekat.
+Bukan karena semua animasinya.
 
-Pelan-pelan.
+Dan bukan karena
+aku ingin membuat sesuatu
+yang terlihat romantis.
 
-Tidak perlu terburu-buru.
+Aku membuat semuanya
+karena memang ada sesuatu
+tentangmu
+
+yang membuatku ingin
+mengenalmu lebih jauh.
+
+Tidak harus terburu-buru.
+
+Tidak perlu langsung menjawab.
+
+Aku hanya ingin
+kamu tahu itu.
+
+♡
 
 </p>
 
+
 </div>
 
 
 </div>
+
 
 </section>
 
@@ -4128,65 +6504,74 @@ Tidak perlu terburu-buru.
 
 <section
 class="section ending"
-data-step="8">
+data-course="8">
+
 
 <div class="ending-inner">
 
 
-<div class="ending-plate fade">
+<div class="final-symbol">
 
-<span>
 ♡
-</span>
 
 </div>
 
 
-<div class="section-kicker fade">
-09 — after dinner
+<div class="course-label">
+
+Course 09 —
+After dinner
+
 </div>
 
-<h2 class="title fade">
 
-Aku belum tahu
+<h2 class="title">
 
-bagaimana resep ini
+Menu malam ini
+
+sudah selesai.
+
+Tapi mungkin
 
 <em>
-akan berakhir.
+ceritanya belum.
 </em>
 
 </h2>
 
 
-<p class="ending-copy fade">
+<p class="ending-copy">
 
-Tapi kalau boleh memilih,
+Aku tidak tahu
+bagaimana cerita ini
+akan berjalan.
 
-aku ingin halaman ini
-bukan menjadi penutup.
+Tapi kalau kamu mengizinkan,
 
-Mungkin hanya menjadi
-kesempatan kecil
+aku ingin tahu
+apa yang ada
+di halaman berikutnya.
 
-untuk mengenalmu
-sedikit lebih dekat.
+Pelan-pelan.
 
-Dan siapa tahu,
+Tanpa memaksa.
 
-suatu hari ada cerita lain
-yang bisa kita masak bersama.
+Dan mungkin suatu hari,
+
+kita bisa membuat cerita
+yang jauh lebih panjang
+daripada website ini.
 
 </p>
 
 
-<div class="final-buttons fade">
+<div class="final-actions">
 
 
 <button
 class="final-button primary"
 type="button"
-data-response="Makasih sudah membaca semuanya, Feby. Mungkin ini baru appetizer-nya. ♡">
+data-response="Makasih sudah duduk sampai course terakhir, Feby. Mungkin dinner ini belum harus berakhir. ♡">
 
 Let's see where this goes ♡
 
@@ -4196,9 +6581,9 @@ Let's see where this goes ♡
 <button
 class="final-button"
 type="button"
-data-response="Tidak apa-apa. Beberapa resep memang butuh waktu. Aku akan menghargainya.">
+data-response="Tidak apa-apa. Beberapa hal memang lebih baik dinikmati perlahan. Aku menghargainya.">
 
-Give me a little time
+Give me some time
 
 </button>
 
@@ -4214,20 +6599,11 @@ id="finalResponse">
 
 </div>
 
+
 </section>
 
 
 </main>
-
-
-<footer>
-
-Feby's Kitchen Journal —
-one recipe,
-one feeling,
-made carefully ♡
-
-</footer>
 
 
 </div>
@@ -4241,6 +6617,7 @@ LIGHTBOX
 class="lightbox"
 id="lightbox">
 
+
 <button
 class="lightbox-close"
 id="lightboxClose"
@@ -4250,15 +6627,17 @@ type="button">
 
 </button>
 
-<div
-class="lightbox-image"
-id="lightboxImage">
-</div>
+
+<img
+id="lightboxImage"
+alt="Feby">
+
 
 <div
 class="lightbox-caption"
 id="lightboxCaption">
 </div>
+
 
 </div>
 
@@ -4269,164 +6648,376 @@ id="lightboxCaption">
 PHOTO DATA
 ========================================================= */
 
-const PHOTO_DATA = [
+const PHOTOS = [
 
 {
-    src:"./assets/IMG_0814.jpg",
-    title:"Cookbook memory #01",
-    note:"A simple moment worth keeping.",
-    caption:"Momen sederhana yang entah kenapa tetap mudah kuingat."
+    src:
+    "./assets/IMG_0814.jpg",
+
+    label:
+    "A simple moment.",
+
+    caption:
+    "Momen sederhana yang entah kenapa tetap mudah kuingat."
 },
 
 {
-    src:"./assets/IMG_6245.jpg",
-    title:"Cookbook memory #02",
-    note:"Chef's favorite smile.",
-    caption:"Kalau cookbook ini punya chef's recommendation, mungkin senyum ini masuk daftarnya."
+    src:
+    "./assets/IMG_6245.jpg",
+
+    label:
+    "Chef's favorite smile.",
+
+    caption:
+    "Kalau ada satu senyum yang layak masuk chef's recommendation, mungkin yang ini."
 },
 
 {
-    src:"./assets/IMG_7540.jpg",
-    title:"Cookbook memory #03",
-    note:"Little details matter.",
-    caption:"Kadang justru detail yang sederhana yang paling mudah diingat."
+    src:
+    "./assets/IMG_7540.jpg",
+
+    label:
+    "Little details matter.",
+
+    caption:
+    "Kadang detail yang sederhana justru menjadi bagian yang paling mudah diingat."
 },
 
 {
-    src:"./assets/quality_restoration_20260528104251057.jpg",
-    title:"Cookbook memory #04",
-    note:"Another warm little moment.",
-    caption:"Satu lagi potongan kecil yang ingin kusimpan di halaman ini."
+    src:
+    "./assets/quality_restoration_20260528104251057.jpg",
+
+    label:
+    "Another warm memory.",
+
+    caption:
+    "Satu lagi potongan kecil yang rasanya layak masuk halaman favorit."
 },
 
 {
-    src:"./assets/f2751596-e3f9-447e-811d-c67002c07795.jpg",
-    title:"Cookbook memory #05",
-    note:"Today's special: Feby.",
-    caption:"Dan ini mungkin menjadi penutup yang tepat untuk halaman foto favorit."
+    src:
+    "./assets/f2751596-e3f9-447e-811d-c67002c07795.jpg",
+
+    label:
+    "Today's special: Feby.",
+
+    caption:
+    "Dan mungkin ini menjadi penutup yang tepat untuk chef's selection."
 }
 
 ];
 
 
-const memoryGrid =
+/* =========================================================
+LETTER DATA
+========================================================= */
+
+const LETTERS = {
+
+
+sad:{
+
+    label:
+    "RECIPE FOR A BAD DAY",
+
+    title:
+    "Untuk Feby, saat harimu terasa berat.",
+
+    body:`
+
+    <p>
+    Tidak apa-apa kalau hari ini
+    tidak berjalan seperti yang kamu harapkan.
+    </p>
+
+    <p>
+    Tidak semua hari harus menjadi hari
+    di mana kamu baik-baik saja.
+    </p>
+
+    <p>
+    Kamu juga tidak harus selalu terlihat kuat.
+
+    Kalau kamu lelah,
+    istirahatlah sebentar.
+
+    Kalau sesuatu membuatmu sedih,
+    beri dirimu waktu untuk merasakannya.
+    </p>
+
+    <p>
+    Dan kalau semuanya terasa terlalu berat,
+
+    ingat saja bahwa ada seseorang
+    yang berharap besok
+
+    menjadi hari
+    yang sedikit lebih ringan untukmu.
+    </p>
+
+    <p class="reader-sign">
+
+    Serving suggestion:
+
+    sedikit istirahat,
+    sesuatu yang kamu suka,
+
+    dan jangan terlalu keras
+    pada dirimu sendiri. ♡
+
+    </p>
+
+    `
+
+},
+
+
+alone:{
+
+    label:
+    "RECIPE FOR COMPANY",
+
+    title:
+    "Kalau suatu hari kamu merasa sendiri...",
+
+    body:`
+
+    <p>
+    Mungkin aku tidak selalu tahu
+    apa yang sedang terjadi
+    di pikiranmu.
+    </p>
+
+    <p>
+    Dan mungkin aku juga tidak selalu
+    berada di tempat yang tepat
+    untuk mendengar ceritamu.
+    </p>
+
+    <p>
+    Tapi setidaknya ingat satu hal.
+    </p>
+
+    <p>
+    Ada seseorang yang memikirkanmu
+    lebih sering dari yang kamu kira.
+    </p>
+
+    <p>
+    Seseorang yang berharap
+    kamu baik-baik saja.
+
+    Dan seseorang yang mungkin
+    tersenyum ketika melihat namamu muncul.
+    </p>
+
+    <p class="reader-sign">
+
+    Kalau dunia terasa sepi,
+
+    anggap saja kartu kecil ini
+    sedang menemanimu. ♡
+
+    </p>
+
+    `
+
+},
+
+
+smile:{
+
+    label:
+    "RECIPE FOR A SMILE",
+
+    title:
+    "Kalau kamu sedang mencari alasan kecil untuk tersenyum...",
+
+    body:`
+
+    <p>
+    Pertama,
+
+    kamu sedang membaca
+    sebuah website yang benar-benar
+    dibuat seseorang hanya untukmu.
+    </p>
+
+    <p>
+    Agak berlebihan?
+
+    Mungkin.
+    </p>
+
+    <p>
+    Tapi kalau semuanya ini
+    berhasil membuatmu tersenyum
+    sedikit saja,
+
+    berarti menurutku
+    semuanya sudah cukup worth it.
+    </p>
+
+    <p>
+    Dan kalau kamu kembali
+    membuka halaman ini di lain waktu,
+
+    berarti tempat kecil ini
+    berhasil membuatmu kembali ke sini.
+    </p>
+
+    <p class="reader-sign">
+
+    Kalau sekarang kamu tersenyum,
+
+    anggap saja resep ini berhasil. ♡
+
+    </p>
+
+    `
+
+}
+
+};
+
+
+/* =========================================================
+GALLERY
+========================================================= */
+
+const galleryGrid =
 document.getElementById(
-    "memoryGrid"
+    "galleryGrid"
 );
 
 
-PHOTO_DATA.forEach(
-function(photo){
+PHOTOS.forEach(
+function(photo,index){
 
-    const figure =
-    document.createElement(
-        "figure"
-    );
-
-
-    figure.className =
-        "memory fade";
-
-
-    const button =
+    const card =
     document.createElement(
         "button"
     );
 
 
-    button.type =
-        "button";
+    card.type =
+    "button";
 
 
-    button.className =
-        "photo-button";
+    card.className =
+    "photo-card";
 
 
-    const tape =
-    document.createElement(
-        "span"
+    card.innerHTML = `
+
+        <div class="tape"></div>
+
+        <img
+        src="${photo.src}"
+        alt="Feby ${index + 1}">
+
+        <div class="photo-caption">
+        ${photo.label}
+        </div>
+
+    `;
+
+
+    galleryGrid.appendChild(
+        card
     );
 
 
-    tape.className =
-        "photo-tape";
-
-
-    const surface =
-    document.createElement(
-        "div"
-    );
-
-
-    surface.className =
-        "photo-surface";
-
-
-    surface.style.backgroundImage =
-        `url("${photo.src}")`;
-
-
-    const note =
-    document.createElement(
-        "div"
-    );
-
-
-    note.className =
-        "photo-note";
-
-
-    note.textContent =
-        photo.note;
-
-
-    const caption =
-    document.createElement(
-        "figcaption"
-    );
-
-
-    caption.textContent =
-        photo.title;
-
-
-    button.appendChild(
-        tape
-    );
-
-
-    button.appendChild(
-        surface
-    );
-
-
-    button.appendChild(
-        note
-    );
-
-
-    figure.appendChild(
-        button
-    );
-
-
-    figure.appendChild(
-        caption
-    );
-
-
-    memoryGrid.appendChild(
-        figure
-    );
-
-
-    button.addEventListener(
+    card.addEventListener(
         "click",
         function(){
 
             openLightbox(
                 photo
             );
+
+        }
+    );
+
+
+    /*
+    Interactive 3D tilt.
+    */
+
+    card.addEventListener(
+        "pointermove",
+        function(event){
+
+            if(
+                window.innerWidth <=
+                650
+            ){
+
+                return;
+
+            }
+
+
+            const rect =
+            card.getBoundingClientRect();
+
+
+            const x =
+            (
+                event.clientX -
+                rect.left
+            )
+            /
+            rect.width;
+
+
+            const y =
+            (
+                event.clientY -
+                rect.top
+            )
+            /
+            rect.height;
+
+
+            const ry =
+            (
+                x -
+                .5
+            )
+            *
+            14;
+
+
+            const rx =
+            (
+                .5 -
+                y
+            )
+            *
+            14;
+
+
+            card.style.transform =
+
+            `
+            perspective(900px)
+            rotateX(${rx}deg)
+            rotateY(${ry}deg)
+            translateY(-12px)
+            scale(1.05)
+            `;
+
+        }
+    );
+
+
+    card.addEventListener(
+        "pointerleave",
+        function(){
+
+            card.style.transform =
+            "";
 
         }
     );
@@ -4450,32 +7041,134 @@ document.getElementById(
 );
 
 
-document
-.getElementById(
+const openButton =
+document.getElementById(
     "openButton"
-)
-.addEventListener(
+);
+
+
+let opened =
+false;
+
+
+openButton.addEventListener(
     "click",
     function(){
 
-        opening
-        .classList
-        .add(
-            "hide"
-        );
+        if(
+            opened
+        ){
+
+            return;
+
+        }
 
 
-        site
-        .classList
-        .add(
-            "show"
-        );
+        opened =
+        true;
 
 
         startMusic();
 
+
+        if(
+            window.gsap
+        ){
+
+            const tl =
+            gsap.timeline();
+
+
+            tl.to(
+                openButton,
+                {
+                    opacity:0,
+                    y:10,
+                    duration:.25
+                }
+            );
+
+
+            tl.to(
+                "#cloche",
+                {
+                    y:-260,
+                    rotation:-10,
+                    scale:.9,
+                    duration:1.15,
+                    ease:"power3.inOut"
+                }
+            );
+
+
+            tl.to(
+                ".hidden-course",
+                {
+                    opacity:1,
+                    scale:1.08,
+                    duration:.6,
+                    ease:"back.out(1.7)"
+                },
+                "-=.65"
+            );
+
+
+            tl.to(
+                ".open-steam",
+                {
+                    opacity:.55,
+                    y:-75,
+                    stagger:.12,
+                    duration:1
+                },
+                "-=.6"
+            );
+
+
+            tl.to(
+                opening,
+                {
+                    opacity:0,
+                    duration:.9,
+                    delay:.5,
+
+                    onComplete:
+                    finishOpening
+                }
+            );
+
+        }else{
+
+            finishOpening();
+
+        }
+
     }
 );
+
+
+function finishOpening(){
+
+    opening.style.display =
+    "none";
+
+
+    site.classList.add(
+        "active"
+    );
+
+
+    startDust();
+
+
+    requestAnimationFrame(
+    function(){
+
+        initAnimations();
+
+    });
+
+}
 
 
 /* =========================================================
@@ -4484,13 +7177,13 @@ MUSIC
 
 const music =
 document.getElementById(
-    "backgroundMusic"
+    "music"
 );
 
 
-const musicPlay =
+const musicButton =
 document.getElementById(
-    "musicPlay"
+    "musicButton"
 );
 
 
@@ -4506,9 +7199,9 @@ document.getElementById(
 );
 
 
-const musicProgress =
+const musicRange =
 document.getElementById(
-    "musicProgress"
+    "musicRange"
 );
 
 
@@ -4519,7 +7212,7 @@ document.getElementById(
 
 
 const normalVolume =
-0.38;
+.36;
 
 
 music.volume =
@@ -4528,16 +7221,43 @@ music.volume =
 
 function startMusic(){
 
-    music
-    .play()
+    const promise =
+    music.play();
+
+
+    if(
+        !promise
+    ){
+
+        return;
+
+    }
+
+
+    promise
     .then(
     function(){
 
-        fadeVolume(
-            0,
-            normalVolume,
-            1600
-        );
+        if(
+            window.gsap
+        ){
+
+            gsap.to(
+                music,
+                {
+                    volume:
+                    normalVolume,
+
+                    duration:2
+                }
+            );
+
+        }else{
+
+            music.volume =
+            normalVolume;
+
+        }
 
 
         updateMusicIcon();
@@ -4553,80 +7273,7 @@ function startMusic(){
 }
 
 
-function fadeVolume(
-from,
-to,
-duration
-){
-
-    const start =
-    performance.now();
-
-
-    function animate(time){
-
-        const progress =
-        Math.min(
-            (
-                time -
-                start
-            )
-            /
-            duration,
-            1
-        );
-
-
-        music.volume =
-        Math.max(
-            0,
-            Math.min(
-                1,
-                from +
-                (
-                    to -
-                    from
-                )
-                *
-                progress
-            )
-        );
-
-
-        if(
-            progress <
-            1
-        ){
-
-            requestAnimationFrame(
-                animate
-            );
-
-        }
-
-    }
-
-
-    requestAnimationFrame(
-        animate
-    );
-
-}
-
-
-function updateMusicIcon(){
-
-    musicIcon.textContent =
-        music.paused
-        ?
-        "▶"
-        :
-        "❚❚";
-
-}
-
-
-musicPlay.addEventListener(
+musicButton.addEventListener(
     "click",
     function(){
 
@@ -4635,32 +7282,19 @@ musicPlay.addEventListener(
         ){
 
             music.volume =
-                0;
+            normalVolume;
 
 
-            music
-            .play()
-            .then(
-            function(){
-
-                fadeVolume(
-                    0,
-                    normalVolume,
-                    500
-                );
-
-
-                updateMusicIcon();
-
-            });
+            music.play();
 
         }else{
 
             music.pause();
 
-            updateMusicIcon();
-
         }
+
+
+        updateMusicIcon();
 
     }
 );
@@ -4671,17 +7305,30 @@ musicMute.addEventListener(
     function(){
 
         music.muted =
-            !music.muted;
+        !music.muted;
 
 
         musicMute.textContent =
-            music.muted
-            ?
-            "×"
-            :
-            "♬";
+
+        music.muted
+        ?
+        "×"
+        :
+        "♬";
 
     }
+);
+
+
+music.addEventListener(
+    "play",
+    updateMusicIcon
+);
+
+
+music.addEventListener(
+    "pause",
+    updateMusicIcon
 );
 
 
@@ -4700,26 +7347,25 @@ music.addEventListener(
         }
 
 
-        const progress =
-            (
-                music.currentTime
-                /
-                music.duration
-            )
-            *
-            100;
+        const percent =
+
+        music.currentTime
+        /
+        music.duration
+        *
+        100;
 
 
-        musicProgress.value =
-            progress;
+        musicRange.value =
+        percent;
 
 
-        musicProgress.style.background =
+        musicRange.style.background =
 
         `linear-gradient(
             90deg,
-            #b86547 ${progress}%,
-            rgba(80,60,45,.14) ${progress}%
+            #ef9c78 ${percent}%,
+            rgba(255,255,255,.1) ${percent}%
         )`;
 
 
@@ -4728,9 +7374,13 @@ music.addEventListener(
         formatTime(
             music.currentTime
         )
+
         +
+
         " / "
+
         +
+
         formatTime(
             music.duration
         );
@@ -4739,7 +7389,7 @@ music.addEventListener(
 );
 
 
-musicProgress.addEventListener(
+musicRange.addEventListener(
     "input",
     function(){
 
@@ -4750,20 +7400,32 @@ musicProgress.addEventListener(
         ){
 
             music.currentTime =
-                (
-                    Number(
-                        musicProgress.value
-                    )
-                    /
-                    100
-                )
-                *
-                music.duration;
+
+            Number(
+                musicRange.value
+            )
+            /
+            100
+            *
+            music.duration;
 
         }
 
     }
 );
+
+
+function updateMusicIcon(){
+
+    musicIcon.textContent =
+
+    music.paused
+    ?
+    "▶"
+    :
+    "❚❚";
+
+}
 
 
 function formatTime(seconds){
@@ -4779,109 +7441,528 @@ function formatTime(seconds){
     }
 
 
-    const minutes =
-        Math.floor(
-            seconds /
-            60
-        );
+    const minute =
+    Math.floor(
+        seconds /
+        60
+    );
 
 
-    const sec =
-        Math.floor(
-            seconds %
-            60
-        )
-        .toString()
-        .padStart(
-            2,
-            "0"
-        );
+    const second =
+    Math.floor(
+        seconds %
+        60
+    )
+    .toString()
+    .padStart(
+        2,
+        "0"
+    );
 
 
     return (
-        minutes +
+        minute +
         ":" +
-        sec
+        second
     );
 
 }
 
 
 /* =========================================================
-SCROLL REVEAL
+CURSOR
 ========================================================= */
 
-const fadeObserver =
-new IntersectionObserver(
+const cursorGlow =
+document.getElementById(
+    "cursorGlow"
+);
 
-function(entries){
 
-    entries.forEach(
-    function(entry){
+window.addEventListener(
+    "pointermove",
+    function(event){
 
         if(
-            entry.isIntersecting
+            window.gsap
         ){
 
-            entry.target
-            .classList
-            .add(
-                "visible"
+            gsap.to(
+                cursorGlow,
+                {
+                    left:
+                    event.clientX,
+
+                    top:
+                    event.clientY,
+
+                    duration:.5,
+
+                    ease:"power3.out"
+                }
+            );
+
+        }else{
+
+            cursorGlow.style.left =
+            event.clientX +
+            "px";
+
+
+            cursorGlow.style.top =
+            event.clientY +
+            "px";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+DUST
+========================================================= */
+
+const dustLayer =
+document.getElementById(
+    "dustLayer"
+);
+
+
+let dustTimer =
+null;
+
+
+function startDust(){
+
+    if(
+        dustTimer
+    ){
+
+        return;
+
+    }
+
+
+    dustTimer =
+    setInterval(
+        createDust,
+        900
+    );
+
+}
+
+
+function createDust(){
+
+    const dust =
+    document.createElement(
+        "span"
+    );
+
+
+    dust.className =
+    "dust";
+
+
+    dust.style.left =
+    Math.random() *
+    100 +
+    "vw";
+
+
+    dust.style.setProperty(
+
+        "--drift",
+
+        (
+            Math.random() *
+            160 -
+            80
+        )
+        +
+        "px"
+
+    );
+
+
+    dust.style.animationDuration =
+
+    (
+        8 +
+        Math.random() *
+        5
+    )
+    +
+    "s";
+
+
+    dustLayer.appendChild(
+        dust
+    );
+
+
+    setTimeout(
+    function(){
+
+        dust.remove();
+
+    },
+    14000
+    );
+
+}
+
+
+function burstDust(count){
+
+    for(
+        let i=0;
+        i<count;
+        i++
+    ){
+
+        setTimeout(
+            createDust,
+            i * 25
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+GSAP
+========================================================= */
+
+function initAnimations(){
+
+    if(
+        !window.gsap ||
+        !window.ScrollTrigger
+    ){
+
+        return;
+
+    }
+
+
+    gsap.registerPlugin(
+        ScrollTrigger
+    );
+
+
+    ScrollTrigger.refresh();
+
+
+    /*
+    Hero.
+    */
+
+    gsap.fromTo(
+        ".hero-grid > div:first-child > *",
+        {
+            y:35
+        },
+        {
+            y:0,
+            duration:.8,
+            stagger:.1,
+            ease:"power3.out"
+        }
+    );
+
+
+    gsap.fromTo(
+        ".table-window",
+        {
+            scale:.94,
+            rotationY:5
+        },
+        {
+            scale:1,
+            rotationY:0,
+            duration:1,
+            ease:"power3.out"
+        }
+    );
+
+
+    gsap.to(
+        ".floating-tag",
+        {
+            y:-16,
+            rotation:2,
+            duration:2.3,
+            yoyo:true,
+            repeat:-1,
+            stagger:.2,
+            ease:"sine.inOut"
+        }
+    );
+
+
+    gsap.to(
+        ".pan",
+        {
+            rotation:3,
+            y:-5,
+            duration:1.7,
+            yoyo:true,
+            repeat:-1,
+            ease:"sine.inOut"
+        }
+    );
+
+
+    /*
+    Ingredient cards.
+    */
+
+    safeEnter(
+        ".orbit-stage",
+        ".ing-card",
+        {
+            y:45,
+            scale:.93
+        },
+        {
+            y:0,
+            scale:1,
+            duration:.7,
+            stagger:.1,
+            ease:"back.out(1.4)"
+        }
+    );
+
+
+    /*
+    Timeline.
+    */
+
+    safeEnter(
+        ".process-line",
+        ".timeline-card",
+        {
+            y:45
+        },
+        {
+            y:0,
+            duration:.7,
+            stagger:.12,
+            ease:"power3.out"
+        }
+    );
+
+
+    /*
+    Gallery.
+    */
+
+    safeEnter(
+        ".gallery-grid",
+        ".photo-card",
+        {
+            y:45,
+            scale:.94
+        },
+        {
+            y:0,
+            scale:1,
+            duration:.7,
+            stagger:.1,
+            ease:"back.out(1.3)"
+        }
+    );
+
+
+    /*
+    Letters.
+    */
+
+    safeEnter(
+        ".recipe-box",
+        ".letter-card",
+        {
+            y:50,
+            scale:.96
+        },
+        {
+            y:0,
+            scale:1,
+            duration:.7,
+            stagger:.12,
+            ease:"back.out(1.35)"
+        }
+    );
+
+
+    /*
+    Stir bowl.
+    */
+
+    safeEnter(
+        ".stir-stage",
+        ".stir-bowl",
+        {
+            scale:.9,
+            y:25
+        },
+        {
+            scale:1,
+            y:0,
+            duration:.8,
+            ease:"back.out(1.3)"
+        }
+    );
+
+
+    /*
+    Candle.
+    */
+
+    safeEnter(
+        ".candle-scene",
+        ".candle-scene",
+        {
+            y:35,
+            scale:.9
+        },
+        {
+            y:0,
+            scale:1,
+            duration:.8,
+            ease:"back.out(1.3)"
+        }
+    );
+
+
+    /*
+    Dessert.
+    */
+
+    safeEnter(
+        ".dessert-stage",
+        ".dessert-stage",
+        {
+            scale:.85,
+            rotation:-8
+        },
+        {
+            scale:1,
+            rotation:0,
+            duration:.8,
+            ease:"back.out(1.35)"
+        }
+    );
+
+}
+
+
+/* =========================================================
+SAFE ENTER
+========================================================= */
+
+function safeEnter(
+trigger,
+targets,
+fromVars,
+toVars
+){
+
+    if(
+        !window.gsap ||
+        !window.ScrollTrigger
+    ){
+
+        return;
+
+    }
+
+
+    ScrollTrigger.create({
+
+        trigger:
+        trigger,
+
+        start:
+        "top 82%",
+
+        once:true,
+
+        onEnter:
+        function(){
+
+            gsap.fromTo(
+                targets,
+                fromVars,
+                toVars
             );
 
         }
 
     });
 
-},
-
-{
-    threshold:.12
 }
-
-);
-
-
-document
-.querySelectorAll(
-    ".fade"
-)
-.forEach(
-function(element){
-
-    fadeObserver.observe(
-        element
-    );
-
-});
 
 
 /* =========================================================
-NAVIGATION
+STIR INTERACTION
 ========================================================= */
 
-const sections =
-document.querySelectorAll(
-    "[data-step]"
+const stirStage =
+document.getElementById(
+    "stirStage"
 );
 
 
-const dots =
-document.querySelectorAll(
-    ".nav-dots span"
+const whisk =
+document.getElementById(
+    "whisk"
 );
 
 
-const sectionObserver =
-new IntersectionObserver(
+const stirProgress =
+document.getElementById(
+    "stirProgress"
+);
 
-function(entries){
 
-    entries.forEach(
-    function(entry){
+const stirHint =
+document.getElementById(
+    "stirHint"
+);
+
+
+const stirReveal =
+document.getElementById(
+    "stirReveal"
+);
+
+
+let stirring =
+false;
+
+let stirValue =
+0;
+
+let lastAngle =
+null;
+
+let whiskRotation =
+0;
+
+let stirFinished =
+false;
+
+
+whisk.addEventListener(
+    "pointerdown",
+    function(event){
 
         if(
-            !entry.isIntersecting
+            stirFinished
         ){
 
             return;
@@ -4889,232 +7970,264 @@ function(entries){
         }
 
 
-        const step =
-            Number(
-                entry.target
-                .dataset
-                .step
-            );
+        stirring =
+        true;
 
 
-        dots.forEach(
-        function(dot,index){
+        whisk.classList.add(
+            "dragging"
+        );
 
-            dot.classList.toggle(
-                "active",
-                index === step
-            );
 
-        });
+        whisk.setPointerCapture(
+            event.pointerId
+        );
 
-    });
 
-},
+        lastAngle =
+        getPointerAngle(
+            event
+        );
 
-{
-    threshold:.45
-}
-
+    }
 );
 
 
-sections.forEach(
-function(section){
+whisk.addEventListener(
+    "pointermove",
+    function(event){
 
-    sectionObserver.observe(
-        section
-    );
+        if(
+            !stirring ||
+            stirFinished
+        ){
 
-});
-
-
-/* =========================================================
-FAVORITE CARDS
-========================================================= */
-
-document
-.querySelectorAll(
-    ".favorite-card"
-)
-.forEach(
-function(card){
-
-    card.addEventListener(
-        "click",
-        function(){
-
-            card
-            .classList
-            .toggle(
-                "open"
-            );
+            return;
 
         }
+
+
+        const angle =
+        getPointerAngle(
+            event
+        );
+
+
+        let delta =
+        angle -
+        lastAngle;
+
+
+        if(
+            delta > 180
+        ){
+
+            delta -=
+            360;
+
+        }
+
+
+        if(
+            delta < -180
+        ){
+
+            delta +=
+            360;
+
+        }
+
+
+        whiskRotation +=
+        delta;
+
+
+        whisk.style.transform =
+
+        `rotate(${whiskRotation}deg)`;
+
+
+        stirValue +=
+        Math.abs(
+            delta
+        )
+        *
+        .08;
+
+
+        stirValue =
+        Math.min(
+            stirValue,
+            100
+        );
+
+
+        stirProgress.style.width =
+        stirValue +
+        "%";
+
+
+        lastAngle =
+        angle;
+
+
+        if(
+            stirValue >=
+            100
+        ){
+
+            finishStir();
+
+        }
+
+    }
+);
+
+
+function endStir(){
+
+    stirring =
+    false;
+
+
+    whisk.classList.remove(
+        "dragging"
     );
 
-});
+}
+
+
+whisk.addEventListener(
+    "pointerup",
+    endStir
+);
+
+
+whisk.addEventListener(
+    "pointercancel",
+    endStir
+);
+
+
+function getPointerAngle(event){
+
+    const rect =
+    stirStage.getBoundingClientRect();
+
+
+    const cx =
+    rect.left +
+    rect.width /
+    2;
+
+
+    const cy =
+    rect.top +
+    rect.height *
+    .55;
+
+
+    return (
+
+        Math.atan2(
+            event.clientY -
+            cy,
+
+            event.clientX -
+            cx
+        )
+
+        *
+
+        180 /
+        Math.PI
+
+    );
+
+}
+
+
+function finishStir(){
+
+    stirFinished =
+    true;
+
+
+    stirring =
+    false;
+
+
+    stirProgress.style.width =
+    "100%";
+
+
+    stirHint.textContent =
+    "recipe complete ♡";
+
+
+    stirReveal.classList.add(
+        "show"
+    );
+
+
+    burstDust(
+        25
+    );
+
+
+    if(
+        window.gsap
+    ){
+
+        gsap.to(
+            ".mixture",
+            {
+                scale:1.12,
+                duration:.35,
+                yoyo:true,
+                repeat:1
+            }
+        );
+
+
+        gsap.to(
+            whisk,
+            {
+                rotation:15,
+                duration:.6
+            }
+        );
+
+    }
+
+}
 
 
 /* =========================================================
 LETTERS
 ========================================================= */
 
-const LETTERS = {
-
-sad:{
-
-    meta:
-    "RECIPE FOR A BAD DAY",
-
-    title:
-    "Untuk Feby, saat harimu terasa berat.",
-
-    body:`
-
-    <p>
-    Tidak apa-apa kalau hari ini
-    tidak berjalan seperti yang kamu harapkan.
-    </p>
-
-    <p>
-    Tidak semua hari harus menjadi hari
-    di mana kamu baik-baik saja.
-    </p>
-
-    <p>
-    Kamu juga tidak harus
-    selalu terlihat kuat.
-    Kalau kamu lelah,
-    istirahatlah sebentar.
-    </p>
-
-    <p>
-    Kalau sesuatu membuatmu sedih,
-    beri dirimu waktu untuk merasakannya.
-    </p>
-
-    <p class="signature">
-    Serving suggestion:
-    sesuatu yang kamu suka,
-    sedikit istirahat,
-    dan jangan terlalu keras
-    pada dirimu sendiri. ♡
-    </p>
-
-    `
-
-},
-
-
-alone:{
-
-    meta:
-    "RECIPE FOR COMPANY",
-
-    title:
-    "Kalau suatu hari kamu merasa sendiri...",
-
-    body:`
-
-    <p>
-    Mungkin aku tidak selalu tahu
-    apa yang sedang terjadi
-    di pikiranmu.
-    </p>
-
-    <p>
-    Tapi setidaknya
-    ingat satu hal.
-    </p>
-
-    <p>
-    Ada seseorang
-    yang memikirkanmu
-    lebih sering dari yang kamu kira.
-    </p>
-
-    <p>
-    Seseorang yang berharap
-    kamu baik-baik saja.
-    </p>
-
-    <p class="signature">
-    Kalau dunia terasa sepi,
-    anggap saja kartu kecil ini
-    sedang menemanimu. ♡
-    </p>
-
-    `
-
-},
-
-
-smile:{
-
-    meta:
-    "RECIPE FOR A SMILE",
-
-    title:
-    "Kalau kamu sedang mencari alasan kecil untuk tersenyum...",
-
-    body:`
-
-    <p>
-    Kamu sedang membaca
-    sebuah website
-    yang benar-benar dibuat seseorang
-    hanya untukmu.
-    </p>
-
-    <p>
-    Agak berlebihan?
-    </p>
-
-    <p>
-    Mungkin.
-    </p>
-
-    <p>
-    Tapi kalau semua ini
-    berhasil membuatmu tersenyum
-    sedikit saja,
-    berarti menurutku
-    semuanya cukup worth it.
-    </p>
-
-    <p class="signature">
-    Kalau sekarang kamu tersenyum,
-    anggap saja resep ini berhasil. ♡
-    </p>
-
-    `
-
-}
-
-};
-
-
-const letterReading =
+const reader =
 document.getElementById(
-    "letterReading"
+    "reader"
 );
 
 
-const letterMeta =
+const readerLabel =
 document.getElementById(
-    "letterMeta"
+    "readerLabel"
 );
 
 
-const letterTitle =
+const readerTitle =
 document.getElementById(
-    "letterTitle"
+    "readerTitle"
 );
 
 
-const letterBody =
+const readerBody =
 document.getElementById(
-    "letterBody"
+    "readerBody"
 );
 
 
@@ -5134,7 +8247,7 @@ function(button){
         function(){
 
             const key =
-                button.dataset.letter;
+            button.dataset.letter;
 
 
             if(
@@ -5142,7 +8255,7 @@ function(button){
                 key
             ){
 
-                closeLetter();
+                closeReader();
 
                 return;
 
@@ -5150,48 +8263,53 @@ function(button){
 
 
             const data =
-                LETTERS[
-                    key
-                ];
+            LETTERS[
+                key
+            ];
 
 
             activeLetter =
-                key;
+            key;
 
 
-            letterMeta.textContent =
-                data.meta;
+            readerLabel.textContent =
+            data.label;
 
 
-            letterTitle.textContent =
-                data.title;
+            readerTitle.textContent =
+            data.title;
 
 
-            letterBody.innerHTML =
-                data.body;
+            readerBody.innerHTML =
+            data.body;
 
 
-            letterReading
-            .classList
-            .add(
+            reader.classList.add(
                 "open"
+            );
+
+
+            burstDust(
+                8
             );
 
 
             setTimeout(
             function(){
 
-                letterReading
+                reader
                 .scrollIntoView({
 
-                    behavior:"smooth",
+                    behavior:
+                    "smooth",
 
-                    block:"center"
+                    block:
+                    "center"
 
                 });
 
             },
-            400
+            350
             );
 
         }
@@ -5200,15 +8318,13 @@ function(button){
 });
 
 
-function closeLetter(){
+function closeReader(){
 
     activeLetter =
-        null;
+    null;
 
 
-    letterReading
-    .classList
-    .remove(
+    reader.classList.remove(
         "open"
     );
 
@@ -5217,12 +8333,343 @@ function closeLetter(){
 
 document
 .getElementById(
-    "letterClose"
+    "readerClose"
 )
 .addEventListener(
     "click",
-    closeLetter
+    closeReader
 );
+
+
+/* =========================================================
+CANDLE
+========================================================= */
+
+const candle =
+document.getElementById(
+    "candle"
+);
+
+
+const wishResult =
+document.getElementById(
+    "wishResult"
+);
+
+
+let wishOpened =
+false;
+
+
+candle.addEventListener(
+    "click",
+    function(){
+
+        if(
+            wishOpened
+        ){
+
+            return;
+
+        }
+
+
+        wishOpened =
+        true;
+
+
+        burstDust(
+            20
+        );
+
+
+        if(
+            window.gsap
+        ){
+
+            const timeline =
+            gsap.timeline();
+
+
+            timeline.to(
+                ".candle-flame",
+                {
+                    scale:1.4,
+                    duration:.25,
+                    repeat:1,
+                    yoyo:true
+                }
+            );
+
+
+            timeline.to(
+                ".candle-aura",
+                {
+                    scale:1.6,
+                    opacity:.8,
+                    duration:.5
+                },
+                "-=.2"
+            );
+
+
+            timeline.to(
+                ".candle-heart",
+                {
+                    y:-100,
+                    scale:1.7,
+                    opacity:0,
+                    duration:1
+                },
+                "-=.2"
+            );
+
+        }
+
+
+        wishResult.classList.add(
+            "show"
+        );
+
+    }
+);
+
+
+/* =========================================================
+DESSERT
+========================================================= */
+
+const dessertStage =
+document.getElementById(
+    "dessertStage"
+);
+
+
+const confession =
+document.getElementById(
+    "confession"
+);
+
+
+let dessertOpened =
+false;
+
+
+dessertStage.addEventListener(
+    "click",
+    function(){
+
+        if(
+            dessertOpened
+        ){
+
+            return;
+
+        }
+
+
+        dessertOpened =
+        true;
+
+
+        dessertStage.classList.add(
+            "open"
+        );
+
+
+        burstDust(
+            35
+        );
+
+
+        setTimeout(
+        function(){
+
+            confession.classList.add(
+                "show"
+            );
+
+        },
+        650
+        );
+
+    }
+);
+
+
+/* =========================================================
+FINAL
+========================================================= */
+
+const finalResponse =
+document.getElementById(
+    "finalResponse"
+);
+
+
+document
+.querySelectorAll(
+    ".final-button"
+)
+.forEach(
+function(button){
+
+    button.addEventListener(
+        "click",
+        function(){
+
+            finalResponse.textContent =
+            button.dataset.response;
+
+
+            burstDust(
+                15
+            );
+
+
+            if(
+                window.gsap
+            ){
+
+                gsap.fromTo(
+                    finalResponse,
+                    {
+                        opacity:0,
+                        y:10
+                    },
+                    {
+                        opacity:1,
+                        y:0,
+                        duration:.45
+                    }
+                );
+
+            }
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+COURSE NAVIGATION
+========================================================= */
+
+const courseSections =
+document.querySelectorAll(
+    "[data-course]"
+);
+
+
+const navDots =
+document.querySelectorAll(
+    ".nav-progress span"
+);
+
+
+const railDots =
+document.querySelectorAll(
+    ".course-dot"
+);
+
+
+const courseObserver =
+new IntersectionObserver(
+
+function(entries){
+
+    entries.forEach(
+    function(entry){
+
+        if(
+            !entry.isIntersecting
+        ){
+
+            return;
+
+        }
+
+
+        const index =
+        Number(
+            entry.target.dataset.course
+        );
+
+
+        navDots.forEach(
+        function(dot,i){
+
+            dot.classList.toggle(
+                "active",
+                i === index
+            );
+
+        });
+
+
+        railDots.forEach(
+        function(dot,i){
+
+            dot.classList.toggle(
+                "active",
+                i === index
+            );
+
+        });
+
+    });
+
+},
+
+{
+    threshold:.35
+}
+
+);
+
+
+courseSections.forEach(
+function(section){
+
+    courseObserver.observe(
+        section
+    );
+
+});
+
+
+railDots.forEach(
+function(dot,index){
+
+    dot.addEventListener(
+        "click",
+        function(){
+
+            const target =
+            document.querySelector(
+                `[data-course="${index}"]`
+            );
+
+
+            if(
+                target
+            ){
+
+                target.scrollIntoView({
+
+                    behavior:"smooth",
+
+                    block:"start"
+
+                });
+
+            }
+
+        }
+    );
+
+});
 
 
 /* =========================================================
@@ -5249,40 +8696,34 @@ document.getElementById(
 
 function openLightbox(photo){
 
-    lightboxImage
-    .style
-    .backgroundImage =
-        `url("${photo.src}")`;
+    lightboxImage.src =
+    photo.src;
 
 
     lightboxCaption.textContent =
-        photo.caption;
+    photo.caption;
 
 
-    lightbox
-    .classList
-    .add(
+    lightbox.classList.add(
         "open"
     );
 
 
     document.body.style.overflow =
-        "hidden";
+    "hidden";
 
 }
 
 
 function closeLightbox(){
 
-    lightbox
-    .classList
-    .remove(
+    lightbox.classList.remove(
         "open"
     );
 
 
     document.body.style.overflow =
-        "";
+    "";
 
 }
 
@@ -5314,147 +8755,6 @@ lightbox.addEventListener(
 );
 
 
-/* =========================================================
-HEART
-========================================================= */
-
-const heartButton =
-document.getElementById(
-    "heartButton"
-);
-
-
-const progressCircle =
-document.getElementById(
-    "progressCircle"
-);
-
-
-const heartResult =
-document.getElementById(
-    "heartResult"
-);
-
-
-let heartOpened =
-false;
-
-
-const circleLength =
-502;
-
-
-heartButton.addEventListener(
-    "click",
-    function(){
-
-        if(
-            heartOpened
-        ){
-
-            return;
-
-        }
-
-
-        heartOpened =
-            true;
-
-
-        const start =
-            performance.now();
-
-
-        const duration =
-            900;
-
-
-        function animate(time){
-
-            const progress =
-                Math.min(
-                    (
-                        time -
-                        start
-                    )
-                    /
-                    duration,
-                    1
-                );
-
-
-            progressCircle
-            .style
-            .strokeDashoffset =
-                circleLength -
-                (
-                    circleLength *
-                    progress
-                );
-
-
-            if(
-                progress <
-                1
-            ){
-
-                requestAnimationFrame(
-                    animate
-                );
-
-            }else{
-
-                heartResult
-                .classList
-                .add(
-                    "show"
-                );
-
-            }
-
-        }
-
-
-        requestAnimationFrame(
-            animate
-        );
-
-    }
-);
-
-
-/* =========================================================
-FINAL
-========================================================= */
-
-const finalResponse =
-document.getElementById(
-    "finalResponse"
-);
-
-
-document
-.querySelectorAll(
-    ".final-button"
-)
-.forEach(
-function(button){
-
-    button.addEventListener(
-        "click",
-        function(){
-
-            finalResponse.textContent =
-                button.dataset.response;
-
-        }
-    );
-
-});
-
-
-/* ESC */
-
 document.addEventListener(
     "keydown",
     function(event){
@@ -5466,7 +8766,7 @@ document.addEventListener(
 
             closeLightbox();
 
-            closeLetter();
+            closeReader();
 
         }
 
