@@ -50,7 +50,6 @@ ROOT
 
     --cream:#f7ead7;
     --cream2:#e7d4bc;
-
     --paper:#fff8ea;
 
     --ink:#382820;
@@ -62,17 +61,12 @@ ROOT
     --wine:#7c3f4e;
 
     --gold:#d4ae67;
-
     --green:#7b8460;
 
     --muted:#a89486;
 
-    --line:
-    rgba(255,255,255,.09);
-
     --shadow:
-    0 35px 100px
-    rgba(0,0,0,.35);
+    0 35px 100px rgba(0,0,0,.35);
 
 }
 
@@ -85,11 +79,9 @@ RESET
     box-sizing:border-box;
 }
 
-
 html{
     scroll-behavior:smooth;
 }
-
 
 body{
 
@@ -97,11 +89,9 @@ body{
 
     overflow-x:hidden;
 
-    color:
-    var(--cream);
+    color:var(--cream);
 
-    background:
-    var(--bg);
+    background:var(--bg);
 
     font-family:
     "DM Sans",
@@ -109,40 +99,28 @@ body{
 
 }
 
-
 button{
     font:inherit;
+    color:inherit;
 }
-
 
 button,
 a{
-
-    -webkit-tap-highlight-color:
-    transparent;
-
+    -webkit-tap-highlight-color:transparent;
 }
-
-
-button{
-
-    color:inherit;
-
-}
-
 
 ::selection{
 
-    color:white;
+    color:#fff;
 
     background:
-    rgba(207,114,80,.4);
+    rgba(207,114,80,.42);
 
 }
 
 
 /* =========================================================
-GLOBAL BACKGROUND
+GLOBAL EFFECTS
 ========================================================= */
 
 .grain{
@@ -153,16 +131,15 @@ GLOBAL BACKGROUND
 
     z-index:99999;
 
-    pointer-events:none;
-
     opacity:.035;
+
+    pointer-events:none;
 
     background-image:
 
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='x'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23x)' opacity='.9'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='x'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter id='x'/%3E%3C/svg%3E");
 
 }
-
 
 .vignette{
 
@@ -178,12 +155,11 @@ GLOBAL BACKGROUND
 
     radial-gradient(
         circle at center,
-        transparent 50%,
+        transparent 51%,
         rgba(0,0,0,.32)
     );
 
 }
-
 
 .cursor-glow{
 
@@ -197,6 +173,9 @@ GLOBAL BACKGROUND
     width:450px;
     height:450px;
 
+    transform:
+    translate(-50%,-50%);
+
     border-radius:50%;
 
     background:
@@ -205,16 +184,13 @@ GLOBAL BACKGROUND
     filter:
     blur(110px);
 
-    transform:
-    translate(-50%,-50%);
-
     pointer-events:none;
 
 }
 
 
 /* =========================================================
-FLOATING DUST
+DUST
 ========================================================= */
 
 .dust-layer{
@@ -223,14 +199,13 @@ FLOATING DUST
 
     inset:0;
 
-    z-index:4;
-
-    pointer-events:none;
+    z-index:5;
 
     overflow:hidden;
 
-}
+    pointer-events:none;
 
+}
 
 .dust{
 
@@ -252,7 +227,6 @@ FLOATING DUST
     dustFloat linear forwards;
 
 }
-
 
 @keyframes dustFloat{
 
@@ -298,7 +272,6 @@ OPENING
 
 }
 
-
 .opening-wall{
 
     position:absolute;
@@ -314,7 +287,6 @@ OPENING
     );
 
 }
-
 
 .opening-wall::before{
 
@@ -344,14 +316,12 @@ OPENING
 
 }
 
-
 .opening-table{
 
     position:absolute;
 
     left:-5%;
     right:-5%;
-
     bottom:-5%;
 
     height:45%;
@@ -365,11 +335,6 @@ OPENING
     );
 
 }
-
-
-/* =========================================================
-OPENING COPY
-========================================================= */
 
 .opening-copy{
 
@@ -390,20 +355,19 @@ OPENING COPY
 
 }
 
-
-.micro{
+.micro,
+.course-label{
 
     color:
     var(--gold);
 
     font-size:.6rem;
 
-    letter-spacing:.28em;
+    letter-spacing:.27em;
 
     text-transform:uppercase;
 
 }
-
 
 .opening-copy h1{
 
@@ -428,7 +392,6 @@ OPENING COPY
 
 }
 
-
 .opening-copy h1 em{
 
     color:
@@ -437,7 +400,6 @@ OPENING COPY
     font-style:normal;
 
 }
-
 
 .opening-copy p{
 
@@ -453,7 +415,7 @@ OPENING COPY
 
 
 /* =========================================================
-CLOCHE
+OPENING CLOCHE
 ========================================================= */
 
 .cloche-stage{
@@ -472,7 +434,6 @@ CLOCHE
     translate(-50%,-50%);
 
 }
-
 
 .open-plate{
 
@@ -503,7 +464,6 @@ CLOCHE
 
 }
 
-
 .open-plate::after{
 
     content:"";
@@ -522,7 +482,6 @@ CLOCHE
 
 }
 
-
 .cloche{
 
     position:absolute;
@@ -539,7 +498,6 @@ CLOCHE
     translateX(-50%);
 
 }
-
 
 .cloche-body{
 
@@ -572,7 +530,6 @@ CLOCHE
 
 }
 
-
 .cloche-handle{
 
     position:absolute;
@@ -589,11 +546,9 @@ CLOCHE
     border-radius:
     30px 30px 5px 5px;
 
-    background:
-    #514743;
+    background:#514743;
 
 }
-
 
 .cloche-shine{
 
@@ -624,7 +579,6 @@ CLOCHE
 
 }
 
-
 .hidden-course{
 
     position:absolute;
@@ -650,7 +604,6 @@ CLOCHE
 
 }
 
-
 .hidden-course strong{
 
     display:block;
@@ -663,14 +616,18 @@ CLOCHE
     serif;
 
     font-size:
-    clamp(2.8rem,7vw,5rem);
+
+    clamp(
+        2.8rem,
+        7vw,
+        5rem
+    );
 
     font-weight:400;
 
     line-height:.87;
 
 }
-
 
 .hidden-course small{
 
@@ -687,11 +644,6 @@ CLOCHE
     text-transform:uppercase;
 
 }
-
-
-/* =========================================================
-OPENING STEAM
-========================================================= */
 
 .open-steam{
 
@@ -718,25 +670,9 @@ OPENING STEAM
 
 }
 
-
-.open-steam.a{
-    left:43%;
-}
-
-
-.open-steam.b{
-    left:50%;
-}
-
-
-.open-steam.c{
-    left:57%;
-}
-
-
-/* =========================================================
-OPENING BUTTON
-========================================================= */
+.open-steam.a{left:43%}
+.open-steam.b{left:50%}
+.open-steam.c{left:57%}
 
 .open-button{
 
@@ -760,7 +696,7 @@ OPENING BUTTON
 
     border-radius:999px;
 
-    color:white;
+    color:#fff;
 
     background:
     rgba(255,255,255,.055);
@@ -774,7 +710,6 @@ OPENING BUTTON
 
 }
 
-
 .open-button:hover{
 
     border-color:
@@ -784,7 +719,6 @@ OPENING BUTTON
     var(--orange);
 
     transform:
-
     translateX(-50%)
     translateY(-4px);
 
@@ -792,26 +726,16 @@ OPENING BUTTON
 
 
 /* =========================================================
-SITE
+SITE + NAV
 ========================================================= */
 
 .site{
-
     display:none;
-
 }
-
 
 .site.active{
-
     display:block;
-
 }
-
-
-/* =========================================================
-NAVIGATION
-========================================================= */
 
 .nav{
 
@@ -859,7 +783,6 @@ NAVIGATION
 
 }
 
-
 .nav-logo{
 
     font-family:
@@ -870,14 +793,9 @@ NAVIGATION
 
 }
 
-
 .nav-logo span{
-
-    color:
-    var(--orange2);
-
+    color:var(--orange2);
 }
-
 
 .nav-progress{
 
@@ -888,7 +806,6 @@ NAVIGATION
     gap:5px;
 
 }
-
 
 .nav-progress span{
 
@@ -904,7 +821,6 @@ NAVIGATION
 
 }
 
-
 .nav-progress span.active{
 
     width:22px;
@@ -913,7 +829,6 @@ NAVIGATION
     var(--orange2);
 
 }
-
 
 .nav-small{
 
@@ -941,17 +856,16 @@ COURSE RAIL
     left:24px;
     top:50%;
 
-    transform:
-    translateY(-50%);
-
     display:flex;
 
     flex-direction:column;
 
     gap:16px;
 
-}
+    transform:
+    translateY(-50%);
 
+}
 
 .course-dot{
 
@@ -970,10 +884,11 @@ COURSE RAIL
     background:
     var(--bg);
 
+    cursor:pointer;
+
     transition:.3s;
 
 }
-
 
 .course-dot.active{
 
@@ -989,7 +904,6 @@ COURSE RAIL
     rgba(239,156,120,.35);
 
 }
-
 
 .course-dot::after{
 
@@ -1021,12 +935,9 @@ COURSE RAIL
 
 }
 
-
 .course-dot:hover::after,
 .course-dot.active::after{
-
     opacity:1;
-
 }
 
 
@@ -1068,7 +979,6 @@ MUSIC
 
 }
 
-
 .music-row{
 
     display:flex;
@@ -1078,7 +988,6 @@ MUSIC
     gap:11px;
 
 }
-
 
 .music-button{
 
@@ -1095,7 +1004,7 @@ MUSIC
 
     border-radius:50%;
 
-    color:white;
+    color:#fff;
 
     background:
     var(--orange);
@@ -1104,7 +1013,6 @@ MUSIC
 
 }
 
-
 .music-info{
 
     min-width:0;
@@ -1112,7 +1020,6 @@ MUSIC
     flex:1;
 
 }
-
 
 .music-label{
 
@@ -1126,7 +1033,6 @@ MUSIC
     text-transform:uppercase;
 
 }
-
 
 .music-name{
 
@@ -1142,7 +1048,6 @@ MUSIC
 
 }
 
-
 .music-time{
 
     color:#88746a;
@@ -1150,7 +1055,6 @@ MUSIC
     font-size:.59rem;
 
 }
-
 
 .music-mute{
 
@@ -1163,7 +1067,6 @@ MUSIC
     cursor:pointer;
 
 }
-
 
 .music-range{
 
@@ -1182,7 +1085,6 @@ MUSIC
 
 }
 
-
 .music-range::-webkit-slider-thumb{
 
     appearance:none;
@@ -1199,7 +1101,7 @@ MUSIC
 
 
 /* =========================================================
-GENERAL SECTION
+GENERAL
 ========================================================= */
 
 .section{
@@ -1221,7 +1123,6 @@ GENERAL SECTION
 
 }
 
-
 .container{
 
     position:relative;
@@ -1234,21 +1135,6 @@ GENERAL SECTION
     margin:auto;
 
 }
-
-
-.course-label{
-
-    color:
-    var(--gold);
-
-    font-size:.6rem;
-
-    letter-spacing:.27em;
-
-    text-transform:uppercase;
-
-}
-
 
 .title{
 
@@ -1275,7 +1161,6 @@ GENERAL SECTION
 
 }
 
-
 .title em{
 
     color:
@@ -1284,7 +1169,6 @@ GENERAL SECTION
     font-weight:500;
 
 }
-
 
 .copy{
 
@@ -1299,7 +1183,7 @@ GENERAL SECTION
 
 
 /* =========================================================
-01 AMUSE BOUCHE
+COURSE 01
 ========================================================= */
 
 .hero{
@@ -1317,7 +1201,6 @@ GENERAL SECTION
     var(--bg);
 
 }
-
 
 .hero-grid{
 
@@ -1343,7 +1226,6 @@ GENERAL SECTION
 
 }
 
-
 .hero-copy{
 
     margin-top:30px;
@@ -1354,7 +1236,6 @@ GENERAL SECTION
     line-height:1.95;
 
 }
-
 
 .hero-pill{
 
@@ -1385,7 +1266,7 @@ GENERAL SECTION
 
 
 /* =========================================================
-CHEF TABLE SCENE
+KITCHEN SCENE
 ========================================================= */
 
 .table-scene{
@@ -1397,7 +1278,6 @@ CHEF TABLE SCENE
     perspective:1000px;
 
 }
-
 
 .table-window{
 
@@ -1428,7 +1308,6 @@ CHEF TABLE SCENE
 
 }
 
-
 .restaurant-wall{
 
     position:absolute;
@@ -1456,7 +1335,6 @@ CHEF TABLE SCENE
 
 }
 
-
 .restaurant-shelf{
 
     position:absolute;
@@ -1472,7 +1350,6 @@ CHEF TABLE SCENE
     background:#835239;
 
 }
-
 
 .jar{
 
@@ -1496,7 +1373,6 @@ CHEF TABLE SCENE
 
 }
 
-
 .jar::before{
 
     content:"";
@@ -1515,7 +1391,6 @@ CHEF TABLE SCENE
 
 }
 
-
 .jar::after{
 
     position:absolute;
@@ -1533,242 +1408,14 @@ CHEF TABLE SCENE
 
 }
 
+.jar.one{left:8%}
+.jar.one::after{content:"SALT"}
 
-.jar.one{
-    left:8%;
-}
+.jar.two{left:21%}
+.jar.two::after{content:"SUGAR"}
 
-
-.jar.one::after{
-    content:"SALT";
-}
-
-
-.jar.two{
-    left:21%;
-}
-
-
-.jar.two::after{
-    content:"SUGAR";
-}
-
-
-.jar.three{
-    right:8%;
-}
-
-
-.jar.three::after{
-    content:"FEBY";
-}
-
-
-/* pan */
-
-.pan{
-
-    position:absolute;
-
-    right:11%;
-    bottom:115px;
-
-    width:170px;
-    height:72px;
-
-    border-radius:
-    15px 15px 60px 60px;
-
-    background:
-
-    linear-gradient(
-        #625853,
-        #28221f
-    );
-
-}
-
-
-.pan::after{
-
-    content:"";
-
-    position:absolute;
-
-    right:-105px;
-    top:21px;
-
-    width:120px;
-    height:15px;
-
-    border-radius:8px;
-
-    background:#312b28;
-
-}
-
-
-/* stove */
-
-.stove{
-
-    position:absolute;
-
-    right:8%;
-    bottom:35px;
-
-    width:220px;
-    height:120px;
-
-    border-radius:16px;
-
-    background:#292320;
-
-}
-
-
-.fire{
-
-    position:absolute;
-
-    left:50%;
-    top:28px;
-
-    transform:
-    translateX(-50%);
-
-    display:flex;
-
-    gap:4px;
-
-}
-
-
-.fire span{
-
-    width:15px;
-    height:42px;
-
-    border-radius:
-    60% 60% 25% 25%;
-
-    background:
-
-    linear-gradient(
-        #f5c87b,
-        #df663f
-    );
-
-    transform-origin:
-    50% 100%;
-
-    animation:
-    flameDance .8s
-    ease-in-out infinite alternate;
-
-}
-
-
-.fire span:nth-child(2){
-    animation-delay:.2s;
-}
-
-
-.fire span:nth-child(3){
-    animation-delay:.4s;
-}
-
-
-@keyframes flameDance{
-
-    from{
-
-        transform:
-        scaleY(.65)
-        rotate(-5deg);
-
-    }
-
-    to{
-
-        transform:
-        scaleY(1.08)
-        rotate(5deg);
-
-    }
-
-}
-
-
-/* steam hearts */
-
-.steam-heart{
-
-    position:absolute;
-
-    right:25%;
-    bottom:210px;
-
-    color:
-    rgba(239,156,120,.45);
-
-    font-family:
-    "Playfair Display",
-    serif;
-
-    font-size:2rem;
-
-    animation:
-    steamHeart 4s
-    ease-in-out infinite;
-
-}
-
-
-.steam-heart.second{
-
-    right:19%;
-
-    animation-delay:
-    1.4s;
-
-}
-
-
-@keyframes steamHeart{
-
-    0%{
-
-        opacity:0;
-
-        transform:
-        translateY(25px)
-        scale(.6);
-
-    }
-
-    35%{
-
-        opacity:.55;
-
-    }
-
-    100%{
-
-        opacity:0;
-
-        transform:
-
-        translateY(-95px)
-        translateX(18px)
-        scale(1.25);
-
-    }
-
-}
-
-
-/* board */
+.jar.three{right:8%}
+.jar.three::after{content:"FEBY"}
 
 .board{
 
@@ -1801,7 +1448,6 @@ CHEF TABLE SCENE
 
 }
 
-
 .board-text{
 
     position:absolute;
@@ -1822,8 +1468,189 @@ CHEF TABLE SCENE
 
 }
 
+.stove{
 
-/* floating tags */
+    position:absolute;
+
+    right:8%;
+    bottom:35px;
+
+    width:220px;
+    height:120px;
+
+    border-radius:16px;
+
+    background:#292320;
+
+}
+
+.fire{
+
+    position:absolute;
+
+    left:50%;
+    top:28px;
+
+    display:flex;
+
+    gap:4px;
+
+    transform:
+    translateX(-50%);
+
+}
+
+.fire span{
+
+    width:15px;
+    height:42px;
+
+    border-radius:
+    60% 60% 25% 25%;
+
+    background:
+
+    linear-gradient(
+        #f5c87b,
+        #df663f
+    );
+
+    transform-origin:
+    50% 100%;
+
+    animation:
+    flameDance .8s
+    ease-in-out infinite alternate;
+
+}
+
+.fire span:nth-child(2){
+    animation-delay:.2s;
+}
+
+.fire span:nth-child(3){
+    animation-delay:.4s;
+}
+
+@keyframes flameDance{
+
+    from{
+
+        transform:
+        scaleY(.65)
+        rotate(-5deg);
+
+    }
+
+    to{
+
+        transform:
+        scaleY(1.08)
+        rotate(5deg);
+
+    }
+
+}
+
+.pan{
+
+    position:absolute;
+
+    right:11%;
+    bottom:115px;
+
+    width:170px;
+    height:72px;
+
+    border-radius:
+    15px 15px 60px 60px;
+
+    background:
+
+    linear-gradient(
+        #625853,
+        #28221f
+    );
+
+}
+
+.pan::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:-105px;
+    top:21px;
+
+    width:120px;
+    height:15px;
+
+    border-radius:8px;
+
+    background:#312b28;
+
+}
+
+.steam-heart{
+
+    position:absolute;
+
+    right:25%;
+    bottom:210px;
+
+    color:
+    rgba(239,156,120,.45);
+
+    font-family:
+    "Playfair Display",
+    serif;
+
+    font-size:2rem;
+
+    animation:
+    steamHeart 4s
+    ease-in-out infinite;
+
+}
+
+.steam-heart.second{
+
+    right:19%;
+
+    animation-delay:1.4s;
+
+}
+
+@keyframes steamHeart{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+        translateY(25px)
+        scale(.6);
+
+    }
+
+    35%{
+        opacity:.55;
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+
+        translateY(-95px)
+        translateX(18px)
+        scale(1.25);
+
+    }
+
+}
 
 .floating-tag{
 
@@ -1853,33 +1680,14 @@ CHEF TABLE SCENE
 
 }
 
-
-.floating-tag.t1{
-    top:17%;
-    left:2%;
-}
-
-
-.floating-tag.t2{
-    top:14%;
-    right:2%;
-}
-
-
-.floating-tag.t3{
-    left:2%;
-    bottom:26%;
-}
-
-
-.floating-tag.t4{
-    right:2%;
-    bottom:25%;
-}
+.floating-tag.t1{top:17%;left:2%}
+.floating-tag.t2{top:14%;right:2%}
+.floating-tag.t3{left:2%;bottom:26%}
+.floating-tag.t4{right:2%;bottom:25%}
 
 
 /* =========================================================
-02 MISE EN PLACE
+COURSE 02
 ========================================================= */
 
 .ingredients{
@@ -1894,15 +1702,9 @@ CHEF TABLE SCENE
 
 }
 
-
-.ingredients
-.title{
-
-    color:
-    var(--ink);
-
+.ingredients .title{
+    color:var(--ink);
 }
-
 
 .ingredients-head{
 
@@ -1915,9 +1717,7 @@ CHEF TABLE SCENE
 
 }
 
-
-.ingredients-head
-.copy{
+.ingredients-head .copy{
 
     margin:
     25px auto 0;
@@ -1925,11 +1725,6 @@ CHEF TABLE SCENE
     color:#77665b;
 
 }
-
-
-/* =========================================================
-ORBIT
-========================================================= */
 
 .orbit-stage{
 
@@ -1943,7 +1738,6 @@ ORBIT
     margin:auto;
 
 }
-
 
 .orbit-ring{
 
@@ -1971,36 +1765,28 @@ ORBIT
 
 }
 
-
 .orbit-ring.second{
 
     width:380px;
     height:380px;
 
-    animation-direction:
-    reverse;
+    animation-direction:reverse;
 
-    animation-duration:
-    28s;
+    animation-duration:28s;
 
 }
-
 
 @keyframes orbitSpin{
 
     to{
 
         transform:
-
         translate(-50%,-50%)
         rotate(360deg);
 
     }
 
 }
-
-
-/* bowl */
 
 .central-bowl{
 
@@ -2035,7 +1821,6 @@ ORBIT
 
 }
 
-
 .central-bowl::before{
 
     content:"";
@@ -2054,9 +1839,6 @@ ORBIT
 
 }
 
-
-/* ingredient floating cards */
-
 .ing-card{
 
     position:absolute;
@@ -2065,8 +1847,7 @@ ORBIT
 
     width:190px;
 
-    padding:
-    20px;
+    padding:20px;
 
     border:
 
@@ -2085,7 +1866,6 @@ ORBIT
 
 }
 
-
 .ing-card strong{
 
     display:block;
@@ -2101,7 +1881,6 @@ ORBIT
 
 }
 
-
 .ing-card span{
 
     display:block;
@@ -2116,57 +1895,16 @@ ORBIT
 
 }
 
-
-.ing-card.a{
-
-    top:5%;
-    left:8%;
-
-}
-
-
-.ing-card.b{
-
-    top:4%;
-    right:8%;
-
-}
-
-
-.ing-card.c{
-
-    top:42%;
-    left:0;
-
-}
-
-
-.ing-card.d{
-
-    top:43%;
-    right:0;
-
-}
-
-
-.ing-card.e{
-
-    left:12%;
-    bottom:4%;
-
-}
-
-
-.ing-card.f{
-
-    right:12%;
-    bottom:4%;
-
-}
+.ing-card.a{top:5%;left:8%}
+.ing-card.b{top:4%;right:8%}
+.ing-card.c{top:42%;left:0}
+.ing-card.d{top:43%;right:0}
+.ing-card.e{left:12%;bottom:4%}
+.ing-card.f{right:12%;bottom:4%}
 
 
 /* =========================================================
-03 SLOW SIMMER
+COURSE 03
 ========================================================= */
 
 .process{
@@ -2183,7 +1921,6 @@ ORBIT
 
 }
 
-
 .process-head{
 
     max-width:850px;
@@ -2195,15 +1932,9 @@ ORBIT
 
 }
 
-
-.process-head
-.copy{
-
-    margin:
-    25px auto 0;
-
+.process-head .copy{
+    margin:25px auto 0;
 }
-
 
 .process-line{
 
@@ -2215,7 +1946,6 @@ ORBIT
     margin:auto;
 
 }
-
 
 .process-line::before{
 
@@ -2240,7 +1970,6 @@ ORBIT
 
 }
 
-
 .process-step{
 
     position:relative;
@@ -2252,7 +1981,6 @@ ORBIT
 
 }
 
-
 .process-step:nth-child(even){
 
     margin-left:50%;
@@ -2261,7 +1989,6 @@ ORBIT
     0 0 70px 55px;
 
 }
-
 
 .timeline-dot{
 
@@ -2292,15 +2019,13 @@ ORBIT
 
 }
 
-
 .process-step:nth-child(even)
 .timeline-dot{
 
-    right:auto;
     left:-8px;
+    right:auto;
 
 }
-
 
 .timeline-card{
 
@@ -2321,7 +2046,6 @@ ORBIT
 
 }
 
-
 .timeline-card:hover{
 
     transform:
@@ -2331,7 +2055,6 @@ ORBIT
     rgba(239,156,120,.3);
 
 }
-
 
 .timeline-card small{
 
@@ -2345,7 +2068,6 @@ ORBIT
     text-transform:uppercase;
 
 }
-
 
 .timeline-card h3{
 
@@ -2362,7 +2084,6 @@ ORBIT
 
 }
 
-
 .timeline-card p{
 
     color:
@@ -2374,7 +2095,7 @@ ORBIT
 
 
 /* =========================================================
-04 MEMORY COURSE
+COURSE 04
 ========================================================= */
 
 .gallery{
@@ -2389,15 +2110,9 @@ ORBIT
 
 }
 
-
-.gallery
-.title{
-
-    color:
-    var(--ink);
-
+.gallery .title{
+    color:var(--ink);
 }
-
 
 .gallery-head{
 
@@ -2410,9 +2125,7 @@ ORBIT
 
 }
 
-
-.gallery-head
-.copy{
+.gallery-head .copy{
 
     margin:
     25px auto 0;
@@ -2420,7 +2133,6 @@ ORBIT
     color:#78675d;
 
 }
-
 
 .gallery-board{
 
@@ -2431,8 +2143,7 @@ ORBIT
 
     margin:auto;
 
-    padding:
-    50px;
+    padding:50px;
 
     border-radius:35px;
 
@@ -2450,7 +2161,6 @@ ORBIT
     rgba(70,45,30,.2);
 
 }
-
 
 .gallery-board::before{
 
@@ -2474,7 +2184,6 @@ ORBIT
 
 }
 
-
 .gallery-grid{
 
     display:grid;
@@ -2487,7 +2196,6 @@ ORBIT
     perspective:1200px;
 
 }
-
 
 .photo-card{
 
@@ -2516,19 +2224,11 @@ ORBIT
     transform-style:
     preserve-3d;
 
-    transition:
-    box-shadow .3s;
-
 }
-
 
 .photo-card:nth-child(1){
-
-    transform:
-    rotate(-5deg);
-
+    transform:rotate(-5deg);
 }
-
 
 .photo-card:nth-child(2){
 
@@ -2538,7 +2238,6 @@ ORBIT
 
 }
 
-
 .photo-card:nth-child(3){
 
     transform:
@@ -2546,7 +2245,6 @@ ORBIT
     scale(1.06);
 
 }
-
 
 .photo-card:nth-child(4){
 
@@ -2556,14 +2254,9 @@ ORBIT
 
 }
 
-
 .photo-card:nth-child(5){
-
-    transform:
-    rotate(-4deg);
-
+    transform:rotate(-4deg);
 }
-
 
 .photo-card img{
 
@@ -2580,7 +2273,6 @@ ORBIT
 
 }
 
-
 .photo-caption{
 
     position:absolute;
@@ -2589,9 +2281,9 @@ ORBIT
     right:10px;
     bottom:13px;
 
-    text-align:center;
-
     color:#55463d;
+
+    text-align:center;
 
     font-family:
     "Playfair Display",
@@ -2602,7 +2294,6 @@ ORBIT
     font-style:italic;
 
 }
-
 
 .tape{
 
@@ -2628,7 +2319,7 @@ ORBIT
 
 
 /* =========================================================
-05 STIR THE FEELINGS
+COURSE 05 — MOBILE FRIENDLY MIXING
 ========================================================= */
 
 .stir-section{
@@ -2643,15 +2334,9 @@ ORBIT
 
 }
 
-
-.stir-section
-.title{
-
-    color:
-    var(--ink);
-
+.stir-section .title{
+    color:var(--ink);
 }
-
 
 .stir-head{
 
@@ -2664,9 +2349,7 @@ ORBIT
 
 }
 
-
-.stir-head
-.copy{
+.stir-head .copy{
 
     margin:
     25px auto 0;
@@ -2674,7 +2357,6 @@ ORBIT
     color:#74645a;
 
 }
-
 
 .stir-stage{
 
@@ -2689,10 +2371,7 @@ ORBIT
 
     user-select:none;
 
-    touch-action:none;
-
 }
-
 
 .stir-glow{
 
@@ -2715,8 +2394,9 @@ ORBIT
     filter:
     blur(70px);
 
-}
+    pointer-events:none;
 
+}
 
 .stir-bowl{
 
@@ -2747,8 +2427,9 @@ ORBIT
     0 45px 60px
     rgba(80,55,40,.19);
 
-}
+    pointer-events:none;
 
+}
 
 .stir-bowl::before{
 
@@ -2772,9 +2453,6 @@ ORBIT
     rgba(70,45,30,.12);
 
 }
-
-
-/* mixture */
 
 .mixture{
 
@@ -2803,8 +2481,9 @@ ORBIT
 
     overflow:hidden;
 
-}
+    pointer-events:none;
 
+}
 
 .mixture::after{
 
@@ -2822,39 +2501,40 @@ ORBIT
     border-radius:50%;
 
     animation:
-    mixtureSpin 7s linear infinite;
+    mixtureSpin 7s
+    linear infinite;
 
 }
-
 
 @keyframes mixtureSpin{
 
     to{
-
-        transform:
-        rotate(360deg);
-
+        transform:rotate(360deg);
     }
 
 }
 
 
-/* whisk */
+/* BIG INTERACTION AREA */
 
-.whisk{
+.stir-touch-zone{
 
     position:absolute;
 
-    z-index:10;
+    z-index:20;
 
     left:50%;
-    top:19%;
+    top:52%;
 
-    width:34px;
-    height:285px;
+    width:
+    min(94%,560px);
 
-    transform-origin:
-    50% 89%;
+    height:340px;
+
+    transform:
+    translate(-50%,-50%);
+
+    border-radius:45%;
 
     cursor:grab;
 
@@ -2862,13 +2542,31 @@ ORBIT
 
 }
 
-
-.whisk.dragging{
-
+.stir-touch-zone.active{
     cursor:grabbing;
-
 }
 
+
+/* WHISK IS VISUAL ONLY */
+
+.whisk{
+
+    position:absolute;
+
+    z-index:12;
+
+    left:50%;
+    top:18%;
+
+    width:34px;
+    height:285px;
+
+    transform-origin:
+    50% 89%;
+
+    pointer-events:none;
+
+}
 
 .whisk-handle{
 
@@ -2893,7 +2591,6 @@ ORBIT
 
 }
 
-
 .whisk-wire{
 
     position:absolute;
@@ -2912,7 +2609,6 @@ ORBIT
     border-radius:50%;
 
 }
-
 
 .whisk-wire::before,
 .whisk-wire::after{
@@ -2935,29 +2631,25 @@ ORBIT
 
 }
 
-
 .whisk-wire::before{
-
     left:4px;
-
 }
-
 
 .whisk-wire::after{
-
     right:4px;
-
 }
 
 
-/* progress */
+/* PROGRESS */
 
 .stir-progress-wrap{
 
     position:absolute;
 
+    z-index:30;
+
     left:50%;
-    bottom:10px;
+    bottom:5px;
 
     width:
     min(90%,500px);
@@ -2968,7 +2660,6 @@ ORBIT
     text-align:center;
 
 }
-
 
 .stir-progress-label{
 
@@ -2984,7 +2675,6 @@ ORBIT
 
 }
 
-
 .stir-progress{
 
     height:7px;
@@ -2997,7 +2687,6 @@ ORBIT
     rgba(80,55,40,.1);
 
 }
-
 
 .stir-progress-bar{
 
@@ -3016,10 +2705,9 @@ ORBIT
     );
 
     transition:
-    width .12s linear;
+    width .1s linear;
 
 }
-
 
 .stir-hint{
 
@@ -3032,14 +2720,70 @@ ORBIT
 }
 
 
+/* MOBILE FALLBACK BUTTON */
+
+.stir-tap-button{
+
+    display:none;
+
+    position:absolute;
+
+    z-index:40;
+
+    left:50%;
+    bottom:57px;
+
+    min-width:170px;
+
+    padding:
+    13px 22px;
+
+    transform:
+    translateX(-50%);
+
+    border:0;
+
+    border-radius:999px;
+
+    color:#fff;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        var(--orange),
+        var(--rose)
+    );
+
+    box-shadow:
+
+    0 12px 30px
+    rgba(207,114,80,.25);
+
+    cursor:pointer;
+
+}
+
+.stir-tap-button:active{
+
+    transform:
+
+    translateX(-50%)
+    scale(.95);
+
+}
+
+
+/* STIR RESULT */
+
 .stir-reveal{
 
     position:absolute;
 
-    z-index:30;
+    z-index:50;
 
     left:50%;
-    top:51%;
+    top:48%;
 
     width:
     min(90%,580px);
@@ -3057,15 +2801,12 @@ ORBIT
 
 }
 
-
 .stir-reveal.show{
 
     animation:
-    revealResult .8s
-    forwards;
+    revealResult .8s forwards;
 
 }
-
 
 @keyframes revealResult{
 
@@ -3082,7 +2823,6 @@ ORBIT
 
 }
 
-
 .stir-reveal small{
 
     color:#f6c1ae;
@@ -3092,7 +2832,6 @@ ORBIT
     text-transform:uppercase;
 
 }
-
 
 .stir-reveal strong{
 
@@ -3120,7 +2859,7 @@ ORBIT
 
 
 /* =========================================================
-06 OPEN WHEN
+COURSE 06
 ========================================================= */
 
 .letters{
@@ -3131,7 +2870,6 @@ ORBIT
     var(--bg);
 
 }
-
 
 .letters-head{
 
@@ -3144,15 +2882,9 @@ ORBIT
 
 }
 
-
-.letters-head
-.copy{
-
-    margin:
-    25px auto 0;
-
+.letters-head .copy{
+    margin:25px auto 0;
 }
-
 
 .recipe-box{
 
@@ -3190,7 +2922,6 @@ ORBIT
 
 }
 
-
 .recipe-box::before{
 
     content:
@@ -3213,7 +2944,6 @@ ORBIT
 
 }
 
-
 .letters-grid{
 
     display:grid;
@@ -3224,7 +2954,6 @@ ORBIT
     gap:22px;
 
 }
-
 
 .letter-card{
 
@@ -3258,30 +2987,17 @@ ORBIT
 
 }
 
-
 .letter-card:nth-child(1){
-
-    transform:
-    rotate(-2deg);
-
+    transform:rotate(-2deg);
 }
-
 
 .letter-card:nth-child(2){
-
-    transform:
-    translateY(13px);
-
+    transform:translateY(13px);
 }
-
 
 .letter-card:nth-child(3){
-
-    transform:
-    rotate(2deg);
-
+    transform:rotate(2deg);
 }
-
 
 .letter-card:hover{
 
@@ -3291,7 +3007,6 @@ ORBIT
     rotate(0);
 
 }
-
 
 .letter-card::after{
 
@@ -3335,7 +3050,6 @@ ORBIT
 
 }
 
-
 .letter-card small{
 
     color:
@@ -3348,7 +3062,6 @@ ORBIT
     text-transform:uppercase;
 
 }
-
 
 .letter-card h3{
 
@@ -3365,7 +3078,6 @@ ORBIT
 
 }
 
-
 .letter-card p{
 
     color:#77645a;
@@ -3375,52 +3087,63 @@ ORBIT
 }
 
 
-/* reader */
+/* =========================================================
+COURSE 06 MODAL
+========================================================= */
 
-.reader{
+.letter-modal{
 
-    width:
-    min(100%,900px);
+    position:fixed;
 
-    max-height:0;
+    inset:0;
 
-    margin:
-    0 auto;
+    z-index:26000;
 
-    overflow:hidden;
+    display:grid;
+
+    place-items:center;
+
+    padding:22px;
+
+    background:
+    rgba(11,6,4,.82);
+
+    backdrop-filter:
+    blur(16px);
 
     opacity:0;
 
-    transform:
-    translateY(-10px);
+    visibility:hidden;
+
+    pointer-events:none;
 
     transition:
-
-    max-height .7s,
-    opacity .5s,
-    margin .6s,
-    transform .6s;
+    opacity .35s,
+    visibility .35s;
 
 }
 
-
-.reader.open{
-
-    max-height:1200px;
-
-    margin:
-    60px auto 0;
+.letter-modal.open{
 
     opacity:1;
 
-    transform:none;
+    visibility:visible;
+
+    pointer-events:auto;
 
 }
 
-
-.reader-paper{
+.letter-dialog{
 
     position:relative;
+
+    width:
+    min(92vw,760px);
+
+    max-height:
+    min(86vh,850px);
+
+    overflow:auto;
 
     padding:
 
@@ -3437,15 +3160,31 @@ ORBIT
     var(--paper);
 
     border-radius:
-    7px 7px 30px 7px;
+    8px 8px 30px 8px;
 
     box-shadow:
-    var(--shadow);
+
+    0 40px 120px
+    rgba(0,0,0,.5);
+
+    transform:
+    translateY(30px)
+    scale(.96);
+
+    transition:
+    transform .4s
+    cubic-bezier(.2,.8,.2,1);
 
 }
 
+.letter-modal.open
+.letter-dialog{
 
-.reader-paper::before{
+    transform:none;
+
+}
+
+.letter-dialog::before{
 
     content:"";
 
@@ -3466,35 +3205,43 @@ ORBIT
 
 }
 
+.modal-close{
 
-.reader-close{
+    position:sticky;
 
-    position:absolute;
+    z-index:10;
 
-    right:22px;
-    top:22px;
+    top:0;
 
-    width:40px;
-    height:40px;
+    float:right;
+
+    width:42px;
+    height:42px;
+
+    margin-top:-15px;
+    margin-right:-15px;
 
     border:
 
     1px solid
-    rgba(60,40,30,.12);
+    rgba(60,40,30,.13);
 
     border-radius:50%;
 
     color:
     var(--ink);
 
-    background:none;
+    background:
+    rgba(255,248,234,.9);
+
+    backdrop-filter:
+    blur(10px);
 
     cursor:pointer;
 
 }
 
-
-.reader-label{
+.modal-label{
 
     color:
     var(--green);
@@ -3507,10 +3254,9 @@ ORBIT
 
 }
 
+.modal-title{
 
-.reader-title{
-
-    max-width:690px;
+    max-width:650px;
 
     margin:
     20px 0 28px;
@@ -3524,7 +3270,7 @@ ORBIT
     clamp(
         2rem,
         4vw,
-        3.7rem
+        3.5rem
     );
 
     font-weight:500;
@@ -3533,15 +3279,13 @@ ORBIT
 
 }
 
+.modal-body{
 
-.reader-body{
-
-    max-width:700px;
+    max-width:680px;
 
 }
 
-
-.reader-body p{
+.modal-body p{
 
     font-family:
     "Playfair Display",
@@ -3552,15 +3296,14 @@ ORBIT
     clamp(
         1rem,
         1.5vw,
-        1.15rem
+        1.14rem
     );
 
     line-height:1.95;
 
 }
 
-
-.reader-sign{
+.modal-sign{
 
     color:
     var(--wine);
@@ -3571,7 +3314,7 @@ ORBIT
 
 
 /* =========================================================
-07 CANDLE
+COURSE 07
 ========================================================= */
 
 .wish{
@@ -3592,7 +3335,6 @@ ORBIT
 
 }
 
-
 .wish-inner{
 
     width:
@@ -3601,7 +3343,6 @@ ORBIT
     margin:auto;
 
 }
-
 
 .wish-copy{
 
@@ -3618,17 +3359,24 @@ ORBIT
 }
 
 
+/* WHOLE SCENE CLICKABLE */
+
 .candle-scene{
 
     position:relative;
 
-    width:260px;
-    height:355px;
+    z-index:5;
+
+    width:280px;
+    height:370px;
 
     margin:auto;
 
-}
+    cursor:pointer;
 
+    touch-action:manipulation;
+
+}
 
 .candle-aura{
 
@@ -3637,8 +3385,8 @@ ORBIT
     left:50%;
     top:70px;
 
-    width:210px;
-    height:210px;
+    width:230px;
+    height:230px;
 
     transform:
     translate(-50%,-50%);
@@ -3655,8 +3403,9 @@ ORBIT
     auraPulse 2.5s
     ease-in-out infinite;
 
-}
+    pointer-events:none;
 
+}
 
 @keyframes auraPulse{
 
@@ -3673,16 +3422,17 @@ ORBIT
 
 }
 
-
 .candle{
 
     position:absolute;
 
+    z-index:5;
+
     left:50%;
     bottom:0;
 
-    width:95px;
-    height:225px;
+    width:105px;
+    height:240px;
 
     transform:
     translateX(-50%);
@@ -3710,7 +3460,6 @@ ORBIT
 
 }
 
-
 .wick{
 
     position:absolute;
@@ -3727,7 +3476,6 @@ ORBIT
     background:#251a15;
 
 }
-
 
 .candle-flame{
 
@@ -3773,8 +3521,9 @@ ORBIT
     flicker .8s
     ease-in-out infinite alternate;
 
-}
+    pointer-events:none;
 
+}
 
 @keyframes flicker{
 
@@ -3800,13 +3549,12 @@ ORBIT
 
 }
 
-
 .candle-heart{
 
     position:absolute;
 
     left:50%;
-    top:87px;
+    top:90px;
 
     transform:
     translateX(-50%);
@@ -3820,8 +3568,52 @@ ORBIT
 
     font-size:2rem;
 
+    pointer-events:none;
+
 }
 
+.wish-tap-ring{
+
+    position:absolute;
+
+    z-index:1;
+
+    left:50%;
+    top:55%;
+
+    width:250px;
+    height:250px;
+
+    transform:
+    translate(-50%,-50%);
+
+    border:
+
+    1px dashed
+    rgba(239,156,120,.22);
+
+    border-radius:50%;
+
+    animation:
+    wishRing 3s
+    linear infinite;
+
+    pointer-events:none;
+
+}
+
+@keyframes wishRing{
+
+    to{
+
+        transform:
+
+        translate(-50%,-50%)
+        rotate(360deg);
+
+    }
+
+}
 
 .wish-hint{
 
@@ -3836,7 +3628,6 @@ ORBIT
     text-transform:uppercase;
 
 }
-
 
 .wish-result{
 
@@ -3853,7 +3644,6 @@ ORBIT
 
 }
 
-
 .wish-result.show{
 
     max-height:400px;
@@ -3865,7 +3655,6 @@ ORBIT
     transform:none;
 
 }
-
 
 .wish-result p{
 
@@ -3895,7 +3684,7 @@ ORBIT
 
 
 /* =========================================================
-08 DESSERT CONFESSION
+COURSE 08
 ========================================================= */
 
 .dessert{
@@ -3912,15 +3701,9 @@ ORBIT
 
 }
 
-
-.dessert
-.title{
-
-    color:
-    var(--ink);
-
+.dessert .title{
+    color:var(--ink);
 }
-
 
 .dessert-copy{
 
@@ -3935,20 +3718,20 @@ ORBIT
 
 }
 
-
 .dessert-stage{
 
     position:relative;
 
-    width:340px;
-    height:340px;
+    width:360px;
+    height:360px;
 
     margin:auto;
 
     cursor:pointer;
 
-}
+    touch-action:manipulation;
 
+}
 
 .dessert-plate{
 
@@ -3980,23 +3763,88 @@ ORBIT
 }
 
 
-.chocolate-shell{
+/* MESSAGE ABOVE CHOCOLATE */
+
+.dessert-message{
 
     position:absolute;
 
-    z-index:5;
+    z-index:15;
 
     left:50%;
     top:50%;
 
-    width:165px;
-    height:165px;
+    width:240px;
+
+    transform:
+
+    translate(-50%,-50%)
+    scale(.65);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:
+    opacity .55s .3s,
+    transform .7s .25s;
+
+}
+
+.dessert-stage.open
+.dessert-message{
+
+    opacity:1;
+
+    transform:
+
+    translate(-50%,-50%)
+    scale(1);
+
+}
+
+.dessert-message strong{
+
+    display:block;
+
+    color:
+    var(--orange);
+
+    font-family:
+    "Italiana",
+    serif;
+
+    font-size:3rem;
+
+    font-weight:400;
+
+    line-height:.88;
+
+    text-shadow:
+
+    0 3px 15px
+    rgba(255,248,235,.7);
+
+}
+
+.chocolate-shell{
+
+    position:absolute;
+
+    z-index:8;
+
+    left:50%;
+    top:50%;
+
+    width:175px;
+    height:175px;
 
     transform:
     translate(-50%,-50%);
 
-}
+    pointer-events:none;
 
+}
 
 .shell-left,
 .shell-right{
@@ -4005,8 +3853,8 @@ ORBIT
 
     top:0;
 
-    width:83px;
-    height:165px;
+    width:88px;
+    height:175px;
 
     background:
 
@@ -4026,11 +3874,12 @@ ORBIT
 
     transition:
 
-    transform .9s
-    cubic-bezier(.2,.8,.2,1);
+    transform .95s
+    cubic-bezier(.2,.8,.2,1),
+
+    opacity .8s;
 
 }
-
 
 .shell-left{
 
@@ -4043,7 +3892,6 @@ ORBIT
     100% 50%;
 
 }
-
 
 .shell-right{
 
@@ -4058,81 +3906,31 @@ ORBIT
 }
 
 
+/* MOVE CHOCOLATE MUCH FURTHER */
+
 .dessert-stage.open
 .shell-left{
 
     transform:
 
-    translateX(-55px)
-    rotate(-20deg);
+    translateX(-105px)
+    rotate(-30deg);
+
+    opacity:.45;
 
 }
-
 
 .dessert-stage.open
 .shell-right{
 
     transform:
 
-    translateX(55px)
-    rotate(20deg);
+    translateX(105px)
+    rotate(30deg);
+
+    opacity:.45;
 
 }
-
-
-.dessert-message{
-
-    position:absolute;
-
-    z-index:4;
-
-    left:50%;
-    top:50%;
-
-    width:230px;
-
-    transform:
-
-    translate(-50%,-50%)
-    scale(.6);
-
-    opacity:0;
-
-    transition:.8s .25s;
-
-}
-
-
-.dessert-stage.open
-.dessert-message{
-
-    opacity:1;
-
-    transform:
-
-    translate(-50%,-50%)
-    scale(1);
-
-}
-
-
-.dessert-message strong{
-
-    color:
-    var(--orange);
-
-    font-family:
-    "Italiana",
-    serif;
-
-    font-size:2.6rem;
-
-    font-weight:400;
-
-    line-height:.9;
-
-}
-
 
 .dessert-hint{
 
@@ -4147,7 +3945,6 @@ ORBIT
     text-transform:uppercase;
 
 }
-
 
 .confession{
 
@@ -4164,10 +3961,9 @@ ORBIT
 
 }
 
-
 .confession.show{
 
-    max-height:500px;
+    max-height:550px;
 
     margin-top:45px;
 
@@ -4176,7 +3972,6 @@ ORBIT
     transform:none;
 
 }
-
 
 .confession strong{
 
@@ -4198,14 +3993,9 @@ ORBIT
 
 }
 
-
 .confession strong span{
-
-    color:
-    var(--orange);
-
+    color:var(--orange);
 }
-
 
 .confession p{
 
@@ -4222,13 +4012,13 @@ ORBIT
 
 
 /* =========================================================
-09 AFTER DINNER
+COURSE 09 — NEW ENDING EXPERIENCE
 ========================================================= */
 
 .ending{
 
     min-height:
-    110svh;
+    115svh;
 
     overflow:hidden;
 
@@ -4237,37 +4027,144 @@ ORBIT
     background:
 
     radial-gradient(
-        circle at 50% 62%,
+        circle at 50% 58%,
         rgba(207,114,80,.13),
         transparent 30rem
     ),
 
     #120c09;
 
-}
+    transition:
+    background 1s ease;
 
+}
 
 .ending-inner{
 
     width:
-    min(100%,900px);
+    min(100%,950px);
 
     margin:auto;
 
 }
 
+.ending-copy{
 
-.final-symbol{
-
-    width:120px;
-    height:120px;
+    max-width:680px;
 
     margin:
-    0 auto 40px;
+    28px auto 50px;
+
+    color:
+    var(--muted);
+
+    line-height:1.95;
+
+}
+
+
+/* VISUAL ORB */
+
+.ending-experience{
+
+    position:relative;
+
+    width:
+    min(100%,760px);
+
+    margin:
+    0 auto;
+
+}
+
+.ending-orb-stage{
+
+    position:relative;
+
+    width:260px;
+    height:260px;
+
+    margin:
+    0 auto 42px;
+
+}
+
+.ending-orb-glow{
+
+    position:absolute;
+
+    inset:20px;
+
+    border-radius:50%;
+
+    background:
+    rgba(207,114,80,.11);
+
+    filter:
+    blur(30px);
+
+    transition:1s;
+
+}
+
+.ending-orbit{
+
+    position:absolute;
+
+    inset:15px;
+
+    border:
+
+    1px dashed
+    rgba(239,156,120,.3);
+
+    border-radius:50%;
+
+    animation:
+    endingOrbit 14s
+    linear infinite;
+
+    transition:.8s;
+
+}
+
+.ending-orbit.second{
+
+    inset:48px;
+
+    border-color:
+    rgba(212,174,103,.22);
+
+    animation-direction:reverse;
+
+    animation-duration:9s;
+
+}
+
+@keyframes endingOrbit{
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+.ending-heart{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:105px;
+    height:105px;
 
     display:grid;
 
     place-items:center;
+
+    transform:
+    translate(-50%,-50%);
 
     border:
 
@@ -4279,97 +4176,47 @@ ORBIT
     color:
     var(--orange2);
 
+    background:
+    rgba(255,255,255,.025);
+
     font-family:
     "Playfair Display",
     serif;
 
-    font-size:2.6rem;
+    font-size:3rem;
 
     box-shadow:
 
-    inset 0 0 0 10px
-    rgba(255,255,255,.025);
+    0 0 0 12px
+    rgba(255,255,255,.015);
+
+    transition:
+    transform .8s,
+    background .8s,
+    color .8s,
+    box-shadow .8s;
 
 }
 
 
-.ending-copy{
+/* FLOATING ENDING FX */
 
-    max-width:690px;
+.ending-fx{
 
-    margin:
-    28px auto 38px;
+    position:absolute;
 
-    color:
-    var(--muted);
+    inset:-80px;
 
-    line-height:1.95;
+    pointer-events:none;
 
 }
 
+.ending-fx-item{
 
-.final-actions{
+    position:absolute;
 
-    display:flex;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:12px;
-
-}
-
-
-.final-button{
-
-    padding:
-    14px 22px;
-
-    border:
-
-    1px solid
-    rgba(255,255,255,.15);
-
-    border-radius:999px;
-
-    color:white;
-
-    background:
-    rgba(255,255,255,.055);
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-
-.final-button:hover{
-
-    transform:
-    translateY(-4px);
-
-}
-
-
-.final-button.primary{
-
-    border:0;
-
-    color:#39251b;
-
-    background:
-    var(--gold);
-
-}
-
-
-.final-response{
-
-    min-height:35px;
-
-    margin-top:25px;
+    left:50%;
+    top:50%;
 
     color:
     var(--orange2);
@@ -4378,7 +4225,302 @@ ORBIT
     "Playfair Display",
     serif;
 
-    font-style:italic;
+    opacity:0;
+
+}
+
+
+/* CHOICES */
+
+.ending-choice-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:16px;
+
+}
+
+.ending-choice{
+
+    position:relative;
+
+    min-height:175px;
+
+    padding:26px;
+
+    overflow:hidden;
+
+    border:
+
+    1px solid
+    rgba(255,255,255,.1);
+
+    border-radius:24px;
+
+    color:#fff;
+
+    background:
+    rgba(255,255,255,.035);
+
+    text-align:left;
+
+    cursor:pointer;
+
+    transition:
+    transform .35s,
+    border-color .35s,
+    background .35s;
+
+}
+
+.ending-choice:hover{
+
+    transform:
+    translateY(-7px);
+
+    border-color:
+    rgba(239,156,120,.3);
+
+}
+
+.ending-choice.selected{
+
+    border-color:
+    rgba(239,156,120,.5);
+
+    background:
+    rgba(207,114,80,.09);
+
+}
+
+.choice-number{
+
+    color:
+    var(--gold);
+
+    font-size:.56rem;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+
+}
+
+.ending-choice h3{
+
+    margin:
+    15px 0 8px;
+
+    font-family:
+    "Playfair Display",
+    serif;
+
+    font-size:1.65rem;
+
+    font-weight:500;
+
+}
+
+.ending-choice p{
+
+    margin:0;
+
+    color:#9f8d82;
+
+    line-height:1.7;
+
+}
+
+
+/* RESULT */
+
+.ending-result{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    opacity:0;
+
+    transform:
+    translateY(20px);
+
+    transition:.8s;
+
+}
+
+.ending-result.show{
+
+    max-height:500px;
+
+    margin-top:36px;
+
+    opacity:1;
+
+    transform:none;
+
+}
+
+.result-card{
+
+    padding:
+    30px 35px;
+
+    border:
+
+    1px solid
+    rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    background:
+    rgba(255,255,255,.03);
+
+    backdrop-filter:
+    blur(12px);
+
+}
+
+.result-kicker{
+
+    color:
+    var(--gold);
+
+    font-size:.57rem;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+
+}
+
+.result-title{
+
+    margin:
+    12px 0;
+
+    color:
+    var(--cream);
+
+    font-family:
+    "Playfair Display",
+    serif;
+
+    font-size:
+
+    clamp(
+        2rem,
+        4vw,
+        3.4rem
+    );
+
+    font-weight:500;
+
+}
+
+.result-copy{
+
+    max-width:600px;
+
+    margin:auto;
+
+    color:
+    var(--muted);
+
+    line-height:1.85;
+
+}
+
+
+/* CONTINUE MODE */
+
+.ending.mode-continue{
+
+    background:
+
+    radial-gradient(
+        circle at 50% 58%,
+        rgba(222,108,95,.25),
+        transparent 34rem
+    ),
+
+    #150b09;
+
+}
+
+.ending.mode-continue
+.ending-heart{
+
+    transform:
+
+    translate(-50%,-50%)
+    scale(1.18);
+
+    color:#fff2e8;
+
+    background:
+    var(--orange);
+
+    box-shadow:
+
+    0 0 50px
+    rgba(239,156,120,.35),
+
+    0 0 0 15px
+    rgba(239,156,120,.08);
+
+}
+
+.ending.mode-continue
+.ending-orbit{
+
+    border-color:
+    rgba(239,156,120,.55);
+
+}
+
+
+/* TIME MODE */
+
+.ending.mode-time{
+
+    background:
+
+    radial-gradient(
+        circle at 50% 58%,
+        rgba(114,122,150,.14),
+        transparent 32rem
+    ),
+
+    #100e12;
+
+}
+
+.ending.mode-time
+.ending-heart{
+
+    color:#d4c9d0;
+
+    background:
+    rgba(170,160,178,.08);
+
+    box-shadow:
+
+    0 0 45px
+    rgba(177,166,185,.12);
+
+}
+
+.ending.mode-time
+.ending-orbit{
+
+    animation-duration:24s;
+
+    border-color:
+    rgba(190,181,196,.25);
 
 }
 
@@ -4410,13 +4552,9 @@ LIGHTBOX
 
 }
 
-
 .lightbox.open{
-
     display:grid;
-
 }
-
 
 .lightbox img{
 
@@ -4432,7 +4570,6 @@ LIGHTBOX
     rgba(0,0,0,.45);
 
 }
-
 
 .lightbox-close{
 
@@ -4451,7 +4588,7 @@ LIGHTBOX
 
     border-radius:50%;
 
-    color:white;
+    color:#fff;
 
     background:
     rgba(255,255,255,.06);
@@ -4459,7 +4596,6 @@ LIGHTBOX
     cursor:pointer;
 
 }
-
 
 .lightbox-caption{
 
@@ -4496,7 +4632,6 @@ TABLET
 
     }
 
-
     .gallery-grid{
 
         grid-template-columns:
@@ -4504,18 +4639,15 @@ TABLET
 
     }
 
-
     .letters-grid{
-
-        grid-template-columns:
-        1fr;
 
         max-width:550px;
 
         margin:auto;
 
-    }
+        grid-template-columns:1fr;
 
+    }
 
     .letter-card:nth-child(1),
     .letter-card:nth-child(2),
@@ -4525,11 +4657,8 @@ TABLET
 
     }
 
-
     .course-rail{
-
         display:none;
-
     }
 
 }
@@ -4563,9 +4692,7 @@ MOBILE
 
 
     .opening-copy{
-
         top:4%;
-
     }
 
 
@@ -4605,16 +4732,12 @@ MOBILE
 
 
     .open-button{
-
         bottom:4%;
-
     }
 
 
     .table-scene{
-
         min-height:500px;
-
     }
 
 
@@ -4637,9 +4760,7 @@ MOBILE
 
 
     .board-text{
-
         font-size:1.4rem;
-
     }
 
 
@@ -4671,16 +4792,14 @@ MOBILE
 
 
     .floating-tag{
-
         font-size:.5rem;
-
     }
 
 
+    /* COURSE 02 */
+
     .orbit-stage{
-
         height:850px;
-
     }
 
 
@@ -4709,9 +4828,7 @@ MOBILE
 
 
     .central-bowl::before{
-
         width:270px;
-
     }
 
 
@@ -4724,58 +4841,18 @@ MOBILE
     }
 
 
-    .ing-card.a{
-
-        top:1%;
-        left:0;
-
-    }
-
-
-    .ing-card.b{
-
-        top:17%;
-        right:0;
-
-    }
+    .ing-card.a{top:1%;left:0}
+    .ing-card.b{top:17%;right:0}
+    .ing-card.c{top:35%;left:0}
+    .ing-card.d{top:52%;right:0}
+    .ing-card.e{left:0;bottom:13%}
+    .ing-card.f{right:0;bottom:0}
 
 
-    .ing-card.c{
-
-        top:35%;
-        left:0;
-
-    }
-
-
-    .ing-card.d{
-
-        top:52%;
-        right:0;
-
-    }
-
-
-    .ing-card.e{
-
-        left:0;
-        bottom:13%;
-
-    }
-
-
-    .ing-card.f{
-
-        right:0;
-        bottom:0;
-
-    }
-
+    /* COURSE 03 */
 
     .process-line::before{
-
         left:8px;
-
     }
 
 
@@ -4801,6 +4878,8 @@ MOBILE
 
     }
 
+
+    /* COURSE 04 */
 
     .gallery-board{
 
@@ -4845,24 +4924,24 @@ MOBILE
     }
 
 
+    /* COURSE 05 */
+
     .stir-stage{
-
-        height:520px;
-
+        height:540px;
     }
 
 
     .stir-bowl{
 
-        width:280px;
-        height:145px;
+        width:290px;
+        height:150px;
 
     }
 
 
     .stir-bowl::before{
 
-        width:305px;
+        width:315px;
         height:60px;
 
     }
@@ -4870,10 +4949,36 @@ MOBILE
 
     .mixture{
 
-        width:255px;
+        width:265px;
+        height:58px;
 
     }
 
+
+    .stir-touch-zone{
+
+        width:100%;
+        height:320px;
+
+    }
+
+
+    .stir-tap-button{
+        display:block;
+    }
+
+
+    .stir-progress-wrap{
+        bottom:0;
+    }
+
+
+    .whisk{
+        top:16%;
+    }
+
+
+    /* COURSE 06 */
 
     .recipe-box{
 
@@ -4883,10 +4988,52 @@ MOBILE
     }
 
 
-    .dessert-stage{
+    .letter-dialog{
+
+        width:95vw;
+
+        max-height:82vh;
+
+        padding:
+        42px 28px 36px;
+
+    }
+
+
+    /* COURSE 07 */
+
+    .candle-scene{
+
+        width:290px;
 
         transform:
-        scale(.88);
+        scale(.92);
+
+    }
+
+
+    /* COURSE 08 */
+
+    .dessert-stage{
+
+        width:320px;
+        height:320px;
+
+    }
+
+
+    /* COURSE 09 */
+
+    .ending-choice-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .ending-choice{
+
+        min-height:150px;
 
     }
 
@@ -4898,20 +5045,6 @@ MOBILE
         bottom:10px;
 
         width:auto;
-
-    }
-
-
-    .final-actions{
-
-        flex-direction:column;
-
-    }
-
-
-    .final-button{
-
-        width:100%;
 
     }
 
@@ -4942,13 +5075,16 @@ REDUCED MOTION
 
 <body>
 
+
 <div class="grain"></div>
 <div class="vignette"></div>
+
 
 <div
 class="cursor-glow"
 id="cursorGlow">
 </div>
+
 
 <div
 class="dust-layer"
@@ -5170,7 +5306,7 @@ data-label="memories">
 
 <span
 class="course-dot"
-data-label="stir">
+data-label="mixing">
 </span>
 
 
@@ -5282,7 +5418,7 @@ value="0">
 
 
 <!-- =========================================================
-01 WELCOME
+COURSE 01
 ========================================================= -->
 
 <section
@@ -5451,7 +5587,7 @@ Feby ♡
 
 
 <!-- =========================================================
-02 INGREDIENTS
+COURSE 02
 ========================================================= -->
 
 <section
@@ -5598,7 +5734,7 @@ perasaan yang sulit dijelaskan
 
 
 <!-- =========================================================
-03 SLOW SIMMER
+COURSE 03
 ========================================================= -->
 
 <section
@@ -5652,24 +5788,17 @@ pelan-pelan.
 
 <div class="process-step">
 
-
 <div class="timeline-dot"></div>
 
-
 <div class="timeline-card">
-
 
 <small>
 01 — preparation
 </small>
 
-
 <h3>
-
 Awalnya biasa saja.
-
 </h3>
-
 
 <p>
 
@@ -5682,33 +5811,24 @@ seperti seseorang pada umumnya.
 
 </p>
 
-
 </div>
-
 
 </div>
 
 
 <div class="process-step">
 
-
 <div class="timeline-dot"></div>
 
-
 <div class="timeline-card">
-
 
 <small>
 02 — low heat
 </small>
 
-
 <h3>
-
 Aku mulai memperhatikan.
-
 </h3>
-
 
 <p>
 
@@ -5719,33 +5839,24 @@ sedikit berbeda.
 
 </p>
 
-
 </div>
-
 
 </div>
 
 
 <div class="process-step">
 
-
 <div class="timeline-dot"></div>
 
-
 <div class="timeline-card">
-
 
 <small>
 03 — simmering
 </small>
 
-
 <h3>
-
 Aku mulai sering teringat.
-
 </h3>
-
 
 <p>
 
@@ -5758,33 +5869,24 @@ aku tidak keberatan.
 
 </p>
 
-
 </div>
-
 
 </div>
 
 
 <div class="process-step">
 
-
 <div class="timeline-dot"></div>
 
-
 <div class="timeline-card">
-
 
 <small>
 04 — ready to serve
 </small>
 
-
 <h3>
-
 Lalu aku membuat ini.
-
 </h3>
-
 
 <p>
 
@@ -5796,9 +5898,7 @@ kalau hanya lewat chat.
 
 </p>
 
-
 </div>
-
 
 </div>
 
@@ -5813,7 +5913,7 @@ kalau hanya lewat chat.
 
 
 <!-- =========================================================
-04 MEMORIES
+COURSE 04
 ========================================================= -->
 
 <section
@@ -5883,7 +5983,7 @@ id="galleryGrid">
 
 
 <!-- =========================================================
-05 STIR
+COURSE 05
 ========================================================= -->
 
 <section
@@ -5920,14 +6020,14 @@ yang mengaduknya.
 
 <p class="copy">
 
-Pegang whisk-nya dengan mouse
-atau jarimu.
+Di HP,
+kamu tidak perlu tepat memegang whisk.
 
-Putar beberapa kali.
+Cukup usap atau putar jari
+di area mangkuk.
 
-Kita lihat
-apa yang sebenarnya
-tercampur di dalamnya.
+Atau tekan tombol
+“Aduk” beberapa kali.
 
 </p>
 
@@ -5952,12 +6052,18 @@ id="stirStage">
 class="whisk"
 id="whisk">
 
-
 <div class="whisk-handle"></div>
 
 <div class="whisk-wire"></div>
 
+</div>
 
+
+<!-- LARGE TOUCH AREA -->
+
+<div
+class="stir-touch-zone"
+id="stirTouchZone">
 </div>
 
 
@@ -5965,13 +6071,11 @@ id="whisk">
 class="stir-reveal"
 id="stirReveal">
 
-
 <small>
 
 after mixing everything...
 
 </small>
-
 
 <strong>
 
@@ -5979,8 +6083,17 @@ Kamu.
 
 </strong>
 
-
 </div>
+
+
+<button
+class="stir-tap-button"
+id="stirTapButton"
+type="button">
+
+Aduk ♡
+
+</button>
 
 
 <div class="stir-progress-wrap">
@@ -6007,7 +6120,7 @@ id="stirProgress">
 class="stir-hint"
 id="stirHint">
 
-drag the whisk in circles
+usap jari di mangkuk
 
 </div>
 
@@ -6025,7 +6138,7 @@ drag the whisk in circles
 
 
 <!-- =========================================================
-06 LETTERS
+COURSE 06
 ========================================================= -->
 
 <section
@@ -6062,14 +6175,13 @@ jenis hari.
 
 <p class="copy">
 
-Tidak semuanya
-harus kamu buka sekarang.
+Sekarang suratnya
+tidak akan membuatmu
+scroll ke bawah.
 
-Anggap saja
-ini tiga resep kecil
-
-yang bisa disimpan
-untuk hari tertentu.
+Klik satu kartu,
+surat akan muncul langsung
+di tengah layar.
 
 </p>
 
@@ -6198,48 +6310,6 @@ semua ini khusus untukmu.
 </div>
 
 
-<div
-class="reader"
-id="reader">
-
-
-<div class="reader-paper">
-
-
-<button
-class="reader-close"
-id="readerClose"
-type="button">
-
-×
-
-</button>
-
-
-<div
-class="reader-label"
-id="readerLabel">
-</div>
-
-
-<h3
-class="reader-title"
-id="readerTitle">
-</h3>
-
-
-<div
-class="reader-body"
-id="readerBody">
-</div>
-
-
-</div>
-
-
-</div>
-
-
 </div>
 
 
@@ -6247,7 +6317,7 @@ id="readerBody">
 
 
 <!-- =========================================================
-07 WISH
+COURSE 07
 ========================================================= -->
 
 <section
@@ -6281,19 +6351,21 @@ satu harapan.
 
 <p class="wish-copy">
 
-Katanya,
-harapan tidak boleh langsung disebutkan.
+Tidak perlu tepat mengenai api
+atau badan lilinnya.
 
-Jadi aku akan menitipkannya
-ke satu lilin kecil.
-
-Klik lilinnya.
+Sekarang seluruh area lilin
+bisa kamu tap.
 
 </p>
 
 
-<div class="candle-scene">
+<div
+class="candle-scene"
+id="candleScene">
 
+
+<div class="wish-tap-ring"></div>
 
 <div class="candle-aura"></div>
 
@@ -6323,7 +6395,7 @@ type="button">
 
 <div class="wish-hint">
 
-tap the candle ♡
+tap anywhere on the candle ♡
 
 </div>
 
@@ -6356,7 +6428,7 @@ sedikit lebih jauh.”
 
 
 <!-- =========================================================
-08 DESSERT
+COURSE 08
 ========================================================= -->
 
 <section
@@ -6393,8 +6465,7 @@ metafora.
 Ada sesuatu
 di dalam dessert ini.
 
-Klik cokelatnya
-untuk membukanya.
+Klik cokelatnya.
 
 </p>
 
@@ -6407,27 +6478,25 @@ id="dessertStage">
 <div class="dessert-plate"></div>
 
 
-<div class="dessert-message">
-
-
-<strong>
-
-for<br>
-Feby ♡
-
-</strong>
-
-
-</div>
-
-
 <div class="chocolate-shell">
-
 
 <div class="shell-left"></div>
 
 <div class="shell-right"></div>
 
+</div>
+
+
+<!-- NOW ABOVE THE CHOCOLATE -->
+
+<div class="dessert-message">
+
+<strong>
+
+For<br>
+Feby ♡
+
+</strong>
 
 </div>
 
@@ -6479,8 +6548,6 @@ mengenalmu lebih jauh.
 
 Tidak harus terburu-buru.
 
-Tidak perlu langsung menjawab.
-
 Aku hanya ingin
 kamu tahu itu.
 
@@ -6499,22 +6566,16 @@ kamu tahu itu.
 
 
 <!-- =========================================================
-09 ENDING
+COURSE 09
 ========================================================= -->
 
 <section
 class="section ending"
+id="endingSection"
 data-course="8">
 
 
 <div class="ending-inner">
-
-
-<div class="final-symbol">
-
-♡
-
-</div>
 
 
 <div class="course-label">
@@ -6542,48 +6603,110 @@ ceritanya belum.
 
 <p class="ending-copy">
 
-Aku tidak tahu
-bagaimana cerita ini
-akan berjalan.
+Tidak ada jawaban yang salah.
 
-Tapi kalau kamu mengizinkan,
-
-aku ingin tahu
-apa yang ada
-di halaman berikutnya.
-
-Pelan-pelan.
-
-Tanpa memaksa.
-
-Dan mungkin suatu hari,
-
-kita bisa membuat cerita
-yang jauh lebih panjang
-daripada website ini.
+Pilih apa yang paling nyaman
+untukmu sekarang.
 
 </p>
 
 
-<div class="final-actions">
+<div
+class="ending-experience"
+id="endingExperience">
+
+
+<div class="ending-orb-stage">
+
+
+<div class="ending-orb-glow"></div>
+
+<div class="ending-orbit"></div>
+
+<div class="ending-orbit second"></div>
+
+
+<div
+class="ending-heart"
+id="endingHeart">
+
+♡
+
+</div>
+
+
+<div
+class="ending-fx"
+id="endingFx">
+</div>
+
+
+</div>
+
+
+<div class="ending-choice-grid">
 
 
 <button
-class="final-button primary"
-type="button"
-data-response="Makasih sudah duduk sampai course terakhir, Feby. Mungkin dinner ini belum harus berakhir. ♡">
+class="ending-choice"
+data-ending="continue"
+type="button">
+
+
+<div class="choice-number">
+
+Option 01
+
+</div>
+
+
+<h3>
 
 Let's see where this goes ♡
+
+</h3>
+
+
+<p>
+
+Mungkin halaman ini
+belum harus menjadi akhir.
+
+</p>
+
 
 </button>
 
 
 <button
-class="final-button"
-type="button"
-data-response="Tidak apa-apa. Beberapa hal memang lebih baik dinikmati perlahan. Aku menghargainya.">
+class="ending-choice"
+data-ending="time"
+type="button">
 
-Give me some time
+
+<div class="choice-number">
+
+Option 02
+
+</div>
+
+
+<h3>
+
+Aku butuh waktu dulu.
+
+</h3>
+
+
+<p>
+
+Tidak apa-apa.
+
+Beberapa hal memang
+lebih baik berjalan perlahan.
+
+</p>
+
 
 </button>
 
@@ -6592,8 +6715,37 @@ Give me some time
 
 
 <div
-class="final-response"
-id="finalResponse">
+class="ending-result"
+id="endingResult">
+
+
+<div class="result-card">
+
+
+<div
+class="result-kicker"
+id="resultKicker">
+</div>
+
+
+<h3
+class="result-title"
+id="resultTitle">
+</h3>
+
+
+<p
+class="result-copy"
+id="resultCopy">
+</p>
+
+
+</div>
+
+
+</div>
+
+
 </div>
 
 
@@ -6604,6 +6756,55 @@ id="finalResponse">
 
 
 </main>
+
+
+</div>
+
+
+<!-- =========================================================
+LETTER MODAL
+========================================================= -->
+
+<div
+class="letter-modal"
+id="letterModal">
+
+
+<div
+class="letter-dialog"
+role="dialog"
+aria-modal="true">
+
+
+<button
+class="modal-close"
+id="modalClose"
+type="button">
+
+×
+
+</button>
+
+
+<div
+class="modal-label"
+id="modalLabel">
+</div>
+
+
+<h3
+class="modal-title"
+id="modalTitle">
+</h3>
+
+
+<div
+class="modal-body"
+id="modalBody">
+</div>
+
+
+</div>
 
 
 </div>
@@ -6755,7 +6956,7 @@ sad:{
     yang sedikit lebih ringan untukmu.
     </p>
 
-    <p class="reader-sign">
+    <p class="modal-sign">
 
     Serving suggestion:
 
@@ -6811,7 +7012,7 @@ alone:{
     tersenyum ketika melihat namamu muncul.
     </p>
 
-    <p class="reader-sign">
+    <p class="modal-sign">
 
     Kalau dunia terasa sepi,
 
@@ -6866,7 +7067,7 @@ smile:{
     berhasil membuatmu kembali ke sini.
     </p>
 
-    <p class="reader-sign">
+    <p class="modal-sign">
 
     Kalau sekarang kamu tersenyum,
 
@@ -6940,10 +7141,6 @@ function(photo,index){
     );
 
 
-    /*
-    Interactive 3D tilt.
-    */
-
     card.addEventListener(
         "pointermove",
         function(event){
@@ -6980,7 +7177,7 @@ function(photo,index){
             rect.height;
 
 
-            const ry =
+            const rotateY =
             (
                 x -
                 .5
@@ -6989,7 +7186,7 @@ function(photo,index){
             14;
 
 
-            const rx =
+            const rotateX =
             (
                 .5 -
                 y
@@ -7002,8 +7199,8 @@ function(photo,index){
 
             `
             perspective(900px)
-            rotateX(${rx}deg)
-            rotateY(${ry}deg)
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
             translateY(-12px)
             scale(1.05)
             `;
@@ -7058,9 +7255,7 @@ openButton.addEventListener(
         if(
             opened
         ){
-
             return;
-
         }
 
 
@@ -7228,9 +7423,7 @@ function startMusic(){
     if(
         !promise
     ){
-
         return;
-
     }
 
 
@@ -7490,28 +7683,12 @@ window.addEventListener(
             gsap.to(
                 cursorGlow,
                 {
-                    left:
-                    event.clientX,
-
-                    top:
-                    event.clientY,
-
+                    left:event.clientX,
+                    top:event.clientY,
                     duration:.5,
-
                     ease:"power3.out"
                 }
             );
-
-        }else{
-
-            cursorGlow.style.left =
-            event.clientX +
-            "px";
-
-
-            cursorGlow.style.top =
-            event.clientY +
-            "px";
 
         }
 
@@ -7538,9 +7715,7 @@ function startDust(){
     if(
         dustTimer
     ){
-
         return;
-
     }
 
 
@@ -7633,7 +7808,7 @@ function burstDust(count){
 
 
 /* =========================================================
-GSAP
+SAFE ANIMATIONS
 ========================================================= */
 
 function initAnimations(){
@@ -7655,10 +7830,6 @@ function initAnimations(){
 
     ScrollTrigger.refresh();
 
-
-    /*
-    Hero.
-    */
 
     gsap.fromTo(
         ".hero-grid > div:first-child > *",
@@ -7716,10 +7887,6 @@ function initAnimations(){
     );
 
 
-    /*
-    Ingredient cards.
-    */
-
     safeEnter(
         ".orbit-stage",
         ".ing-card",
@@ -7737,10 +7904,6 @@ function initAnimations(){
     );
 
 
-    /*
-    Timeline.
-    */
-
     safeEnter(
         ".process-line",
         ".timeline-card",
@@ -7755,10 +7918,6 @@ function initAnimations(){
         }
     );
 
-
-    /*
-    Gallery.
-    */
 
     safeEnter(
         ".gallery-grid",
@@ -7777,10 +7936,6 @@ function initAnimations(){
     );
 
 
-    /*
-    Letters.
-    */
-
     safeEnter(
         ".recipe-box",
         ".letter-card",
@@ -7798,10 +7953,6 @@ function initAnimations(){
     );
 
 
-    /*
-    Stir bowl.
-    */
-
     safeEnter(
         ".stir-stage",
         ".stir-bowl",
@@ -7818,16 +7969,12 @@ function initAnimations(){
     );
 
 
-    /*
-    Candle.
-    */
-
     safeEnter(
         ".candle-scene",
         ".candle-scene",
         {
             y:35,
-            scale:.9
+            scale:.92
         },
         {
             y:0,
@@ -7838,16 +7985,12 @@ function initAnimations(){
     );
 
 
-    /*
-    Dessert.
-    */
-
     safeEnter(
         ".dessert-stage",
         ".dessert-stage",
         {
-            scale:.85,
-            rotation:-8
+            scale:.86,
+            rotation:-6
         },
         {
             scale:1,
@@ -7860,10 +8003,6 @@ function initAnimations(){
 }
 
 
-/* =========================================================
-SAFE ENTER
-========================================================= */
-
 function safeEnter(
 trigger,
 targets,
@@ -7875,9 +8014,7 @@ toVars
         !window.gsap ||
         !window.ScrollTrigger
     ){
-
         return;
-
     }
 
 
@@ -7908,12 +8045,18 @@ toVars
 
 
 /* =========================================================
-STIR INTERACTION
+COURSE 05 — EASY STIR
 ========================================================= */
 
-const stirStage =
+const stirTouchZone =
 document.getElementById(
-    "stirStage"
+    "stirTouchZone"
+);
+
+
+const stirTapButton =
+document.getElementById(
+    "stirTapButton"
 );
 
 
@@ -7944,29 +8087,77 @@ document.getElementById(
 let stirring =
 false;
 
+let stirFinished =
+false;
+
 let stirValue =
 0;
 
-let lastAngle =
+let lastX =
+null;
+
+let lastY =
 null;
 
 let whiskRotation =
 0;
 
-let stirFinished =
-false;
+
+function addStir(amount){
+
+    if(
+        stirFinished
+    ){
+        return;
+    }
 
 
-whisk.addEventListener(
+    stirValue +=
+    amount;
+
+
+    stirValue =
+    Math.min(
+        stirValue,
+        100
+    );
+
+
+    stirProgress.style.width =
+    stirValue +
+    "%";
+
+
+    whiskRotation +=
+    amount *
+    4.8;
+
+
+    whisk.style.transform =
+
+    `rotate(${whiskRotation}deg)`;
+
+
+    if(
+        stirValue >=
+        100
+    ){
+
+        finishStir();
+
+    }
+
+}
+
+
+stirTouchZone.addEventListener(
     "pointerdown",
     function(event){
 
         if(
             stirFinished
         ){
-
             return;
-
         }
 
 
@@ -7974,26 +8165,33 @@ whisk.addEventListener(
         true;
 
 
-        whisk.classList.add(
-            "dragging"
+        stirTouchZone.classList.add(
+            "active"
         );
 
 
-        whisk.setPointerCapture(
+        stirTouchZone.setPointerCapture(
             event.pointerId
         );
 
 
-        lastAngle =
-        getPointerAngle(
-            event
+        lastX =
+        event.clientX;
+
+
+        lastY =
+        event.clientY;
+
+
+        addStir(
+            2
         );
 
     }
 );
 
 
-whisk.addEventListener(
+stirTouchZone.addEventListener(
     "pointermove",
     function(event){
 
@@ -8001,150 +8199,120 @@ whisk.addEventListener(
             !stirring ||
             stirFinished
         ){
-
             return;
-
         }
 
 
-        const angle =
-        getPointerAngle(
-            event
+        const dx =
+        event.clientX -
+        lastX;
+
+
+        const dy =
+        event.clientY -
+        lastY;
+
+
+        const distance =
+        Math.hypot(
+            dx,
+            dy
         );
 
 
-        let delta =
-        angle -
-        lastAngle;
+        /*
+        High sensitivity so mobile
+        only needs small finger movement.
+        */
+
+        const sensitivity =
+
+        window.innerWidth <=
+        650
+        ?
+        .38
+        :
+        .25;
 
 
-        if(
-            delta > 180
-        ){
-
-            delta -=
-            360;
-
-        }
-
-
-        if(
-            delta < -180
-        ){
-
-            delta +=
-            360;
-
-        }
-
-
-        whiskRotation +=
-        delta;
-
-
-        whisk.style.transform =
-
-        `rotate(${whiskRotation}deg)`;
-
-
-        stirValue +=
-        Math.abs(
-            delta
-        )
-        *
-        .08;
-
-
-        stirValue =
-        Math.min(
-            stirValue,
-            100
+        addStir(
+            distance *
+            sensitivity
         );
 
 
-        stirProgress.style.width =
-        stirValue +
-        "%";
+        lastX =
+        event.clientX;
 
 
-        lastAngle =
-        angle;
-
-
-        if(
-            stirValue >=
-            100
-        ){
-
-            finishStir();
-
-        }
+        lastY =
+        event.clientY;
 
     }
 );
 
 
-function endStir(){
+function stopStir(){
 
     stirring =
     false;
 
 
-    whisk.classList.remove(
-        "dragging"
+    stirTouchZone.classList.remove(
+        "active"
     );
 
 }
 
 
-whisk.addEventListener(
+stirTouchZone.addEventListener(
     "pointerup",
-    endStir
+    stopStir
 );
 
 
-whisk.addEventListener(
+stirTouchZone.addEventListener(
     "pointercancel",
-    endStir
+    stopStir
 );
 
 
-function getPointerAngle(event){
+stirTapButton.addEventListener(
+    "click",
+    function(){
 
-    const rect =
-    stirStage.getBoundingClientRect();
-
-
-    const cx =
-    rect.left +
-    rect.width /
-    2;
-
-
-    const cy =
-    rect.top +
-    rect.height *
-    .55;
+        if(
+            stirFinished
+        ){
+            return;
+        }
 
 
-    return (
+        addStir(
+            14
+        );
 
-        Math.atan2(
-            event.clientY -
-            cy,
 
-            event.clientX -
-            cx
-        )
+        if(
+            window.gsap
+        ){
 
-        *
+            gsap.fromTo(
+                stirTapButton,
+                {
+                    scale:.92
+                },
+                {
+                    scale:1,
+                    duration:.25,
+                    ease:"back.out(2)"
+                }
+            );
 
-        180 /
-        Math.PI
+        }
 
-    );
-
-}
+    }
+);
 
 
 function finishStir(){
@@ -8163,6 +8331,10 @@ function finishStir(){
 
     stirHint.textContent =
     "recipe complete ♡";
+
+
+    stirTapButton.style.display =
+    "none";
 
 
     stirReveal.classList.add(
@@ -8193,7 +8365,10 @@ function finishStir(){
         gsap.to(
             whisk,
             {
-                rotation:15,
+                rotation:
+                whiskRotation +
+                70,
+
                 duration:.6
             }
         );
@@ -8204,35 +8379,37 @@ function finishStir(){
 
 
 /* =========================================================
-LETTERS
+COURSE 06 — MODAL
 ========================================================= */
 
-const reader =
+const letterModal =
 document.getElementById(
-    "reader"
+    "letterModal"
 );
 
 
-const readerLabel =
+const modalClose =
 document.getElementById(
-    "readerLabel"
+    "modalClose"
 );
 
 
-const readerTitle =
+const modalLabel =
 document.getElementById(
-    "readerTitle"
+    "modalLabel"
 );
 
 
-const readerBody =
+const modalTitle =
 document.getElementById(
-    "readerBody"
+    "modalTitle"
 );
 
 
-let activeLetter =
-null;
+const modalBody =
+document.getElementById(
+    "modalBody"
+);
 
 
 document
@@ -8250,66 +8427,35 @@ function(button){
             button.dataset.letter;
 
 
-            if(
-                activeLetter ===
-                key
-            ){
-
-                closeReader();
-
-                return;
-
-            }
-
-
             const data =
             LETTERS[
                 key
             ];
 
 
-            activeLetter =
-            key;
-
-
-            readerLabel.textContent =
+            modalLabel.textContent =
             data.label;
 
 
-            readerTitle.textContent =
+            modalTitle.textContent =
             data.title;
 
 
-            readerBody.innerHTML =
+            modalBody.innerHTML =
             data.body;
 
 
-            reader.classList.add(
+            letterModal.classList.add(
                 "open"
             );
 
 
+            document.body.style.overflow =
+            "hidden";
+
+
             burstDust(
                 8
-            );
-
-
-            setTimeout(
-            function(){
-
-                reader
-                .scrollIntoView({
-
-                    behavior:
-                    "smooth",
-
-                    block:
-                    "center"
-
-                });
-
-            },
-            350
             );
 
         }
@@ -8318,36 +8464,49 @@ function(button){
 });
 
 
-function closeReader(){
+function closeLetterModal(){
 
-    activeLetter =
-    null;
-
-
-    reader.classList.remove(
+    letterModal.classList.remove(
         "open"
     );
+
+
+    document.body.style.overflow =
+    "";
 
 }
 
 
-document
-.getElementById(
-    "readerClose"
-)
-.addEventListener(
+modalClose.addEventListener(
     "click",
-    closeReader
+    closeLetterModal
+);
+
+
+letterModal.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target ===
+            letterModal
+        ){
+
+            closeLetterModal();
+
+        }
+
+    }
 );
 
 
 /* =========================================================
-CANDLE
+COURSE 07 — CANDLE
 ========================================================= */
 
-const candle =
+const candleScene =
 document.getElementById(
-    "candle"
+    "candleScene"
 );
 
 
@@ -8361,82 +8520,111 @@ let wishOpened =
 false;
 
 
-candle.addEventListener(
+function openWish(){
+
+    if(
+        wishOpened
+    ){
+        return;
+    }
+
+
+    wishOpened =
+    true;
+
+
+    burstDust(
+        20
+    );
+
+
+    if(
+        window.gsap
+    ){
+
+        const tl =
+        gsap.timeline();
+
+
+        tl.to(
+            ".candle-flame",
+            {
+                scale:1.45,
+                duration:.25,
+                repeat:1,
+                yoyo:true
+            }
+        );
+
+
+        tl.to(
+            ".candle-aura",
+            {
+                scale:1.6,
+                opacity:.85,
+                duration:.55
+            },
+            "-=.2"
+        );
+
+
+        tl.to(
+            ".candle-heart",
+            {
+                y:-105,
+                scale:1.7,
+                opacity:0,
+                duration:1
+            },
+            "-=.2"
+        );
+
+
+        tl.to(
+            ".wish-tap-ring",
+            {
+                scale:1.4,
+                opacity:0,
+                duration:.8
+            },
+            "-=.8"
+        );
+
+    }
+
+
+    wishResult.classList.add(
+        "show"
+    );
+
+}
+
+
+candleScene.addEventListener(
     "click",
-    function(){
+    openWish
+);
+
+
+candleScene.addEventListener(
+    "pointerup",
+    function(event){
 
         if(
-            wishOpened
+            event.pointerType ===
+            "touch"
         ){
 
-            return;
+            openWish();
 
         }
-
-
-        wishOpened =
-        true;
-
-
-        burstDust(
-            20
-        );
-
-
-        if(
-            window.gsap
-        ){
-
-            const timeline =
-            gsap.timeline();
-
-
-            timeline.to(
-                ".candle-flame",
-                {
-                    scale:1.4,
-                    duration:.25,
-                    repeat:1,
-                    yoyo:true
-                }
-            );
-
-
-            timeline.to(
-                ".candle-aura",
-                {
-                    scale:1.6,
-                    opacity:.8,
-                    duration:.5
-                },
-                "-=.2"
-            );
-
-
-            timeline.to(
-                ".candle-heart",
-                {
-                    y:-100,
-                    scale:1.7,
-                    opacity:0,
-                    duration:1
-                },
-                "-=.2"
-            );
-
-        }
-
-
-        wishResult.classList.add(
-            "show"
-        );
 
     }
 );
 
 
 /* =========================================================
-DESSERT
+COURSE 08 — DESSERT
 ========================================================= */
 
 const dessertStage =
@@ -8462,9 +8650,7 @@ dessertStage.addEventListener(
         if(
             dessertOpened
         ){
-
             return;
-
         }
 
 
@@ -8482,6 +8668,25 @@ dessertStage.addEventListener(
         );
 
 
+        if(
+            window.gsap
+        ){
+
+            gsap.fromTo(
+                ".dessert-message",
+                {
+                    y:8
+                },
+                {
+                    y:0,
+                    duration:.8,
+                    ease:"back.out(1.6)"
+                }
+            );
+
+        }
+
+
         setTimeout(
         function(){
 
@@ -8490,7 +8695,7 @@ dessertStage.addEventListener(
             );
 
         },
-        650
+        750
         );
 
     }
@@ -8498,18 +8703,80 @@ dessertStage.addEventListener(
 
 
 /* =========================================================
-FINAL
+COURSE 09 — INTERACTIVE ENDING
 ========================================================= */
 
-const finalResponse =
+const endingSection =
 document.getElementById(
-    "finalResponse"
+    "endingSection"
 );
+
+
+const endingResult =
+document.getElementById(
+    "endingResult"
+);
+
+
+const resultKicker =
+document.getElementById(
+    "resultKicker"
+);
+
+
+const resultTitle =
+document.getElementById(
+    "resultTitle"
+);
+
+
+const resultCopy =
+document.getElementById(
+    "resultCopy"
+);
+
+
+const endingFx =
+document.getElementById(
+    "endingFx"
+);
+
+
+const ENDINGS = {
+
+continue:{
+
+    kicker:
+    "A LITTLE MORE",
+
+    title:
+    "Mungkin ini baru appetizer-nya. ♡",
+
+    copy:
+    "Makasih sudah duduk sampai course terakhir, Feby. Kalau kamu mengizinkan, aku ingin melihat ke mana cerita kecil ini bisa berjalan. Pelan-pelan saja."
+
+},
+
+
+time:{
+
+    kicker:
+    "NO RUSH",
+
+    title:
+    "Ambil waktu sebanyak yang kamu butuhkan.",
+
+    copy:
+    "Tidak apa-apa. Tidak semua hal harus dijawab sekarang. Beberapa rasa justru lebih baik dibiarkan menemukan waktunya sendiri."
+
+}
+
+};
 
 
 document
 .querySelectorAll(
-    ".final-button"
+    ".ending-choice"
 )
 .forEach(
 function(button){
@@ -8518,31 +8785,141 @@ function(button){
         "click",
         function(){
 
-            finalResponse.textContent =
-            button.dataset.response;
+            const type =
+            button.dataset.ending;
 
 
-            burstDust(
-                15
+            document
+            .querySelectorAll(
+                ".ending-choice"
+            )
+            .forEach(
+            function(item){
+
+                item.classList.remove(
+                    "selected"
+                );
+
+            });
+
+
+            button.classList.add(
+                "selected"
+            );
+
+
+            endingSection.classList.remove(
+                "mode-continue",
+                "mode-time"
+            );
+
+
+            endingSection.classList.add(
+                type ===
+                "continue"
+                ?
+                "mode-continue"
+                :
+                "mode-time"
+            );
+
+
+            const data =
+            ENDINGS[
+                type
+            ];
+
+
+            resultKicker.textContent =
+            data.kicker;
+
+
+            resultTitle.textContent =
+            data.title;
+
+
+            resultCopy.textContent =
+            data.copy;
+
+
+            endingResult.classList.add(
+                "show"
+            );
+
+
+            createEndingFX(
+                type
             );
 
 
             if(
-                window.gsap
+                type ===
+                "continue"
             ){
 
-                gsap.fromTo(
-                    finalResponse,
-                    {
-                        opacity:0,
-                        y:10
-                    },
-                    {
-                        opacity:1,
-                        y:0,
-                        duration:.45
-                    }
+                burstDust(
+                    30
                 );
+
+
+                if(
+                    window.gsap
+                ){
+
+                    gsap.fromTo(
+                        ".ending-heart",
+                        {
+                            scale:.8
+                        },
+                        {
+                            scale:1,
+                            duration:.8,
+                            ease:"elastic.out(1,.45)"
+                        }
+                    );
+
+
+                    gsap.fromTo(
+                        ".result-card",
+                        {
+                            y:25,
+                            scale:.97
+                        },
+                        {
+                            y:0,
+                            scale:1,
+                            duration:.7,
+                            ease:"power3.out"
+                        }
+                    );
+
+                }
+
+            }else{
+
+                burstDust(
+                    10
+                );
+
+
+                if(
+                    window.gsap
+                ){
+
+                    gsap.fromTo(
+                        ".result-card",
+                        {
+                            opacity:.4,
+                            y:15
+                        },
+                        {
+                            opacity:1,
+                            y:0,
+                            duration:1
+                        }
+                    );
+
+                }
 
             }
 
@@ -8550,6 +8927,166 @@ function(button){
     );
 
 });
+
+
+function createEndingFX(type){
+
+    endingFx.innerHTML =
+    "";
+
+
+    const amount =
+    type ===
+    "continue"
+    ?
+    12
+    :
+    7;
+
+
+    for(
+        let i=0;
+        i<amount;
+        i++
+    ){
+
+        const item =
+        document.createElement(
+            "span"
+        );
+
+
+        item.className =
+        "ending-fx-item";
+
+
+        item.textContent =
+
+        type ===
+        "continue"
+        ?
+        "♡"
+        :
+        "·";
+
+
+        endingFx.appendChild(
+            item
+        );
+
+
+        const angle =
+
+        (
+            360 /
+            amount
+        )
+        *
+        i;
+
+
+        const radius =
+
+        type ===
+        "continue"
+        ?
+        130 +
+        Math.random() *
+        70
+        :
+        100 +
+        Math.random() *
+        55;
+
+
+        const rad =
+        angle *
+        Math.PI /
+        180;
+
+
+        const x =
+        Math.cos(
+            rad
+        )
+        *
+        radius;
+
+
+        const y =
+        Math.sin(
+            rad
+        )
+        *
+        radius;
+
+
+        if(
+            window.gsap
+        ){
+
+            gsap.fromTo(
+                item,
+                {
+                    x:0,
+                    y:0,
+                    opacity:0,
+                    scale:.5
+                },
+                {
+                    x:x,
+                    y:y,
+                    opacity:
+                    type ===
+                    "continue"
+                    ?
+                    .75
+                    :
+                    .35,
+
+                    scale:
+                    type ===
+                    "continue"
+                    ?
+                    1 +
+                    Math.random() *
+                    .5
+                    :
+                    .7,
+
+                    duration:
+                    .8 +
+                    Math.random() *
+                    .6,
+
+                    ease:
+                    "power3.out"
+                }
+            );
+
+
+            gsap.to(
+                item,
+                {
+                    y:
+                    y -
+                    20,
+
+                    opacity:0,
+
+                    duration:2.3,
+
+                    delay:1,
+
+                    ease:"sine.in"
+                }
+            );
+
+        }
+
+    }
+
+}
 
 
 /* =========================================================
@@ -8585,9 +9122,7 @@ function(entries){
         if(
             !entry.isIntersecting
         ){
-
             return;
-
         }
 
 
@@ -8755,6 +9290,10 @@ lightbox.addEventListener(
 );
 
 
+/* =========================================================
+ESCAPE
+========================================================= */
+
 document.addEventListener(
     "keydown",
     function(event){
@@ -8766,7 +9305,7 @@ document.addEventListener(
 
             closeLightbox();
 
-            closeReader();
+            closeLetterModal();
 
         }
 
